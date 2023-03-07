@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ProfileForm from '../ProfileForm/ProfileForm';
 
 import './App.css';
 
@@ -58,6 +59,14 @@ function App() {
             path="/user"
           >
             <UserPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path= "/profileForm"
+          >
+            <ProfileForm />
           </ProtectedRoute>
 
           <ProtectedRoute
