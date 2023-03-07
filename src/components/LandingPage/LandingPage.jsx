@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+// import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
 // ----------------MUI-------------------
 import { Card, Icon } from '@mui/material';
 import { Button } from '@mui/material'
