@@ -113,16 +113,3 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
-
-.registerContent {
-  display: flex;
-  justify-content: center;
-}
-
-/* --------------------------------------------------------------------------------
-Headings
--------------------------------------------------------------------------------- */
-
-.registerTitle {
-  text-align: center;
-}

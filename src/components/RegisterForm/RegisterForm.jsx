@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //mui components
 import { Stack, TextField } from '@mui/material';
+//css style
+import './RegisterForm.css';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
