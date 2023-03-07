@@ -9,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const residenceRouter = require('.routes/residence.router');
+const residenceRouter = require('./routes/residence.router');
 
 // Body parser middleware
 app.use(bodyParser.json());

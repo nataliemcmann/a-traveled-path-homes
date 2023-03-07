@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 
 import './App.css';
 
@@ -81,6 +82,13 @@ function App() {
               <LoginPage />
             }
           </Route>
+
+          <ProtectedRoute
+          exact
+          path="/describe"
+          >
+            <PropertyDescriptionForm/>
+          </ProtectedRoute>
 
           <Route
             exact
