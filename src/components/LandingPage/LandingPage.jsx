@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
+// import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
 // ----------------MUI-------------------
 import { Card, Icon } from '@mui/material';
 import { Button } from '@mui/material'
@@ -59,8 +60,16 @@ function LandingPage() {
         border: "none", 
         boxShadow: "none"
       }}>
+      <Card sx={{
+              width: 300,
+                height: 200,
+                color: '#121957',
+                border: "none", 
+                boxShadow: "none"
+              }}>
       <h1>{heading}</h1>
       <h2>A Space For You!</h2>
+      </Card> 
       <Card sx={{
               width: 300,
                 height: 200,
