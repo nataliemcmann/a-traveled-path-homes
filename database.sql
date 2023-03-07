@@ -9,3 +9,17 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+CREATE TABLE "residences" (
+	"id" SERIAL PRIMARY KEY,
+	"userId" integer REFERENCES "user",
+	"houseType" INT,
+	"propertyName" VARCHAR (80),
+	"description" VARCHAR (250),
+	"address" VARCHAR (50),
+	"maxGuests" INT,
+	"bedrooms" INT,
+	"beds" INT,
+	"bathrooms" INT,
+	"listed" BOOLEAN,
+	"featurePhoto" VARCHAR
+);
