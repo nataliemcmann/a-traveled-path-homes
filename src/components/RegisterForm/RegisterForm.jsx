@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+//mui components
+import { Stack, TextField } from '@mui/material';
+//css style
+import './RegisterForm.css';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -21,37 +25,39 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+      <div className="registerTitle">
+        <h2>Register User</h2>
+        {errors.registrationMessage && (
+          <h3 className="alert" role="alert">
+            {errors.registrationMessage}
+          </h3>
+        )}
       </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+      <div className="registerContent">
+        <Stack paddingBottom={2}>
+          <p> Username </p>
+          <label htmlFor="username">
+            <TextField
+              type="text"
+              name="username"
+              value={username}
+              required
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </label>
+          <p> Password </p>
+          <label htmlFor="password">
+            <TextField
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </Stack>
       </div>
-      <div>
+      <div className="btnContainer">
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
     </form>
