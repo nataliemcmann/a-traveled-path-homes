@@ -19,6 +19,7 @@ import UserPage from '../UserPage/UserPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 
 
@@ -68,6 +69,14 @@ function App() {
           >
             <OwnerDashboard />
           </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path= "/profileForm"
+          >
+            <ProfileForm />
+          </ProtectedRoute>
+
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
