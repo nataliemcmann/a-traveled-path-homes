@@ -23,13 +23,15 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
-      <div>
+      <div className="registerTitle">
+        <h2>Register User</h2>
+        {errors.registrationMessage && (
+          <h3 className="alert" role="alert">
+            {errors.registrationMessage}
+          </h3>
+        )}
+      </div>
+      <div className="registerContent">
         <Stack paddingBottom={2}>
           <p> Username </p>
           <label htmlFor="username">
