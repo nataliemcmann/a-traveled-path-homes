@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 //mui components
 import { Stack, TextField, Button } from '@mui/material';
 //css style
@@ -9,6 +9,9 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
 function ProfileForm() {
+    //declare dispatch
+    const dispatch = useDispatch();
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [dob, setDob] = useState(new Date(2002, 0, 1));
@@ -23,9 +26,15 @@ function ProfileForm() {
             dob,
             profession
         }
-
+        //confirm object format
         console.log(profileObject);
+        //dispatch to saga
+        dispatch({
+            type: 'ADD_PROFILE',
+            payload: profileObject
+        })
     }
+
 
     return (
         <>
