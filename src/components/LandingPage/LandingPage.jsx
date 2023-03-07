@@ -59,8 +59,16 @@ function LandingPage() {
         border: "none", 
         boxShadow: "none"
       }}>
+      <Card sx={{
+              width: 300,
+                height: 200,
+                color: '#121957',
+                border: "none", 
+                boxShadow: "none"
+              }}>
       <h1>{heading}</h1>
       <h2>A Space For You!</h2>
+      </Card> 
       <Card sx={{
               width: 300,
                 height: 200,
