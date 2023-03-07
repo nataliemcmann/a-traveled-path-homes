@@ -10,10 +10,11 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+      <img src='./imgs/ATPH-Logo.png' className='logo'></img>
+
       </Link>
       <div>
-        {/* If no user is logged in, show these links */}
+        {/* If no user is logged in, show these links
         {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">
@@ -22,7 +23,7 @@ function Nav() {
         )}
 
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {/* {user.id && (
           <>
             <Link className="navLink" to="/user">
               Home
@@ -34,10 +35,31 @@ function Nav() {
 
             <LogOutButton className="navLink" />
           </>
-        )}
+        )}  */}
 
+        <Link className="navLink" to="/home">
+          Home
+        </Link>
         <Link className="navLink" to="/about">
           About
+        </Link>
+        <Link className="navLink" to="/contact">
+          Contact 
+        </Link>
+        <Link className="navLink" to="/ownerdashboard">
+          Owner Dashboard
+          {/* //Link to where Renters or Owners can see their properties.  */}
+        </Link>
+        <Link className="navLink" to="/renterdashboard">
+          Renter Dashboard
+          {/* //Link to where Renters or Owners can see their properties.  */}
+        </Link>
+        <Link className="navLink" to="/profile">
+          Profile
+          {/* //Link to where they can review their profile info */}
+        </Link>
+        <Link className="navLink" classname="Avatar" to="/dashboard">
+          {/* <img src='./imgs/avatar.jpeg' className='Avatar'></img> */}
         </Link>
       </div>
     </div>

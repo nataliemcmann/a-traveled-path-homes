@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
+
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
@@ -61,13 +61,19 @@ function App() {
             <UserPage />
           </ProtectedRoute>
 
+          {/* <ProtectedRoute
+            exact
+            path="/ownerdashboard"
+          >
+            <OwnerDashboard />
+          </ProtectedRoute>
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/info"
+            path="/renterdashboard"
           >
-            <InfoPage />
-          </ProtectedRoute>
+            <RenterDashboard />
+          </ProtectedRoute> */}
 
           <Route
             exact
