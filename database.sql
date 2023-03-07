@@ -15,6 +15,7 @@ CREATE TABLE "profile" (
 	"firstName" VARCHAR (80) NOT NULL,
 	"lastName" VARCHAR (80) NOT NULL,
 	"dob" DATE NOT NULL,
-	"profession" VARCHAR (250)
+	"profession" VARCHAR (250),
+    "viewAsRenter" BOOLEAN DEFAULT TRUE
 	-- "photoURL" VARCHAR add later
 );
