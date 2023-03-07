@@ -10,9 +10,9 @@ router.post('/', (req, res) => {
     const insertResidenceQuery= `
     //  need to add house type 👇
     INSERT INTO "residences" ("propertyName", "description")
-    VALUES($1, $2,);
+    VALUES($1, $2);
     `
-    pool.query(insertResidenceQuery, [req.body.propertyName, req.body.description,])
+    pool.query(insertResidenceQuery, [req.body.propertyName, req.body.description])
     .then(result => {
         res.send(result.rows);
     })
