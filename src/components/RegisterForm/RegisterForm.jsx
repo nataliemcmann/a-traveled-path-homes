@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //mui components
-import { TextField } from '@mui/material';
+import { Stack, TextField } from '@mui/material';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -30,30 +30,30 @@ function RegisterForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
-          Username:
-          <TextField
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+        <Stack paddingBottom={2}>
+          <p> Username </p>
+          <label htmlFor="username">
+            <TextField
+              type="text"
+              name="username"
+              value={username}
+              required
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </label>
+          <p> Password </p>
+          <label htmlFor="password">
+            <TextField
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </Stack>
       </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <TextField
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
+      <div className="btnContainer">
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
     </form>
