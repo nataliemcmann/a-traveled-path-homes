@@ -1,19 +1,40 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-  // GET route code here
+router.get('/', rejectUnauthenticated, (req, res) => {
+  const sqlValues = [req.user.id];
+  const sqlQuery = `
+  SELECT
+      "user"."username",
+      "profile"."firstName",
+      "profile"."lastName",
+      "profile"."dob",
+      "profile"."profession",
+      "profile"."viewAsRenter"
+    FROM "user"
+    LEFT JOIN "profile"
+      ON "user"."id" = "profile"."userId"
+    WHERE "user"."id" = $1;
+  `;
+  pool.query(sqlQuery, sqlValues)
+  .then((result) => {
+      res.send(result.rows);
+  })
+  .catch(err => {
+      console.log('GET profile failed', err);
+  });
 });
 
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-    //turn if using AWS S3 to save profile photos
+router.post('/', rejectUnauthenticated, (req, res) => {
+    //turn to async await if using AWS S3 to save profile photos
     const userId = req.user.id;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
