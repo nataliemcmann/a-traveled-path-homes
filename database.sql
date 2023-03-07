@@ -9,3 +9,12 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+
+CREATE TABLE "profile" (
+	"userId" INT PRIMARY KEY REFERENCES "user"(id) ON DELETE CASCADE,
+	"firstName" VARCHAR (80) NOT NULL,
+	"lastName" VARCHAR (80) NOT NULL,
+	"dob" DATE NOT NULL,
+	"profession" VARCHAR (250),
+	"photoURL" VARCHAR
+);
