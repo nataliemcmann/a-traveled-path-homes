@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
-// import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
+import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
 // ----------------MUI-------------------
 import { Card, Icon } from '@mui/material';
 import { Button } from '@mui/material'
@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 function LandingPage() {
   const [heading, setHeading] = useState('A Traveled Path Homes');
   const history = useHistory();
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   const onLogin = (event) => {
     history.push('/login');
@@ -38,20 +39,21 @@ function LandingPage() {
           height: 38,
           width: 600
       }}>
-      <Button sx={{color: '#121957'}}className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)}className="btn btn_sizeSm" >
               Where to?
       </Button>
-      <Button sx={{color: '#121957'}}className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
               Check In - Check Out
       </Button>
-      <Button sx={{color: '#121957'}}className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
               How many Travelers?
       </Button>
-      <Button sx={{color: '#121957'}}className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
               Filters
       </Button>
       <SearchIcon></SearchIcon>
       </Card>
+      <CheckInCheckOut trigger={buttonPopup} setTrigger={setButtonPopup}></CheckInCheckOut>
       <br></br>
       <Card sx={{
         padding: 4,
