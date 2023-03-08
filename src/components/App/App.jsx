@@ -73,6 +73,13 @@ function App() {
             <ProfileForm />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path= "/describe"
+          >
+            <PropertyDescriptionForm  />
+          </ProtectedRoute>
+
           {/* <ProtectedRoute
             exact
             path="/ownerdashboard"
