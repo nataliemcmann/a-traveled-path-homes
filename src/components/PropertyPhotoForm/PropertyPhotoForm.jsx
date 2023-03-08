@@ -12,10 +12,10 @@ function PropertyPhotoForm() {
     const [fileInputs, setFileInputs] = useState([]);
 
     const onFileChange = (event) => {
-    
-    // Update the state
-    setFileInputs({ selectedFile: event.target.files });
-    
+        const selectedFiles = Array.from(event.target.files);
+        console.log(selectedFiles);
+        selectedFiles.forEach(file => console.log(file));
+        
     };
 
     return (
@@ -29,9 +29,16 @@ function PropertyPhotoForm() {
                 />
                 <CardContent>
                     <div className="uploadContainer">
-                        <Button component="label" onChange={onFileChange}   
+                        <Button component="label"  
                         sx={{ color: '#111856'}}>
-                        <AddCircleOutlineIcon/> <input type="file" hidden />
+                        <AddCircleOutlineIcon/> 
+                        <input 
+                            onChange={onFileChange} 
+                            multiple 
+                            type="file" 
+                            accept="image/jpeg, image/png, image/jpg" 
+                            hidden 
+                        />
                         </Button>
                     </div>
                 </CardContent>
