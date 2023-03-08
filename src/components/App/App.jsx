@@ -14,6 +14,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import UserPage from '../UserPage/UserPage';
 
 import LandingPage from '../LandingPage/LandingPage';
@@ -60,9 +61,16 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/profile"
           >
-            <UserPage />
+            <ProfilePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path= "/profileForm"
+          >
+            <ProfileForm />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
@@ -70,16 +78,10 @@ function App() {
             path="/ownerdashboard"
           >
             <OwnerDashboard />
-          </ProtectedRoute>
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path= "/profileForm"
-          >
-            <ProfileForm />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
-          <ProtectedRoute
+
+          {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/renterdashboard"

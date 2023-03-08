@@ -23,7 +23,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   `;
   pool.query(sqlQuery, sqlValues)
   .then((result) => {
-      res.send(result.rows);
+      res.send(result.rows[0]);
   })
   .catch(err => {
       console.log('GET profile failed', err);
