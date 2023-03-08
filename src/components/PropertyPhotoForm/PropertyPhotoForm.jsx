@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 //mui components
 import { Button, TextField } from '@mui/material';
 
-function PropertyPhotoUpload() {
+function PropertyPhotoForm() {
     const dispatch = useDispatch();
 
 
@@ -15,4 +15,4 @@ function PropertyPhotoUpload() {
     )
 }
 
-export default PropertyPhotoUpload;
+export default PropertyPhotoForm;
