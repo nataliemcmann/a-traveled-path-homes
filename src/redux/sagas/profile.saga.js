@@ -2,19 +2,29 @@ import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 //post Saga: will fire on "ADD_PROFILE" action
-function* createProfile(action) {
+function* addProfile(action) {
     try{
         const newProfile = action.payload;
         yield console.log('Post new profile to databases: ', newProfile);
         yield axios.post('/api/profile', newProfile);
-        //once get is written, yield put to get profile info
     } catch (error) {
         console.log('Error in createProfile: ', error);
     }
 }
 
+//get Saga: will fire on "FETCH_PROFILE" action
+function* fetchProfile() {
+    try{
+        const response = yield axios.get('/api/profile');
+        yield put({ type: 'SET_PROFILE', payload: response.data})
+    } catch (error) {
+        console.log('Profile get request failed', error);
+    }
+}
+
 function* profileSaga() {
-    yield takeEvery('ADD_PROFILE', createProfile);
+    yield takeEvery('ADD_PROFILE', addProfile);
+    yield takeEvery('FETCH_PROFILE', fetchProfile);
 }
 
 export default profileSaga;
