@@ -17,42 +17,48 @@ function ProfilePage () {
 
     return (
         <>
-        <Stack>
-            <h2>Welcome, {profileReducer.profile.firstName}</h2>
-            <Grid>
-                <h3>Personal Information</h3>
-                <Card>
+        <Stack
+        direction="column"
+        margin={4}
+        spacing={4}
+        justifyContent="center"
+        >
+            <h1>Welcome, {profileReducer.profile.firstName}</h1>
+            <h2>Personal Information</h2>
+            <Grid
+            container direction="row"
+            margin={2}
+            spacing={4}
+            justifyContent="left"
+            >
+                <Card sx={{ width: 1/4 }}>
                     <CardHeader title="Full Name"/>
                     <CardContent>
                         <p>
                             {profileReducer.profile.firstName} {profileReducer.profile.lastName} 
                         </p>
-                    </CardContent>
-                    <CardActions>
                         <EditIcon />
-                    </CardActions>
+                    </CardContent>
                 </Card>
-                <Card>
+                <Card sx={{ width: 1/4 }}>
                     <CardHeader title="Profession/Expertise"/>
                     <CardContent>
                         <p>
                             {profileReducer.profile.profession}
                         </p>
-                    </CardContent>
-                    <CardActions>
                         <EditIcon />
-                    </CardActions>
+                    </CardContent>
                 </Card>
-                <Card>
-                    <CardHeader title="Date of Birth"/>
+                <Card sx={{ width: 1/4 }}>
+                    <CardHeader 
+                        title="Date of Birth"
+                        subheader="This information will not be shared with other users."/>
                     <CardContent>
                         <p>
                             {profileReducer.profile.stringDob}
                         </p>
-                    </CardContent>
-                    <CardActions>
                         <EditIcon />
-                    </CardActions>
+                    </CardContent>
                 </Card>
             </Grid>
         </Stack>
