@@ -43,7 +43,7 @@ function PropertyPhotoForm() {
                             <input 
                                 onChange={onFileChange} 
                                 multiple 
-                                type="file" 
+                                type="file"
                                 accept="image/jpeg, image/png, image/jpg" 
                                 hidden 
                             />

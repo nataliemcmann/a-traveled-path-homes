@@ -6,7 +6,11 @@ function* addFiles(action) {
     try{
         const newFiles = action.payload;
         yield console.log('Post new files to upload', newFiles);
-        yield axios.post('/api/photo/files', newFiles);
+        yield axios({
+            method: 'POST',
+            url: '/api/photo/files',
+            data: newFiles
+            });
     } catch (error) {
         console.log('Error in addFiles', error);
     }

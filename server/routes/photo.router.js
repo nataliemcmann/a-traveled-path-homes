@@ -12,8 +12,12 @@ const upload = multer({ dest: "uploads/"});
  * POST route 
  */
 router.post('/files', upload.array("file"), (req, res) => {
-    console.log(req.files)
-    res.json({ status: "success"})
+    if(req.files) {
+        console.log(req.files)
+        console.log('success');
+    } else {
+        console.log('fail')
+    }
 })
 
 
