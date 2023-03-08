@@ -8,11 +8,10 @@ const {
 router.post('/', (req, res) => {
     console.log(req.body);
     const insertResidenceQuery= `
-    //  need to add house type 👇
-    INSERT INTO "residences" ("propertyName", "description")
-    VALUES($1, $2,);
+    INSERT INTO "residences" ("houseType", "propertyName", "description", "address", "maxGuests", "bedrooms", "beds", "bathrooms", "listed", "featurePhoto")
+    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     `
-    pool.query(insertResidenceQuery, [req.body.propertyName, req.body.description,])
+    pool.query(insertResidenceQuery, [req.body.houseType, req.body.propertyName, req.body.description, req.body.address, req.body.maxGuests, req.body.bedrooms, req.body.beds, req.body.bathrooms, req.body.listed, req.body.featurePhoto])
     .then(result => {
         res.send(result.rows);
     })
