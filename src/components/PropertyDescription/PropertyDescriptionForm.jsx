@@ -7,9 +7,15 @@ import './PropertyDescription.css'
 function PropertyDescriptionForm() {
     const dispatch = useDispatch();
     const PropertyDescription = useSelector((store) => store.propertyReducer)
-    // const [newHouseType, setNewHouseType] = useState('')
+    const [newHouseType, setNewHouseType] = useState(0)
     const [newPropertyName, setNewPropertyName] = useState('')
     const [newDescription, setNewDescription] = useState('')
+    const [newAddress, setNewAddress] = useState('')
+    const [newMaxGuests, setNewMaxGuests] = useState(0)
+    const [newBedrooms, setNewBedrooms] = useState(0)
+    const [newBeds, setNewBeds] = useState(0)
+    const [newBathrooms, setNewBathrooms] = useState(0)
+    const [newFeaturePhoto, setNewFeaturePhoto] = useState('')
     const history = useHistory();
 
     const toAddressPage = (event) => {
@@ -20,19 +26,34 @@ function PropertyDescriptionForm() {
     const addToResidence = (event) => {
         event.preventDefault();
         let newProperty={
-            // houseType: newHouseType,
+            houseType: newHouseType,
             propertyName: newPropertyName,
-            description: newDescription
+            description: newDescription,
+            address: newAddress,
+            maxGuests: newMaxGuests,
+            bedrooms: newBedrooms,
+            beds: newBeds,
+            bathrooms: newBathrooms,
+            listed: false,
+            featurePhoto: newFeaturePhoto
         }
         console.log('this is a new property description', newProperty);
         dispatch({
-            type:'SET_PROPERTY_DESCRIPTION',
+            type:'CREATE_PROPERTY_DESCRIPTION',
             payload: newProperty
         })
         console.log(newProperty)
-        // setNewHouseType(''),
+        setNewHouseType(''),
         setNewPropertyName(''),
-        setNewDescription('')
+        setNewDescription(''),
+        setNewAddress(''),
+        setNewMaxGuests(''),
+        setNewBedrooms(''),
+        setNewBeds(''),
+        setNewBathrooms(''),
+        setNewFeaturePhoto('')
+
+
     }
     
     return(
