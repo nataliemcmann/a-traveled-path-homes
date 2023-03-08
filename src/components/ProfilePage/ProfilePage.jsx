@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import date-fns
-import { toDate } from 'date-fns'
+import LogOutButton from '../LogOutButton/LogOutButton';
 //mui components
-import { Stack, Grid, Card, CardHeader, CardContent, CardActions } from '@mui/material'; 
+import { Stack, Grid, Card, CardHeader, CardContent } from '@mui/material'; 
 import EditIcon from '@mui/icons-material/Edit';
 
 function ProfilePage () {
+
     const dispatch = useDispatch();
 
     const profileReducer = useSelector(store => store.profileReducer);
@@ -61,6 +61,7 @@ function ProfilePage () {
                     </CardContent>
                 </Card>
             </Grid>
+            <LogOutButton className="btn" />
         </Stack>
 
         </>
