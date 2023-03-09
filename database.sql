@@ -31,7 +31,10 @@ CREATE TABLE "residences" (
 	"beds" INT,
 	"bathrooms" INT,
 	"listed" BOOLEAN,
-	"featurePhoto" VARCHAR
+	"featurePhoto" INT,
+	"minStayLength" INT,
+	"priceDaily" INT,
+	"priceMonthy" INT
 );
 
 CREATE TABLE "amenities" (
