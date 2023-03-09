@@ -5,7 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const addStringDob = require('../modules/addStringDob.js');
 
 /**
- * GET route template
+ * GET route 
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
   const sqlValues = [req.user.id];
@@ -32,7 +32,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 /**
- * POST route template
+ * POST route 
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
     //turn to async await if using AWS S3 to save profile photos

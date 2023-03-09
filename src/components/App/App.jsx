@@ -24,6 +24,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
+import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
+
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
 import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
@@ -75,8 +77,14 @@ function App() {
             <ProfileForm />
           </ProtectedRoute>
 
+
           <ProtectedRoute
             exact
+            path= "/propertyPhotoForm"
+          >
+            <PropertyPhotoForm />
+
+
             path= "/describe"
           >
             <PropertyDescriptionForm  />

@@ -8,7 +8,7 @@ function* addProfile(action) {
         yield console.log('Post new profile to databases: ', newProfile);
         yield axios.post('/api/profile', newProfile);
     } catch (error) {
-        console.log('Error in createProfile: ', error);
+        console.log('Error in addProfile: ', error);
     }
 }
 
