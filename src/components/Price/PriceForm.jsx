@@ -50,7 +50,7 @@ function PriceForm() {
         <h5>Prices are recommended based on similar housing in your area. 
             These prices also more accurately represent the cost of housing 
             that a traveling professional is expected to pay</h5>
-        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4 }}>
+        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>
           <Typography sx={{ fontSize: 30 }} gutterBottom>
@@ -69,7 +69,7 @@ function PriceForm() {
           </Typography>
         </React.Fragment>
         </Card>
-        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4 }}>
+        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>
           <Typography sx={{ fontSize: 30 }} gutterBottom>
