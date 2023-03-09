@@ -13,18 +13,22 @@ import Footer from "../Footer/Footer";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import AboutPage from "../AboutPage/AboutPage";
-import UserPage from "../UserPage/UserPage";
 
-import LandingPage from "../LandingPage/LandingPage";
-import LoginPage from "../LoginPage/LoginPage";
-import RegisterPage from "../RegisterPage/RegisterPage";
-import PropertyDescriptionForm from "../PropertyDescription/PropertyDescriptionForm";
+import AboutPage from '../AboutPage/AboutPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
+// import UserPage from '../UserPage/UserPage'; profile page is now userPage
+
+import LandingPage from '../LandingPage/LandingPage';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+
+import ProfileForm from '../ProfileForm/ProfileForm';
+import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
 
-import "./App.css";
 
+import './App.css';
 function App() {
   const dispatch = useDispatch();
 
@@ -58,9 +62,23 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/profile"
           >
-            <UserPage />
+            <ProfilePage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path= "/profileForm"
+          >
+            <ProfileForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path= "/describe"
+          >
+            <PropertyDescriptionForm  />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
@@ -68,8 +86,10 @@ function App() {
             path="/ownerdashboard"
           >
             <OwnerDashboard />
-          </ProtectedRoute>
-          <ProtectedRoute
+          </ProtectedRoute> */}
+
+
+          {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/renterdashboard"
@@ -82,11 +102,13 @@ function App() {
               // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/home" />
-            ) : (
+
+              :
               // Otherwise, show the login page
               <LoginPage />
             )}
           </Route>
+
 
           <ProtectedRoute exact path="/describe">
             <PropertyDescriptionForm />
@@ -105,21 +127,30 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/user" />
             ) : (
+
+          <Route
+            exact
+            path="/registration"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/home" />
+              :
+
               // Otherwise, show the registration page
               <RegisterPage />
             )}
           </Route>
 
-          <Route exact path="/home">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the Landing page
+
+          <Route
+            exact
+            path="/home"
+          >
               <LandingPage />
-            )}
           </Route>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

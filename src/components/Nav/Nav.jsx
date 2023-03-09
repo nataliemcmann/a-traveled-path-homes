@@ -57,7 +57,7 @@ function Nav() {
           Profile
           {/* //Link to where they can review their profile info */}
         </Link>
-        <Link className="navLink" classname="Avatar" to="/dashboard">
+        <Link className="navLink Avatar" to="/dashboard">
           {/* <img src='./imgs/avatar.jpeg' className='Avatar'></img> */}
         </Link>
       </div>
