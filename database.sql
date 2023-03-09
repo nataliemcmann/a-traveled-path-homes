@@ -23,3 +23,14 @@ CREATE TABLE "residences" (
 	"listed" BOOLEAN,
 	"featurePhoto" VARCHAR
 );
+
+CREATE TABLE "amenities" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (255)
+);
+
+CREATE TABLE "amenities_residences" (
+    "id" SERIAL PRIMARY KEY,
+    "amenitiesId" INT,
+    "residenceId" INT
+);
