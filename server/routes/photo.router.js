@@ -16,6 +16,7 @@ router.post('/files', upload.array("file"), (req, res) => {
         console.log(req.files)
         console.log('success');
     } else {
+        console.log(req.files)
         console.log('fail')
     }
 })

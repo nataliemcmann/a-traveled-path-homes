@@ -5,11 +5,19 @@ import { put, takeEvery } from 'redux-saga/effects';
 function* addFiles(action) {
     try{
         const newFiles = action.payload;
-        yield console.log('Post new files to upload', newFiles);
+        const filesLength = newFiles.length;
+        const data = new FormData();
+        for (let i = 0; i < filesLength; i++) {
+            data.append("file", newFiles[i]);
+        }
+        yield console.log('Post new files to upload', data);
         yield axios({
             method: 'POST',
             url: '/api/photo/files',
-            data: newFiles
+            data, 
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
             });
     } catch (error) {
         console.log('Error in addFiles', error);

@@ -11,7 +11,7 @@ function PropertyPhotoForm() {
     const photoReducer = useSelector(store => store.photoReducer)
 
     const onFileChange = (event) => {
-        const selectedFiles = Array.from(event.target.files);
+        const selectedFiles = [...event.target.files];
         dispatch({
             type: 'SET_FILES',
             payload: selectedFiles
@@ -28,6 +28,7 @@ function PropertyPhotoForm() {
 
     return (
         <>
+            <form onSubmit={postFiles} encType="multipart/form-data">
                 <Card>
                     <CardHeader 
                     title="Photos"
@@ -52,8 +53,9 @@ function PropertyPhotoForm() {
                     </CardContent>
                 </Card>
                 <div>
-                    <Button onClick={postFiles}>Next</Button>
+                    <Button type="submit">Next</Button>
                 </div>
+            </form>
         </>
     )
 }
