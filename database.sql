@@ -34,7 +34,7 @@ CREATE TABLE "residences" (
 	"featurePhoto" INT,
 	"minStayLength" INT,
 	"priceDaily" INT,
-	"priceMonthy" INT
+	"priceMonthly" INT
 );
 
 CREATE TABLE "amenities" (

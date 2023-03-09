@@ -6,7 +6,6 @@ const {
 } = require('../modules/authentication-middleware');
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-    console.log(req.body);
     const sqlValues = [
         req.user.id, req.body.houseType, req.body.propertyName, 
         req.body.description, req.body.address, req.body.maxGuests, 
