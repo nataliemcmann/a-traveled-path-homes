@@ -20,7 +20,7 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import PriceForm from '../Price/PriceForm';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 
@@ -78,6 +78,13 @@ function App() {
             path= "/describe"
           >
             <PropertyDescriptionForm  />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path= "/price"
+          >
+            <PriceForm  />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
