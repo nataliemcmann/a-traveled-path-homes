@@ -1,0 +1,43 @@
+.center {
+    text-align: center;
+    font-family: 'PP Pangram Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 48px;
+line-height: 55px;
+color: #000;;
+}
+
+.box{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 8px;
+flex: none;
+order: 0;
+flex-grow: 0;
+width: 556px;
+height: 145px;
+text-align: center;
+}
+
+#SquareinMiddle{
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items:center;
+padding: 40px 64px;
+gap: 10px;
+
+position: absolute;
+width: 359px;
+height: 234px;
+left: 577px;
+top: 410px;
+
+/* Color Palette/Purple */
+
+border: 2px solid #111856;
+border-radius: 20px;
+}
