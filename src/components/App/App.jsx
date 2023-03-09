@@ -83,8 +83,10 @@ function App() {
             path= "/propertyPhotoForm"
           >
             <PropertyPhotoForm />
+          </ProtectedRoute>
 
-
+            <ProtectedRoute
+            exact
             path= "/describe"
           >
             <PropertyDescriptionForm  />
