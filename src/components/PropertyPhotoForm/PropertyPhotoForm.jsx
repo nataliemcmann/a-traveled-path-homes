@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './PropertyPhotoForm.css';
 //mui components
@@ -6,10 +6,13 @@ import { Card, CardHeader, CardContent, Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function PropertyPhotoForm() {
+    //declare dispatch
     const dispatch = useDispatch();
-
+    //declare a reducer to temporarily files
     const photoReducer = useSelector(store => store.photoReducer)
 
+
+    // event handler to manage file change and update reducer
     const onFileChange = (event) => {
         const selectedFiles = [...event.target.files];
         dispatch({
@@ -18,6 +21,7 @@ function PropertyPhotoForm() {
         })
     };
 
+    //send files to saga
     const postFiles = () => {
         console.log('uploading files', photoReducer.files);
         dispatch({
