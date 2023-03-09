@@ -19,26 +19,76 @@ import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 
 function AmenitiesForm() {
   const dispatch = useDispatch();
-  const PropertyDescription = useSelector((store) => store.propertyReducer)
-  
-  const [newPropertyName, setNewPropertyName] = useState('')
-  const [newDescription, setNewDescription] = useState('')
   const history = useHistory();
+
+  
+  
+
+  const amenitiesList = [];
+
+  function handleShower() {
+    amenitiesList.push({amenity_id});
+    console.log('added shower');
+  }
+
+  function handleBathtub() {
+    amenitiesList.push('bathtub');
+    console.log('added bathtub');
+  }
+
+  function handleWasher() {
+    amenitiesList.push('washer');
+    console.log('added washer');
+  }
+
+  function handleDryer() {
+    amenitiesList.push('dryer');
+    console.log('added dryer');
+  }
+
+  function handleParking() {
+    amenitiesList.push('parking');
+    console.log('added parking');
+  }
+
+  function handlePets() {
+    amenitiesList.push('pets');
+    console.log('added pets');
+  }
+
+  function handleHeating() {
+    amenitiesList.push('heating');
+    console.log('added heating');
+  }
+
+  function handleFireplace() {
+    amenitiesList.push('fireplace');
+    console.log('added fireplace');
+  }
+
+  function handleAc() {
+    amenitiesList.push('ac');
+    console.log('added ac');
+  }
+
+  function handleWifi() {
+    amenitiesList.push('wifi');
+    console.log('added wifi');
+  }
+
+  function handleMonitor() {
+    amenitiesList.push('monitor');
+    console.log('added monitor');
+  }
+
+  function handleElectricCharging() {
+    amenitiesList.push('electric_charging');
+    console.log('added electric_charging');
+  }
 
 
   const addToResidence = (event) => {
       event.preventDefault();
-      // let newProperty={
-      //     // houseType: newHouseType,
-      //     propertyName: newPropertyName,
-      //     description: newDescription
-      // }
-      // console.log('this is a new property description', newProperty);
-      // dispatch({
-      //     type:'SET_PROPERTY_DESCRIPTION',
-      //     payload: newProperty
-      // })
-
 
       event.preventDefault();
       history.push('/photos')
@@ -54,21 +104,22 @@ function AmenitiesForm() {
             You'll be able to add more details after you've added your property.</h5>
             </div>
           <h3>Essentials</h3>
-          <Button><ShowerIcon/></Button>
-          <Button><BathtubIcon/></Button>
-          <Button><LocalLaundryServiceIcon/></Button>
-          <Button><DirectionsCarIcon/></Button>
-          <Button><PetsIcon/></Button>
+          <Button onClick={handleShower}><ShowerIcon/>Shower</Button>
+          <Button onClick={handleBathtub}><BathtubIcon/>Bathtub</Button>
+          <Button onClick={handleWasher}><LocalLaundryServiceIcon/>Washer</Button>
+          <Button onClick={handleDryer}><LocalLaundryServiceIcon/>Dryer</Button>
+          <Button onClick={handleParking}><DirectionsCarIcon/>Parking</Button>
+          <Button onClick={handlePets}><PetsIcon/>Pets</Button>
           <div></div>
           <h3>Heating and Cooling</h3>
-          <Button><LocalFireDepartmentIcon/></Button>
-          <Button><FireplaceIcon/></Button>
-          <Button><AcUnitIcon/></Button>
+          <Button onClick={handleHeating}><LocalFireDepartmentIcon/>Heating</Button>
+          <Button onClick={handleFireplace}>Fireplace<FireplaceIcon/></Button>
+          <Button onClick={handleAc}><AcUnitIcon/>AC</Button>
           <div></div>
           <h3>Technology</h3>
-          <Button><ElectricCarIcon/></Button>
-          <Button><MonitorIcon/></Button>
-          <Button><WifiIcon/></Button>
+          <Button onClick={handleElectricCharging}><ElectricCarIcon/>Electric Charging</Button>
+          <Button onClick={handleMonitor}><MonitorIcon/>Monitor</Button>
+          <Button onClick={handleWifi}><WifiIcon/>WIFI</Button>
           <div><br></br></div>
           <Button onClick={addToResidence} size= "medium" variant="outlined">Next</Button>  
           </form>
