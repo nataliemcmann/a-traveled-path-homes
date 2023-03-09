@@ -26,9 +26,11 @@ import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
+import ReviewPage from "../ReviewForm/Review";
 
 
 import './App.css';
+
 function App() {
   const dispatch = useDispatch();
 
@@ -120,7 +122,9 @@ function App() {
           <ProtectedRoute exact path="/stay">
             <LengthofStay />
           </ProtectedRoute>
-
+          <ProtectedRoute exact path="/review">
+            <ReviewPage />
+          </ProtectedRoute>
        
           <Route
             exact
