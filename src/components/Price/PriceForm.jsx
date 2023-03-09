@@ -47,10 +47,11 @@ function PriceForm() {
     return (
         <div>
         <h1>Price</h1>
-        <h5>Prices are recommended based on similar housing in your area. 
+        <h4>Prices are recommended based on similar housing in your area. 
             These prices also more accurately represent the cost of housing 
-            that a traveling professional is expected to pay</h5>
-        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4, color: '#121957' }}>
+            that a traveling professional is expected to pay</h4>
+        <div class="box flex">
+        <Card className="card" sx={{ width: 300, height: 200, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>
           <Typography sx={{ fontSize: 30 }} gutterBottom>
@@ -60,8 +61,8 @@ function PriceForm() {
             ${dailyPrice}
           </Typography>
             </CardContent>
-             <CardActions>
-              <Button onClick={decreaseDaily} size="small" variant="outlined">-</Button>
+             <CardActions className="cardActions">
+              <Button className="button" onClick={decreaseDaily} size="small" variant="outlined">-</Button>
               <Button onClick={increaseDaily} size="small" variant="outlined">+</Button>
             </CardActions>
           <Typography variant="h5" component="div">
@@ -69,7 +70,7 @@ function PriceForm() {
           </Typography>
         </React.Fragment>
         </Card>
-        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4, color: '#121957' }}>
+        <Card className="card" sx={{ width: 300, height: 200, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>
           <Typography sx={{ fontSize: 30 }} gutterBottom>
@@ -79,7 +80,7 @@ function PriceForm() {
             ${monthlyPrice}
           </Typography>
             </CardContent>
-             <CardActions>
+             <CardActions className="cardActions">
               <Button onClick={decreaseMonthly} size="small" variant="outlined">-</Button>
               <Button onClick={increaseMonthly} size="small" variant="outlined">+</Button>
           </CardActions>
@@ -88,6 +89,7 @@ function PriceForm() {
           </Typography>
         </React.Fragment>
         </Card>
+        </div>
         </div>
         
     )
