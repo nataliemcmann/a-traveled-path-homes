@@ -14,7 +14,7 @@ function* addFiles(action) {
         yield axios({
             method: 'POST',
             url: '/api/photo/files',
-            data, 
+            data: data, 
             headers: {
                 'content-type': 'multipart/form-data'
             }
