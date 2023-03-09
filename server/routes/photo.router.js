@@ -2,9 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-const multer = require('multer');
 
 /** ---------- Multer | S3 ---------- **/
+const multer = require('multer');
+require('dotenv').config();
 const upload = multer({ dest: "uploads/"});
 
 
