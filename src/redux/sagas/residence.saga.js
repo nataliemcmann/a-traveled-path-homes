@@ -30,6 +30,8 @@ function* propertyDescriptionForm(action){
     
 }
 
+
+
 export default function* residenceSaga() {
   yield takeLatest('FETCH_RESIDENCE', fetchResidence);
   yield takeLatest('CREATE_PROPERTY_DESCRIPTION', propertyDescriptionForm);
