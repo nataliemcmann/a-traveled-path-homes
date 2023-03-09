@@ -50,7 +50,7 @@ function PriceForm() {
         <h4>Prices are recommended based on similar housing in your area. 
             These prices also more accurately represent the cost of housing 
             that a traveling professional is expected to pay</h4>
-        <div class="box flex">
+        <div className="boxflex">
         <Card className="card" sx={{ width: 300, height: 200, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>

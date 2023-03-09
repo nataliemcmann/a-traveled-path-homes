@@ -8,7 +8,7 @@ h1,h4 {
     border: 1px solid #121957;
     position:static
 }
-.box.flex {
+.boxflex {
     display: flex;
     justify-content: center;
     padding-top: 2cm;
