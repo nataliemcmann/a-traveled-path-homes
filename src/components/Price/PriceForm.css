@@ -3,7 +3,6 @@ h1,h5 {
 }
 .card {
     text-align: center;
-}
-.button {
-    text-align: center;
+    align-items: center;
+    border: 1px solid #121957;
 }

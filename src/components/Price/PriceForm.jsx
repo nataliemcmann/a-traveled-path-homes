@@ -10,7 +10,10 @@ import './PriceForm.css'
 
 function PriceForm() {
   const [dailyPrice, setDailyPrice] = useState(70);
-    function increaseDaily() {
+  const [monthlyPrice, setMonthlyPrice] = useState(2000);
+
+
+      function increaseDaily() {
         setDailyPrice(function (prevCount) {
           return (prevCount += 10);
         });
@@ -25,7 +28,6 @@ function PriceForm() {
         });
       }
 
-      const [monthlyPrice, setMonthlyPrice] = useState(2000);
       function increaseMonthly() {
           setMonthlyPrice(function (prevCount) {
             return (prevCount += 100);
@@ -48,7 +50,7 @@ function PriceForm() {
         <h5>Prices are recommended based on similar housing in your area. 
             These prices also more accurately represent the cost of housing 
             that a traveling professional is expected to pay</h5>
-        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4, }}>
+        <Card className="card" sx={{ maxWidth: 345, borderRadius: 4 }}>
         <React.Fragment>
           <CardContent>
           <Typography sx={{ fontSize: 30 }} gutterBottom>
