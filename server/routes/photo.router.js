@@ -25,7 +25,10 @@ const { s3Upload } = require('../s3Service');
 router.post('/files', upload.array("file"), async (req, res) => {
     try {
         const results = await s3Upload(req.files);
-        console.log(results);
+        const locationArray = results.map((result) => {
+            return result.Location;
+        })
+        console.log(locationArray);
         console.log('success');
         res.sendStatus(201);
     } catch (error) {
