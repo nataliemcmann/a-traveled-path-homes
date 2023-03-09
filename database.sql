@@ -9,6 +9,16 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
+CREATE TABLE "profile" (
+	"userId" INT PRIMARY KEY REFERENCES "user"(id) ON DELETE CASCADE,
+	"firstName" VARCHAR (80) NOT NULL,
+	"lastName" VARCHAR (80) NOT NULL,
+	"dob" DATE NOT NULL,
+	"profession" VARCHAR (250),
+    "viewAsRenter" BOOLEAN DEFAULT TRUE
+	-- "photoURL" VARCHAR add later
+);
+
 CREATE TABLE "residences" (
 	"id" SERIAL PRIMARY KEY,
 	"userId" integer REFERENCES "user",
@@ -34,3 +44,4 @@ CREATE TABLE "amenities_residences" (
     "amenitiesId" INT,
     "residenceId" INT
 );
+
