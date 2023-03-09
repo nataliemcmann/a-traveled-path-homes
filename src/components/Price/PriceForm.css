@@ -1,0 +1,19 @@
+h1,h4 {
+    text-align: center;
+    color: #121957;
+}
+.card {
+    text-align: center;
+    align-items: center;
+    border: 1px solid #121957;
+    position:static
+}
+.box.flex {
+    display: flex;
+    justify-content: center;
+    padding-top: 2cm;
+  }
+.cardActions {
+    justify-content: center;
+  }
+
