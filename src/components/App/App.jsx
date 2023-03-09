@@ -103,10 +103,10 @@ function App() {
               // redirect to the /user page
               <Redirect to="/home" />
 
-              :
+            ):
               // Otherwise, show the login page
               <LoginPage />
-            )}
+            }
           </Route>
 
 
@@ -121,13 +121,7 @@ function App() {
             <LengthofStay />
           </ProtectedRoute>
 
-          <Route exact path="/registration">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-
+       
           <Route
             exact
             path="/registration"
@@ -140,7 +134,7 @@ function App() {
 
               // Otherwise, show the registration page
               <RegisterPage />
-            )}
+            }
           </Route>
 
 
