@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import LogOutButton from "../LogOutButton/LogOutButton";
+import "./Nav.css";
+import { useSelector } from "react-redux";
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -10,8 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-      <img src='./imgs/ATPH-Logo.png' className='logo'></img>
-
+        <img src="./imgs/ATPH-Logo.png" className="logo"></img>
       </Link>
       <div>
         {/* If no user is logged in, show these links
@@ -44,7 +43,7 @@ function Nav() {
           About
         </Link>
         <Link className="navLink" to="/contact">
-          Contact 
+          Contact
         </Link>
         <Link className="navLink" to="/ownerdashboard">
           Owner Dashboard
