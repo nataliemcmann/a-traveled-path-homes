@@ -6,8 +6,9 @@ import { Card, CardHeader, CardContent, Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 function PropertyPhotoForm() {
+    //declare dispatch
     const dispatch = useDispatch();
-
+    //declare a reducer to temporarily files
     const photoReducer = useSelector(store => store.photoReducer)
 
     const onFileChange = (event) => {
