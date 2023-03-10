@@ -35,7 +35,7 @@ function* fetchResidencePhotos(action) {
         const residenceId = action.payload;
         const residencePhotos = yield axios.get(`/api/photo/${residenceId}`);
         console.log('get residence photos: ', residencePhotos);
-        yield put(({type: 'SET_RESIDENCE_PHOTOS', payload: residencePhotos}))
+        yield put(({type: 'SET_RESIDENCE_PHOTOS', payload: residencePhotos.data}))
     } catch (err) {
         console.log('Error in fetchResidencePhotos: ', err)
     }

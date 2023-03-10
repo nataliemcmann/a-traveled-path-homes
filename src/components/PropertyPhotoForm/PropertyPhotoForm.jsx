@@ -54,7 +54,7 @@ function PropertyPhotoForm() {
                                     onChange={onFileChange} 
                                     multiple 
                                     type="file"
-                                    accept="image/jpeg, image/png, image/jpg" 
+                                    // accept="image/jpeg, image/png, image/jpg" 
                                     hidden 
                                 />
                                 </Button>
