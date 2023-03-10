@@ -20,8 +20,6 @@ import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 function AmenitiesForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-
-  
   
 
   const amenitiesList = [];
@@ -89,12 +87,17 @@ function AmenitiesForm() {
 
   const addToResidence = (event) => {
       event.preventDefault();
+      dispatch({
+        type: 'ADD_AMENITIES',
+    })
 
       event.preventDefault();
-      history.push('/photos')
+      history.push('/propertyPhotoForm')
     
   }
   
+
+
   return(
       <div className="amenities">
           <form onSubmit={addToResidence}>
