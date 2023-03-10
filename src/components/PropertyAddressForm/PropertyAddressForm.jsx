@@ -18,35 +18,7 @@ const ProperyAddressForm = () => {
 
         const addToResidence = (event) => {
             event.preventDefault();
-            let newProperty={
-                houseType: newHouseType,
-                propertyName: newPropertyName,
-                description: newDescription,
-                address: newAddress,
-                maxGuests: newMaxGuests,
-                bedrooms: newBedrooms,
-                beds: newBeds,
-                bathrooms: newBathrooms,
-                listed: false,
-                featurePhoto: newFeaturePhoto
-            }
-            console.log('this is a new property description', newProperty);
-            dispatch({
-                type:'CREATE_PROPERTY_DESCRIPTION',
-                payload: newProperty
-            })
-            console.log(newProperty)
-            setNewHouseType(''),
-            setNewPropertyName(''),
-            setNewDescription(''),
-            setNewAddress(''),
-            setNewMaxGuests(''),
-            setNewBedrooms(''),
-            setNewBeds(''),
-            setNewBathrooms(''),
-            setNewFeaturePhoto('')
-    
-    
+            
         }
 
     return (
