@@ -21,12 +21,16 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import PriceForm from '../Price/PriceForm';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
+import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
+
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
 import ReviewPage from "../ReviewForm/Review";
+import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
+
 
 
 import './App.css';
@@ -76,11 +80,26 @@ function App() {
             <ProfileForm />
           </ProtectedRoute>
 
+
           <ProtectedRoute
+            exact
+            path= "/propertyPhotoForm"
+          >
+            <PropertyPhotoForm />
+          </ProtectedRoute>
+
+            <ProtectedRoute
             exact
             path= "/describe"
           >
             <PropertyDescriptionForm  />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path= "/price"
+          >
+            <PriceForm  />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
@@ -122,9 +141,16 @@ function App() {
           <ProtectedRoute exact path="/stay">
             <LengthofStay />
           </ProtectedRoute>
+
           <ProtectedRoute exact path="/review">
             <ReviewPage />
           </ProtectedRoute>
+
+          <ProtectedRoute exact path="/amenities">
+            <AmenitiesForm />
+          </ProtectedRoute>
+
+
        
           <Route
             exact
