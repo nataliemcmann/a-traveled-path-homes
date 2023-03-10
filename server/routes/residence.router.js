@@ -1,9 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-const {
-  rejectUnauthenticated,
-} = require('../modules/authentication-middleware');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     const sqlValues = [
@@ -32,7 +30,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
-router.put('/:id'), rejectUnauthenticated, (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
     let idToEdit = req.params.id;
     const sqlValues = [
         req.body.houseType, req.body.propertyName, 
@@ -60,12 +58,12 @@ router.put('/:id'), rejectUnauthenticated, (req, res) => {
     WHERE "id" = $14;
     `;
     pool.query(sqlQuery, sqlValues)
-    .then(() => res.sendStatus(200))
+    .then((result) => res.sendStatus(200))
     .catch((err) => {
         console.log('residence edit failed: ', err);
         res.sendStatus(500);
     });
-}
+})
 
 
 module.exports = router;
