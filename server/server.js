@@ -11,7 +11,13 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const profileRouter = require('./routes/profile.router');
 const residenceRouter = require('./routes/residence.router');
+
 const instructionsRouter = require('./routes/instructions.router');
+
+
+
+const photoRouter = require('./routes/photo.router');
+
 
 
 // Body parser middleware
@@ -29,7 +35,13 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/profile', profileRouter);
 app.use('/api/residence', residenceRouter);
+
 app.use('/api/instructions', instructionsRouter);
+
+
+
+app.use('/api/photo', photoRouter);
+
 
 
 // Serve static files
