@@ -11,7 +11,9 @@ function* fetchResidence() {
     const response = yield axios.get('/api/residence', config);
     
 
-    yield put({ type: 'SET_RESIDENCE', payload: response.data });
+    yield put({ 
+      type: 'SET_RESIDENCE', 
+      payload: response.data });
   } catch (error) {
     console.log('Residence get request failed', error);
   }
