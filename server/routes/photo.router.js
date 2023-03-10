@@ -28,8 +28,21 @@ router.post('/files', upload.array("file"), async (req, res) => {
         const locationArray = results.map((result) => {
             return result.Location;
         })
-        console.log(locationArray);
+        // console.log(req.body.residenceId); this is an array of strings
+        const residenceId = Number(req.body.residenceId[0]) //make it a number
+        // console.log(residenceId); 
         console.log('success');
+        const sqlQuery = `
+        INSERT INTO "photos"
+            ("residenceId", "imagePath")
+        VALUES ($1, $2);
+        `;
+
+        locationArray.map((location) => {
+            const sqlValues = [residenceId, location];
+            pool.query(sqlQuery, sqlValues);
+        })
+        
         res.sendStatus(201);
     } catch (error) {
         console.log(error)
