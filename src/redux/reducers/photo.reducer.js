@@ -9,8 +9,18 @@ const files = (state = {}, action) => {
     }
 }
 
+const residencePhotos = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_RESIDENCE_PHOTOS':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 const photoReducer = combineReducers({
-    files
+    files,
+    residencePhotos
 })
 
 export default photoReducer;
