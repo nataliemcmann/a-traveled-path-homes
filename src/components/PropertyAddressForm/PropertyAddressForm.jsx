@@ -32,7 +32,7 @@ const ProperyAddressForm = () => {
           dispatch({type: 'EDIT_RESIDENCE',
           payload: evt.target.value
         })
-
+        history.push('')
         }
       
     return (
