@@ -1,10 +1,14 @@
 import { ParameterStatusMessage } from "pg-protocol/dist/messages";
 import React, {useEffect, useState} from "react"
-import { useDispatch} from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
+import { useHistory } from "react-router-dom";
 
 const ProperyAddressForm = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const editAddress = useSelector((store) => store.editAddress);
 
         const [addressinput, setAddressInput] = useState("");
         const [apartmentInput, setApartmentInput] = useState("");
@@ -12,20 +16,9 @@ const ProperyAddressForm = () => {
         const [stateInput, setStateInput] = useState("");
         const [zipInput, setZipInput] = useState("");
 
-       useEffect(() =>{
-        dispatch({ 
-          type: 'FETCH_RESIDENCE',
-          payload: params.id
-        })
-       }, [])
+       
 
        
-        const setAddress = (event) => {
-            dispatch ({
-              type: 'SET_ADDRESS',
-              payload: evt.target.value
-            })
-        }
 
         const addressToEdit= (evt) => {
           dispatch({
@@ -34,17 +27,17 @@ const ProperyAddressForm = () => {
           })
         }
 
-        handleSubmit = () => {
+      const handleSubmit = () => {
           event.preventDefault();
           dispatch({type: 'EDIT_RESIDENCE',
           payload: evt.target.value
         })
-        
+
         }
       
     return (
         <div className="propertyAddress">
-            <form onSubmit={addToResidence}>
+            <form onSubmit={handleSubmit}>
                 <h1> Address </h1>
                 <h5>Your address and location are safe with us. It won't be viewable by renders until you chose to list property publicly</h5>
               <label> Address
@@ -92,7 +85,7 @@ const ProperyAddressForm = () => {
                 }}
                 />
               </label>
-              <button onClick={addToResidence}>Next</button>
+              <button type= "submit" >Next</button>
             </form>
             </div>
           
