@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './PropertyPhotoForm.css';
+import PropertyPhotoList from '../PropertyPhotoList/PropertyPhotoList';
 //mui components
 import { Card, CardHeader, CardContent, Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -11,7 +12,6 @@ function PropertyPhotoForm() {
     //declare a reducer to temporarily files
     const photoReducer = useSelector(store => store.photoReducer);
     const propertyReducer = useSelector(store => store.propertyReducer);
-
 
     // event handler to manage file change and update reducer
     const onFileChange = (event) => {
@@ -28,44 +28,46 @@ function PropertyPhotoForm() {
         dispatch({
             type: 'ADD_PHOTOS',
             payload: {
-                residenceId: propertyReducer.residenceId,
+                residenceId: propertyReducer.residence.id,
                 files : photoReducer.files
             }
         })
     }
 
-    return (
-        <>
-            <form onSubmit={postFiles} encType="multipart/form-data">
-                <Card>
-                    <CardHeader 
-                    title="Photos"
-                    subheader="Upload photos of your property! 
-                    You need at least five photos, but the more the merrier. 
-                    Make it feel like home!"
-                    />
-                    <CardContent>
-                        <div className="uploadContainer">
-                            <Button component="label"  
-                            sx={{ color: '#111856'}}>
-                            <AddCircleOutlineIcon/> 
-                            <input 
-                                onChange={onFileChange} 
-                                multiple 
-                                type="file"
-                                accept="image/jpeg, image/png, image/jpg" 
-                                hidden 
-                            />
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
-                <div>
-                    <Button type="submit">Next</Button>
-                </div>
-            </form>
-        </>
-    )
+    const residenceId = 10;
+        return (
+            <>
+                <form onSubmit={postFiles} encType="multipart/form-data">
+                    <Card>
+                        <CardHeader 
+                        title="Photos"
+                        subheader="Upload photos of your property! 
+                        You need at least five photos, but the more the merrier. 
+                        Make it feel like home!"
+                        />
+                        <CardContent>
+                            <div className="uploadContainer">
+                                <Button component="label"  
+                                sx={{ color: '#111856'}}>
+                                <AddCircleOutlineIcon/> 
+                                <input 
+                                    onChange={onFileChange} 
+                                    multiple 
+                                    type="file"
+                                    accept="image/jpeg, image/png, image/jpg" 
+                                    hidden 
+                                />
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <div>
+                        <Button type="submit">Next</Button>
+                    </div>
+                </form>
+                <PropertyPhotoList residenceId={residenceId}/>
+            </>
+        )
 }
 
 export default PropertyPhotoForm;
