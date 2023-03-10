@@ -22,9 +22,25 @@ function* fetchProfile() {
     }
 }
 
+function* fetchProfileToEdit(action) {
+    const idOfProfileToEdit = action.payload;
+    console.log(idOfProfileToEdit)
+    const response = yield axios({
+        method: 'GET',
+        url: `/api/profile/${idOfProfileToEdit}`
+    })
+    yield put({
+        type: 'SET_PROFILE_TO_EDIT',
+        payload: response.data
+    })
+}
+
+
+
 function* profileSaga() {
     yield takeEvery('ADD_PROFILE', addProfile);
     yield takeEvery('FETCH_PROFILE', fetchProfile);
+    yield takeEvery('EDIT_PROFILE', fetchProfileToEdit);
 }
 
 export default profileSaga;
