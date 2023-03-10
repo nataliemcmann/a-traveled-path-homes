@@ -86,16 +86,14 @@ function AmenitiesForm() {
 
 
   const addToResidence = (event) => {
-      event.preventDefault();
+      const amenitiesArray = [...event.target.amenitiesList];
       dispatch({
-        type: 'ADD_AMENITIES',
-    })
-
-      event.preventDefault();
+          type: 'SET_AMENITIES',
+          payload: amenitiesArray
+      })
       history.push('/propertyPhotoForm')
-    
-  }
-  
+  };
+
 
 
   return(
