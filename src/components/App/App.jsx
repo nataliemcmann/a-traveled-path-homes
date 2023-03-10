@@ -28,10 +28,13 @@ import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
 
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
+import ReviewPage from "../ReviewForm/Review";
 import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
 
 
+
 import './App.css';
+
 function App() {
   const dispatch = useDispatch();
 
@@ -138,9 +141,15 @@ function App() {
           <ProtectedRoute exact path="/stay">
             <LengthofStay />
           </ProtectedRoute>
+
+          <ProtectedRoute exact path="/review">
+            <ReviewPage />
+          </ProtectedRoute>
+
           <ProtectedRoute exact path="/amenities">
             <AmenitiesForm />
           </ProtectedRoute>
+
 
        
           <Route
