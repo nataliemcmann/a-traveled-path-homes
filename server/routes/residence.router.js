@@ -24,7 +24,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     `
     pool.query(insertResidenceQuery, sqlValues)
     .then(result => {
-        res.send(result.rows);
+        res.sendStatus(201);
     })
     .catch((err) => {
         console.log('error inserting property type', err);
