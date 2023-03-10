@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import { ParameterStatusMessage } from "pg-protocol/dist/messages";
+import React, {useEffect, useState} from "react"
 import { useDispatch} from "react-redux"
 
 const ProperyAddressForm = () => {
@@ -11,16 +12,36 @@ const ProperyAddressForm = () => {
         const [stateInput, setStateInput] = useState("");
         const [zipInput, setZipInput] = useState("");
 
-        const toBasicsPage = (event) => {
-            event.preventDefault();
-            history.push('/basics')
+       useEffect(() =>{
+        dispatch({ 
+          type: 'FETCH_RESIDENCE',
+          payload: params.id
+        })
+       }, [])
+
+       
+        const setAddress = (event) => {
+            dispatch ({
+              type: 'SET_ADDRESS',
+              payload: evt.target.value
+            })
         }
 
-        const addToResidence = (event) => {
-            event.preventDefault();
-            
+        const addressToEdit= (evt) => {
+          dispatch({
+            type: 'ADDRESS_TO_EDIT',
+            payload: evt.target.value
+          })
         }
 
+        handleSubmit = () => {
+          event.preventDefault();
+          dispatch({type: 'EDIT_RESIDENCE',
+          payload: evt.target.value
+        })
+        
+        }
+      
     return (
         <div className="propertyAddress">
             <form onSubmit={addToResidence}>
