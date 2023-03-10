@@ -29,10 +29,15 @@ import EditProfileForm from "../ProfileForm/EditProfileForm";
 
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
+import ReviewPage from "../ReviewForm/Review";
 import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
+import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
+import ProperyAddressForm from "../PropertyAddressForm/PropertyAddressForm";
+
 
 
 import './App.css';
+
 function App() {
   const dispatch = useDispatch();
 
@@ -98,12 +103,19 @@ function App() {
           >
             <PropertyDescriptionForm  />
           </ProtectedRoute>
+          
+          <ProtectedRoute
+            exact
+            path= "/instructions"
+          >
+            <InstructionsDetails  />
+          </ProtectedRoute>
 
           <ProtectedRoute
             exact
-            path= "/price"
+            path= "/address"
           >
-            <PriceForm  />
+            <ProperyAddressForm  />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
@@ -145,9 +157,15 @@ function App() {
           <ProtectedRoute exact path="/stay">
             <LengthofStay />
           </ProtectedRoute>
+
+          <ProtectedRoute exact path="/review">
+            <ReviewPage />
+          </ProtectedRoute>
+
           <ProtectedRoute exact path="/amenities">
             <AmenitiesForm />
           </ProtectedRoute>
+
 
        
           <Route

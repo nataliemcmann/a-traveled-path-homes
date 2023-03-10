@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-const ammenitiesArray = (state = [], action) => {
+const amenitiesArray = (state = [], action) => {
   switch (action.type) {
-    case 'SET_AMENITIES_ARRAY':
+    case 'SET_AMENITIES':
       return action.payload;
     default:
       return state;
@@ -12,7 +12,7 @@ const ammenitiesArray = (state = [], action) => {
 
 
 const amenitiesReducer = combineReducers({
-    ammenitiesArray
+    amenitiesArray
 });
 
 

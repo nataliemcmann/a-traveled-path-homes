@@ -85,4 +85,4 @@ function PropertyDescriptionForm() {
     )
 
 }
-export default PropertyDescriptionForm
+export default PropertyDescriptionForm;
