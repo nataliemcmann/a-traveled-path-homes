@@ -4,16 +4,23 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 //mui components
 import { Stack, Grid, Card, CardHeader, CardContent } from '@mui/material'; 
 import EditIcon from '@mui/icons-material/Edit';
+import { useHistory } from 'react-router-dom';
 
 function ProfilePage () {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const profileReducer = useSelector(store => store.profileReducer);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_PROFILE' });
     }, []);
+
+    const toEditPage = (event) => {
+        event.preventDefault();
+        history.push('/editProfileForm')
+    }
 
     return (
         <>
@@ -25,6 +32,7 @@ function ProfilePage () {
         >
             <h1>Welcome, {profileReducer.profile.firstName}</h1>
             <h2>Personal Information</h2>
+            <EditIcon onClick = {toEditPage}/>
             <Grid
             container direction="row"
             margin={2}
@@ -37,7 +45,6 @@ function ProfilePage () {
                         <p>
                             {profileReducer.profile.firstName} {profileReducer.profile.lastName} 
                         </p>
-                        <EditIcon />
                     </CardContent>
                 </Card>
                 <Card sx={{ width: 1/4 }}>
@@ -46,7 +53,6 @@ function ProfilePage () {
                         <p>
                             {profileReducer.profile.profession}
                         </p>
-                        <EditIcon />
                     </CardContent>
                 </Card>
                 <Card sx={{ width: 1/4 }}>
@@ -57,7 +63,6 @@ function ProfilePage () {
                         <p>
                             {profileReducer.profile.stringDob}
                         </p>
-                        <EditIcon />
                     </CardContent>
                 </Card>
             </Grid>
