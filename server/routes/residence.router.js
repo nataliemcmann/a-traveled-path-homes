@@ -5,6 +5,27 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
+
+
+router.get('/:id', (req, res) =>{
+  const currentPrice = req.params.id
+  const sqlQuery = `SELECT * FROM "residences" WHERE "price" = $1;`;
+  // const sqlValue = [currentPrice]; 
+  pool
+  .query(sqlQuery,currentPrice)
+  .then((result) => {
+    res.send(result);
+  })
+  .catch((error) => {
+    console.log("ERROR in /api/residence GET route", error);
+    res.sendStatus(500);
+  });
+})
+
+
+
+
+
 router.post('/', (req, res) => {
     console.log(req.body);
     const insertResidenceQuery= `

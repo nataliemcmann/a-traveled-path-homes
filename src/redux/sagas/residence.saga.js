@@ -8,7 +8,7 @@ function* fetchResidence() {
       withCredentials: true,
     };
 
-    const response = yield axios.get('/api/residence', config);
+    const response = yield axios.get(`/api/residence/${id}`, config);
     
 
     yield put({ type: 'SET_RESIDENCE', payload: response.data });
