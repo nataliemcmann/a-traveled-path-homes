@@ -34,7 +34,6 @@ function PropertyPhotoForm() {
         })
     }
 
-    const residenceId = 10;
         return (
             <>
                 <form onSubmit={postFiles} encType="multipart/form-data">
@@ -65,7 +64,7 @@ function PropertyPhotoForm() {
                         <Button type="submit">Next</Button>
                     </div>
                 </form>
-                <PropertyPhotoList residenceId={residenceId}/>
+                <PropertyPhotoList residenceId={ propertyReducer.residence.id }/>
             </>
         )
 }
