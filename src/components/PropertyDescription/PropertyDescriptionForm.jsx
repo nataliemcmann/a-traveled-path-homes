@@ -15,7 +15,7 @@ function PropertyDescriptionForm() {
     const [newBedrooms, setNewBedrooms] = useState(0)
     const [newBeds, setNewBeds] = useState(0)
     const [newBathrooms, setNewBathrooms] = useState(0)
-    const [newFeaturePhoto, setNewFeaturePhoto] = useState('')
+    const [newFeaturePhoto, setNewFeaturePhoto] = useState(0)
     const history = useHistory();
 
     const toAddressPage = (event) => {
@@ -43,15 +43,15 @@ function PropertyDescriptionForm() {
             payload: newProperty
         })
         console.log(newProperty)
-        setNewHouseType(''),
+        setNewHouseType(0),
         setNewPropertyName(''),
         setNewDescription(''),
         setNewAddress(''),
-        setNewMaxGuests(''),
-        setNewBedrooms(''),
-        setNewBeds(''),
-        setNewBathrooms(''),
-        setNewFeaturePhoto('')
+        setNewMaxGuests(0),
+        setNewBedrooms(0),
+        setNewBeds(0),
+        setNewBathrooms(0),
+        setNewFeaturePhoto(0)
 
 
     }

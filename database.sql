@@ -31,6 +31,20 @@ CREATE TABLE "residences" (
 	"beds" INT,
 	"bathrooms" INT,
 	"listed" BOOLEAN,
-	"featurePhoto" VARCHAR
+	"featurePhoto" INT,
+	"minStayLength" INT,
+	"priceDaily" INT,
+	"priceMonthly" INT
+);
+
+CREATE TABLE "amenities" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (255)
+);
+
+CREATE TABLE "amenities_residences" (
+    "id" SERIAL PRIMARY KEY,
+    "amenitiesId" INT,
+    "residenceId" INT
 );
 

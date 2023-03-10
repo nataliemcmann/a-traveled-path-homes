@@ -18,6 +18,7 @@ function* fetchResidence() {
     console.log('Residence get request failed', error);
   }
 }
+
 function* propertyDescriptionForm(action){
     const property = action.payload
     console.log('this is the describe property', property);
@@ -29,10 +30,24 @@ function* propertyDescriptionForm(action){
     yield put({
         type:'FETCH_RESIDENCE'
     })   
-    
 }
+
+function* residenceEdit(action) {
+  const editedResidence = action.payload;
+  yield axios({
+    method: 'PUT',
+    url: `/api/residence/${editedResidence.id}`,
+    data: editedResidence,
+  })
+  yield put({
+    type: 'FETCH_RESIDENCE'
+  })
+}
+
+
 
 export default function* residenceSaga() {
   yield takeLatest('FETCH_RESIDENCE', fetchResidence);
   yield takeLatest('CREATE_PROPERTY_DESCRIPTION', propertyDescriptionForm);
+  yield takeLatest('EDIT_RESIDENCE', residenceEdit);
 }

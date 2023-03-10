@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const InstructionsDetail = () => {
+const InstructionsDetails = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -92,4 +92,4 @@ const InstructionsDetail = () => {
 )
 }
 
-export default InstructionsDetail;
+export default InstructionsDetails;

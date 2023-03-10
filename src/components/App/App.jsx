@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
 
 import AboutPage from '../AboutPage/AboutPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
@@ -20,23 +21,24 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import PriceForm from '../Price/PriceForm';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
-import ProperyAddressForm from '../PropertyAddressForm/PropertyAddressForm';
-import InstructionsDetail from '../InstructionsDetails/InstructionsDetails';
+import PropertyPhotoForm from "../PropertyPhotoForm/PropertyPhotoForm";
 
+import BasicForms from "../BasicsProperty/BasicInfoPage";
+import LengthofStay from "../LengthofStay/LengthofStay";
+import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
 
 
 import './App.css';
-
 function App() {
   const dispatch = useDispatch();
 
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
   return (
@@ -75,24 +77,33 @@ function App() {
             <ProfileForm />
           </ProtectedRoute>
 
+
           <ProtectedRoute
+            exact
+            path= "/propertyPhotoForm"
+          >
+            <PropertyPhotoForm />
+          </ProtectedRoute>
+
+            <ProtectedRoute
             exact
             path= "/describe"
           >
             <PropertyDescriptionForm  />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact
-            path= "/address"
-          >
-            <ProperyAddressForm  />
-          </ProtectedRoute>
-
+          
           <ProtectedRoute
             exact
             path= "/instructions"
           >
             <InstructionsDetail  />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path= "/address"
+          >
+            <ProperyAddressForm  />
           </ProtectedRoute>
 
           {/* <ProtectedRoute
@@ -111,20 +122,34 @@ function App() {
             <RenterDashboard />
           </ProtectedRoute> */}
 
-          <Route
-            exact
-            path="/login"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/login">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/home" />
-              :
+
+            ):
               // Otherwise, show the login page
               <LoginPage />
             }
           </Route>
 
+
+          <ProtectedRoute exact path="/describe">
+            <PropertyDescriptionForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/basics">
+            <BasicForms />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/stay">
+            <LengthofStay />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/amenities">
+            <AmenitiesForm />
+          </ProtectedRoute>
+
+       
           <Route
             exact
             path="/registration"
@@ -134,10 +159,12 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/home" />
               :
+
               // Otherwise, show the registration page
               <RegisterPage />
             }
           </Route>
+
 
           <Route
             exact
