@@ -29,6 +29,9 @@ function* addPhotos(action) {
     }
 }
 
+//get Saga: will fire on "FETCH_PHOTOS" action
+
+
 function* photoSaga() {
     yield takeEvery('ADD_PHOTOS', addPhotos);
 }

@@ -28,7 +28,7 @@ function PropertyPhotoForm() {
         dispatch({
             type: 'ADD_PHOTOS',
             payload: {
-                residenceId: 10,
+                residenceId: propertyReducer.residenceId,
                 files : photoReducer.files
             }
         })

@@ -17,12 +17,13 @@ const fileFilter = (req, file, cb) =>{
 
 const upload = multer({storage, fileFilter});
 const { s3Upload } = require('../s3Service');
+const { PoolRounded } = require('@mui/icons-material');
 
 
 /**
  * POST route 
  */
-router.post('/files', upload.array("file"), async (req, res) => {
+router.post('/files', rejectUnauthenticated, upload.array("file"), async (req, res) => {
     try {
         const results = await s3Upload(req.files);
         const locationArray = results.map((result) => {
@@ -37,18 +38,33 @@ router.post('/files', upload.array("file"), async (req, res) => {
             ("residenceId", "imagePath")
         VALUES ($1, $2);
         `;
-
+        //loop through location array and post each to the photos database
         locationArray.map((location) => {
             const sqlValues = [residenceId, location];
             pool.query(sqlQuery, sqlValues);
         })
-        
         res.sendStatus(201);
     } catch (error) {
         console.log(error)
         console.log('fail')
         res.sendStatus(500);
     }
+})
+
+router.get('/:residenceId', rejectUnauthenticated, (req, res) => {
+        const residenceId = req.params.residenceId;
+        const sqlValues = [residenceId];
+        const sqlQuery = `
+        SELECT * FROM "photos"
+        WHERE "residenceId" = $1;
+        `;
+        pool.query(sqlQuery, sqlValues)
+        .then((result) => {
+            res.send(result.rows)
+        })
+        .catch(err => {
+            console.log('Get photos of residence', err);
+        })
 })
 
 
