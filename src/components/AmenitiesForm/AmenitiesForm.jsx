@@ -25,7 +25,7 @@ function AmenitiesForm() {
   const amenitiesList = [];
 
   function handleShower() {
-    amenitiesList.push({amenity_id});
+    amenitiesList.push('shower');
     console.log('added shower');
   }
 
