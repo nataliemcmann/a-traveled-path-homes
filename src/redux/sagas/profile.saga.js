@@ -27,11 +27,23 @@ function* fetchProfileToEdit(action) {
     console.log(idOfProfileToEdit)
     const response = yield axios({
         method: 'GET',
-        url: `/api/profile/${idOfProfileToEdit}`
+        url: `/api/profile`
     })
     yield put({
         type: 'SET_PROFILE_TO_EDIT',
         payload: response.data
+    })
+}
+
+function* editProfile(action) {
+    const editProfile = action.payload;
+    yield axios({
+        method: 'PUT',
+        url: `/api/profile/${editProfile.id}`,
+        data: editProfile,
+    })
+    yield put({
+        type: 'FETCH_PROFILE'
     })
 }
 
@@ -40,7 +52,8 @@ function* fetchProfileToEdit(action) {
 function* profileSaga() {
     yield takeEvery('ADD_PROFILE', addProfile);
     yield takeEvery('FETCH_PROFILE', fetchProfile);
-    yield takeEvery('EDIT_PROFILE', fetchProfileToEdit);
+    yield takeEvery('FETCH_PROFILE_TO_EDIT', fetchProfileToEdit);
+    yield takeEvery('EDITED_PROFILE', editProfile);
 }
 
 export default profileSaga;
