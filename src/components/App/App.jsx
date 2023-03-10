@@ -24,12 +24,14 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import PriceForm from '../Price/PriceForm';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
-import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
+import PropertyPhotoForm from "../PropertyPhotoForm/PropertyPhotoForm";
 
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
 import ReviewPage from "../ReviewForm/Review";
 import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
+import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
+import ProperyAddressForm from "../PropertyAddressForm/PropertyAddressForm";
 
 
 
@@ -94,12 +96,19 @@ function App() {
           >
             <PropertyDescriptionForm  />
           </ProtectedRoute>
+          
+          <ProtectedRoute
+            exact
+            path= "/instructions"
+          >
+            <InstructionsDetails  />
+          </ProtectedRoute>
 
           <ProtectedRoute
             exact
-            path= "/price"
+            path= "/address"
           >
-            <PriceForm  />
+            <ProperyAddressForm  />
           </ProtectedRoute>
 
           {/* <ProtectedRoute

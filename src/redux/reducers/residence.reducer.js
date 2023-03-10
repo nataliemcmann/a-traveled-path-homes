@@ -22,6 +22,9 @@ const residence = (state = [], action) => {
     }
   }
 
+
+
+  
   const editResidence = (state = {}, action) =>{
     if(action.type === 'HOUSE_TYPE_TO_EDIT') {
       return action.payload;
