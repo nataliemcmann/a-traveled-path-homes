@@ -71,6 +71,36 @@ const residence = (state = [], action) => {
       const newBathroomsvalue = action.payload;
       return {...state, bathrooms: newBathroomsvalue}
     }
+    if(action.type === 'LISTED_TO_EDIT') {
+      return action.payload;
+    }else if (action.type === 'SET_LISTED') {
+      const newListedValue = action.payload;
+      return {...state, listed: newListedValue}
+    }
+    if(action.type === 'FEATURE_PHOTO_TO_EDIT') {
+      return action.payolad;
+    }else if (action.type === 'SET_FEATURE_PHOTO') {
+      const newFeaturePhotoValue = action.payload;
+      return {...state, photo: newFeaturePhotoValue}
+    }
+    if(action.type === 'MIN_STAY_LENGTH_TO_EDIT') {
+      return action.payload;
+    }else if (action.type === 'SET_MIN_STAY_LENGTH') {
+      const newMinStayLengthValue = action.payload;
+      return {...state, minStayLength: newMinStayLengthValue}
+    }
+    if(action.type === 'PRICE_DAILY_TO_EDIT') {
+      return action.payload;
+    }else if (action.type === 'SET_PRICE_DAILY') {
+      const newPriceDailyValue = action.payload;
+      return {...state, priceDaily: newPriceDailyValue }
+    }
+    if(action.type === 'PRICE_MONTHLY_TO_EDIT') {
+      return action.payload;
+    }else if (action.type === 'SET_PRICE_MONTHLY') {
+      const newPriceMonthlyValue = action.payload;
+      return {...state, priceDaily: newPriceMonthlyValue }
+    }
     return state;
   }
 const propertyReducer = combineReducers({
