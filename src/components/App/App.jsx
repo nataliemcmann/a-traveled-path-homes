@@ -29,6 +29,8 @@ import PropertyPhotoForm from "../PropertyPhotoForm/PropertyPhotoForm";
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
 import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
+import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
+import ProperyAddressForm from "../PropertyAddressForm/PropertyAddressForm";
 
 
 import './App.css';
@@ -96,7 +98,7 @@ function App() {
             exact
             path= "/instructions"
           >
-            <InstructionsDetail  />
+            <InstructionsDetails  />
           </ProtectedRoute>
 
           <ProtectedRoute
