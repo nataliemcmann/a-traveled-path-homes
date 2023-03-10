@@ -9,7 +9,8 @@ function PropertyPhotoForm() {
     //declare dispatch
     const dispatch = useDispatch();
     //declare a reducer to temporarily files
-    const photoReducer = useSelector(store => store.photoReducer)
+    const photoReducer = useSelector(store => store.photoReducer);
+    const propertyReducer = useSelector(store => store.propertyReducer);
 
 
     // event handler to manage file change and update reducer
@@ -25,8 +26,11 @@ function PropertyPhotoForm() {
     const postFiles = () => {
         console.log('uploading files', photoReducer.files);
         dispatch({
-            type: 'ADD_FILES',
-            payload: photoReducer.files
+            type: 'ADD_PHOTOS',
+            payload: {
+                residenceId: propertyReducer.residence.id,
+                files : photoReducer.files
+            }
         })
     }
 
