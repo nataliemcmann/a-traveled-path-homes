@@ -28,11 +28,11 @@ const InstructionsDetails = () => {
     });
 
     // Reset the form inputs
-    wifiInformationInput("");
-    safetyProtocalInput("");
-    contactInformationInput("");
-    checkInDetailsInput("");
-    checkOutDetailsInput("");
+    // wifiInformationInput("");
+    // safetyProtocalInput("");
+    // contactInformationInput("");
+    // checkInDetailsInput("");
+    // checkOutDetailsInput("");
     history.push('/review')
   };
   return (
