@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
+import { Grid, Button, TextField } from "@mui/material";
 import './PropertyDescription.css'
+//mui components
+import HomeIcon from '@mui/icons-material/Home';
 
 function PropertyDescriptionForm() {
     const dispatch = useDispatch();
@@ -61,6 +63,9 @@ function PropertyDescriptionForm() {
             <form onSubmit={addToResidence}>
             <h1>Describe</h1>
             <h5>select your property type and write a short description</h5>
+            <Grid direction='row' flexWrap='nowrap'>
+                <img alt="single family home Iicon" src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/SingleFamily.png"/>
+            </Grid>
             <h3>Property Name</h3>
             <TextField 
                 id="outlined-basic" 
