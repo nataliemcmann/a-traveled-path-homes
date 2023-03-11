@@ -40,19 +40,26 @@ function PropertyPhotoForm() {
 
         return (
             <>
-                <form onSubmit={postFiles} encType="multipart/form-data">
+                <form className="uploadForm" onSubmit={postFiles} encType="multipart/form-data">
                     <Card>
                         <CardHeader 
+                        titleTypographyProps={{variant:'h3', textAlign:'center'}}
                         title="Photos"
+                        subheaderTypographyProps={{textAlign:'left', color: '#000000'}}
                         subheader="Upload photos of your property! 
                         You need at least five photos, but the more the merrier. 
                         Make it feel like home!"
                         />
-                        <CardContent>
+                        <CardContent style={{display: 'flex', justifyContent:'center'}}>
                             <div className="uploadContainer">
                                 <Button component="label"  
                                 sx={{ color: '#111856'}}>
-                                <AddCircleOutlineIcon/> 
+                                <AddCircleOutlineIcon 
+                                    style={{ 
+                                        width: '2.5em', height: '2.5em',
+                                        paddingLeft: '270px', paddingTop: '170px'
+                                    }
+                                }/> 
                                 <input 
                                     onChange={onFileChange} 
                                     multiple 
