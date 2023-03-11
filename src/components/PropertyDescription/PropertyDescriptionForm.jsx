@@ -29,22 +29,27 @@ function PropertyDescriptionForm() {
     }
 
     function setSingle() {
+        console.log('single', 0)
         setNewHouseType(0);
     }
 
     function setMulti() {
+        console.log('multi', 1)
         setNewHouseType(1);
     }
 
     function setTownhouse() {
+        console.log('townhouse', 2)
         setNewHouseType(2);
     }
 
     function setApartment() {
+        console.log('apartment', 3)
         setNewHouseType(3);
     }
 
     function setCondo() {
+        console.log('condo', 4)
         setNewHouseType(4);
     }
 
@@ -83,28 +88,44 @@ function PropertyDescriptionForm() {
         <>
             <form className="describeForm" onSubmit={addToResidence}>
             <h1>Describe</h1>
-            <h5>Select your property type and write a short description.</h5>
+            <p>Select your property type and write a short description.</p>
             <Grid 
             container spacing={1}
             direction='row' 
             flexWrap='nowrap' 
-            justifyContent='space-evenly'
+            justifyContent='space-between'
             marginTop={2}
+            marginBottom={2}
             >
                 <div className="iconContainer">
-                    <SingleFamilyIcon onClick={setSingle}/>
+                    <Button onClick={setSingle}>
+                        <SingleFamilyIcon/>
+                    </Button>
+                    <p>Single Family</p>
                 </div>
                 <div className="iconContainer">
-                    <MultiFamilyIcon onClick={setMulti}/>
+                    <Button onClick={setMulti}>
+                        <MultiFamilyIcon />
+                    </Button>
+                    <p>Multi-family</p>
                 </div>
                 <div className="iconContainer">
-                    <TownhouseIcon onClick={setTownhouse}/>
+                    <Button onClick={setTownhouse}>
+                        <TownhouseIcon />
+                    </Button>
+                    <p>Townhouse</p>
                 </div>
                 <div className="iconContainer">
-                    <ApartmentIcon onClick={setApartment}/>
+                    <Button onClick={setApartment}>
+                        <ApartmentIcon />
+                    </Button>
+                    <p>Apartment</p>
                 </div>
                 <div className="iconContainer">
-                    <CondoIcon onClick={setCondo}/>
+                    <Button onClick={setCondo}>
+                        <CondoIcon />
+                    </Button>
+                    <p>Condo</p>
                 </div>
             </Grid>
             <h3>Property Name</h3>
