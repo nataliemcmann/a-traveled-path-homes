@@ -3,3 +3,7 @@
     height: auto;
     max-width: 250px;
 }
+
+.selected {
+    border: 5px solid #CE8077;
+}

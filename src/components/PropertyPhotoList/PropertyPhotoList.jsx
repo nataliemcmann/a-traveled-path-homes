@@ -23,7 +23,7 @@ function PropertyPhotoList ({ trigger, setTrigger, residenceId }) {
                         justifyContent='center'
                     >
                         {photoReducer.residencePhotos && photoReducer.residencePhotos.map((photo) => {
-                        return <PhotoItem id key={photo.id} photo={photo}/>
+                        return <PhotoItem key={photo.id} photo={photo}/>
                     })}
                     </Grid>
                 <button className='close-btn' onClick={() => setTrigger(false)}>Close</button>
