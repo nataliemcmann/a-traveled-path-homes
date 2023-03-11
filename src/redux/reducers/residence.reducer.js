@@ -10,20 +10,6 @@ const residence = (state = [], action) => {
         return state;
     }
   }
-
-  const propertyDescription = (state = [], action) => {
-    switch (action.type) {
-      case 'SET_PROPERTY_DESCRIPTION':
-        return action.payload;
-      case 'UNSET_PROPERTY_DESCRIPTION':
-        return [];
-      default:
-        return state;
-    }
-  }
-
-
-
   
   const editResidence = (state = {}, action) =>{
     if(action.type === 'HOUSE_TYPE_TO_EDIT') {
@@ -108,7 +94,6 @@ const residence = (state = [], action) => {
   }
 const propertyReducer = combineReducers({
     residence,
-    propertyDescription,
     editResidence,
 });
 
