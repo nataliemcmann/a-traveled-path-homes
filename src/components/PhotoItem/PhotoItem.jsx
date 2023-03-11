@@ -1,12 +1,15 @@
 import React from 'react';
+import './PhotoItem.css';
+//mui component
+import { Card } from '@mui/material'
 
 function PhotoItem ({ photo }) {
 
     return (
         <>
-            <li>
-                <img src={photo.imagePath} width="300" height="300"/>
-            </li>
+            <Card margin={2}>
+                <img className="relative" src={photo.imagePath}/>
+            </Card>
         </>
     )
 }
