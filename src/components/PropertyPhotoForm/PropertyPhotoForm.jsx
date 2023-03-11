@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './PropertyPhotoForm.css';
 import PropertyPhotoList from '../PropertyPhotoList/PropertyPhotoList';
@@ -12,6 +12,9 @@ function PropertyPhotoForm() {
     //declare a reducer to temporarily files
     const photoReducer = useSelector(store => store.photoReducer);
     const propertyReducer = useSelector(store => store.propertyReducer);
+
+    //state for pop-up
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     // event handler to manage file change and update reducer
     const onFileChange = (event) => {
@@ -33,6 +36,7 @@ function PropertyPhotoForm() {
             }
         })
     }
+        const id=10;
 
         return (
             <>
@@ -64,7 +68,10 @@ function PropertyPhotoForm() {
                         <Button type="submit">Next</Button>
                     </div>
                 </form>
-                <PropertyPhotoList residenceId={ propertyReducer.residence.id }/>
+                <div>
+                    <Button onClick={() => setButtonPopup(true)}>View Photos</Button>
+                </div>
+                <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup} residenceId={ id }/>
             </>
         )
 }

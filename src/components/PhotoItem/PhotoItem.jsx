@@ -5,7 +5,7 @@ function PhotoItem ({ photo }) {
     return (
         <>
             <li>
-                <img src={photo.imagePath} width="500" height="500"/>
+                <img src={photo.imagePath} width="300" height="300"/>
             </li>
         </>
     )

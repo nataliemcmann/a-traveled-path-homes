@@ -17,7 +17,7 @@ const fileFilter = (req, file, cb) =>{
 
 const upload = multer({storage, fileFilter});
 const { s3Upload } = require('../s3Service');
-const { PoolRounded } = require('@mui/icons-material');
+
 
 
 /**
