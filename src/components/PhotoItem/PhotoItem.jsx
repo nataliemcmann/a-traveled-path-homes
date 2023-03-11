@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './PhotoItem.css';
 //mui component
 import { Card } from '@mui/material'
 
 function PhotoItem ({ photo }) {
     const dispatch = useDispatch();
+    const propertyReducer = useSelector(store => store.propertyReducer);
 
     const [selected, setSelected] = useState(false);
 
@@ -17,31 +18,51 @@ function PhotoItem ({ photo }) {
         setSelected(true);
     }
 
-    const handleClickOutside = () => {
-        
+    if (propertyReducer) {
+            return (selected && propertyReducer.editResidence.photo === photo.id) ? (
+                <>
+                    <Card className="selected" margin={2}>
+                        <img 
+                            className="relative" 
+                            src={photo.imagePath}
+                            onClick={selectAsFeature}
+                        />
+                    </Card>
+                </>
+            ) : (
+                <>
+                    <Card margin={2}>
+                        <img 
+                            className="relative" 
+                            src={photo.imagePath}
+                            onClick={selectAsFeature}
+                        />
+                    </Card>
+                </>
+            )
+    } else {
+        return (selected) ? (
+            <>
+                <Card className="selected" margin={2}>
+                    <img 
+                        className="relative" 
+                        src={photo.imagePath}
+                        onClick={selectAsFeature}
+                    />
+                </Card>
+            </>
+        ) : (
+            <>
+                <Card margin={2}>
+                    <img 
+                        className="relative" 
+                        src={photo.imagePath}
+                        onClick={selectAsFeature}
+                    />
+                </Card>
+            </>
+        )
     }
-
-    return (selected) ? (
-        <>
-            <Card className="selected" margin={2}>
-                <img 
-                    className="relative" 
-                    src={photo.imagePath}
-                    onClick={selectAsFeature}
-                />
-            </Card>
-        </>
-    ) : (
-        <>
-            <Card margin={2}>
-                <img 
-                    className="relative" 
-                    src={photo.imagePath}
-                    onClick={selectAsFeature}
-                />
-            </Card>
-        </>
-    )
 }
 
 export default PhotoItem;
