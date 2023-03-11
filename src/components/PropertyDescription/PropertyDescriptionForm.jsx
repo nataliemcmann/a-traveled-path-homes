@@ -10,8 +10,13 @@ import ApartmentIcon from "../HouseTypeIcons/ApartmentIcon";
 import CondoIcon from "../HouseTypeIcons/CondoIcon";
 
 function PropertyDescriptionForm() {
+    //declare dispath
     const dispatch = useDispatch();
-    const PropertyDescription = useSelector((store) => store.propertyReducer)
+
+    //declare history
+    const history = useHistory();
+
+    //useState
     const [newHouseType, setNewHouseType] = useState(0)
     const [newPropertyName, setNewPropertyName] = useState('')
     const [newDescription, setNewDescription] = useState('')
@@ -21,41 +26,38 @@ function PropertyDescriptionForm() {
     const [newBeds, setNewBeds] = useState(0)
     const [newBathrooms, setNewBathrooms] = useState(0)
     const [newFeaturePhoto, setNewFeaturePhoto] = useState(0)
-    const history = useHistory();
 
-    const toAddressPage = (event) => {
-        event.preventDefault();
-        history.push('/address')
-    }
-
+    //functions to choose house type
+    //single
     function setSingle() {
         console.log('single', 0)
         setNewHouseType(0);
     }
-
+    //multi
     function setMulti() {
         console.log('multi', 1)
         setNewHouseType(1);
     }
-
+    //townhouse
     function setTownhouse() {
         console.log('townhouse', 2)
         setNewHouseType(2);
     }
-
+    //apartment
     function setApartment() {
         console.log('apartment', 3)
         setNewHouseType(3);
     }
-
+    //condo
     function setCondo() {
         console.log('condo', 4)
         setNewHouseType(4);
     }
 
+    //function to post and move on to address
     const addToResidence = (event) => {
         event.preventDefault();
-        let newProperty={
+        let newResidence={
             houseType: newHouseType,
             propertyName: newPropertyName,
             description: newDescription,
@@ -67,12 +69,12 @@ function PropertyDescriptionForm() {
             listed: false,
             featurePhoto: newFeaturePhoto
         }
-        console.log('this is a new property description', newProperty);
+        console.log('this is a new residence', newResidence);
         dispatch({
-            type:'CREATE_PROPERTY_DESCRIPTION',
-            payload: newProperty
+            type:'CREATE_RESIDENCE',
+            payload: newResidence
         })
-        console.log(newProperty)
+        //clear inputs
         setNewHouseType(0),
         setNewPropertyName(''),
         setNewDescription(''),
@@ -82,6 +84,7 @@ function PropertyDescriptionForm() {
         setNewBeds(0),
         setNewBathrooms(0),
         setNewFeaturePhoto(0)
+        history.push('/address')
     }
     
     return(
