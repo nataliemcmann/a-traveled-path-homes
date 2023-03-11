@@ -24,3 +24,8 @@
 .iconContainer p{
     font-size: 0.9rem;
 }
+
+.nextBtn {
+    display: flex;
+    justify-content: end;
+}

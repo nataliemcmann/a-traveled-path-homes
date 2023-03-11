@@ -86,72 +86,89 @@ function PropertyDescriptionForm() {
     
     return(
         <>
-            <form className="describeForm" onSubmit={addToResidence}>
-            <h1>Describe</h1>
-            <p>Select your property type and write a short description.</p>
-            <Grid 
-            container spacing={1}
-            direction='row' 
-            flexWrap='nowrap' 
-            justifyContent='space-between'
-            marginTop={2}
-            marginBottom={2}
-            >
-                <div className="iconContainer">
-                    <Button onClick={setSingle}>
-                        <SingleFamilyIcon/>
-                    </Button>
-                    <p>Single Family</p>
+            <form onSubmit={addToResidence}>
+                <div className="describeForm">
+                    <h1>Describe</h1>
+                    <p>Select your property type and write a short description.</p>
+                    <Grid 
+                    container spacing={1}
+                    direction='row' 
+                    flexWrap='nowrap' 
+                    justifyContent='space-between'
+                    marginTop={2}
+                    marginBottom={2}
+                    >
+                        <div className="iconContainer">
+                            <Button onClick={setSingle}>
+                                <SingleFamilyIcon/>
+                            </Button>
+                            <p>Single Family</p>
+                        </div>
+                        <div className="iconContainer">
+                            <Button onClick={setMulti}>
+                                <MultiFamilyIcon />
+                            </Button>
+                            <p>Multi-family</p>
+                        </div>
+                        <div className="iconContainer">
+                            <Button onClick={setTownhouse}>
+                                <TownhouseIcon />
+                            </Button>
+                            <p>Townhouse</p>
+                        </div>
+                        <div className="iconContainer">
+                            <Button onClick={setApartment}>
+                                <ApartmentIcon />
+                            </Button>
+                            <p>Apartment</p>
+                        </div>
+                        <div className="iconContainer">
+                            <Button onClick={setCondo}>
+                                <CondoIcon />
+                            </Button>
+                            <p>Condo</p>
+                        </div>
+                    </Grid>
+                    <h3>Property Name</h3>
+                    <TextField 
+                        id="outlined-basic" 
+                        label="Name" 
+                        variant="outlined"
+                        type="text"
+                        sx={{borderRadius: '10px'}}
+                        value={newPropertyName}
+                        onChange= {e=>setNewPropertyName(e.target.value)} 
+                        />
+                    <h3>Description</h3>
+                    <TextField
+                        id="outlined-multiline-static"
+                        multiline
+                        placeholder="Include facts about the neighborhood, 
+                        general information about amenities, and details about the property that make it a home away from home."
+                        rows={4}
+                        sx={{borderRadius: '10px'}}
+                        type="text"
+                        value={newDescription}
+                        onChange= {e=>setNewDescription(e.target.value)}
+                    />
                 </div>
-                <div className="iconContainer">
-                    <Button onClick={setMulti}>
-                        <MultiFamilyIcon />
-                    </Button>
-                    <p>Multi-family</p>
+                <div className="nextBtn">
+                    <Button 
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Next
+                    </Button>  
                 </div>
-                <div className="iconContainer">
-                    <Button onClick={setTownhouse}>
-                        <TownhouseIcon />
-                    </Button>
-                    <p>Townhouse</p>
-                </div>
-                <div className="iconContainer">
-                    <Button onClick={setApartment}>
-                        <ApartmentIcon />
-                    </Button>
-                    <p>Apartment</p>
-                </div>
-                <div className="iconContainer">
-                    <Button onClick={setCondo}>
-                        <CondoIcon />
-                    </Button>
-                    <p>Condo</p>
-                </div>
-            </Grid>
-            <h3>Property Name</h3>
-            <TextField 
-                id="outlined-basic" 
-                label="Name" 
-                variant="outlined"
-                type="text"
-                sx={{borderRadius: '10px'}}
-                value={newPropertyName}
-                onChange= {e=>setNewPropertyName(e.target.value)} 
-                />
-            <h3>Description</h3>
-            <TextField
-                id="outlined-multiline-static"
-                multiline
-                rows={4}
-                sx={{borderRadius: '10px'}}
-                type="text"
-                value={newDescription}
-                onChange= {e=>setNewDescription(e.target.value)}
-            />
-            <Button onClick={addToResidence} size= "medium" variant="outlined">Next</Button>  
             </form>
         </>
     )
-
 }
 export default PropertyDescriptionForm;
