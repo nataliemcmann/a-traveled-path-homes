@@ -17,10 +17,13 @@ function PropertyPhotoList ({ trigger, setTrigger, residenceId }) {
     return (trigger) ? (
         <div className='view-photos'>
             <div className='view-photos-inner'>
+                <p>Select a feature photo for the property and remove photos if needed.</p>
                     <Grid 
                         container spacing={2}
+                        columns={3}
                         flexWrap='wrap'
                         justifyContent='center'
+                        marginTop={2}
                     >
                         {photoReducer.residencePhotos && photoReducer.residencePhotos.map((photo) => {
                         return <PhotoItem key={photo.id} photo={photo}/>

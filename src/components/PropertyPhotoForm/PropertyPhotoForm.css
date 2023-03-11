@@ -11,3 +11,14 @@
     width: 640px;
     height: 400px;
 }
+
+.selectBtn {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+
+.nextBtn {
+    display: flex;
+    justify-content: end;
+}

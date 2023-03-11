@@ -40,44 +40,65 @@ function PropertyPhotoForm() {
 
         return (
             <>
-                <form className="uploadForm" onSubmit={postFiles} encType="multipart/form-data">
-                    <Card>
-                        <CardHeader 
-                        titleTypographyProps={{variant:'h3', textAlign:'center'}}
-                        title="Photos"
-                        subheaderTypographyProps={{textAlign:'left', color: '#000000'}}
-                        subheader="Upload photos of your property! 
-                        You need at least five photos, but the more the merrier. 
-                        Make it feel like home!"
-                        />
-                        <CardContent style={{display: 'flex', justifyContent:'center'}}>
-                            <div className="uploadContainer">
-                                <Button component="label"  
-                                sx={{ color: '#111856'}}>
-                                <AddCircleOutlineIcon 
-                                    style={{ 
-                                        width: '2.5em', height: '2.5em',
-                                        paddingLeft: '270px', paddingTop: '170px'
-                                    }
-                                }/> 
-                                <input 
-                                    onChange={onFileChange} 
-                                    multiple 
-                                    type="file"
-                                    // accept="image/jpeg, image/png, image/jpg" 
-                                    hidden 
-                                />
-                                </Button>
-                            </div>
-                        </CardContent>
-                    </Card>
-                    <div>
-                        <Button type="submit">Next</Button>
+                <form onSubmit={postFiles} encType="multipart/form-data">
+                    <div className="uploadForm">
+                        <Card>
+                            <CardHeader 
+                            titleTypographyProps={{variant:'h3', textAlign:'center'}}
+                            title="Photos"
+                            subheaderTypographyProps={{textAlign:'left', color: '#000000'}}
+                            subheader="Upload photos of your property! 
+                            You need at least five photos, but the more the merrier. 
+                            Make it feel like home!"
+                            />
+                            <CardContent style={{display: 'flex', justifyContent:'center'}}>
+                                <div className="uploadContainer">
+                                    <Button component="label"  
+                                    style={{backgroundColor: 'transparent'}} 
+                                    sx={{ color: '#111856'}}>
+                                    <AddCircleOutlineIcon 
+                                        style={{ 
+                                            width: '2.5em', height: '2.5em',
+                                            paddingLeft: '270px', paddingTop: '170px'
+                                        }}
+                                    /> 
+                                    <input 
+                                        onChange={onFileChange} 
+                                        multiple 
+                                        type="file"
+                                        // accept="image/jpeg, image/png, image/jpg" 
+                                        hidden 
+                                    />
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+                        <div className="selectBtn">
+                            <Button 
+                            onClick={() => setButtonPopup(true)}
+                            size='large'
+                            sx={{
+                                backgroundColor: '#111856',
+                                color: '#f8f8f8'
+                            }}
+                            >
+                                View Photos
+                            </Button>
+                        </div>
+                    </div>
+                    <div className="nextBtn">
+                        <Button 
+                        type="submit"
+                        size='large'
+                        sx={{
+                            backgroundColor: '#CE8077',
+                            color: '#f8f8f8'
+                        }}
+                        >
+                            Next
+                        </Button>
                     </div>
                 </form>
-                <div>
-                    <Button onClick={() => setButtonPopup(true)}>View Photos</Button>
-                </div>
                 <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup} residenceId={ id }/>
             </>
         )
