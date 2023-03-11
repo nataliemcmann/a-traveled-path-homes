@@ -3,8 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Grid, Button, TextField } from "@mui/material";
 import './PropertyDescription.css'
-//mui components
-import HomeIcon from '@mui/icons-material/Home';
+import SingleFamilyIcon from "../HouseTypeIcons/SingleFamilyIcon";
+import MultiFamilyIcon from "../HouseTypeIcons/MultiFamilyIcon";
+import TownhouseIcon from "../HouseTypeIcons/TownhouseIcon";
+import ApartmentIcon from "../HouseTypeIcons/ApartmentIcon";
+import CondoIcon from "../HouseTypeIcons/CondoIcon";
 
 function PropertyDescriptionForm() {
     const dispatch = useDispatch();
@@ -23,6 +26,26 @@ function PropertyDescriptionForm() {
     const toAddressPage = (event) => {
         event.preventDefault();
         history.push('/address')
+    }
+
+    function setSingle() {
+        setNewHouseType(0);
+    }
+
+    function setMulti() {
+        setNewHouseType(1);
+    }
+
+    function setTownhouse() {
+        setNewHouseType(2);
+    }
+
+    function setApartment() {
+        setNewHouseType(3);
+    }
+
+    function setCondo() {
+        setNewHouseType(4);
     }
 
     const addToResidence = (event) => {
@@ -54,17 +77,35 @@ function PropertyDescriptionForm() {
         setNewBeds(0),
         setNewBathrooms(0),
         setNewFeaturePhoto(0)
-
-
     }
     
     return(
-        <div className="propertyDescription">
-            <form onSubmit={addToResidence}>
+        <>
+            <form className="describeForm" onSubmit={addToResidence}>
             <h1>Describe</h1>
-            <h5>select your property type and write a short description</h5>
-            <Grid direction='row' flexWrap='nowrap'>
-                <img alt="single family home Iicon" src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/SingleFamily.png"/>
+            <h5>Select your property type and write a short description.</h5>
+            <Grid 
+            container spacing={1}
+            direction='row' 
+            flexWrap='nowrap' 
+            justifyContent='space-evenly'
+            marginTop={2}
+            >
+                <div className="iconContainer">
+                    <SingleFamilyIcon onClick={setSingle}/>
+                </div>
+                <div className="iconContainer">
+                    <MultiFamilyIcon onClick={setMulti}/>
+                </div>
+                <div className="iconContainer">
+                    <TownhouseIcon onClick={setTownhouse}/>
+                </div>
+                <div className="iconContainer">
+                    <ApartmentIcon onClick={setApartment}/>
+                </div>
+                <div className="iconContainer">
+                    <CondoIcon onClick={setCondo}/>
+                </div>
             </Grid>
             <h3>Property Name</h3>
             <TextField 
@@ -72,6 +113,7 @@ function PropertyDescriptionForm() {
                 label="Name" 
                 variant="outlined"
                 type="text"
+                sx={{borderRadius: '10px'}}
                 value={newPropertyName}
                 onChange= {e=>setNewPropertyName(e.target.value)} 
                 />
@@ -80,13 +122,14 @@ function PropertyDescriptionForm() {
                 id="outlined-multiline-static"
                 multiline
                 rows={4}
+                sx={{borderRadius: '10px'}}
                 type="text"
                 value={newDescription}
                 onChange= {e=>setNewDescription(e.target.value)}
             />
             <Button onClick={addToResidence} size= "medium" variant="outlined">Next</Button>  
             </form>
-        </div>
+        </>
     )
 
 }

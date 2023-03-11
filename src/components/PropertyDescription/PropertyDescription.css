@@ -1,3 +1,9 @@
-.propertyDescription {
-    text-align: center;
+.describeForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    max-width: 100%;
+    padding: 1%;
+    margin: 0 auto 20%;
 }
