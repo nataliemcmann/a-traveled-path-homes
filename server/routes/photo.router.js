@@ -73,7 +73,7 @@ router.delete('/:photoId', rejectUnauthenticated, (req, res) => {
     const photoId = req.params.photoId;
     const sqlValues = [photoId];
     const sqlQuery = `
-    DELETE "photos"
+    DELETE FROM "photos"
     WHERE "id" = $1;
     `;
     pool.query(sqlQuery, sqlValues)

@@ -45,9 +45,10 @@ function* fetchResidencePhotos(action) {
 //(will only delete from photos database, not AWS S3 bucket)
 function* deleteAPhoto(action) {
     try {
-        const photoId = action.payload;
+        const photoId = action.payload.photoId;
+        const residenceId = action.payload.residenceId;
         yield axios.delete(`/api/photo/${photoId}`);
-        yield put(({type: 'FETCH_RESIDENCE_PHOTOS'}))
+        yield put(({type: 'FETCH_RESIDENCE_PHOTOS', payload: residenceId}))
     } catch (err) {
         console.log('Error in deleteAPhoto: ', err);
     }

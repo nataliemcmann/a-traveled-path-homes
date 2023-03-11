@@ -22,7 +22,10 @@ function PhotoItem ({ photo }) {
     const removePhoto = () => {
         dispatch({
             type: 'DELETE_A_PHOTO',
-            payload: photo.id
+            payload: {
+                photoId: photo.id,
+                residenceId: 10
+            }
         });
     }
 
