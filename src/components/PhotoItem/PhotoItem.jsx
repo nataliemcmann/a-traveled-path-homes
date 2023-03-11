@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './PhotoItem.css';
 //mui component
-import { Card } from '@mui/material'
+import { Card, CardActions } from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 function PhotoItem ({ photo }) {
     const dispatch = useDispatch();
@@ -18,6 +19,13 @@ function PhotoItem ({ photo }) {
         setSelected(true);
     }
 
+    const removePhoto = () => {
+        dispatch({
+            type: 'DELETE_A_PHOTO',
+            payload: photo.id
+        });
+    }
+
     if (propertyReducer) {
             return (selected && propertyReducer.editResidence.photo === photo.id) ? (
                 <>
@@ -27,6 +35,9 @@ function PhotoItem ({ photo }) {
                             src={photo.imagePath}
                             onClick={selectAsFeature}
                         />
+                        <CardActions>
+                            <DeleteForeverIcon onClick={removePhoto}/>
+                        </CardActions>
                     </Card>
                 </>
             ) : (
@@ -37,6 +48,9 @@ function PhotoItem ({ photo }) {
                             src={photo.imagePath}
                             onClick={selectAsFeature}
                         />
+                        <CardActions>
+                            <DeleteForeverIcon onClick={removePhoto}/>
+                        </CardActions>
                     </Card>
                 </>
             )
@@ -49,6 +63,9 @@ function PhotoItem ({ photo }) {
                         src={photo.imagePath}
                         onClick={selectAsFeature}
                     />
+                    <CardActions>
+                        <DeleteForeverIcon onClick={removePhoto}/>
+                    </CardActions>
                 </Card>
             </>
         ) : (
@@ -59,6 +76,9 @@ function PhotoItem ({ photo }) {
                         src={photo.imagePath}
                         onClick={selectAsFeature}
                     />
+                    <CardActions>
+                        <DeleteForeverIcon onClick={removePhoto}/>
+                    </CardActions>
                 </Card>
             </>
         )

@@ -32,7 +32,7 @@ router.post('/files', rejectUnauthenticated, upload.array("file"), async (req, r
         // console.log(req.body.residenceId); this is an array of strings
         const residenceId = Number(req.body.residenceId[0]) //make it a number
         // console.log(residenceId); 
-        console.log('success');
+        console.log('AWS S3 upload success');
         const sqlQuery = `
         INSERT INTO "photos"
             ("residenceId", "imagePath")
@@ -46,11 +46,12 @@ router.post('/files', rejectUnauthenticated, upload.array("file"), async (req, r
         res.sendStatus(201);
     } catch (error) {
         console.log(error)
-        console.log('fail')
+        console.log('AWS S3 upload fail')
         res.sendStatus(500);
     }
 })
 
+//get all residence photos
 router.get('/:residenceId', rejectUnauthenticated, (req, res) => {
         const residenceId = req.params.residenceId;
         const sqlValues = [residenceId];
@@ -65,6 +66,23 @@ router.get('/:residenceId', rejectUnauthenticated, (req, res) => {
         .catch(err => {
             console.log('Get photos of residence', err);
         })
+})
+
+//delete a photo
+router.delete('/:photoId', rejectUnauthenticated, (req, res) => {
+    const photoId = req.params.photoId;
+    const sqlValues = [photoId];
+    const sqlQuery = `
+    DELETE "photos"
+    WHERE "id" = $1;
+    `;
+    pool.query(sqlQuery, sqlValues)
+    .then((result) => {
+        res.sendStatus(200);
+    })
+    .catch((err) => {
+        console.log('Delete a photo route failed: ', err);
+    })
 })
 
 

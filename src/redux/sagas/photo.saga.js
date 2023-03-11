@@ -41,9 +41,22 @@ function* fetchResidencePhotos(action) {
     }
 } 
 
+//delete Saga: will fire on "DELETE_A_PHOTO" action
+//(will only delete from photos database, not AWS S3 bucket)
+function* deleteAPhoto(action) {
+    try {
+        const photoId = action.payload;
+        yield axios.delete(`/api/photo/${photoId}`);
+        yield put(({type: 'FETCH_RESIDENCE_PHOTOS'}))
+    } catch (err) {
+        console.log('Error in deleteAPhoto: ', err);
+    }
+}
+
 function* photoSaga() {
     yield takeEvery('ADD_PHOTOS', addPhotos);
     yield takeEvery('FETCH_RESIDENCE_PHOTOS', fetchResidencePhotos);
+    yield takeEvery('DELETE_A_PHOTO', deleteAPhoto);
 }
 
 export default photoSaga;
