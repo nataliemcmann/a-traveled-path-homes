@@ -5,6 +5,11 @@ import AddressOption from './NavOptions/AddressOption';
 //mui components
 import { Grid, Button } from '@mui/material';
 import BasicsOption from './NavOptions/BasicsOption';
+import AmenitiesOption from './NavOptions/AmenitiesOption';
+import PhotosOption from './NavOptions/PhotosOption';
+import StayLengthOption from './NavOptions/StayLengthOption';
+import PriceOption from './NavOptions/PriceOption';
+import ReviewOption from './NavOptions/ReviewOption';
 
 function PropertyFormNav(props) {
     const history = useHistory();
@@ -56,7 +61,7 @@ function PropertyFormNav(props) {
         } else if (props.className === 'price' ||
         props.className === 'review') {
             setAllowPrice(true);
-        } else {
+        } else if (props.classname === 'review') {
             setAllowReview(true);
         }
     }, [])
@@ -80,7 +85,12 @@ function PropertyFormNav(props) {
                     <p>Describe</p>
                 </div>
                 <AddressOption allowAddress={allowAddress}/>
-                <BasicsOption allowed={allowBasics}/>
+                <BasicsOption allowBasics={allowBasics}/>
+                <AmenitiesOption allowAmenities={allowAmenities}/>
+                <PhotosOption allowPhotos={allowPhotos}/>
+                <StayLengthOption allowStayLength={allowStayLength}/>
+                <PriceOption allowPrice={allowPrice}/>
+                <ReviewOption allowReview={allowReview}/>
             </Grid>
         </>
     )
