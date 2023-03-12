@@ -5,6 +5,7 @@ import PropertyPhotoList from '../PropertyPhotoList/PropertyPhotoList';
 //mui components
 import { Card, CardHeader, CardContent, Button } from '@mui/material';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import PropertyFormNav from '../PropertyFormNav/PropertyFormNav';
 
 function PropertyPhotoForm() {
     //declare dispatch
@@ -40,6 +41,7 @@ function PropertyPhotoForm() {
 
         return (
             <>
+                <PropertyFormNav className="photos"/>
                 <form onSubmit={postFiles} encType="multipart/form-data">
                     <div className="uploadForm">
                         <Card>

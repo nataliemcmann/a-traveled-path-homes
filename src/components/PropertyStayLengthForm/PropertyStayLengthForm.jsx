@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import './LengthofStay.css'
 import Button from "@mui/material/Button";
+import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
-function LengthofStay () {
+function PropertyStayLengthForm () {
     const [count, setCount] = useState(0);
     function Increment() {
         setCount(function (prevCount) {
@@ -20,6 +21,7 @@ function LengthofStay () {
       }
     return (
     <>
+      <PropertyFormNav className="stayLength"/>
         <div>
             <h2 className="center"> Minimum Stay of Length</h2>
             <p className="box"> Why a minimum stay length? Traveling professionals need at least 1 month availability for their temporary housing (and often longer). A Traveled Path Homes directly serves these rent seekers, so we include a mininmum stay length for al properties to meet renter needs.</p>
@@ -48,4 +50,4 @@ function LengthofStay () {
     )
 }
 
-export default LengthofStay; 
+export default PropertyStayLengthForm; 

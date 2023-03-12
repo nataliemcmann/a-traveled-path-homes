@@ -28,40 +28,53 @@ function PropertyFormNav(props) {
 
     //giant if else statement to cue available interactions
     useEffect(() =>{
-        if (props.className === 'address' || 
-        props.className === 'basics' ||
-        props.className === 'amenities' ||
-        props.className === 'photos' ||
-        props.className === 'stayLength' ||
-        props.className === 'price' ||
-        props.className === 'review') {
+        if (props.className === 'address' ||
+            props.className === 'basics' ||
+            props.className === 'amenities' ||
+            props.className === 'photos' ||
+            props.className === 'stayLength' ||
+            props.className === 'price' ||
+            props.className === 'review') {
+            console.log('address true');
             setAllowAddress(true);
-    } else if (props.className === 'basics' ||
-        props.className === 'amenities' ||
-        props.className === 'photos' ||
-        props.className === 'stayLength' ||
-        props.className === 'price' ||
-        props.className === 'review') {
+        } 
+        if (props.className === 'basics' ||
+            props.className === 'amenities' ||
+            props.className === 'photos' ||
+            props.className === 'stayLength' ||
+            props.className === 'price' ||
+            props.className === 'review') {
+            console.log('basics true');
             setAllowBasics(true);
-        } else if (props.className === 'amenities' ||
-        props.className === 'photos' ||
-        props.className === 'stayLength' ||
-        props.className === 'price' ||
-        props.className === 'review') {
+        } 
+        if (props.className === 'amenities' ||
+            props.className === 'photos' ||
+            props.className === 'stayLength' ||
+            props.className === 'price' ||
+            props.className === 'review') {
+            console.log('amenities true');
             setAllowAmenities(true);
-        } else if (props.className === 'photos' ||
-        props.className === 'stayLength' ||
-        props.className === 'price' ||
-        props.className === 'review') {
+        } 
+        if (props.className === 'photos' ||
+            props.className === 'stayLength' ||
+            props.className === 'price' ||
+            props.className === 'review') {
+            console.log('photos true');
             setAllowPhotos(true);
-        } else if (props.className === 'stayLength' ||
-        props.className === 'price' ||
-        props.className === 'review') {
+        }  
+        if (props.className === 'stayLength' ||
+            props.className === 'price' ||
+            props.className === 'review') {
+            console.log('stay length true');
             setAllowStayLength(true);
-        } else if (props.className === 'price' ||
-        props.className === 'review') {
+        }  
+        if (props.className === 'price' ||
+            props.className === 'review') {
+            console.log('price true');
             setAllowPrice(true);
-        } else if (props.classname === 'review') {
+        }  
+        if (props.className === 'review') {
+            console.log('review true');
             setAllowReview(true);
         }
     }, [])
