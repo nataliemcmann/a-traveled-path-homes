@@ -165,6 +165,9 @@ function App() {
           <ProtectedRoute exact path="/amenities">
             <AmenitiesForm />
           </ProtectedRoute>
+          <ProtectedRoute exact path="/price">
+            <PriceForm />
+          </ProtectedRoute>
 
 
        
