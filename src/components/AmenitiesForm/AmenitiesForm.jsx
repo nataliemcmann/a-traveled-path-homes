@@ -20,22 +20,21 @@ import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 function AmenitiesForm() {
   const dispatch = useDispatch();
   const history = useHistory();
-  
 
   const amenitiesList = [];
 
   function handleShower() {
-    amenitiesList.push('shower');
+    amenitiesList.push(1);
     console.log('added shower');
   }
 
   function handleBathtub() {
-    amenitiesList.push('bathtub');
+    amenitiesList.push(2);
     console.log('added bathtub');
   }
 
   function handleWasher() {
-    amenitiesList.push('washer');
+    amenitiesList.push(3);
     console.log('added washer');
   }
 
@@ -86,10 +85,12 @@ function AmenitiesForm() {
 
 
   const addToResidence = (event) => {
-      const amenitiesArray = [...event.target.amenitiesList];
       dispatch({
-          type: 'SET_AMENITIES',
-          payload: amenitiesArray
+          type: 'ADD_AMENITIES_RESIDENCE',
+          payload: {
+              residenceId:propertyReducer.residence.id,
+              amenitiesList
+          }
       })
       history.push('/propertyPhotoForm')
   };
