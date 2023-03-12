@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
-import { Card, Icon } from '@mui/material';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Card, Icon, Grid } from '@mui/material';
 import BungalowIcon from '@mui/icons-material/Bungalow';
+import PropertyItem from '../PropertyItem/PropertyItem';
 import './OwnerDashboard.css';
 
 function OwnerDashboard() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const property = useSelector(store => store.property);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_PROPERTY' });
+}, [dispatch]);
 
   const handleClick = () => {
     history.push('/describe');
   };
+
+
 
     return(
 <div className="dashboard">
@@ -20,17 +33,24 @@ function OwnerDashboard() {
             backgroundColor: '#D1877F',
             color: '#fff',
             height: 200,
-            width: 200,
-            lineHeight: 1,
-            textAlign: 'left',
-            fontSize: 26,
+            width: 200         
+            
             }} onClick={handleClick}><Icon 
-                  sx={{
-                    width: 50,
-                    height: 50
-                  }}><BungalowIcon/></Icon></Card>
+                  ><BungalowIcon fontSize="large"/></Icon></Card>
             </div>
+            <Grid sx={{ 
+            display: 'grid',
+            gap: 3,
+            gridTemplateColumns: 'repeat(3, 2fr)',
+            padding: 1,
+            elevation: 8
+            }}>
+              {property?.map(property => (
+                <PropertyItem key={property.id} property={property} />
+            ))}
+        </Grid>
             </div>
+            
     )
 }
 
