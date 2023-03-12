@@ -34,7 +34,7 @@ import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 import ProperyAddressForm from "../PropertyAddressForm/PropertyAddressForm";
 
-
+import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
 
 import './App.css';
 
@@ -118,12 +118,12 @@ function App() {
             <ProperyAddressForm  />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             exact
             path="/ownerdashboard"
           >
             <OwnerDashboard />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
 
           {/* <ProtectedRoute
