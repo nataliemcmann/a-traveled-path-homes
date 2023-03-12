@@ -22,21 +22,21 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ProfileForm from '../ProfileForm/ProfileForm';
-import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
-import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
 
-import PropertyStayLengthForm from "../PropertyStayLengthForm/PropertyStayLengthForm";
-import ReviewPage from "../PropertyReview/PropertyReview";
-import PropertyAmenitiesForm from "../PropertyAmenitiesForm/PropertyAmenitiesForm";
-import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
+
+//property form imports
+import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
+import PropertyBasicsForm from "../PropertyBasicsForm/PropertyBasicsForm";
 import ProperyAddressForm from "../PropertyAddressForm/PropertyAddressForm";
-
-
+import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
+import PropertyAmenitiesForm from "../PropertyAmenitiesForm/PropertyAmenitiesForm";
+import PropertyStayLengthForm from "../PropertyStayLengthForm/PropertyStayLengthForm";
+import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
+import ReviewPage from "../PropertyReview/PropertyReview";
+import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 import './App.css';
-import PropertyBasicsForm from "../PropertyBasicsForm/PropertyBasicsForm";
-import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
 
 function App() {
   const dispatch = useDispatch();
