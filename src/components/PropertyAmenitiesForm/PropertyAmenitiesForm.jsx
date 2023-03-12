@@ -16,8 +16,9 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import WifiIcon from '@mui/icons-material/Wifi';
 import MonitorIcon from '@mui/icons-material/Monitor';
 import ElectricCarIcon from '@mui/icons-material/ElectricCar';
+import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
-function AmenitiesForm() {
+function PropertyAmenitiesForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -99,6 +100,7 @@ function AmenitiesForm() {
 
   return(
       <div className="amenities">
+        <PropertyFormNav className="amenities"/>
           <form onSubmit={addToResidence}>
           <h1>All Amenities</h1>
           <div className="ammenitiestext">
@@ -129,4 +131,4 @@ function AmenitiesForm() {
   )
 
 }
-export default AmenitiesForm;
+export default PropertyAmenitiesForm;

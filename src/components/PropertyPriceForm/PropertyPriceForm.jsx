@@ -7,8 +7,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import './PriceForm.css'
+import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
-function PriceForm() {
+function PropertyPriceForm() {
   const [dailyPrice, setDailyPrice] = useState(70);
   const [monthlyPrice, setMonthlyPrice] = useState(2000);
 
@@ -46,6 +47,7 @@ function PriceForm() {
 
     return (
         <div>
+          <PropertyFormNav className="price"/>
         <h1>Price</h1>
         <h4>Prices are recommended based on similar housing in your area. 
             These prices also more accurately represent the cost of housing 
@@ -95,4 +97,4 @@ function PriceForm() {
     )
 }
 
-export default PriceForm
+export default PropertyPriceForm;

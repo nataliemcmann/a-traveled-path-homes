@@ -21,20 +21,22 @@ import ProfilePage from '../ProfilePage/ProfilePage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import PriceForm from '../Price/PriceForm';
 import ProfileForm from '../ProfileForm/ProfileForm';
-import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
-import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
 
-import BasicForms from "../BasicsProperty/BasicInfoPage";
-import LengthofStay from "../LengthofStay/LengthofStay";
-import ReviewPage from "../ReviewForm/Review";
-import AmenitiesForm from "../AmenitiesForm/AmenitiesForm";
-import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
+//property form imports
+import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
+import PropertyBasicsForm from "../PropertyBasicsForm/PropertyBasicsForm";
 import ProperyAddressForm from "../PropertyAddressForm/PropertyAddressForm";
+import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
+import PropertyAmenitiesForm from "../PropertyAmenitiesForm/PropertyAmenitiesForm";
+import PropertyStayLengthForm from "../PropertyStayLengthForm/PropertyStayLengthForm";
+import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
+import ReviewPage from "../PropertyReview/PropertyReview";
+import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
+
 
 import './App.css';
 
@@ -89,33 +91,12 @@ function App() {
           >
             <EditProfileForm />
           </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path= "/propertyPhotoForm"
-          >
-            <PropertyPhotoForm />
-          </ProtectedRoute>
-
-            <ProtectedRoute
-            exact
-            path= "/describe"
-          >
-            <PropertyDescriptionForm  />
-          </ProtectedRoute>
           
           <ProtectedRoute
             exact
             path= "/instructions"
           >
             <InstructionsDetails  />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path= "/address"
-          >
-            <ProperyAddressForm  />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -151,26 +132,37 @@ function App() {
             <PropertyDescriptionForm />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/basics">
-            <BasicForms />
+          <ProtectedRoute exact path= "/address">
+            <ProperyAddressForm  />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/stay">
-            <LengthofStay />
+
+          <ProtectedRoute exact path="/basics">
+            <PropertyBasicsForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/amenities">
+            <PropertyAmenitiesForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path= "/photos">
+            <PropertyPhotoForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/stayLength">
+            <PropertyStayLengthForm />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/price">
+            <PriceForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/price">
+            <PropertyPriceForm />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/review">
             <ReviewPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/amenities">
-            <AmenitiesForm />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/price">
-            <PriceForm />
-          </ProtectedRoute>
-
-
-       
           <Route
             exact
             path="/registration"

@@ -8,6 +8,7 @@ import MultiFamilyIcon from "../HouseTypeIcons/MultiFamilyIcon";
 import TownhouseIcon from "../HouseTypeIcons/TownhouseIcon";
 import ApartmentIcon from "../HouseTypeIcons/ApartmentIcon";
 import CondoIcon from "../HouseTypeIcons/CondoIcon";
+import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 function PropertyDescriptionForm() {
     //declare dispath
@@ -89,6 +90,7 @@ function PropertyDescriptionForm() {
     
     return(
         <>
+            <PropertyFormNav/>
             <form onSubmit={addToResidence}>
                 <div className="describeForm">
                     <h1>Describe</h1>
