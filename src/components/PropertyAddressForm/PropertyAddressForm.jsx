@@ -33,7 +33,7 @@ const ProperyAddressForm = () => {
       
     return (
       <>
-      <PropertyFormNav/>
+      <PropertyFormNav className="address"/>
       <div className="propertyAddress">
             <form onSubmit={handleSubmit}>
                 <h1> Address </h1>
