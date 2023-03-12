@@ -24,7 +24,6 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
 
-
 //property form imports
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 import PropertyBasicsForm from "../PropertyBasicsForm/PropertyBasicsForm";
@@ -35,6 +34,9 @@ import PropertyStayLengthForm from "../PropertyStayLengthForm/PropertyStayLength
 import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
 import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
+
+import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
+
 
 import './App.css';
 
@@ -97,12 +99,12 @@ function App() {
             <InstructionsDetails  />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             exact
             path="/ownerdashboard"
           >
             <OwnerDashboard />
-          </ProtectedRoute> */}
+          </ProtectedRoute>
 
 
           {/* <ProtectedRoute
@@ -148,6 +150,9 @@ function App() {
 
           <ProtectedRoute exact path="/stayLength">
             <PropertyStayLengthForm />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/price">
+            <PriceForm />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/price">
