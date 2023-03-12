@@ -16,7 +16,7 @@ const sqlQuery = `
     pool.query(sqlQuery, sqlValues)
     .then(() => res.sendStatus(201))
     .catch((err) => {
-    console.log('Task-user relation post failed: ', err);
+    console.log(' post failed: ', err);
     res.sendStatus(500);
     })
 })
