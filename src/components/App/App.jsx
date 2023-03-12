@@ -26,6 +26,7 @@ import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
+import Map from "../PropertyDetailsPage/PropertyDetailsPage";
 
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";
@@ -116,6 +117,14 @@ function App() {
             path= "/address"
           >
             <ProperyAddressForm  />
+          </ProtectedRoute>
+
+            <ProtectedRoute
+            exact
+            path= "/properydescription"
+          >
+            <Map />
+
           </ProtectedRoute>
 
           <ProtectedRoute
