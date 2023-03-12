@@ -1,7 +1,7 @@
-import { ParameterStatusMessage } from "pg-protocol/dist/messages";
-import React, {useEffect, useState} from "react"
+import React, { useState } from "react"
 import { useDispatch, useSelector} from "react-redux"
 import { useHistory } from "react-router-dom";
+import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 const ProperyAddressForm = () => {
 
@@ -15,10 +15,6 @@ const ProperyAddressForm = () => {
         const [cityInput, setCityInput] = useState("");
         const [stateInput, setStateInput] = useState("");
         const [zipInput, setZipInput] = useState("");
-
-       
-
-       
 
         const addressToEdit= (evt) => {
           dispatch({
@@ -36,7 +32,9 @@ const ProperyAddressForm = () => {
         }
       
     return (
-        <div className="propertyAddress">
+      <>
+      <PropertyFormNav/>
+      <div className="propertyAddress">
             <form onSubmit={handleSubmit}>
                 <h1> Address </h1>
                 <h5>Your address and location are safe with us. It won't be viewable by renders until you chose to list property publicly</h5>
@@ -88,7 +86,7 @@ const ProperyAddressForm = () => {
               <button type= "submit" >Next</button>
             </form>
             </div>
-          
+      </>     
     )
 }
 

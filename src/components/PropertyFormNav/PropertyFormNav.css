@@ -1,0 +1,26 @@
+.formNav p {
+    font-size: 1.4rem;
+}
+
+.indicatorCtnr {
+    text-align: center;
+}
+
+.indicator {
+    align-content: center;
+    border-radius: 20px;
+    width: 160px;
+    height: 16px;
+}
+
+.allow {
+    background-color: #1E1E1E;
+}
+
+.restrict {
+    background-color: #D9D9D9;
+}
+
+.restricted {
+    color: #D9D9D9;
+}
