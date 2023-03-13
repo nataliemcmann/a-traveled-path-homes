@@ -24,6 +24,10 @@ function PropertyStayLengthForm () {
         });
       }
 
+      const nextBtn = () => {
+        history.push(`/price`)
+    }
+
       const cancelBtn = () => {
         history.push(`/ownerdashboard`)
     }
@@ -78,6 +82,21 @@ boxShadow: "none"}} className="p">
                     }}
                     >
                         Cancel
+                    </Button> 
+
+                    <div className="nextBtn"></div>
+                <Button onClick={nextBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        marginLeft: 160,
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        NEXT
                     </Button> 
         
     </>

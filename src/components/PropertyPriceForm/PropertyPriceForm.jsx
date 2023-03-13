@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
+
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,8 +9,10 @@ import Typography from '@mui/material/Typography';
 
 import './PriceForm.css'
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
+import { useHistory } from "react-router-dom";
 
 function PropertyPriceForm() {
+  const history = useHistory();
   const [dailyPrice, setDailyPrice] = useState(70);
   const [monthlyPrice, setMonthlyPrice] = useState(2000);
 
@@ -44,6 +47,13 @@ function PropertyPriceForm() {
           });
         }
 
+        const cancelBtn = () => {
+          history.push(`/ownerdashboard`)
+      }
+
+      const nextBtn = () => {
+        history.push(`/review`)
+    }
 
     return (
         <div>
@@ -92,6 +102,33 @@ function PropertyPriceForm() {
         </React.Fragment>
         </Card>
         </div>
+        <div className="cancelBtn"></div>
+                <Button onClick={cancelBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        marginLeft: 4
+                    }}
+                    >
+                        Cancel
+                    </Button> 
+
+                    <div className="nextBtn"></div>
+                <Button onClick={nextBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        marginLeft: 160,
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        NEXT
+                    </Button> 
         </div>
         
     )
