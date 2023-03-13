@@ -1,15 +1,16 @@
 import {
-    Box,
-    Button,
     ButtonGroup,
+    Box,
     Flex,
     HStack,
     IconButton,
-    Input,
-    SkeletonText,
     Text,
   } from '@chakra-ui/react'
-  import { FaLocationArrow, FaTimes } from 'react-icons/fa'
+  import NearMeIcon from '@mui/icons-material/NearMe';
+  import ClearIcon from '@mui/icons-material/Clear';
+  import Skeleton from '@mui/material/Skeleton';
+  import { Button, TextField } from "@mui/material";
+
   
   import {
     useJsApiLoader,
@@ -39,7 +40,7 @@ import {
     const destiantionRef = useRef()
   
     if (!isLoaded) {
-      return 
+      return <Skeleton />
     }
   
     async function calculateRoute() {
@@ -80,7 +81,7 @@ import {
           <GoogleMap
             center={center}
             zoom={15}
-            mapContainerStyle={{ width: '50%', height: '50%' }}
+            mapContainerStyle={{ width: '75%', height: '75%' }}
             options={{
               zoomControl: false,
               streetViewControl: false,
@@ -107,12 +108,17 @@ import {
           <HStack spacing={2} justifyContent='space-between'>
             <Box flexGrow={1}>
               <Autocomplete>
-                <Input type='text' placeholder='Origin' ref={originRef} />
+                <TextField 
+                  size='small' 
+                  type='text'  
+                  placeholder='Origin' 
+                  ref={originRef} />
               </Autocomplete>
             </Box>
             <Box flexGrow={1}>
               <Autocomplete>
-                <Input
+                <TextField
+                  size='small' 
                   type='text'
                   placeholder='Destination'
                   ref={destiantionRef}
@@ -121,12 +127,12 @@ import {
             </Box>
   
             <ButtonGroup>
-              <Button colorScheme='pink' type='submit' onClick={calculateRoute}>
+              <Button size="small" variant="outlined" type='submit' onClick={calculateRoute}>
                 Calculate Route
               </Button>
               <IconButton
                 aria-label='center back'
-                icon={<FaTimes />}
+                icon={<ClearIcon />}
                 onClick={clearRoute}
               />
             </ButtonGroup>
@@ -136,7 +142,7 @@ import {
             <Text>Duration: {duration} </Text>
             <IconButton
               aria-label='center back'
-              icon={<FaLocationArrow />}
+              icon={<NearMeIcon />}
               isRound
               onClick={() => {
                 map.panTo(center)
