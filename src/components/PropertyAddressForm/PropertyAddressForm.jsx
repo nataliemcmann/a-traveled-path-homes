@@ -13,26 +13,21 @@ const ProperyAddressForm = () => {
     const propertyReducer = useSelector((store) => store.propertyReducer);
     const address = useSelector((store) => store.address);
 
-      let addressAsString = ''
-      if (address.apartment) {
-        addressAsString = `
-        ${address.street} ${address.apartment} ${address.city}
-        ${address.state} ${address.zip}
-        `;
-      } else {
-        addressAsString = `
-        ${address.street} ${address.city}
-        ${address.state} ${address.zip}
-        `;
-      }
-
       function handleAddressSubmit() {
           event.preventDefault();
+          let addressAsString = ''
+          if (address.apartment) {
+            addressAsString = `${address.street} ${address.apartment} ${address.city} ${address.state} ${address.zip}`;
+          } else {
+            addressAsString = `${address.street} ${address.city} ${address.state} ${address.zip}`;
+          }
           console.log(addressAsString);
           dispatch({type: 'SET_ADDRESS',
           payload: addressAsString
-        })
-        history.push('/basics');
+          })
+          dispatch({type: 'EDIT_RESIDENCE', 
+          payload: propertyReducer.residence})
+          history.push('/basics');
         }
       
     return (

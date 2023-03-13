@@ -82,9 +82,6 @@ function PropertyDescriptionForm() {
             payload: newResidence
         })
         //clear inputs
-        setNewHouseType(0),
-        setNewPropertyName(''),
-        setNewDescription(''),
         history.push('/address')
     }
     

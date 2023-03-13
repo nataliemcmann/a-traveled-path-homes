@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const residence = (state = [], action) => {
+const residence = (state = {}, action) => {
     switch (action.type) {
       case 'SET_RESIDENCE':
         return action.payload;

@@ -51,6 +51,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     let idToEdit = req.params.id;
+    console.log(idToEdit);
     const sqlValues = [
         req.body.houseType, req.body.propertyName, 
         req.body.description, req.body.address, req.body.maxGuests, 
