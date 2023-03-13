@@ -37,8 +37,8 @@ function PropertyStayLengthForm () {
         </div>
 
         <div id="SquareinMiddle">
-           <h2> Month:{count }</h2>
-           <Button
+          <h2> Month:{count }</h2>
+          <Button
             variant="outlined"
           
             onClick={Increment}
@@ -71,7 +71,6 @@ function PropertyStayLengthForm () {
                     >
                         Cancel
                     </Button> 
-
         
     </>
     )

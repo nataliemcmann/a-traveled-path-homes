@@ -11,8 +11,6 @@ function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
 
-  //declare history
-  const history = useHistory();
 
   const [guestCount, setGuestCount] = useState(0);
   const [bedsCount, setBedsCount] = useState(0);
