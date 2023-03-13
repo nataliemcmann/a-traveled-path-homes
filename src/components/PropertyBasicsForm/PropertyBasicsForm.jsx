@@ -97,7 +97,7 @@ function PropertyBasicsForm() {
       }
     });
   }
-  
+
   return (
     <>
       <PropertyFormNav className="basics"/>
