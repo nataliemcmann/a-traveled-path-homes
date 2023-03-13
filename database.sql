@@ -42,15 +42,28 @@ CREATE TABLE "amenities" (
     "name" VARCHAR (255)
 );
 
---amenities options
+-- ameninities table population
 INSERT INTO "amenities" 
 	("name")
+VALUES 
+	('shower'),
+	('bathtub'),
+	('washer'),
+	('dryer'),
+	('parking'),
+	('pets'),
+	('heating'),
+	('fireplace'),
+    ('ac'),
+    ('wifi'),
+    ('tv'),
+    ('ev_charging');
 
-
+-- amenities residences join table
 CREATE TABLE "amenities_residences" (
     "id" SERIAL PRIMARY KEY,
-    "amenitiesId" INT,
-    "residenceId" INT
+    "amenitiesId" INT REFERENCES "amenities" ON DELETE CASCADE,
+    "residenceId" INT REFERENCES "residences" ON DELETE CASCADE
 );
 
 ----------------ForDummyData-------------------

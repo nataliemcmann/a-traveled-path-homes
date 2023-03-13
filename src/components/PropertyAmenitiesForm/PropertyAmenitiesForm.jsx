@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
@@ -22,83 +22,89 @@ function PropertyAmenitiesForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const amenitiesList = [];
+  const propertyReducer = useSelector((store) => store.propertyReducer);
+
+  const [amenitiesList, setAmenitiesList] = useState([]);
 
   function handleShower() {
-    amenitiesList.push(1);
+    setAmenitiesList([...amenitiesList, 1]);
     console.log('added shower');
   }
 
   function handleBathtub() {
-    amenitiesList.push(2);
+    setAmenitiesList([...amenitiesList, 2]);
     console.log('added bathtub');
   }
 
   function handleWasher() {
-    amenitiesList.push(3);
+    setAmenitiesList([...amenitiesList, 3]);
     console.log('added washer');
   }
 
   function handleDryer() {
-    amenitiesList.push('dryer');
+    setAmenitiesList([...amenitiesList, 4]);
     console.log('added dryer');
   }
 
   function handleParking() {
-    amenitiesList.push('parking');
+    setAmenitiesList([...amenitiesList, 5]);
     console.log('added parking');
   }
 
   function handlePets() {
-    amenitiesList.push('pets');
+    setAmenitiesList([...amenitiesList, 6]);
     console.log('added pets');
   }
 
   function handleHeating() {
-    amenitiesList.push('heating');
+    setAmenitiesList([...amenitiesList, 7]);
     console.log('added heating');
   }
 
   function handleFireplace() {
-    amenitiesList.push('fireplace');
+    setAmenitiesList([...amenitiesList, 8]);
     console.log('added fireplace');
   }
 
   function handleAc() {
-    amenitiesList.push('ac');
+    setAmenitiesList([...amenitiesList, 9]);
     console.log('added ac');
   }
 
   function handleWifi() {
-    amenitiesList.push('wifi');
+    setAmenitiesList([...amenitiesList, 10]);
     console.log('added wifi');
   }
 
-  function handleMonitor() {
-    amenitiesList.push('monitor');
-    console.log('added monitor');
+  function handleTV() {
+    setAmenitiesList([...amenitiesList, 11]);
+    console.log('added tv');
   }
 
   function handleElectricCharging() {
-    amenitiesList.push('electric_charging');
+    setAmenitiesList([...amenitiesList, 12]);
     console.log('added electric_charging');
   }
 
 
   const addToResidence = (event) => {
+    event.preventDefault();
+    console.log(amenitiesList);
       dispatch({
           type: 'ADD_AMENITIES_RESIDENCE',
           payload: {
-              residenceId:propertyReducer.residence.id,
+              residenceId: propertyReducer.residence.id,
               amenitiesList
           }
       })
+
       history.push('/photo')
   };
 
   const cancelBtn = () => {
     history.push(`/ownerdashboard`)
 }
+
 
   return(
       <div className="amenities">
@@ -124,7 +130,7 @@ function PropertyAmenitiesForm() {
           <div></div>
           <h3>Technology</h3>
           <Button onClick={handleElectricCharging}><ElectricCarIcon/>Electric Charging</Button>
-          <Button onClick={handleMonitor}><MonitorIcon/>Monitor</Button>
+          <Button onClick={handleTV}><MonitorIcon/>Monitor</Button>
           <Button onClick={handleWifi}><WifiIcon/>WIFI</Button>
           <div><br></br></div>
           <div className="cancelBtn"></div>

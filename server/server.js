@@ -12,7 +12,7 @@ const userRouter = require('./routes/user.router');
 const profileRouter = require('./routes/profile.router');
 const residenceRouter = require('./routes/residence.router');
 const propertyRouter = require('./routes/property.router');
-
+const amenities_residenceRouter = require('./routes/amenities_residences.router');
 const instructionsRouter = require('./routes/instructions.router');
 
 
@@ -38,7 +38,7 @@ app.use('/api/profile', profileRouter);
 app.use('/api/residence', residenceRouter);
 app.use('/api/property', propertyRouter);
 app.use('/api/instructions', instructionsRouter);
-
+app.use('/api/amenities_residences', amenities_residenceRouter);
 
 
 app.use('/api/photo', photoRouter);
