@@ -1,15 +1,16 @@
 import {
-    ButtonGroup,
     Box,
+    ButtonGroup,
     Flex,
     HStack,
     IconButton,
+    Input,
     Text,
   } from '@chakra-ui/react'
   import NearMeIcon from '@mui/icons-material/NearMe';
   import ClearIcon from '@mui/icons-material/Clear';
   import Skeleton from '@mui/material/Skeleton';
-  import { Button, TextField } from "@mui/material";
+  import { Button } from "@mui/material";
 
   
   import {
@@ -108,17 +109,15 @@ import {
           <HStack spacing={2} justifyContent='space-between'>
             <Box flexGrow={1}>
               <Autocomplete>
-                <TextField 
-                  size='small' 
-                  type='text'  
+                <Input type='text' 
                   placeholder='Origin' 
-                  ref={originRef} />
+                  ref={originRef}
+                />
               </Autocomplete>
             </Box>
             <Box flexGrow={1}>
               <Autocomplete>
-                <TextField
-                  size='small' 
+                <Input
                   type='text'
                   placeholder='Destination'
                   ref={destiantionRef}
