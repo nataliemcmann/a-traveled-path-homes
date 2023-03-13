@@ -73,16 +73,9 @@ function PropertyBasicsForm() {
     <>
       <PropertyFormNav className="basics"/>
       <Stack>
-        <Grid 
-        container spacing={1} 
-        direction="column"
-        justifyContent='center'
-        >
-          <h2> Basics </h2>
+        <form className="basicForm">
+          <h1> Basics </h1>
             <p> Fill in the basics </p>
-        </Grid>
-            
-
               <h2> Guests: {guestcount} </h2>
               <Button
                 variant="outlined"
@@ -100,7 +93,6 @@ function PropertyBasicsForm() {
                 {" "}
                 -{" "}
               </Button>
-
               <h2> Beds: {bedsCount} </h2>
               <Button
                 variant="outlined"
@@ -119,7 +111,6 @@ function PropertyBasicsForm() {
                 -{" "}
               </Button>
               <h2> Bedrooms: {bedrooomCount}</h2>
-
               <Button
                 variant="outlined"
                 className="moveRight"
@@ -136,8 +127,7 @@ function PropertyBasicsForm() {
                 {" "}
                 -{" "}
               </Button>
-              <h2> Bathrooms:{bathCount} </h2>
-
+              <h2> Bathrooms: {bathCount} </h2>
               <Button
                 variant="outlined"
                 className="moveRight"
@@ -154,6 +144,7 @@ function PropertyBasicsForm() {
                 {" "}
                 -{" "}
               </Button>
+              </form>
       </Stack> 
     </>
   );
