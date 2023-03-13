@@ -36,8 +36,7 @@ import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
-
-
+import PropertyDetails from "../PropertyDetails/PropertyDetails";
 import './App.css';
 
 function App() {
@@ -105,6 +104,10 @@ function App() {
           >
             <OwnerDashboard />
           </ProtectedRoute>
+
+          <ProtectedRoute exact path="/property/:id">
+          <PropertyDetails />
+        </ProtectedRoute>
 
 
           {/* <ProtectedRoute
