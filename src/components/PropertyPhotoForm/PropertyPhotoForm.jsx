@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import './PropertyPhotoForm.css';
 import PropertyPhotoList from '../PropertyPhotoList/PropertyPhotoList';
 //mui components
@@ -10,6 +11,7 @@ import PropertyFormNav from '../PropertyFormNav/PropertyFormNav';
 function PropertyPhotoForm() {
     //declare dispatch
     const dispatch = useDispatch();
+    const history = useHistory();
     //declare a reducer to temporarily files
     const photoReducer = useSelector(store => store.photoReducer);
     const propertyReducer = useSelector(store => store.propertyReducer);
@@ -38,6 +40,10 @@ function PropertyPhotoForm() {
         })
     }
         const id=10;
+
+        const cancelBtn = () => {
+            history.push(`/ownerdashboard`)
+        }
 
         return (
             <>
@@ -88,6 +94,22 @@ function PropertyPhotoForm() {
                             </Button>
                         </div>
                     </div>
+
+                    <div className="cancelBtn"></div>
+                <Button onClick={cancelBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Cancel
+                    </Button> 
+
                     <div className="nextBtn">
                         <Button 
                         type="submit"

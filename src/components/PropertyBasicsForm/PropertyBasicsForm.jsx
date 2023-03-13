@@ -10,6 +10,7 @@ import { Stack, Button} from '@mui/material';
 function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
+  const history = useHistory();
 
   //declare history
   const history = useHistory();
@@ -98,6 +99,17 @@ function PropertyBasicsForm() {
     });
   }
 
+
+  const nextBtn = () => {
+    history.push(`/amenities`)
+}
+
+  const cancelBtn = () => {
+    history.push(`/ownerdashboard`)
+}
+
+
+
   return (
     <>
       <PropertyFormNav className="basics"/>
@@ -173,8 +185,24 @@ function PropertyBasicsForm() {
                 {" "}
                 -{" "}
               </Button>
+
+              <div className="cancelBtn"></div>
+                <Button onClick={cancelBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Cancel
+                    </Button> 
+
               <div className="nextBtn">
-                <Button 
+                <Button onClick={nextBtn}
                     type="submit" 
                     size= "large"
                     sx={{
