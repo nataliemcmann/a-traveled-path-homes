@@ -8,11 +8,37 @@ import "./BasicsPage.css";
 import { Stack, Grid, Button} from '@mui/material';
 
 function PropertyBasicsForm() {
-  const [guestcount, setGuestCount] = useState(0);
+  //declare dispatch
+  const dispatch = useDispatch();
+
+  //subscribe to residence
+  const propertyReducer = useSelector(store => store.propertyReducer);
+
+  const [guestCount, setGuestCount] = useState(0);
   const [bedsCount, setBedsCount] = useState(0);
   const [bedrooomCount, setBedroomCount] = useState(0);
   const [bathCount, setBathCount] = useState(0);
   
+  function handleBasicsSubmit() {
+    console.log('dispatch basics count');
+    dispatch({
+      type: 'SET_MAX_GUESTS',
+      payload: guestCount
+    })
+    dispatch({
+      type: 'SET_BEDS',
+      payload: bedsCount
+    })
+    dispatch({
+      type: 'SET_BEDROOMS',
+      payload: bedrooomCount
+    })
+    dispatch({
+      type: 'SET_BATHROOMS',
+      payload: bathCount
+    })
+  }
+
   function guestIncrement() {
     setGuestCount(function (prevCount) {
       return (prevCount += 1);
@@ -73,10 +99,10 @@ function PropertyBasicsForm() {
     <>
       <PropertyFormNav className="basics"/>
       <Stack>
-        <form className="basicForm">
+        <form className="basicForm" onSubmit={handleBasicsSubmit}>
           <h1> Basics </h1>
             <p> Fill in the basics </p>
-              <h2> Guests: {guestcount} </h2>
+              <h2> Guests: {guestCount} </h2>
               <Button
                 variant="outlined"
                 className="moveRight"
@@ -144,6 +170,21 @@ function PropertyBasicsForm() {
                 {" "}
                 -{" "}
               </Button>
+              <div className="nextBtn">
+                <Button 
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Next
+                  </Button>  
+              </div>
               </form>
       </Stack> 
     </>

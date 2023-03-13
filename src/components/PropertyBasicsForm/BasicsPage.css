@@ -11,3 +11,7 @@
     font-size: 1.2rem;
 }
 
+.nextBtn {
+    display: flex;
+    justify-content: flex-end;
+}
