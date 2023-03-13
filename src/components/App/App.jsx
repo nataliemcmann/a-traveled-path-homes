@@ -36,7 +36,7 @@ import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
-
+import RenterDashboard from "../RenterGallery/RenterDashboard";
 
 import './App.css';
 
@@ -98,6 +98,13 @@ function App() {
           >
             <InstructionsDetails  />
           </ProtectedRoute>
+          
+          <ProtectedRoute
+            exact
+            path= "/renterdashboard"
+          >
+            <RenterDashboard  />
+          </ProtectedRoute>
 
           <ProtectedRoute
             exact
@@ -151,9 +158,9 @@ function App() {
           <ProtectedRoute exact path="/stayLength">
             <PropertyStayLengthForm />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/price">
+          {/* <ProtectedRoute exact path="/price">
             <PriceForm />
-          </ProtectedRoute>
+          </ProtectedRoute> */}
 
           <ProtectedRoute exact path="/price">
             <PropertyPriceForm />

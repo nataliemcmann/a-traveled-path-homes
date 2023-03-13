@@ -57,3 +57,23 @@ CREATE TABLE "property" (
 	"description" VARCHAR (250),
 	"featurePhoto" VARCHAR
 );
+
+CREATE TABLE "instructions" (
+	"residencesId" INT PRIMARY KEY REFERENCES "residences"(id) ON DELETE CASCADE,
+	"wifiInformation" VARCHAR (50),
+	"safetyProtocal" VARCHAR (100),
+	"contactInformation" VARCHAR (50),
+	"checkInDetails" VARCHAR (100),
+    "checkOutDetails" VARCHAR (100)
+);
+
+ SELECT
+        "residences"."id",
+        "instructions"."wifiInformation",
+        "instructions"."safetyProtocal",
+        "instructions"."contactInformation",
+        "instructions"."checkInDetails",
+        "instructions"."checkOutDetails"
+      FROM "residences"
+      LEFT JOIN "instructions"
+        ON "residences"."id" = "instructions"."residencesId"
