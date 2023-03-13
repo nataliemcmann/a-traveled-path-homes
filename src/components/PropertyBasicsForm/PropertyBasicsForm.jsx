@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import "./BasicsPage.css";
-import Button from "@mui/material/Button";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
+
+import "./BasicsPage.css";
+//mui components
+import { Stack, Grid, Button} from '@mui/material';
 
 function PropertyBasicsForm() {
   const [guestcount, setGuestCount] = useState(0);
@@ -73,89 +72,89 @@ function PropertyBasicsForm() {
   return (
     <>
       <PropertyFormNav className="basics"/>
-      <div>
-        <React.Fragment>
-          <CssBaseline />
-      <div>
-          <h2 className="center">Basics </h2>
-          <p className="center"> Fill in th basics </p>
-          </div>
-          <br></br>
-          <Container maxWidth="sm">
-            <h2> Guests: {guestcount} </h2>
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={guestIncrement}
-            >
-              {" "}
-              +{" "}
-            </Button>
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={guestDecrement}
-            >
-              {" "}
-              -{" "}
-            </Button>
+      <Stack>
+        <Grid 
+        container spacing={1} 
+        direction="column"
+        justifyContent='center'
+        >
+          <h2> Basics </h2>
+            <p> Fill in the basics </p>
+        </Grid>
+            
 
-            <h2> Beds: {bedsCount} </h2>
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={bedsIncrement}
-            >
-              {" "}
-              +{" "}
-            </Button>
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={bedsDecrement}
-            >
-              {" "}
-              -{" "}
-            </Button>
-            <h2> Bedrooms: {bedrooomCount}</h2>
+              <h2> Guests: {guestcount} </h2>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={guestIncrement}
+              >
+                {" "}
+                +{" "}
+              </Button>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={guestDecrement}
+              >
+                {" "}
+                -{" "}
+              </Button>
 
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={bedroomIncrement}
-            >
-              {" "}
-              +{" "}
-            </Button>
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={bedroomDecrement}
-            >
-              {" "}
-              -{" "}
-            </Button>
-            <h2> Bathrooms:{bathCount} </h2>
+              <h2> Beds: {bedsCount} </h2>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={bedsIncrement}
+              >
+                {" "}
+                +{" "}
+              </Button>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={bedsDecrement}
+              >
+                {" "}
+                -{" "}
+              </Button>
+              <h2> Bedrooms: {bedrooomCount}</h2>
 
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={bathIncrement}
-            >
-              {" "}
-              +{" "}
-            </Button>
-            <Button
-              variant="outlined"
-              className="moveRight"
-              onClick={bathDecrement}
-            >
-              {" "}
-              -{" "}
-            </Button>
-          </Container>
-        </React.Fragment>
-      </div>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={bedroomIncrement}
+              >
+                {" "}
+                +{" "}
+              </Button>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={bedroomDecrement}
+              >
+                {" "}
+                -{" "}
+              </Button>
+              <h2> Bathrooms:{bathCount} </h2>
+
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={bathIncrement}
+              >
+                {" "}
+                +{" "}
+              </Button>
+              <Button
+                variant="outlined"
+                className="moveRight"
+                onClick={bathDecrement}
+              >
+                {" "}
+                -{" "}
+              </Button>
+      </Stack> 
     </>
   );
 }

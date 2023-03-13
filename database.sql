@@ -42,6 +42,11 @@ CREATE TABLE "amenities" (
     "name" VARCHAR (255)
 );
 
+--amenities options
+INSERT INTO "amenities" 
+	("name")
+
+
 CREATE TABLE "amenities_residences" (
     "id" SERIAL PRIMARY KEY,
     "amenitiesId" INT,
