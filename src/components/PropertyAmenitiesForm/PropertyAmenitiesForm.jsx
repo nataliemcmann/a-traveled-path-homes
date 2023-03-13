@@ -98,7 +98,7 @@ function PropertyAmenitiesForm() {
           }
       })
 
-      history.push('/photo')
+      history.push('/photos')
   };
 
   const cancelBtn = () => {
