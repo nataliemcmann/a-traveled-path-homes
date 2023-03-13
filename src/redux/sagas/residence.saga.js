@@ -20,16 +20,21 @@ function* fetchResidence() {
 }
 
 function* createResidence(action){
+  try{
     const residence = action.payload
     console.log('create this residence', residence);
-    yield axios({
+    yield response = axios({
         method: 'POST',
         url:'/api/residence',
         data: residence
     })
     yield put({
-        type:'FETCH_RESIDENCE'
-    })   
+        type:'FETCH_RESIDENCE',
+        payload: response.data
+    }) 
+  } catch (err) {
+    console.log('residence creation failed', err);
+  }   
 }
 
 function* residenceEdit(action) {

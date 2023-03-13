@@ -26,32 +26,33 @@ router.get('/:id', (req, res) =>{
 
 
 
-router.post('/', rejectUnauthenticated, (req, res) => {
-    const sqlValues = [
-        req.user.id, req.body.houseType, req.body.propertyName, 
-        req.body.description, req.body.address, req.body.maxGuests, 
-        req.body.bedrooms, req.body.beds, req.body.bathrooms, 
-        req.body.listed, req.body.featurePhoto, req.body.minStayLength,
-        req.body.priceDaily, req.body.priceMonthly
-    ]
-    const insertResidenceQuery= `
-    INSERT INTO "residences" 
-    ("userId", "houseType", "propertyName", 
-    "description", "address", "maxGuests", 
-    "bedrooms", "beds", "bathrooms", 
-    "listed", "featurePhoto", "minStayLength",
-    "priceDaily", "priceMonthly")
-    VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);
-    `
-    pool.query(insertResidenceQuery, sqlValues)
-    .then(result => {
-        res.sendStatus(201);
-    })
-    .catch((err) => {
+router.post('/', rejectUnauthenticated, async (req, res) => {
+    try{
+        const sqlValues = [
+            req.user.id, req.body.houseType, req.body.propertyName, 
+            req.body.description, req.body.address, req.body.maxGuests, 
+            req.body.bedrooms, req.body.beds, req.body.bathrooms, 
+            req.body.listed, req.body.featurePhoto, req.body.minStayLength,
+            req.body.priceDaily, req.body.priceMonthly
+        ]
+        const insertResidenceQuery= `
+        INSERT INTO "residences" 
+        ("userId", "houseType", "propertyName", 
+        "description", "address", "maxGuests", 
+        "bedrooms", "beds", "bathrooms", 
+        "listed", "featurePhoto", "minStayLength",
+        "priceDaily", "priceMonthly")
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+        RETURNING "id";
+        `
+        const dbRes = await pool.query(insertResidenceQuery, sqlValues);
+        console.log(dbRes.rows[0].id);
+        res.send(dbRes.rows[0]);
+    } catch (err) {
         console.log('error inserting property type', err);
         res.sendStatus(500);
-    });
-});
+    }
+})
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     let idToEdit = req.params.id;
