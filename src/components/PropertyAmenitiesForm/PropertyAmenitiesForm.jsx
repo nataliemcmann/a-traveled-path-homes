@@ -22,6 +22,8 @@ function PropertyAmenitiesForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const propertyReducer = useSelector((store) => store.propertyReducer);
+
   const [amenitiesList, setAmenitiesList] = useState([]);
 
   function handleShower() {
@@ -88,13 +90,13 @@ function PropertyAmenitiesForm() {
   const addToResidence = (event) => {
     event.preventDefault();
     console.log(amenitiesList);
-      // dispatch({
-      //     type: 'ADD_AMENITIES_RESIDENCE',
-      //     payload: {
-      //         residenceId: propertyReducer.residence.id,
-      //         amenitiesList
-      //     }
-      // })
+      dispatch({
+          type: 'ADD_AMENITIES_RESIDENCE',
+          payload: {
+              residenceId: propertyReducer.residence.id,
+              amenitiesList
+          }
+      })
       // history.push('/propertyPhotoForm')
   };
 
