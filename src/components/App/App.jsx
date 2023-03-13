@@ -151,9 +151,7 @@ function App() {
           <ProtectedRoute exact path="/stayLength">
             <PropertyStayLengthForm />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/price">
-            <PriceForm />
-          </ProtectedRoute>
+          
 
           <ProtectedRoute exact path="/price">
             <PropertyPriceForm />
