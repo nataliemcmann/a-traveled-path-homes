@@ -35,7 +35,7 @@ function PropertyFormNav(props) {
             props.className === 'stayLength' ||
             props.className === 'price' ||
             props.className === 'review') {
-            console.log('address true');
+            // console.log('address true');
             setAllowAddress(true);
         } 
         if (props.className === 'basics' ||
@@ -44,7 +44,7 @@ function PropertyFormNav(props) {
             props.className === 'stayLength' ||
             props.className === 'price' ||
             props.className === 'review') {
-            console.log('basics true');
+            // console.log('basics true');
             setAllowBasics(true);
         } 
         if (props.className === 'amenities' ||
@@ -52,29 +52,29 @@ function PropertyFormNav(props) {
             props.className === 'stayLength' ||
             props.className === 'price' ||
             props.className === 'review') {
-            console.log('amenities true');
+            // console.log('amenities true');
             setAllowAmenities(true);
         } 
         if (props.className === 'photos' ||
             props.className === 'stayLength' ||
             props.className === 'price' ||
             props.className === 'review') {
-            console.log('photos true');
+            // console.log('photos true');
             setAllowPhotos(true);
         }  
         if (props.className === 'stayLength' ||
             props.className === 'price' ||
             props.className === 'review') {
-            console.log('stay length true');
+            // console.log('stay length true');
             setAllowStayLength(true);
         }  
         if (props.className === 'price' ||
             props.className === 'review') {
-            console.log('price true');
+            // console.log('price true');
             setAllowPrice(true);
         }  
         if (props.className === 'review') {
-            console.log('review true');
+            // console.log('review true');
             setAllowReview(true);
         }
     }, [])
