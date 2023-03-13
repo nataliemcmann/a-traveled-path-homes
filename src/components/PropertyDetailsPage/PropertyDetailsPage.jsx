@@ -82,7 +82,7 @@ import {
           <GoogleMap
             center={center}
             zoom={15}
-            mapContainerStyle={{ width: '75%', height: '75%' }}
+            mapContainerStyle={{ width: '70%', height: '85%' }}
             options={{
               zoomControl: false,
               streetViewControl: false,
