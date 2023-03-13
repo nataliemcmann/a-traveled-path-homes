@@ -29,6 +29,10 @@ const ProperyAddressForm = () => {
         payload: propertyReducer.residence})
         history.push('/basics');
       }
+
+      const cancelBtn = () => {
+        history.push(`/ownerdashboard`)
+    }
       
     return (
       <>
@@ -89,6 +93,20 @@ const ProperyAddressForm = () => {
                 <button type= "submit" >Next</button>
               </Stack>
             </form>
+            <div className="cancelBtn"></div>
+                <Button onClick={cancelBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Cancel
+                    </Button> 
         </div>
       </>     
     )
