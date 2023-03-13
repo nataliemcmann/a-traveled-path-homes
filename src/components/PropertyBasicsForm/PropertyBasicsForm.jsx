@@ -10,7 +10,7 @@ import { Stack, Button} from '@mui/material';
 function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
-
+  const history = useHistory();
 
   const [guestCount, setGuestCount] = useState(0);
   const [bedsCount, setBedsCount] = useState(0);
