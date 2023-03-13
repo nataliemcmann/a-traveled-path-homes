@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 import "./BasicsPage.css";
 //mui components
-import { Stack, Grid, Button} from '@mui/material';
+import { Stack, Button} from '@mui/material';
 
 function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
 
-  //subscribe to residence
-  const propertyReducer = useSelector(store => store.propertyReducer);
+  //declare history
+  const history = useHistory();
 
   const [guestCount, setGuestCount] = useState(0);
   const [bedsCount, setBedsCount] = useState(0);
@@ -20,6 +20,7 @@ function PropertyBasicsForm() {
   const [bathCount, setBathCount] = useState(0);
   
   function handleBasicsSubmit() {
+    event.preventDefault();
     console.log('dispatch basics count');
     dispatch({
       type: 'SET_MAX_GUESTS',
@@ -37,6 +38,7 @@ function PropertyBasicsForm() {
       type: 'SET_BATHROOMS',
       payload: bathCount
     })
+    history.push('/amenities');
   }
 
   function guestIncrement() {
@@ -95,6 +97,7 @@ function PropertyBasicsForm() {
       }
     });
   }
+
   return (
     <>
       <PropertyFormNav className="basics"/>
