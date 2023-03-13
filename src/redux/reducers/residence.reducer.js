@@ -1,100 +1,42 @@
 import { combineReducers } from "redux";
 
-const residence = (state = [], action) => {
+const residence = (state = {}, action) => {
     switch (action.type) {
       case 'SET_RESIDENCE':
         return action.payload;
-      case 'UNSET_RESIDENCE':
-        return [];
+      case 'SET_HOUSE_TYPE':
+        return {...state, houseType: action.payload};
+      case 'SET_PROPERTY_NAME':
+        return {...state, propertyName: action.payload};
+      case 'SET_DESCRIPTION':
+        return {...state, description: action.payload};
+      case 'SET_ADDRESS':
+        return {...state, address: action.payload};
+      case 'SET_MAX_GUESTS':
+        return {...state, maxGuests: action.payload};
+      case 'SET_BEDROOMS':
+        return {...state, bedrooms: action.payload};
+      case 'SET_BEDS':
+        return {...state, beds: action.payload};
+      case 'SET_BATHROOMS':
+        return {...state, bathrooms: action.payload};
+      case 'SET_LISTED':
+        return {...state, listed: action.payload};
+      case 'SET_FEATURE_PHOTO':
+        return {...state, photo: action.payload};
+      case 'SET_MIN_STAY_LENGTH':
+        return {...state, minStayLength: action.payload};
+      case 'SET_PRICE_DAILY':
+        return {...state, priceDaily: action.payload};
+      case 'SET_PRICE_MONTHLY':
+        return {...state, priceDaily: action.payload};
       default:
         return state;
     }
   }
-  
-  const editResidence = (state = {}, action) =>{
-    if(action.type === 'HOUSE_TYPE_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_HOUSE_TYPE') {
-      const newHouseTypeValue = action.payload;
-      return {...state, houseType: newHouseTypeValue}
-    }
-    if(action.type === 'PROPERTY_NAME_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_PROPERTY_NAME') {
-      const newPropertyNameValue = action.payload;
-      return {...state, propertyName: newPropertyNameValue}
-    }
-    if(action.type === 'DESCRIPTION_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_DESCRIPTION') {
-      const newDescriptionValue = action.payload;
-      return {...state, description: newDescriptionValue}
-    }
-    if(action.type === 'ADDRESS_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_ADDRESS') {
-      const newAddressValue = action.payload;
-      return {...state, address: newAddressValue}
-    }
-    if(action.type === 'MAX_GUESTS_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_MAX_GUESTS') {
-      const newMaxGuestsValue = action.payload;
-      return {...state, maxGuests: newMaxGuestsValue}
-    }
-    if(action.type === 'BEDROOMS_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_BEDROOMS') {
-      const newBedroomsValue = action.payload;
-      return {...state, bedrooms: newBedroomsValue}
-    }
-    if(action.type === 'BEDS_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_BEDS') {
-      const newBedsValue = action.payload;
-      return {...state, beds: newBedsValue}
-    }
-    if(action.type === 'BATHROOMS_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_BATHROOMS') {
-      const newBathroomsvalue = action.payload;
-      return {...state, bathrooms: newBathroomsvalue}
-    }
-    if(action.type === 'LISTED_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_LISTED') {
-      const newListedValue = action.payload;
-      return {...state, listed: newListedValue}
-    }
-    if(action.type === 'FEATURE_PHOTO_TO_EDIT') {
-      return action.payolad;
-    }else if (action.type === 'SET_FEATURE_PHOTO') {
-      const newFeaturePhotoValue = action.payload;
-      return {...state, photo: newFeaturePhotoValue}
-    }
-    if(action.type === 'MIN_STAY_LENGTH_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_MIN_STAY_LENGTH') {
-      const newMinStayLengthValue = action.payload;
-      return {...state, minStayLength: newMinStayLengthValue}
-    }
-    if(action.type === 'PRICE_DAILY_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_PRICE_DAILY') {
-      const newPriceDailyValue = action.payload;
-      return {...state, priceDaily: newPriceDailyValue }
-    }
-    if(action.type === 'PRICE_MONTHLY_TO_EDIT') {
-      return action.payload;
-    }else if (action.type === 'SET_PRICE_MONTHLY') {
-      const newPriceMonthlyValue = action.payload;
-      return {...state, priceDaily: newPriceMonthlyValue }
-    }
-    return state;
-  }
+
 const propertyReducer = combineReducers({
-    residence,
-    editResidence,
+    residence
 });
 
   

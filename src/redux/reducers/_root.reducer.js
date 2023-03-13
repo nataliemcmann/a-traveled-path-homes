@@ -4,7 +4,11 @@ import user from './user.reducer';
 import propertyReducer from './residence.reducer';
 import profileReducer from './profile.reducer';
 import propertyGalleryReducer from './property_gallery.reducer';
+
 import propertyDetailsReducer from './property_details.reducer';
+
+import address from './address.reducer';
+
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +22,11 @@ const rootReducer = combineReducers({
   propertyReducer,
   profileReducer,
   propertyGalleryReducer,
-  propertyDetailsReducer
+
+  propertyDetailsReducer,
+
+  address
+
 });
 
 export default rootReducer;
