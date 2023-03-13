@@ -28,7 +28,7 @@ function LandingPage() {
   // ---------------------DIALOG-MUI-----------------------------------
 
   return (
-    <div className="container">
+    <div className="containers">
       <Card sx={{
         padding: 2,
         paddingLeft: 2,
