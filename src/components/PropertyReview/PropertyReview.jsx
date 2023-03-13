@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import { Card } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import propertyReducer from "../../redux/reducers/residence.reducer";
 import residenceSaga from "../../redux/sagas/residence.saga";
@@ -17,13 +18,7 @@ function PropertyReview (){
     const dispatch = useDispatch();
     const propertyReducer = useSelector((store) => store.propertyReducer);
    
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -35,19 +30,32 @@ function PropertyReview (){
     return (
     <>
     <PropertyFormNav className="review"/>
-    <div id="SquareinMiddle">
+    <Card sx={{textAlign: "center",
+                marginLeft: 30,
+                marginRight: 30,
+                marginBottom: 10,
+                fontSize: 20,
+                padding: 5,
+                wordSpacing: 2}}>
         <h2> Review</h2>
-
-            <p> Dust the shelves and clean the windows. Does everthing look like it should? This is what renters will see when looking at ypur property page. </p>
-        </div>
+        <p> Dust the shelves and clean the windows. Does everthing look like it should? <br>
+        </br>This is what renters will see when looking at ypur property page. </p>
+       
         <Box sx={{ width: '100%' }}>
            {/* {residenceSaga.map(( id))} */}
            <div> 
          
                 <h2> Price: $3,000</h2>
            </div>
-           <Button onClick={handleSubmit}> Submit </Button> 
     </Box>
+    </Card>
+    <Button onClick={handleSubmit} type="submit"
+                        size='large'
+                        sx={{
+                            backgroundColor: '#CE8077',
+                            color: '#f8f8f8',
+                            marginLeft: 140
+                        }}> Submit </Button> 
     </>
     )
 }

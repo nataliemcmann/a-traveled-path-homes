@@ -4,6 +4,7 @@ import './LengthofStay.css'
 import { Card } from "@mui/material";
 import Button from "@mui/material/Button";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
+import { Stack } from '@mui/material';
 
 function PropertyStayLengthForm () {
     const history = useHistory();
@@ -23,6 +24,10 @@ function PropertyStayLengthForm () {
         });
       }
 
+      const nextBtn = () => {
+        history.push(`/price`)
+    }
+
       const cancelBtn = () => {
         history.push(`/ownerdashboard`)
     }
@@ -30,14 +35,29 @@ function PropertyStayLengthForm () {
     return (
     <>
       <PropertyFormNav className="stayLength"/>
-      <Card>
+      <Card sx={{border: "none",
+boxShadow: "none"}}>
         <div>
             <h2 className="center"> Minimum Stay of Length</h2>
-            <p className="box"> Why a minimum stay length? Traveling professionals need at least 1 month availability for their temporary housing (and often longer). A Traveled Path Homes directly serves these rent seekers, so we include a mininmum stay length for al properties to meet renter needs.</p>
+            <Card sx={{border: "none",
+boxShadow: "none"}} className="p">
+            <p> Why a minimum stay length? Traveling professionals need at least 1 month availability for their temporary housing (and often longer). A Traveled Path Homes directly serves these rent seekers, so we include a mininmum stay length for all properties to meet renter needs.</p>
+            </Card>
         </div>
-
-        <div id="SquareinMiddle">
+          <Card sx={{alignSelf: "center",
+                      boxShadow: "none",
+                      marginLeft: 80,
+                      marginBottom: 15
+                      }}>
           <h2> Month:{count }</h2>
+          <Button
+            variant="outlined"
+            className="moveRight"
+            onClick={Decrement}
+          >
+            {" "}
+            -{" "}
+          </Button>
           <Button
             variant="outlined"
           
@@ -46,15 +66,7 @@ function PropertyStayLengthForm () {
             {" "}
             +{" "}
           </Button>
-          <Button
-            variant="outlined"
-           
-            onClick={Decrement}
-          >
-            {" "}
-            -{" "}
-          </Button>
-          </div>
+          </Card>
           </Card>
 
           <div className="cancelBtn"></div>
@@ -70,6 +82,21 @@ function PropertyStayLengthForm () {
                     }}
                     >
                         Cancel
+                    </Button> 
+
+                    <div className="nextBtn"></div>
+                <Button onClick={nextBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        marginLeft: 160,
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        NEXT
                     </Button> 
         
     </>
