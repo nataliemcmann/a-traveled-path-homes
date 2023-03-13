@@ -114,12 +114,7 @@ function RenterDashboard () {
                   <p>30 day minum stay</p>
                   <h4>$1,300/month</h4>
                 </div>
-                <div className="propertyRatings">
-                    <div className="star">
-                    <span class="fa fa-star checked"></span>
-                    <div className="rating">4.9</div>
-                    </div>
-                </div>
+               
             </div>
         </div>
       </div>
