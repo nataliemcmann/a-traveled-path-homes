@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 import "./BasicsPage.css";
 //mui components
-import { Stack, Button} from '@mui/material';
+import { Stack, TextField, Button} from '@mui/material';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [guestCount, setGuestCount] = useState(0);
-  const [bedsCount, setBedsCount] = useState(0);
-  const [bedrooomCount, setBedroomCount] = useState(0);
-  const [bathCount, setBathCount] = useState(0);
+  const propertyReducer = useSelector((store) => store.propertyReducer);
+
+  // const [guestCount, setGuestCount] = useState(0);
+  // const [bedsCount, setBedsCount] = useState(0);
+  // const [bedrooomCount, setBedroomCount] = useState(0);
+  // const [bathCount, setBathCount] = useState(0);
   
   function handleBasicsSubmit() {
     event.preventDefault();
