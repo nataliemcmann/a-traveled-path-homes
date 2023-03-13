@@ -1,21 +1,25 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 
 function* addResidenceAmenities(action) {
   try {
-      const amenitiesArray = action.payload;
+      const residenceId = action.payload.residenceId;
+      const amenitiesList = action.payload.amenitiesList;
       yield axios ({
           method: "POST",
           url: "/api/amenities_residences",
-          data: amenitiesArray
+          data: {
+            residenceId,
+            amenitiesList
+          }
       })
-      yield put({ type: 'FETCH_AMENITIES_RESIDENCES', payload: amenitiesArray.amenitiesId })
+      // yield put({ type: 'FETCH_AMENITIES_RESIDENCES', payload: amenitiesArray.amenitiesId })
   } catch (error) {
       console.log('Error in addResidenceAmenities: ', error);
   }
 }
 
-function* deleteAmenities(action) {
+function* deleteResidenceAmenities(action) {
   const amenitiesToDelete = action.payload;
   console.log('amenities we are deleting:', amenitiesToDelete)
   const response = yield axios({
@@ -29,8 +33,8 @@ function* deleteAmenities(action) {
 }
 
 function* amenitiesResidenceSaga() {
-  yield takeEvery('ADD_TASK_USER', addResidenceAmenities);
-  yield takeEvery('DELETE_TASK_USER', deleteAmenities);
+  yield takeEvery('ADD_AMENITIES_RESIDENCE', addResidenceAmenities);
+  yield takeEvery('DELETE_AMENITIES_RESIDENCE', deleteResidenceAmenities);
 }
 
 export default amenitiesResidenceSaga;
