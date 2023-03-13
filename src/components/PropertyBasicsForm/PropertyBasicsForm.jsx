@@ -6,8 +6,6 @@ import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 import "./BasicsPage.css";
 //mui components
 import { Stack, TextField, Button} from '@mui/material';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 function PropertyBasicsForm() {
   //declare dispatch
@@ -15,91 +13,28 @@ function PropertyBasicsForm() {
   const history = useHistory();
 
   const propertyReducer = useSelector((store) => store.propertyReducer);
-
-  // const [guestCount, setGuestCount] = useState(0);
-  // const [bedsCount, setBedsCount] = useState(0);
-  // const [bedrooomCount, setBedroomCount] = useState(0);
-  // const [bathCount, setBathCount] = useState(0);
   
   function handleBasicsSubmit() {
     event.preventDefault();
     console.log('dispatch basics count');
     dispatch({
       type: 'SET_MAX_GUESTS',
-      payload: guestCount
+      payload: propertyReducer.guests
     })
     dispatch({
       type: 'SET_BEDS',
-      payload: bedsCount
+      payload: propertyReducer.beds
     })
     dispatch({
       type: 'SET_BEDROOMS',
-      payload: bedrooomCount
+      payload: propertyReducer.bedrooms
     })
     dispatch({
       type: 'SET_BATHROOMS',
-      payload: bathCount
+      payload: propertyReducer.bathrooms
     })
     history.push('/amenities');
   }
-
-  function guestIncrement() {
-    setGuestCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function guestDecrement() {
-    setGuestCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-  function bedsIncrement() {
-    setBedsCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function bedsDecrement() {
-    setBedsCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-  function bedroomIncrement() {
-    setBedroomCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function bedroomDecrement() {
-    setBedroomCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-  function bathIncrement() {
-    setBathCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function bathDecrement() {
-    setBathCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-
 
   const nextBtn = () => {
     history.push(`/amenities`)
@@ -110,7 +45,6 @@ function PropertyBasicsForm() {
 }
 
 
-
   return (
     <>
       <PropertyFormNav className="basics"/>
@@ -118,74 +52,61 @@ function PropertyBasicsForm() {
         <form className="basicForm" onSubmit={handleBasicsSubmit}>
           <h1> Basics </h1>
             <p> Fill in the basics </p>
-              <h2> Guests: {guestCount} </h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={guestIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={guestDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-              <h2> Beds: {bedsCount} </h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedsIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedsDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-              <h2> Bedrooms: {bedrooomCount}</h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedroomIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedroomDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-              <h2> Bathrooms: {bathCount} </h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bathIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bathDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
+              <h2> Guests</h2>
+              <label htmlFor="guest count">
+                <TextField
+                  type="number"
+                  value={propertyReducer.guests}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  required
+                  onChange={(event) => {
+                    dispatch({type: 'SET_GUEST_INPUT', payload: event.target.value})
+                  }}
+                />
+              </label>
+              
+              
+
+              <h2> Beds </h2>
+              <label htmlFor="bed count">
+                <TextField
+                  type="number"
+                  value={propertyReducer.beds}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  required
+                  onChange={(event) => {
+                    dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
+                  }}
+                />
+              </label>
+              
+
+
+              <h2> Bedrooms </h2>
+              <label htmlFor="bed count">
+                <TextField
+                  type="number"
+                  value={propertyReducer.bedrooms}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  required
+                  onChange={(event) => {
+                    dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
+                  }}
+                />
+              </label>
+
+              <h2> Bathrooms </h2>
+              <label htmlFor="bed count">
+                <TextField
+                  type="number"
+                  value={propertyReducer.bathrooms}
+                  InputProps={{ inputProps: { min: 0 } }}
+                  required
+                  onChange={(event) => {
+                    dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
+                  }}
+                />
+              </label>
 
               <div className="cancelBtn"></div>
                 <Button onClick={cancelBtn}
