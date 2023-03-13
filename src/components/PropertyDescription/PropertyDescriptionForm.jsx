@@ -27,6 +27,9 @@ function PropertyDescriptionForm() {
     const [newBeds, setNewBeds] = useState(0)
     const [newBathrooms, setNewBathrooms] = useState(0)
     const [newFeaturePhoto, setNewFeaturePhoto] = useState(0)
+    const [newMinStayLength, setNewMinStayLength] = useState(0)
+    const [newPriceDaily, setNewPriceDaily] = useState(0)
+    const [newPriceMonthly, setNewPriceMonthly] = useState(0)
 
     //functions to choose house type
     //single
@@ -68,7 +71,10 @@ function PropertyDescriptionForm() {
             beds: newBeds,
             bathrooms: newBathrooms,
             listed: false,
-            featurePhoto: newFeaturePhoto
+            featurePhoto: newFeaturePhoto,
+            minStayLength: newMinStayLength,
+            priceDaily: newPriceDaily,
+            priceMonthly: newPriceMonthly
         }
         console.log('this is a new residence', newResidence);
         dispatch({
@@ -76,15 +82,6 @@ function PropertyDescriptionForm() {
             payload: newResidence
         })
         //clear inputs
-        setNewHouseType(0),
-        setNewPropertyName(''),
-        setNewDescription(''),
-        setNewAddress(''),
-        setNewMaxGuests(0),
-        setNewBedrooms(0),
-        setNewBeds(0),
-        setNewBathrooms(0),
-        setNewFeaturePhoto(0)
         history.push('/address')
     }
     

@@ -1,91 +1,95 @@
-import React, { useState } from "react"
+import React from "react"
 import { useDispatch, useSelector} from "react-redux"
 import { useHistory } from "react-router-dom";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
+//mui components
+import { Stack, TextField, Button } from '@mui/material';
 
 const ProperyAddressForm = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const editAddress = useSelector((store) => store.editAddress);
+    const propertyReducer = useSelector((store) => store.propertyReducer);
+    const address = useSelector((store) => store.address);
 
-        const [addressinput, setAddressInput] = useState("");
-        const [apartmentInput, setApartmentInput] = useState("");
-        const [cityInput, setCityInput] = useState("");
-        const [stateInput, setStateInput] = useState("");
-        const [zipInput, setZipInput] = useState("");
-
-        const addressToEdit= (evt) => {
-          dispatch({
-            type: 'ADDRESS_TO_EDIT',
-            payload: evt.target.value
-          })
+    function handleAddressSubmit() {
+        event.preventDefault();
+        let addressAsString = ''
+        if (address.apartment) {
+          addressAsString = `${address.street} ${address.apartment} ${address.city} ${address.state} ${address.zip}`;
+        } else {
+          addressAsString = `${address.street} ${address.city} ${address.state} ${address.zip}`;
         }
-
-      const handleSubmit = () => {
-          event.preventDefault();
-          dispatch({type: 'EDIT_RESIDENCE',
-          payload: evt.target.value
+        console.log(addressAsString);
+        dispatch({type: 'SET_ADDRESS',
+        payload: addressAsString
         })
-        history.push('')
-        }
+        dispatch({type: 'EDIT_RESIDENCE', 
+        payload: propertyReducer.residence})
+        history.push('/basics');
+      }
       
     return (
       <>
-      <PropertyFormNav className="address"/>
-      <div className="propertyAddress">
-            <form onSubmit={handleSubmit}>
-                <h1> Address </h1>
-                <h5>Your address and location are safe with us. It won't be viewable by renders until you chose to list property publicly</h5>
-              <label> Address
-                <input 
-                type="text" 
-                value= {addressinput}
-                onChange = {(event) => {
-                setAddressInput(event.target.value)
-                }}
-                />
-              </label>
-              <label> Apartment, suite, etc.
-                <input 
-                type="text" 
-                value= {apartmentInput}
-                onChange = {(event) => {
-                setApartmentInput(event.target.value)
-                }}
-                />
-              </label>
-              <label> City
-                <input 
-                type="text" 
-                value= {cityInput}
-                onChange = {(event) => {
-                setCityInput(event.target.value)
-                }}
-                />
-              </label>
-              <label> State
-                <input 
-                type="text" 
-                value= {stateInput}
-                onChange = {(event) => {
-                setStateInput(event.target.value)
-                }}
-                />
-              </label>
-              <label> Zip/postal code
-                <input 
-                type="text" 
-                value= {zipInput}
-                onChange = {(event) => {
-                setZipInput(event.target.value)
-                }}
-                />
-              </label>
-              <button type= "submit" >Next</button>
+        <PropertyFormNav className="address"/>
+        <div className="propertyAddress">
+            <form onSubmit={handleAddressSubmit}>
+            <Stack alignItems='center'>
+                  <h1> Address </h1>
+                  <p>Your address and location are safe with us. It won't be viewable by renders until you chose to list property publicly</p>
+                  <div>
+                    <label> Address
+                      <input 
+                      type="text" 
+                      value= {address.street || ''}
+                      onChange = {(event) => {
+                      dispatch({type: 'SET_STREET', payload: event.target.value})
+                      }}
+                      />
+                  </label>
+                  </div>
+                
+                <label> Apartment, suite, etc.
+                  <input 
+                  type="text" 
+                  value= {address.apartment || ''}
+                  onChange = {(event) => {
+                  dispatch({type: 'SET_APARTMENT', payload: event.target.value})
+                  }}
+                  />
+                </label>
+                <label> City
+                  <input 
+                  type="text" 
+                  value= {address.city || ''}
+                  onChange = {(event) => {
+                    dispatch({type: 'SET_CITY', payload: event.target.value})
+                  }}
+                  />
+                </label>
+                <label> State
+                  <input 
+                  type="text" 
+                  value= {address.state || ''}
+                  onChange = {(event) => {
+                    dispatch({type: 'SET_STATE', payload: event.target.value})
+                  }}
+                  />
+                </label>
+                <label> Zip/postal code
+                  <input 
+                  type="text" 
+                  value= {address.zip || ''}
+                  onChange = {(event) => {
+                    dispatch({type: 'SET_ZIP', payload: event.target.value})
+                  }}
+                  />
+                </label>
+                <button type= "submit" >Next</button>
+              </Stack>
             </form>
-            </div>
+        </div>
       </>     
     )
 }

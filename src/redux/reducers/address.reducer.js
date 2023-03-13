@@ -1,30 +1,21 @@
-import { combineReducers } from "redux";
 
-const residence = (state = [], action) => {
-    switch (action.type) {
-      case 'SET_RESIDENCE':
-        return action.payload;
-      case 'UNSET_RESIDENCE':
-        return [];
-      default:
-        return state;
-    }
-  }
-
-  const propertyAddress = (state = [], action) => {
+  const address = (state = {}, action) => {
     switch (action.type) {
       case 'SET_PROPERTY_ADDRESS':
         return action.payload;
-      case 'UNSET_PROPERTY_ADDRESS':
-        return [];
+      case 'SET_STREET':
+        return {...state, street: action.payload};
+      case 'SET_APARTMENT':
+        return {...state, apartment: action.payload};
+      case 'SET_CITY':
+        return {...state, city: action.payload};
+      case 'SET_STATE':
+        return {...state, state: action.payload};
+      case 'SET_ZIP':
+        return {...state, zip: action.payload};
       default:
         return state;
     }
   }
-const addressReducer = combineReducers({
-    residence,
-    propertyAddress,
-});
-
   
-  export default addressReducer;
+  export default address;

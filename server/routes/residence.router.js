@@ -7,23 +7,18 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 
 router.get('/:id', (req, res) =>{
-  const currentPrice = req.params.id
-  const sqlQuery = `SELECT * FROM "residences" WHERE "price" = $1;`;
-  // const sqlValue = [currentPrice]; 
-  pool
-  .query(sqlQuery,currentPrice)
-  .then((result) => {
-    res.send(result);
-  })
-  .catch((error) => {
-    console.log("ERROR in /api/residence GET route", error);
-    res.sendStatus(500);
-  });
+    const residenceId = req.params.id
+    const sqlValues = [residenceId]
+    const sqlQuery = `SELECT * FROM "residences" WHERE "id" = $1;`;
+    pool.query(sqlQuery, sqlValues)
+    .then((result) => {
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log("ERROR in /api/residence GET route", error);
+        res.sendStatus(500);
+    });
 })
-
-
-
-
 
 
 router.post('/', rejectUnauthenticated, async (req, res) => {
@@ -47,7 +42,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
         `
         const dbRes = await pool.query(insertResidenceQuery, sqlValues);
         console.log(dbRes.rows[0].id);
-        res.send(dbRes.rows[0]);
+        res.send(dbRes.rows[0]).id;
     } catch (err) {
         console.log('error inserting property type', err);
         res.sendStatus(500);
@@ -56,6 +51,7 @@ router.post('/', rejectUnauthenticated, async (req, res) => {
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     let idToEdit = req.params.id;
+    console.log(idToEdit);
     const sqlValues = [
         req.body.houseType, req.body.propertyName, 
         req.body.description, req.body.address, req.body.maxGuests, 

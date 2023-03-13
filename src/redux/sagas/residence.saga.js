@@ -1,19 +1,19 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchResidence() {
+function* fetchResidence(action) {
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     };
 
-    const response = yield axios.get(`/api/residence/${id}`, config);
+    const response = yield axios.get(`/api/residence/${action.payload}`, config);
     
 
     yield put({ 
       type: 'SET_RESIDENCE', 
-      payload: response.data });
+      payload: response.data[0] });
   } catch (error) {
     console.log('Residence get request failed', error);
   }
@@ -23,14 +23,15 @@ function* createResidence(action){
   try{
     const residence = action.payload
     console.log('create this residence', residence);
-    yield response = axios({
+    const response = yield axios({
         method: 'POST',
         url:'/api/residence',
         data: residence
     })
+    console.log(response.data);
     yield put({
         type:'FETCH_RESIDENCE',
-        payload: response.data
+        payload: response.data.id
     }) 
   } catch (err) {
     console.log('residence creation failed', err);
@@ -45,7 +46,8 @@ function* residenceEdit(action) {
     data: editedResidence,
   })
   yield put({
-    type: 'FETCH_RESIDENCE'
+    type: 'FETCH_RESIDENCE',
+    payload: editedResidence.id
   })
 }
 
