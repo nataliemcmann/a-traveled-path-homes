@@ -97,7 +97,7 @@ function PropertyAmenitiesForm() {
               amenitiesList
           }
       })
-      // history.push('/propertyPhotoForm')
+      history.push('/photos')
   };
 
 
