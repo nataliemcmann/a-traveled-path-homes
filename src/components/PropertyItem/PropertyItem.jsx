@@ -1,10 +1,7 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import Card from '@mui/material/Card';
-import { useDispatch } from 'react-redux';
 
-function PropertyItem(property) {
- 
+function PropertyItem({property}) {
 
   return(
     <Card sx={{
