@@ -65,7 +65,25 @@ function RenterDashboard () {
                 </div>
             </div>
         </div>
-       
+        <div className="container">
+            <div className="img-container">
+                <img src="https://picsum.photos/200" alt="" />
+            </div>
+            <div className="property-details">
+                <div className="propertyInformation">
+                  <h4>Minneapolis, MN</h4>
+                  <p>15 Miles from work</p>
+                  <p>30 day minum stay</p>
+                  <h4>$1,100/month</h4>
+                </div>
+                <div className="propertyRatings">
+                    <div className="star">
+                    <span class="fa fa-star checked"></span>
+                    <div className="rating">4.7</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div className="container">
             <div className="img-container">
                 <img src="https://picsum.photos/200" alt="" />
