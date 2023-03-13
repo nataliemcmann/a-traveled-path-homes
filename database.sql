@@ -53,3 +53,12 @@ CREATE TABLE "amenities_residences" (
     "residenceId" INT
 );
 
+----------------ForDummyData-------------------
+
+CREATE TABLE "property" (
+	"id" SERIAL PRIMARY KEY,
+	"houseType" INT,
+	"propertyName" VARCHAR (80),
+	"description" VARCHAR (250),
+	"featurePhoto" VARCHAR
+);
