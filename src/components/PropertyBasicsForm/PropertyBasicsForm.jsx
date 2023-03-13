@@ -10,7 +10,6 @@ import { Stack, Button} from '@mui/material';
 function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
-  const history = useHistory();
 
   //declare history
   const history = useHistory();
