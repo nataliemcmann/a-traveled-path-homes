@@ -31,7 +31,10 @@ CREATE TABLE "residences" (
 	"beds" INT,
 	"bathrooms" INT,
 	"listed" BOOLEAN,
-	"featurePhoto" VARCHAR
+	"featurePhoto" INT,
+	"minStayLength" INT,
+	"priceDaily" INT,
+	"priceMonthly" INT
 );
 
 CREATE TABLE "amenities" (
@@ -39,11 +42,17 @@ CREATE TABLE "amenities" (
     "name" VARCHAR (255)
 );
 
+--amenities options
+INSERT INTO "amenities" 
+	("name")
+
+
 CREATE TABLE "amenities_residences" (
     "id" SERIAL PRIMARY KEY,
     "amenitiesId" INT,
     "residenceId" INT
 );
+
 
 
 INSERT INTO "residences" 
@@ -107,3 +116,34 @@ INSERT INTO "residences"
 "priceDaily", "priceMonthly")
 VALUES(1,2,'Lake Front', 'Beautiful town home located in an ideal location near shopping and highway in KC now available!! This spacious 3 bedroom/3 bath has two balconies overlooking a lake, beautiful living spaces, large bedrooms, a true master bedroom and a large two car garage!', '1125 Grand Blvd, Kansas City, MO 64106',
  9,3,4,2,30,63, 1895); 
+
+----------------ForDummyData-------------------
+
+CREATE TABLE "property" (
+	"id" SERIAL PRIMARY KEY,
+	"houseType" INT,
+	"propertyName" VARCHAR (80),
+	"description" VARCHAR (250),
+	"featurePhoto" VARCHAR
+);
+
+CREATE TABLE "instructions" (
+	"residencesId" INT PRIMARY KEY REFERENCES "residences"(id) ON DELETE CASCADE,
+	"wifiInformation" VARCHAR (50),
+	"safetyProtocal" VARCHAR (100),
+	"contactInformation" VARCHAR (50),
+	"checkInDetails" VARCHAR (100),
+    "checkOutDetails" VARCHAR (100)
+);
+
+ SELECT
+        "residences"."id",
+        "instructions"."wifiInformation",
+        "instructions"."safetyProtocal",
+        "instructions"."contactInformation",
+        "instructions"."checkInDetails",
+        "instructions"."checkOutDetails"
+      FROM "residences"
+      LEFT JOIN "instructions"
+        ON "residences"."id" = "instructions"."residencesId"
+

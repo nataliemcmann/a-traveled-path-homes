@@ -5,7 +5,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const addStringDob = require('../modules/addStringDob.js');
 
 /**
- * GET route template
+ * GET route 
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
   const sqlValues = [req.user.id];
@@ -32,7 +32,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 /**
- * POST route template
+ * POST route 
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
     //turn to async await if using AWS S3 to save profile photos
@@ -55,5 +55,31 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500);
     })
 });
+/**
+ * PUT route 
+ */
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    const idToUpdate = req.params.id;
+    const sqlText = `
+    UPDATE "profile"
+    SET "firstName"=$1, "lastName"=$2, "dob"=$3, "profession"=$4, "viewAsRenter"=$5
+    WHERE id=$6
+    `;
+    pool.query(sqlText, [
+      req.body.firstName,
+      req.body.lastName,
+      req.body.dob,
+      req.body.profession,
+      req.body.viewAsrenter,
+      idToUpdate
+    ])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`error making db query ${sqlText}`, error);
+      res.sendStatus(500);
+    });
+  });
 
 module.exports = router;

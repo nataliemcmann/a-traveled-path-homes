@@ -1,0 +1,38 @@
+.view-photos {
+    position: fixed;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+.view-photos-inner {
+position: relative;
+padding: 32px;
+width: 100%;
+max-width: 640px;
+background-color: white;
+}
+
+.view-photos-inner .close-btn {
+position: absolute;
+top: 16px;
+right: 16px;
+padding: 10px 20px;
+border-color: #CE8077;
+border-width: 1px 1px 3px;
+border-radius: 4px;
+background-color: #CE8077;
+color: #f8f8f8;
+font-size: 1.1rem;
+}
+
+.view-photos-inner .p {
+font-size: 1.1rem;
+}

@@ -10,8 +10,9 @@ import residenceSaga from "../../redux/sagas/residence.saga";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "@mui/material";
+import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
-function ReviewPage (){
+function PropertyReview (){
     const history = useHistory()
     const dispatch = useDispatch();
     const propertyReducer = useSelector((store) => store.propertyReducer);
@@ -33,6 +34,7 @@ function ReviewPage (){
 
     return (
     <>
+    <PropertyFormNav className="review"/>
     <div id="SquareinMiddle">
         <h2> Review</h2>
 
@@ -50,4 +52,4 @@ function ReviewPage (){
     )
 }
 
-export default ReviewPage;
+export default PropertyReview;
