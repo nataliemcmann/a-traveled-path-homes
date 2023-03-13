@@ -93,7 +93,7 @@ function PropertyAmenitiesForm() {
               amenitiesList
           }
       })
-      history.push('/propertyPhotoForm')
+      history.push('/photo')
   };
 
   const cancelBtn = () => {
