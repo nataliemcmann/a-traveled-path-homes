@@ -5,7 +5,7 @@ import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 import "./BasicsPage.css";
 //mui components
-import { Stack, TextField, Button} from '@mui/material';
+import { Stack, Grid, TextField, Button} from '@mui/material';
 
 function PropertyBasicsForm() {
   //declare dispatch
@@ -50,94 +50,140 @@ function PropertyBasicsForm() {
       <PropertyFormNav className="basics"/>
       <Stack>
         <form className="basicForm" onSubmit={handleBasicsSubmit}>
-          <h1> Basics </h1>
-            <p> Fill in the basics </p>
-              <h2> Guests</h2>
-              <label htmlFor="guest count">
-                <TextField
-                  type="number"
-                  value={propertyReducer.guests}
-                  InputProps={{ inputProps: { min: 0 } }}
-                  required
-                  onChange={(event) => {
-                    dispatch({type: 'SET_GUEST_INPUT', payload: event.target.value})
-                  }}
-                />
-              </label>
+          <Grid
+                container spacing={2}
+                direction='column'
+                justifyContent='center'
+                columns={1}
+                maxWidth={800}
+                marginLeft={100}
+                marginBottom={15}
+          >
+            <h1> Basics </h1>
+            <p> Fill in the basic information for your property. </p>
               
-              
-
-              <h2> Beds </h2>
-              <label htmlFor="bed count">
-                <TextField
-                  type="number"
-                  value={propertyReducer.beds}
-                  InputProps={{ inputProps: { min: 0 } }}
-                  required
-                  onChange={(event) => {
-                    dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
-                  }}
-                />
-              </label>
-              
-
-
-              <h2> Bedrooms </h2>
-              <label htmlFor="bed count">
-                <TextField
-                  type="number"
-                  value={propertyReducer.bedrooms}
-                  InputProps={{ inputProps: { min: 0 } }}
-                  required
-                  onChange={(event) => {
-                    dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
-                  }}
-                />
-              </label>
-
-              <h2> Bathrooms </h2>
-              <label htmlFor="bed count">
-                <TextField
-                  type="number"
-                  value={propertyReducer.bathrooms}
-                  InputProps={{ inputProps: { min: 0 } }}
-                  required
-                  onChange={(event) => {
-                    dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
-                  }}
-                />
-              </label>
-
-              <div className="cancelBtn"></div>
-                <Button onClick={cancelBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
+                <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+                  >
+                  <h2> Guests</h2>
+                  <label htmlFor="guest count">
+                  <TextField
+                    type="number"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={propertyReducer.guests}
+                    InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'}}}}
+                    required
+                    onChange={(event) => {
+                      dispatch({type: 'SET_GUEST_INPUT', payload: event.target.value})
                     }}
-                    >
-                        Cancel
-                    </Button> 
+                  />
+                  </label>
+                </Grid>
 
-              <div className="nextBtn">
-                <Button onClick={nextBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
+              <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+              >
+                  <h2> Beds </h2>
+                  <label htmlFor="bed count">
+                    <TextField
+                      type="number"
+                      sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                      value={propertyReducer.beds}
+                      InputProps={{ inputProps: { 
+                        min: 0, 
+                        style: { 
+                          textAlign: 'right', width: '35px', 
+                          fontSize: '32px'} } }}
+                      required
+                      onChange={(event) => {
+                        dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
+                      }}
+                    />
+                  </label>
+                </Grid>
+              
+
+                <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+                > 
+                  <h2> Bedrooms </h2>
+                  <label htmlFor="bed count">
+                  <TextField
+                    type="number"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={propertyReducer.bedrooms}
+                    InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'} } }}
+                    required
+                    onChange={(event) => {
+                      dispatch({type: 'SET_BEDROOM_INPUT', payload: event.target.value})
                     }}
-                    >
-                        Next
-                  </Button>  
-              </div>
+                  />
+                  </label>
+                </Grid>
+              
+                <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+                > 
+                  <h2> Bathrooms </h2>
+                  <label htmlFor="bed count">
+                    <TextField
+                      type="number"
+                      sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                      value={propertyReducer.bathrooms}
+                      InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'}} }}
+                      required
+                      onChange={(event) => {
+                        dispatch({type: 'SET_BATHROOM_INPUT', payload: event.target.value})
+                      }}
+                    />
+                    </label>
+                </Grid>
+
+              </Grid>
+
+                <div className="btnContainer">
+                    <div className="cancelBtn">
+                      <Button onClick={cancelBtn}
+                          type="submit" 
+                          size= "large"
+                          sx={{
+                              backgroundColor: '#CE8077',
+                              color: '#f8f8f8',
+                              margin: '2%',
+                              paddingTop: '16px', paddingBottom: '16px',
+                              paddingRight: '32px', paddingLeft: '32px'
+                          }}
+                          >
+                              Cancel
+                        </Button> 
+                    </div>
+                      
+
+                    <div className="nextBtn">
+                      <Button onClick={nextBtn}
+                          type="submit" 
+                          size= "large"
+                          sx={{
+                              backgroundColor: '#CE8077',
+                              color: '#f8f8f8',
+                              margin: '2%',
+                              paddingTop: '16px', paddingBottom: '16px',
+                              paddingRight: '32px', paddingLeft: '32px'
+                          }}
+                          >
+                              Next
+                        </Button>  
+                    </div>
+                </div>
+              
               </form>
       </Stack> 
     </>
