@@ -98,7 +98,7 @@ const residence = (state = {}, action) => {
     }
   }
 
-  const featurePhoto = (state = 0, action) => {
+  const featurePhoto = (state = '', action) => {
     switch (action.type) {
       case 'SET_FEATURE_PHOTO':
         return action.payload;

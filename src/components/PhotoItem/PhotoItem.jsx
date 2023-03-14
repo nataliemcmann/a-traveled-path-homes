@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './PhotoItem.css';
 //mui component
-import { Card, CardActions } from '@mui/material';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { Card } from '@mui/material';
 
-function PhotoItem ({ photo }) {
+function PhotoItem ({ file }) {
     const dispatch = useDispatch();
     const propertyReducer = useSelector(store => store.propertyReducer);
 
@@ -14,33 +13,20 @@ function PhotoItem ({ photo }) {
     const selectAsFeature = () => {
         dispatch({
             type: 'SET_FEATURE_PHOTO',
-            payload: photo.id
+            payload: file
         });
         setSelected(true);
     }
 
-    const removePhoto = () => {
-        dispatch({
-            type: 'DELETE_A_PHOTO',
-            payload: {
-                photoId: photo.id,
-                residenceId: 10
-            }
-        });
-    }
-
     if (propertyReducer) {
-            return (selected && propertyReducer.editResidence.photo === photo.id) ? (
+            return (selected && propertyReducer.featurePhoto === file) ? (
                 <>
                     <Card className="selected" margin={2}>
                         <img 
                             className="relative" 
-                            src={photo.imagePath}
+                            src={file}
                             onClick={selectAsFeature}
                         />
-                        <CardActions>
-                            <DeleteForeverIcon onClick={removePhoto}/>
-                        </CardActions>
                     </Card>
                 </>
             ) : (
@@ -48,12 +34,9 @@ function PhotoItem ({ photo }) {
                     <Card margin={2}>
                         <img 
                             className="relative" 
-                            src={photo.imagePath}
+                            src={file}
                             onClick={selectAsFeature}
                         />
-                        <CardActions>
-                            <DeleteForeverIcon onClick={removePhoto}/>
-                        </CardActions>
                     </Card>
                 </>
             )
@@ -63,12 +46,9 @@ function PhotoItem ({ photo }) {
                 <Card className="selected" margin={2}>
                     <img 
                         className="relative" 
-                        src={photo.imagePath}
+                        src={file}
                         onClick={selectAsFeature}
                     />
-                    <CardActions>
-                        <DeleteForeverIcon onClick={removePhoto}/>
-                    </CardActions>
                 </Card>
             </>
         ) : (
@@ -76,12 +56,9 @@ function PhotoItem ({ photo }) {
                 <Card margin={2}>
                     <img 
                         className="relative" 
-                        src={photo.imagePath}
+                        src={file}
                         onClick={selectAsFeature}
                     />
-                    <CardActions>
-                        <DeleteForeverIcon onClick={removePhoto}/>
-                    </CardActions>
                 </Card>
             </>
         )

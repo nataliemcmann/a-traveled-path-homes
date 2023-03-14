@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PhotoItem from '../PhotoItem/PhotoItem';
 import './PropertyPhotoList.css';
@@ -6,18 +6,14 @@ import './PropertyPhotoList.css';
 import { Grid } from '@mui/material';
 
 
-function PropertyPhotoList ({ trigger, setTrigger, residenceId }) {
-    const dispatch = useDispatch();
+function PropertyPhotoList ({ trigger, setTrigger }) {
 
     const photoReducer = useSelector(store => store.photoReducer);
-    useEffect(() => {
-        dispatch({ type: "FETCH_RESIDENCE_PHOTOS", payload: residenceId})
-    }, []);
 
     return (trigger) ? (
         <div className='view-photos'>
             <div className='view-photos-inner'>
-                <p>Select a feature photo for the property and remove photos if needed.</p>
+                <p>Select a feature photo for the property.</p>
                     <Grid 
                         container spacing={2}
                         columns={3}
@@ -25,8 +21,8 @@ function PropertyPhotoList ({ trigger, setTrigger, residenceId }) {
                         justifyContent='center'
                         marginTop={2}
                     >
-                        {photoReducer.residencePhotos && photoReducer.residencePhotos.map((photo) => {
-                        return <PhotoItem key={photo.id} photo={photo}/>
+                        {photoReducer.uploadedFiles && photoReducer.uploadedFiles.map((file, index) => {
+                        return <PhotoItem key={index} file={file}/>
                     })}
                     </Grid>
                 <button className='close-btn' onClick={() => setTrigger(false)}>Close</button>
