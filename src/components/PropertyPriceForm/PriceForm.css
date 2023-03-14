@@ -1,3 +1,12 @@
+.priceForm {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: 800px
+}
+
 h1,h4 {
     text-align: center;
     color: #121957;
@@ -16,4 +25,5 @@ h1,h4 {
 .cardActions {
     justify-content: center;
   }
+
 

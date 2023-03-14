@@ -81,6 +81,23 @@ const residence = (state = {}, action) => {
     }
   }
 
+  const priceDaily = (state = 70, action) => {
+    switch (action.type) {
+      case 'SET_PRICEDAILY_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
+  const priceMonthly = (state = 2200, action) => {
+    switch (action.type) {
+      case 'SET_PRICEMONTHLY_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
 
 const propertyReducer = combineReducers({
     residence,
@@ -88,7 +105,9 @@ const propertyReducer = combineReducers({
     beds,
     bedrooms,
     bathrooms,
-    stayLength
+    stayLength,
+    priceDaily,
+    priceMonthly
 });
 
   
