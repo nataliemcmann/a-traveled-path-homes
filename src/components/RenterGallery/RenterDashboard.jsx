@@ -14,7 +14,7 @@ function RenterDashboard() {
   return (
     <>
       <div className="savedproperties">
-        <h1>Saved Properties</h1>
+        <h3>Saved Properties</h3>
       </div>
       {/* <div className="containers">
       <Card sx={{
