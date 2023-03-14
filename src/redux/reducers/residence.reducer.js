@@ -98,6 +98,15 @@ const residence = (state = {}, action) => {
     }
   }
 
+  const featurePhoto = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_FEATURE_PHOTO':
+        return action.payload;
+      default: 
+        return state;
+    }
+  }
+
   const stayLength = (state = 1, action) => {
     switch (action.type) {
       case 'SET_STAYLENGTH_INPUT':
@@ -134,6 +143,7 @@ const propertyReducer = combineReducers({
     beds,
     bedrooms,
     bathrooms,
+    featurePhoto,
     stayLength,
     priceDaily,
     priceMonthly

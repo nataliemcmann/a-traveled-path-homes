@@ -20,31 +20,31 @@ function PropertyPhotoForm() {
     const [buttonPopup, setButtonPopup] = useState(false);
 
     // event handler to manage file change and update reducer
-    const onFileChange = (event) => {
+    function onFileChange (event) {
         const selectedFiles = [...event.target.files];
-        dispatch({
-            type: 'SET_FILES',
-            payload: selectedFiles
-        })
+        // dispatch({
+        //     type: 'SET_FILES',
+        //     payload: selectedFiles
+        //     })
+            dispatch({
+                type: 'ADD_FILES',
+                payload: {
+                    files : selectedFiles
+                }
+            })
     };
 
     //send files to saga
-    const postFiles = () => {
-        if (propertyReducer.files) {
-            console.log('uploading files', photoReducer.files);
-            dispatch({
-                type: 'ADD_PHOTOS',
-                payload: {
-                    residenceId: propertyReducer.residence.id,
-                    files : photoReducer.files
-                }
-            })
-            history.push('/stayLength');
-        } else {
-            history.push('/stayLength');
-        }
+//     const postFiles = () => {
+//         if (photoReducer.files) {
+//             console.log('uploading files', photoReducer.files);
+            
+//     }
+// }
+
+    const nextBtn = () => {
+        history.push('/stayLength');
     }
-        const id=10;
 
         const cancelBtn = () => {
             history.push(`/ownerdashboard`)
@@ -53,7 +53,7 @@ function PropertyPhotoForm() {
         return (
             <>
                 <PropertyFormNav className="photos"/>
-                <form onSubmit={postFiles} encType="multipart/form-data">
+                <form encType="multipart/form-data">
                     <div className="uploadForm">
                         <Card>
                             <CardHeader 
@@ -103,7 +103,7 @@ function PropertyPhotoForm() {
                     <div className="btnContainer">
                         <div className="nextBtn">
                             <Button 
-                                type="submit" 
+                                onClick={nextBtn}
                                 size= "large"
                                 sx={{
                                     backgroundColor: '#CE8077',
@@ -133,7 +133,7 @@ function PropertyPhotoForm() {
                             </div>
                     </div>
                 </form>
-                <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup} residenceId={ id }/>
+                <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup}/>
             </>
         )
 }

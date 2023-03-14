@@ -4,7 +4,7 @@ import user from './user.reducer';
 import propertyReducer from './residence.reducer';
 import profileReducer from './profile.reducer';
 import propertyGalleryReducer from './property_gallery.reducer';
-
+import photoReducer from './photo.reducer';
 import propertyDetailsReducer from './property_details.reducer';
 
 import address from './address.reducer';
@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   propertyReducer,
   profileReducer,
   propertyGalleryReducer,
-
+  photoReducer,
   propertyDetailsReducer,
 
   address
