@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 //mui components
-import { Card, CardActions, CardContent, Button, 
+import { Card, CardContent, Button, 
          TextField, InputAdornment} from '@mui/material';
 
 import './PriceForm.css'
@@ -62,9 +62,9 @@ function PropertyPriceForm() {
                     }}
                   />
               </label>
-              <h3>
+              {/* <h3>
                 Average: ${propertyReducer.priceDaily}-${propertyReducer.priceDaily + 20}
-              </h3>
+              </h3> */}
             </CardContent>
           
         </React.Fragment>
@@ -97,9 +97,9 @@ function PropertyPriceForm() {
                     }}
                   />
             </label>
-            <h3>
+            {/* <h3>
                 Average: ${propertyReducer.priceMonthly}-${propertyReducer.priceMonthly + 500}
-            </h3>
+            </h3> */}
             </CardContent>
         </React.Fragment>
         </Card>
