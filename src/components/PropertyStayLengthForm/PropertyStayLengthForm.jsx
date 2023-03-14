@@ -59,7 +59,7 @@ function PropertyStayLengthForm () {
       <div className="btnContainer">
           <div className="nextBtn">
               <Button 
-                  type="submit" 
+                  onClick={nextBtn}
                   size= "large"
                   sx={{
                       backgroundColor: '#CE8077',
@@ -74,7 +74,6 @@ function PropertyStayLengthForm () {
               </div>
               <div className="cancelBtn">
               <Button onClick={cancelBtn}
-                  type="submit" 
                   size= "large"
                   sx={{
                       backgroundColor: '#CE8077',
