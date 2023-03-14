@@ -26,7 +26,7 @@ import ProfileForm from '../ProfileForm/ProfileForm';
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
 import PropertyPhotoForm from '../PropertyPhotoForm/PropertyPhotoForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
-import Map from "../PropertyDetailsPage/PropertyDetailsPage";
+import Map from "../PropertyDetailsPage/MapRender";
 
 import BasicForms from "../BasicsProperty/BasicInfoPage";
 import LengthofStay from "../LengthofStay/LengthofStay";

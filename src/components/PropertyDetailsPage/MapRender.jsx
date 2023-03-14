@@ -24,10 +24,11 @@ import {
   
   const center = { lat: 44.9780, lng: -93.2635 }
   
-  function Map() {
+  function MapRender() {
+    const [ libraries ] = useState(['places']);
     const { isLoaded } = useJsApiLoader({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-      libraries: ['places'],
+      libraries
     })
   
     const [map, setMap] = useState(/** @type google.maps.Map */ (null))
@@ -82,12 +83,12 @@ import {
           <GoogleMap
             center={center}
             zoom={15}
-            mapContainerStyle={{ width: '70%', height: '85%' }}
+            mapContainerStyle={{ width: '75%', height: '80%' }}
             options={{
-              zoomControl: false,
-              streetViewControl: false,
-              mapTypeControl: false,
-              fullscreenControl: false,
+              // zoomControl: false,
+              // streetViewControl: false,
+              // mapTypeControl: false,
+              // fullscreenControl: false,
             }}
             onLoad={map => setMap(map)}
           >
@@ -154,4 +155,4 @@ import {
     )
   }
   
-  export default Map
+  export default MapRender
