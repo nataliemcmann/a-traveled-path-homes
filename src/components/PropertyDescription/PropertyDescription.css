@@ -25,7 +25,18 @@
     font-size: 0.9rem;
 }
 
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cancelBtn {
+    display: flex;
+    margin-left: 2%;
+}
+
 .nextBtn {
     display: flex;
-    justify-content: flex-end;
+    margin-right: 2%;
 }
