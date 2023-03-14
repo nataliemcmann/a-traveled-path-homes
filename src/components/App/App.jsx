@@ -23,6 +23,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
+import Map from "../PropertyDetailsPage/MapRender";
 
 //property form imports
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
@@ -107,6 +108,14 @@ function App() {
             path= "/renterdashboard"
           >
             <RenterDashboard  />
+          </ProtectedRoute>
+
+            <ProtectedRoute
+            exact
+            path= "/properydescription"
+          >
+            <Map />
+
           </ProtectedRoute>
 
           <ProtectedRoute
