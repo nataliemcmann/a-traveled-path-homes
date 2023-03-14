@@ -1,4 +1,4 @@
-.center {
+.center h2{
     text-align: center;
 font-weight: 550;
 font-size: 48px;
@@ -6,12 +6,15 @@ line-height: 55px;
 color: #000;;
 }
 
-.p{
-margin-left: 300px;
-margin-right: 300px;
+.center p{
 padding: 6px;
-text-align: center;
-border: none;
-box-shadow: none;
+text-align: left;
 }
 
+.sLBorder {
+    border: 2px solid #111856;
+    border-radius: 20px;
+    width: 400px;
+    height: 200px;
+    margin-left: 190px;
+}
