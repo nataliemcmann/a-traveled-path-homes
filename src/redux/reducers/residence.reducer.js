@@ -35,8 +35,50 @@ const residence = (state = {}, action) => {
     }
   }
 
+
+  const guests = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_GUEST_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const beds = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_BED_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const bedrooms = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_BEDROOM_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const bathrooms = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_BATHROOM_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
+
 const propertyReducer = combineReducers({
-    residence
+    residence,
+    guests,
+    beds,
+    bedrooms,
+    bathrooms
 });
 
   
