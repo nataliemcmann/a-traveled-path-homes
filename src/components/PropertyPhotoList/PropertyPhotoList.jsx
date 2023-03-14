@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PhotoItem from '../PhotoItem/PhotoItem';
 import './PropertyPhotoList.css';
 //mui component

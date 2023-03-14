@@ -29,6 +29,19 @@ function* addFiles(action) {
     }
 }
 
+//post Saga: will fire on "ADD_RESIDENCE_PHOTOS"
+function* addResidencePhotos(action) {
+    try {
+        const residenceId = action.payload.residenceId;
+        const uploadedFiles = action.payload.uploadedFiles
+        yield axios.post(`/api/photo/${residenceId}`, 
+        {residenceId, uploadedFiles});
+        yield put({type: 'FETCH_RESIDENCE_PHOTOS', payload: residenceId})
+    } catch (err) {
+        console.log('Error in addResidencePhotos', err);
+    }
+}
+
 //get Saga: will fire on "FETCH_RESIDENCE_PHOTOS" action
 function* fetchResidencePhotos(action) {
     try {
@@ -58,6 +71,7 @@ function* photoSaga() {
     yield takeEvery('ADD_FILES', addFiles);
     yield takeEvery('FETCH_RESIDENCE_PHOTOS', fetchResidencePhotos);
     yield takeEvery('DELETE_A_PHOTO', deleteAPhoto);
+    yield takeEvery("ADD_RESIDENCE_PHOTOS", addResidencePhotos);
 }
 
 export default photoSaga;
