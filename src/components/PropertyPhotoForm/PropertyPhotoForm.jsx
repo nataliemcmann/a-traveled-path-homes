@@ -30,14 +30,19 @@ function PropertyPhotoForm() {
 
     //send files to saga
     const postFiles = () => {
-        console.log('uploading files', photoReducer.files);
-        dispatch({
-            type: 'ADD_PHOTOS',
-            payload: {
-                residenceId: propertyReducer.residence.id,
-                files : photoReducer.files
-            }
-        })
+        if (propertyReducer.files) {
+            console.log('uploading files', photoReducer.files);
+            dispatch({
+                type: 'ADD_PHOTOS',
+                payload: {
+                    residenceId: propertyReducer.residence.id,
+                    files : photoReducer.files
+                }
+            })
+            history.push('/stayLength');
+        } else {
+            history.push('/stayLength');
+        }
     }
         const id=10;
 
@@ -95,32 +100,37 @@ function PropertyPhotoForm() {
                         </div>
                     </div>
 
-                    <div className="cancelBtn"></div>
-                <Button onClick={cancelBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}
-                    >
-                        Cancel
-                    </Button> 
-
-                    <div className="nextBtn">
-                        <Button 
-                        type="submit"
-                        size='large'
-                        sx={{
-                            backgroundColor: '#CE8077',
-                            color: '#f8f8f8'
-                        }}
-                        >
-                            Next
-                        </Button>
+                    <div className="btnContainer">
+                        <div className="nextBtn">
+                            <Button 
+                                type="submit" 
+                                size= "large"
+                                sx={{
+                                    backgroundColor: '#CE8077',
+                                    color: '#f8f8f8',
+                                    margin: '2%',
+                                    paddingTop: '16px', paddingBottom: '16px',
+                                    paddingRight: '32px', paddingLeft: '32px'
+                                }}
+                                >
+                                    Next
+                                </Button>  
+                            </div>
+                            <div className="cancelBtn">
+                            <Button onClick={cancelBtn}
+                                type="submit" 
+                                size= "large"
+                                sx={{
+                                    backgroundColor: '#CE8077',
+                                    color: '#f8f8f8',
+                                    margin: '2%',
+                                    paddingTop: '16px', paddingBottom: '16px',
+                                    paddingRight: '32px', paddingLeft: '32px'
+                                }}
+                                >
+                                    Cancel
+                                </Button> 
+                            </div>
                     </div>
                 </form>
                 <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup} residenceId={ id }/>

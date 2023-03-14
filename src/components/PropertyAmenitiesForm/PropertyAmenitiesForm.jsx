@@ -133,29 +133,38 @@ function PropertyAmenitiesForm() {
           <Button onClick={handleTV}><MonitorIcon/>Monitor</Button>
           <Button onClick={handleWifi}><WifiIcon/>WIFI</Button>
           <div><br></br></div>
-          <div className="cancelBtn"></div>
-                <Button onClick={cancelBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}
-                    >
-                        Cancel
-                    </Button> 
-          <Button onClick={addToResidence} type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}>Next</Button>  
+          <div className="btnContainer">
+                  <div className="nextBtn">
+                      <Button 
+                          type="submit" 
+                          size= "large"
+                          sx={{
+                              backgroundColor: '#CE8077',
+                              color: '#f8f8f8',
+                              margin: '2%',
+                              paddingTop: '16px', paddingBottom: '16px',
+                              paddingRight: '32px', paddingLeft: '32px'
+                          }}
+                        >
+                              Next
+                        </Button>  
+                    </div>
+                    <div className="cancelBtn">
+                      <Button onClick={cancelBtn}
+                          type="submit" 
+                          size= "large"
+                          sx={{
+                              backgroundColor: '#CE8077',
+                              color: '#f8f8f8',
+                              margin: '2%',
+                              paddingTop: '16px', paddingBottom: '16px',
+                              paddingRight: '32px', paddingLeft: '32px'
+                          }}
+                          >
+                              Cancel
+                        </Button> 
+                    </div>
+                </div> 
           </form>
       </div>
   )

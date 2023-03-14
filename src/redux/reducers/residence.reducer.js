@@ -72,13 +72,23 @@ const residence = (state = {}, action) => {
     }
   }
 
+  const stayLength = (state = 1, action) => {
+    switch (action.type) {
+      case 'SET_STAYLENGTH_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
 
 const propertyReducer = combineReducers({
     residence,
     guests,
     beds,
     bedrooms,
-    bathrooms
+    bathrooms,
+    stayLength
 });
 
   
