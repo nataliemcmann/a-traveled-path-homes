@@ -30,15 +30,19 @@ function PropertyPhotoForm() {
 
     //send files to saga
     const postFiles = () => {
-        console.log('uploading files', photoReducer.files);
-        dispatch({
-            type: 'ADD_PHOTOS',
-            payload: {
-                residenceId: propertyReducer.residence.id,
-                files : photoReducer.files
-            }
-        })
-        history.push('/stayLength');
+        if (propertyReducer.files) {
+            console.log('uploading files', photoReducer.files);
+            dispatch({
+                type: 'ADD_PHOTOS',
+                payload: {
+                    residenceId: propertyReducer.residence.id,
+                    files : photoReducer.files
+                }
+            })
+            history.push('/stayLength');
+        } else {
+            history.push('/stayLength');
+        }
     }
         const id=10;
 
