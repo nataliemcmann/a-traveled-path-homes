@@ -35,10 +35,11 @@ import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
 import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
-import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
+
 import PropertyDetails from "../PropertyDetails/PropertyDetails";
 
-import RenterDashboard from "../RenterGallery/RenterDashboard";
+
+import UserDashboard from "../UserToggle/UserDashboard";
 
 
 import './App.css';
@@ -104,22 +105,21 @@ function App() {
           
           <ProtectedRoute
             exact
-            path= "/renterdashboard"
+            path= "/dashboard"
           >
-            <RenterDashboard  />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path="/ownerdashboard"
-          >
-            <OwnerDashboard />
+            <UserDashboard  />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/property/:id">
           <PropertyDetails />
         </ProtectedRoute>
-
+        
+        {/* <ProtectedRoute
+            exact
+            path="/toggle"
+          >
+            <UserToggle />
+          </ProtectedRoute> */}
 
           {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
