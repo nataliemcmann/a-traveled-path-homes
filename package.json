@@ -7,6 +7,7 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/open-sans": "^4.5.14",
@@ -20,6 +21,7 @@
     "date-fns": "^2.29.3",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
+    "framer-motion": "^10.2.4",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
@@ -28,9 +30,11 @@
     "react": "^18.2.0",
     "react-day-picker": "^8.6.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
+    "@react-google-maps/api": "^2.7.0",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3",

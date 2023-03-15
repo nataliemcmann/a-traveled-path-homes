@@ -1,17 +1,27 @@
-.center {
-    text-align: center;
-font-weight: 550;
-font-size: 48px;
-line-height: 55px;
-color: #000;;
+.sLForm{
+    width: 40%;
+    max-width: 100%;
+    padding: 1%;
+    margin: 0 20% 5% 29%;
 }
 
-.p{
-margin-left: 300px;
-margin-right: 300px;
-padding: 6px;
-text-align: center;
-border: none;
-box-shadow: none;
+.sLHeader {
+    margin-bottom: 2%;
 }
 
+.sLHeader h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+.sLHeader p{
+    font-size: 1.1rem;
+}
+
+.sLBorder {
+    border: 2px solid #111856;
+    border-radius: 20px;
+    width: 400px;
+    height: 200px;
+    margin-left: 160px;
+}

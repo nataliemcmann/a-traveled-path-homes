@@ -23,6 +23,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import ProfileForm from '../ProfileForm/ProfileForm';
 import EditProfileForm from "../ProfileForm/EditProfileForm";
+import Map from "../PropertyDetailsPage/MapRender";
 
 //property form imports
 import PropertyDescriptionForm from '../PropertyDescription/PropertyDescriptionForm';
@@ -36,7 +37,12 @@ import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 
+
 import PropertyDetails from "../PropertyDetails/PropertyDetails";
+
+
+import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
+
 
 
 import UserDashboard from "../UserToggle/UserDashboard";
@@ -107,11 +113,24 @@ function App() {
             exact
             path= "/dashboard"
           >
+
             <UserDashboard  />
+
+           
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/property/:id">
-          <PropertyDetails />
+            <ProtectedRoute
+            exact
+            path= "/properydescription"
+          >
+            <Map />
+
+          </ProtectedRoute>
+
+          
+
+          <ProtectedRoute exact path="/residences/:id">
+          <ResidenceDetails />
         </ProtectedRoute>
         
         {/* <ProtectedRoute

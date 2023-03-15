@@ -5,7 +5,7 @@
     width: 40%;
     max-width: 100%;
     padding: 1%;
-    margin: 0 auto 20%;
+    margin: 0 20% 5% 29%;
 }
 
 .describeForm h1{
@@ -22,10 +22,21 @@
 }
 
 .iconContainer p{
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cancelBtn {
+    display: flex;
+    margin-left: 2%;
 }
 
 .nextBtn {
     display: flex;
-    justify-content: flex-end;
+    margin-right: 2%;
 }

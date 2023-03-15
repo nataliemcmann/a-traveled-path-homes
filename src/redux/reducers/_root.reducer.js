@@ -3,9 +3,12 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import propertyReducer from './residence.reducer';
 import profileReducer from './profile.reducer';
-import propertyGalleryReducer from './property_gallery.reducer';
 
-import propertyDetailsReducer from './property_details.reducer';
+import residencesReducer from './residences.reducer';
+
+import residenceDetailsReducer from './residence_details.reducer';
+import photoReducer from './photo.reducer';
+import amenitiesReducer from './amenities.reducer';
 
 import address from './address.reducer';
 
@@ -21,9 +24,12 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   propertyReducer,
   profileReducer,
-  propertyGalleryReducer,
 
-  propertyDetailsReducer,
+  residencesReducer,
+
+  residenceDetailsReducer,
+  photoReducer,
+  amenitiesReducer,
 
   address
 

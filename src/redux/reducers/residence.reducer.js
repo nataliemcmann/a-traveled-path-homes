@@ -35,8 +35,118 @@ const residence = (state = {}, action) => {
     }
   }
 
+  const houseType = (state=0, action) => {
+    switch (action.type) {
+      case 'SET_HOUSETYPE_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const propertyName = (state='', action) => {
+    switch (action.type) {
+      case 'SET_NAME_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const description = (state='', action) => {
+    switch (action.type) {
+      case 'SET_DESCRIPTION_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const guests = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_GUEST_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const beds = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_BED_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const bedrooms = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_BEDROOM_INPUT':
+        return action.payload;
+        default:
+          return state;
+    }
+  }
+
+  const bathrooms = (state = 0, action) => {
+    switch (action.type) {
+      case 'SET_BATHROOM_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
+  const featurePhoto = (state = '', action) => {
+    switch (action.type) {
+      case 'SET_FEATURE_PHOTO':
+        return action.payload;
+      default: 
+        return state;
+    }
+  }
+
+  const stayLength = (state = 1, action) => {
+    switch (action.type) {
+      case 'SET_STAYLENGTH_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
+  const priceDaily = (state = 70, action) => {
+    switch (action.type) {
+      case 'SET_PRICEDAILY_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
+  const priceMonthly = (state = 2200, action) => {
+    switch (action.type) {
+      case 'SET_PRICEMONTHLY_INPUT':
+        return action.payload;
+    default:
+      return state;
+    }
+  }
+
 const propertyReducer = combineReducers({
-    residence
+    residence,
+    houseType,
+    propertyName,
+    description,
+    guests,
+    beds,
+    bedrooms,
+    bathrooms,
+    featurePhoto,
+    stayLength,
+    priceDaily,
+    priceMonthly
 });
 
   

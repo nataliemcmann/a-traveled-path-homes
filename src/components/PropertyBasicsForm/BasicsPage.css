@@ -1,5 +1,9 @@
 .basicForm {
     text-align: center;
+    width: 40%;
+    max-width: 100%;
+    padding: 1%;
+    margin: 0 20% 5% 29%;
 }
 
 .basicForm h1 {
@@ -9,9 +13,26 @@
 
 .basicForm p {
     font-size: 1.2rem;
+    text-align: left;
+    padding-bottom: 4%;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cancelBtn {
+    display: flex;
+    margin-left: 2%;
 }
 
 .nextBtn {
     display: flex;
-    justify-content: flex-end;
+    margin-right: 2%;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
 }

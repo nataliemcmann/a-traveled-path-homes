@@ -1,101 +1,40 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 import "./BasicsPage.css";
 //mui components
-import { Stack, Button} from '@mui/material';
+import { Stack, Grid, TextField, Button} from '@mui/material';
 
 function PropertyBasicsForm() {
   //declare dispatch
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [guestCount, setGuestCount] = useState(0);
-  const [bedsCount, setBedsCount] = useState(0);
-  const [bedrooomCount, setBedroomCount] = useState(0);
-  const [bathCount, setBathCount] = useState(0);
+  const propertyReducer = useSelector((store) => store.propertyReducer);
   
   function handleBasicsSubmit() {
     event.preventDefault();
     console.log('dispatch basics count');
     dispatch({
       type: 'SET_MAX_GUESTS',
-      payload: guestCount
+      payload: propertyReducer.guests
     })
     dispatch({
       type: 'SET_BEDS',
-      payload: bedsCount
+      payload: propertyReducer.beds
     })
     dispatch({
       type: 'SET_BEDROOMS',
-      payload: bedrooomCount
+      payload: propertyReducer.bedrooms
     })
     dispatch({
       type: 'SET_BATHROOMS',
-      payload: bathCount
+      payload: propertyReducer.bathrooms
     })
     history.push('/amenities');
   }
-
-  function guestIncrement() {
-    setGuestCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function guestDecrement() {
-    setGuestCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-  function bedsIncrement() {
-    setBedsCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function bedsDecrement() {
-    setBedsCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-  function bedroomIncrement() {
-    setBedroomCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function bedroomDecrement() {
-    setBedroomCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-  function bathIncrement() {
-    setBathCount(function (prevCount) {
-      return (prevCount += 1);
-    });
-  }
-  function bathDecrement() {
-    setBathCount(function (prevCount) {
-      if (prevCount > 0) {
-        return (prevCount -= 1);
-      } else {
-        return (prevCount = 0);
-      }
-    });
-  }
-
 
   const nextBtn = () => {
     history.push(`/amenities`)
@@ -106,101 +45,111 @@ function PropertyBasicsForm() {
 }
 
 
-
   return (
     <>
       <PropertyFormNav className="basics"/>
       <Stack>
         <form className="basicForm" onSubmit={handleBasicsSubmit}>
-          <h1> Basics </h1>
-            <p> Fill in the basics </p>
-              <h2> Guests: {guestCount} </h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={guestIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={guestDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-              <h2> Beds: {bedsCount} </h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedsIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedsDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-              <h2> Bedrooms: {bedrooomCount}</h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedroomIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bedroomDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-              <h2> Bathrooms: {bathCount} </h2>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bathIncrement}
-              >
-                {" "}
-                +{" "}
-              </Button>
-              <Button
-                variant="outlined"
-                className="moveRight"
-                onClick={bathDecrement}
-              >
-                {" "}
-                -{" "}
-              </Button>
-
-              <div className="cancelBtn"></div>
-                <Button onClick={cancelBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
+          <Grid
+                container spacing={2}
+                direction='column'
+                justifyContent='center'
+                columns={1}
+                maxWidth={800}
+          >
+            <h1> Basics </h1>
+            <p> Fill in the basic information for your property. </p>
+              
+                <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+                  >
+                  <h2> Guests</h2>
+                  <label htmlFor="guest count">
+                  <TextField
+                    type="number"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={propertyReducer.guests}
+                    InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'}}}}
+                    required
+                    onChange={(event) => {
+                      dispatch({type: 'SET_GUEST_INPUT', payload: event.target.value})
                     }}
-                    >
-                        Cancel
-                    </Button> 
+                  />
+                  </label>
+                </Grid>
 
+              <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+              >
+                  <h2> Beds </h2>
+                  <label htmlFor="bed count">
+                    <TextField
+                      type="number"
+                      sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                      value={propertyReducer.beds}
+                      InputProps={{ inputProps: { 
+                        min: 0, 
+                        style: { 
+                          textAlign: 'right', width: '35px', 
+                          fontSize: '32px'} } }}
+                      required
+                      onChange={(event) => {
+                        dispatch({type: 'SET_BED_INPUT', payload: event.target.value})
+                      }}
+                    />
+                  </label>
+                </Grid>
+              
+
+                <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+                > 
+                  <h2> Bedrooms </h2>
+                  <label htmlFor="bed count">
+                  <TextField
+                    type="number"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={propertyReducer.bedrooms}
+                    InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'} } }}
+                    required
+                    onChange={(event) => {
+                      dispatch({type: 'SET_BEDROOM_INPUT', payload: event.target.value})
+                    }}
+                  />
+                  </label>
+                </Grid>
+              
+                <Grid 
+                  container spacing={1} 
+                  direction='row' 
+                  justifyContent='space-between'
+                > 
+                  <h2> Bathrooms </h2>
+                  <label htmlFor="bed count">
+                    <TextField
+                      type="number"
+                      sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                      value={propertyReducer.bathrooms}
+                      InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'}} }}
+                      required
+                      onChange={(event) => {
+                        dispatch({type: 'SET_BATHROOM_INPUT', payload: event.target.value})
+                      }}
+                    />
+                    </label>
+                </Grid>
+
+              </Grid>
+            </form>
+            <div className="btnContainer">
               <div className="nextBtn">
                 <Button onClick={nextBtn}
-                    type="submit" 
                     size= "large"
                     sx={{
                         backgroundColor: '#CE8077',
@@ -213,7 +162,23 @@ function PropertyBasicsForm() {
                         Next
                   </Button>  
               </div>
-              </form>
+
+              <div className="cancelBtn">
+                <Button onClick={cancelBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Cancel
+                  </Button> 
+              </div>
+
+          </div>
       </Stack> 
     </>
   );

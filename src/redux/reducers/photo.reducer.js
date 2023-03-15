@@ -9,6 +9,15 @@ const files = (state = {}, action) => {
     }
 }
 
+const uploadedFiles = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_UPLOADS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const residencePhotos = (state = [], action) => {
     switch (action.type) {
         case 'SET_RESIDENCE_PHOTOS':
@@ -20,6 +29,7 @@ const residencePhotos = (state = [], action) => {
 
 const photoReducer = combineReducers({
     files,
+    uploadedFiles,
     residencePhotos
 })
 

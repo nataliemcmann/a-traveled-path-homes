@@ -19,7 +19,6 @@ const upload = multer({storage, fileFilter});
 const { s3Upload } = require('../s3Service');
 
 
-
 /**
  * POST route 
  */
@@ -29,26 +28,29 @@ router.post('/files', rejectUnauthenticated, upload.array("file"), async (req, r
         const locationArray = results.map((result) => {
             return result.Location;
         })
-        // console.log(req.body.residenceId); this is an array of strings
-        const residenceId = Number(req.body.residenceId[0]) //make it a number
-        // console.log(residenceId); 
         console.log('AWS S3 upload success');
-        const sqlQuery = `
-        INSERT INTO "photos"
-            ("residenceId", "imagePath")
-        VALUES ($1, $2);
-        `;
-        //loop through location array and post each to the photos database
-        locationArray.map((location) => {
-            const sqlValues = [residenceId, location];
-            pool.query(sqlQuery, sqlValues);
-        })
-        res.sendStatus(201);
+        res.send(locationArray);
     } catch (error) {
         console.log(error)
         console.log('AWS S3 upload fail')
         res.sendStatus(500);
     }
+})
+
+//post photos route
+router.post('/', rejectUnauthenticated, (req, res) => {
+    const residenceId = req.body.residenceId 
+    const locationArray = req.body.uploadedFiles;
+    const sqlQuery = `
+    INSERT INTO "photos"
+        ("residenceId", "imagePath")
+    VALUES ($1, $2);
+    `;
+    //loop through location array and post each to the photos database
+    locationArray.map((location) => {
+        const sqlValues = [residenceId, location];
+        pool.query(sqlQuery, sqlValues);
+    })
 })
 
 //get all residence photos

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import './AmenitiesForm.css'
 
 // -----------------MUI-ICONS-----------------------
@@ -41,65 +41,64 @@ function PropertyAmenitiesForm() {
     console.log('added washer');
   }
 
-  function handleDryer() {
-    setAmenitiesList([...amenitiesList, 4]);
-    console.log('added dryer');
-  }
 
   function handleParking() {
-    setAmenitiesList([...amenitiesList, 5]);
+    setAmenitiesList([...amenitiesList, 4]);
     console.log('added parking');
   }
 
   function handlePets() {
-    setAmenitiesList([...amenitiesList, 6]);
+    setAmenitiesList([...amenitiesList, 5]);
     console.log('added pets');
   }
 
   function handleHeating() {
-    setAmenitiesList([...amenitiesList, 7]);
+    setAmenitiesList([...amenitiesList, 6]);
     console.log('added heating');
   }
 
   function handleFireplace() {
-    setAmenitiesList([...amenitiesList, 8]);
+    setAmenitiesList([...amenitiesList, 7]);
     console.log('added fireplace');
   }
 
   function handleAc() {
-    setAmenitiesList([...amenitiesList, 9]);
+    setAmenitiesList([...amenitiesList, 8]);
     console.log('added ac');
   }
 
   function handleWifi() {
-    setAmenitiesList([...amenitiesList, 10]);
+    setAmenitiesList([...amenitiesList, 9]);
     console.log('added wifi');
   }
 
   function handleTV() {
-    setAmenitiesList([...amenitiesList, 11]);
+    setAmenitiesList([...amenitiesList, 10]);
     console.log('added tv');
   }
 
   function handleElectricCharging() {
-    setAmenitiesList([...amenitiesList, 12]);
+    setAmenitiesList([...amenitiesList, 11]);
     console.log('added electric_charging');
   }
 
 
-  const addToResidence = (event) => {
+  const addAmenities = (event) => {
     event.preventDefault();
     console.log(amenitiesList);
       dispatch({
-          type: 'ADD_AMENITIES_RESIDENCE',
-          payload: {
-              residenceId: propertyReducer.residence.id,
-              amenitiesList
-          }
+          type: 'SET_AMENITIES',
+          payload: amenitiesList
       })
-
-      history.push('/photos')
   };
+
+  const nextBtn = () => {
+    dispatch({
+      type: 'SET_AMENITIES',
+      payload: amenitiesList
+  })
+    history.push('/photos')
+}
 
   const cancelBtn = () => {
     history.push(`/ownerdashboard`)
@@ -107,35 +106,109 @@ function PropertyAmenitiesForm() {
 
 
   return(
-      <div className="amenities">
+      <div>
         <PropertyFormNav className="amenities"/>
-          <form onSubmit={addToResidence}>
-          <h1>All Amenities</h1>
+          <form onSubmit={addAmenities} className="amenities">
           <div className="ammenitiestext">
-          <h5>Click on an amenity to add it to your property. <br></br> 
-            You'll be able to add more details after you've added your property.</h5>
-            </div>
-          <h3>Essentials</h3>
-          <Button onClick={handleShower}><ShowerIcon/>Shower</Button>
-          <Button onClick={handleBathtub}><BathtubIcon/>Bathtub</Button>
-          <Button onClick={handleWasher}><LocalLaundryServiceIcon/>Washer</Button>
-          <Button onClick={handleDryer}><LocalLaundryServiceIcon/>Dryer</Button>
-          <Button onClick={handleParking}><DirectionsCarIcon/>Parking</Button>
-          <Button onClick={handlePets}><PetsIcon/>Pets</Button>
-          <div></div>
-          <h3>Heating and Cooling</h3>
-          <Button onClick={handleHeating}><LocalFireDepartmentIcon/>Heating</Button>
-          <Button onClick={handleFireplace}>Fireplace<FireplaceIcon/></Button>
-          <Button onClick={handleAc}><AcUnitIcon/>AC</Button>
-          <div></div>
-          <h3>Technology</h3>
-          <Button onClick={handleElectricCharging}><ElectricCarIcon/>Electric Charging</Button>
-          <Button onClick={handleTV}><MonitorIcon/>Monitor</Button>
-          <Button onClick={handleWifi}><WifiIcon/>WIFI</Button>
-          <div><br></br></div>
-          <div className="cancelBtn"></div>
+            <h1>All Amenities</h1>
+            <p>
+              Click on an amenity to add it to your property. You'll be able to add more details after you've added your property.
+            </p>
+          </div>
+          <div>
+            <h3>Essentials</h3>
+            <Grid 
+                    container spacing={1}
+                    direction='row' 
+                    flexWrap='wrap' 
+                    justifyContent='flex-start'
+                    marginTop={2}
+            >
+                <div className="amenityContainer">
+                    <Button onClick={handleShower}><ShowerIcon/></Button>
+                    <p>Shower</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleBathtub}><BathtubIcon/></Button>
+                  <p>Bathtub</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleWasher}><LocalLaundryServiceIcon/></Button>
+                  <p>Laundry</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleParking}><DirectionsCarIcon/></Button>
+                  <p>Parking</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handlePets}><PetsIcon/></Button>
+                  <p>Pets</p>
+                </div>
+            </Grid>
+          </div>
+          <div>
+            <h3>Heating and Cooling</h3>
+            <Grid 
+                      container spacing={1}
+                      direction='row' 
+                      flexWrap='wrap' 
+                      justifyContent='flex-start'
+            > 
+                <div className="amenityContainer">
+                  <Button onClick={handleHeating}><LocalFireDepartmentIcon/></Button>
+                  <p>Heating</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleFireplace}><FireplaceIcon/></Button>
+                  <p>Fireplace</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleAc}><AcUnitIcon/></Button>
+                  <p>A/C</p>
+                </div>
+            </Grid>
+          </div>
+          <div>
+            <h3>Technology</h3>
+            <Grid 
+                      container spacing={1}
+                      direction='row' 
+                      flexWrap='wrap' 
+                      justifyContent='flex-start'
+            > 
+                <div className="amenityContainer">
+                  <Button onClick={handleElectricCharging}><ElectricCarIcon/></Button>
+                  <p>EV Charger</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleTV}><MonitorIcon/></Button>
+                  <p>TV</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleWifi}><WifiIcon/></Button>
+                  <p>WI-FI</p>
+                </div>
+            </Grid>
+          </div>
+          </form>
+          <div className="btnContainer">
+            <div className="nextBtn">
+                <Button 
+                    onClick={nextBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                  >
+                        Next
+                  </Button>  
+              </div>
+              <div className="cancelBtn">
                 <Button onClick={cancelBtn}
-                    type="submit" 
                     size= "large"
                     sx={{
                         backgroundColor: '#CE8077',
@@ -146,17 +219,9 @@ function PropertyAmenitiesForm() {
                     }}
                     >
                         Cancel
-                    </Button> 
-          <Button onClick={addToResidence} type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}>Next</Button>  
-          </form>
+                  </Button> 
+              </div>
+          </div> 
       </div>
   )
 

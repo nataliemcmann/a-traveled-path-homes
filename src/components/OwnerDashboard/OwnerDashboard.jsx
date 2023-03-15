@@ -3,16 +3,16 @@ import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Grid } from '@mui/material';
-import PropertyItem from '../PropertyItem/PropertyItem';
+import ResidencesItem from '../ResidencesItem/ResidencesItem';
 import './OwnerDashboard.css';
 
 function OwnerDashboard() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const propertyGalleryReducer = useSelector(store => store.propertyGalleryReducer);
+  const residencesReducer = useSelector(store => store.residencesReducer);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_PROPERTY' });
+    dispatch({ type: 'FETCH_ALL_RESIDENCES' });
 }, [dispatch]);
 
   const handleClick = () => {
@@ -50,8 +50,8 @@ function OwnerDashboard() {
             src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/SingleFamily.png"
             /></Card>
               
-              {propertyGalleryReducer?.map(property => (
-                <PropertyItem key={property.id} property={property} />
+              {residencesReducer?.map(residences => (
+                <ResidencesItem key={residences.id} residences={residences} />
             ))}
         </Grid>
         </>
