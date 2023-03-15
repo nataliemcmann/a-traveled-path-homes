@@ -1,9 +1,24 @@
 .amenities {
-  text-align: center;
-  padding: 12px;
+  text-align: left;
   word-spacing: 2px;
+  width: 40%;
+  max-width: 100%;
+  padding: 1%;
+  margin: 0 20% 5% 29%;
 }
 
-.ammenitiestext {
-  font-size: 22px;
+.ammenitiestext h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.ammenitiestext p {
+  font-size: 1.1rem;
+}
+
+.amenityContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 96px;
 }
