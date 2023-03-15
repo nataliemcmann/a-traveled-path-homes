@@ -38,8 +38,8 @@ import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
 import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
-
-import RenterDashboard from "../RenterGallery/RenterDashboard";
+import PropertyGallery from "../PropertyGallery/PropertyGallery";
+import RenterDashboard from "../RenterDashboard/RenterDashboard";
 
 
 import './App.css';
@@ -123,6 +123,13 @@ function App() {
             path="/ownerdashboard"
           >
             <OwnerDashboard />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/propertygallery"
+          >
+            <PropertyGallery />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/residences/:id">
