@@ -37,7 +37,7 @@ import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
-import PropertyDetails from "../PropertyDetails/PropertyDetails";
+import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
 
 import RenterDashboard from "../RenterGallery/RenterDashboard";
 
@@ -125,8 +125,8 @@ function App() {
             <OwnerDashboard />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/property/:id">
-          <PropertyDetails />
+          <ProtectedRoute exact path="/residences/:id">
+          <ResidenceDetails />
         </ProtectedRoute>
 
 
