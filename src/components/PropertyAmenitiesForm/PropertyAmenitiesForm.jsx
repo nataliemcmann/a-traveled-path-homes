@@ -93,6 +93,10 @@ function PropertyAmenitiesForm() {
   };
 
   const nextBtn = () => {
+    dispatch({
+      type: 'SET_AMENITIES',
+      payload: amenitiesList
+  })
     history.push('/photos')
 }
 

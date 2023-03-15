@@ -11,10 +11,41 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import WifiIcon from '@mui/icons-material/Wifi';
 import MonitorIcon from '@mui/icons-material/Monitor';
 import ElectricCarIcon from '@mui/icons-material/ElectricCar';
-import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 function AmenityItem({ amenity }) {
-    
+    if (amenity === 1) {
+        return (<ShowerIcon/>)
+    }
+    if (amenity === 2) {
+        return (<BathtubIcon/>)
+    }
+    if (amenity === 3) {
+        return (<LocalLaundryServiceIcon/>)
+    }
+    if (amenity === 4) {
+        return (<DirectionsCarIcon/>)
+    }
+    if (amenity === 5) {
+        return (<PetsIcon/>)
+    }
+    if (amenity === 6) {
+        return (<AcUnitIcon/>)
+    }
+    if (amenity === 7) {
+        return (<FireplaceIcon/>)
+    }
+    if (amenity === 8) {
+        return (<LocalFireDepartmentIcon/>)
+    }
+    if (amenity === 9) {
+        return (<WifiIcon/>)
+    }
+    if (amenity === 10) {
+        return (<MonitorIcon/>)
+    }
+    if (amenity === 11) {
+        return (<ElectricCarIcon/>)
+    }
 }
 
 export default AmenityItem;
