@@ -23,6 +23,7 @@ function* createResidence(action){
   try{
     const residence = action.payload.residence;
     const uploadedFiles = action.payload.uploadedFiles;
+    const amenitiesArray = action.payload.amenitiesArray;
     console.log('create this residence', residence);
     const response = yield axios({
         method: 'POST',
