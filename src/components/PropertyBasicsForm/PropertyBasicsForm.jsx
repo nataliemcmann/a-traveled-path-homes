@@ -152,7 +152,6 @@ function PropertyBasicsForm() {
                 <div className="btnContainer">
                     <div className="nextBtn">
                       <Button onClick={nextBtn}
-                          type="submit" 
                           size= "large"
                           sx={{
                               backgroundColor: '#CE8077',
@@ -168,7 +167,6 @@ function PropertyBasicsForm() {
 
                     <div className="cancelBtn">
                       <Button onClick={cancelBtn}
-                          type="submit" 
                           size= "large"
                           sx={{
                               backgroundColor: '#CE8077',

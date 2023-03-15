@@ -11,6 +11,9 @@ function PropertyReview (){
     const dispatch = useDispatch();
 
     const propertyReducer = useSelector((store) => store.propertyReducer);
+    const photoReducer = useSelector((store) => store.photoReducer);
+    const amenitiesReducer = useSelector((store) => store.amenitiesReducer);
+    const address = useSelector((store) => store.address)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -25,7 +28,18 @@ function PropertyReview (){
             <h1> Review</h1>
             <p> Dust the shelves and clean the windows. Does everthing look like it should? </p>
             <p> This is what renters will see when looking at ypur property page. </p>
-        </div> 
+        </div>
+        <Grid>
+            <Grid>
+                <h2>{propertyReducer.propertyName}</h2>
+                <Card>
+                    <h2>${propertyReducer.priceMonthly} per Month</h2>
+                    <h2>{propertyReducer.minStayLength} Month Stay Minimum</h2>
+                    <p>{propertyReducer.description}</p>
+                </Card>
+                
+            </Grid>
+        </Grid> 
     </Stack>
     <Button onClick={handleSubmit} type="submit"
                         size='large'

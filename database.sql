@@ -48,8 +48,7 @@ INSERT INTO "amenities"
 VALUES 
 	('shower'),
 	('bathtub'),
-	('washer'),
-	('dryer'),
+	('laundry'),
 	('parking'),
 	('pets'),
 	('heating'),
