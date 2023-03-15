@@ -49,7 +49,9 @@ function* fetchResidencesDetails(action) {
 
 function* createResidence(action){
   try{
-    const residence = action.payload
+    const residence = action.payload.residence;
+    const uploadedFiles = action.payload.uploadedFiles;
+    const amenitiesArray = action.payload.amenitiesArray;
     console.log('create this residence', residence);
     const response = yield axios({
         method: 'POST',
@@ -61,6 +63,20 @@ function* createResidence(action){
         type:'FETCH_RESIDENCE',
         payload: response.data.id
     }) 
+    yield put({
+      type:'ADD_RESIDENCE_PHOTOS',
+      payload: {
+        residenceId: response.data.id,
+        uploadedFiles: uploadedFiles
+      }
+    }) 
+    yield put({
+      type:'ADD_AMENITIES_RESIDENCE',
+      payload: {
+        residenceId: response.data.id,
+        amenitiesList: amenitiesArray
+      }
+    })
   } catch (err) {
     console.log('residence creation failed', err);
   }   

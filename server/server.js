@@ -39,8 +39,6 @@ app.use('/api/residences', residenceRouter);
 app.use('/api/property', propertyRouter);
 app.use('/api/instructions', instructionsRouter);
 app.use('/api/amenities_residences', amenities_residenceRouter);
-
-
 app.use('/api/photo', photoRouter);
 
 

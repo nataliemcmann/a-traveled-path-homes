@@ -1,51 +1,19 @@
-import React, {useState} from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+//mui components
+import { Card, CardContent, Button, 
+         TextField, InputAdornment} from '@mui/material';
 
 import './PriceForm.css'
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
-import { useHistory } from "react-router-dom";
 
 function PropertyPriceForm() {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const [dailyPrice, setDailyPrice] = useState(70);
-  const [monthlyPrice, setMonthlyPrice] = useState(2000);
 
-
-      function increaseDaily() {
-        setDailyPrice(function (prevCount) {
-          return (prevCount += 10);
-        });
-      }
-      function decreaseDaily() {
-        setDailyPrice(function (prevCount) {
-          if (prevCount > 0) {
-            return (prevCount -= 10);
-          } else {
-            return (prevCount = 0);
-          }
-        });
-      }
-
-      function increaseMonthly() {
-          setMonthlyPrice(function (prevCount) {
-            return (prevCount += 100);
-          });
-        }
-        function decreaseMonthly() {
-          setMonthlyPrice(function (prevCount) {
-            if (prevCount > 0) {
-              return (prevCount -= 100);
-            } else {
-              return (prevCount = 0);
-            }
-          });
-        }
+  const propertyReducer = useSelector((store) => store.propertyReducer);
 
         const cancelBtn = () => {
           history.push(`/ownerdashboard`)
@@ -56,81 +24,119 @@ function PropertyPriceForm() {
     }
 
     return (
-        <div>
-          <PropertyFormNav className="price"/>
-        <h1>Price</h1>
-        <h4>Prices are recommended based on similar housing in your area. 
-            These prices also more accurately represent the cost of housing 
-            that a traveling professional is expected to pay</h4>
+      <>
+        <PropertyFormNav className="price"/>
+        <div className="priceForm">
+          <div className="priceHeader">
+            <h1>Price</h1>
+            <p>Prices are recommended based on similar housing in your area. 
+              These prices also more accurately represent the cost of housing 
+              that a traveling professional is expected to pay</p>
+          </div>
         <div className="boxflex">
-        <Card className="card" sx={{ width: 300, height: 200, borderRadius: 4, color: '#121957' }}>
+        <Card className="card" sx={{ width: 300, height: 250, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>
-          <Typography sx={{ fontSize: 30 }} gutterBottom>
-            Daily 
-          </Typography>
-          <Typography variant="h5" component="div">
-            ${dailyPrice}
-          </Typography>
+            <h2>Daily</h2> 
+            <label htmlFor="mininum stay length">
+                  <TextField
+                    type="number"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={propertyReducer.priceDaily}
+                    InputProps={{ 
+                      startAdornment: <InputAdornment 
+                                        position="start"
+                                        sx={{fontSize:'40px', color: '#121957'}}
+                                      >
+                                        $
+                                      </InputAdornment>,
+                      inputProps: { 
+                      min: 0, 
+                      style: { 
+                        textAlign: 'center', width: '120px', 
+                        fontSize: '32px'} }
+                        }}
+                    required
+                    onChange={(event) => {
+                      dispatch({type: 'SET_PRICEDAILY_INPUT', payload: event.target.value})
+                    }}
+                  />
+              </label>
+              {/* <h3>
+                Average: ${propertyReducer.priceDaily}-${propertyReducer.priceDaily + 20}
+              </h3> */}
             </CardContent>
-             <CardActions className="cardActions">
-              <Button className="button" onClick={decreaseDaily} size="small" variant="outlined">-</Button>
-              <Button onClick={increaseDaily} size="small" variant="outlined">+</Button>
-            </CardActions>
-          <Typography variant="h5" component="div">
-            Average: ${dailyPrice}-${dailyPrice + 20}
-          </Typography>
+          
         </React.Fragment>
         </Card>
-        <Card className="card" sx={{ width: 300, height: 200, borderRadius: 4, color: '#121957' }}>
+        <Card className="card" sx={{ width: 300, height: 250, borderRadius: 4, color: '#121957' }}>
         <React.Fragment>
           <CardContent>
-          <Typography sx={{ fontSize: 30 }} gutterBottom>
-            Monthly
-          </Typography>
-          <Typography variant="h5" component="div">
-            ${monthlyPrice}
-          </Typography>
+          <h2>Monthly</h2>
+          <label htmlFor="mininum stay length">
+                  <TextField
+                    type="number"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={propertyReducer.priceMonthly}
+                    InputProps={{ 
+                      startAdornment: <InputAdornment 
+                                        position="start"
+                                        sx={{fontSize:'40px', color: '#121957'}}
+                                      >
+                                        $
+                                      </InputAdornment>,
+                      inputProps: { 
+                      min: 0, 
+                      style: { 
+                        textAlign: 'center', width: '120px', 
+                        fontSize: '32px'} }
+                        }}
+                    required
+                    onChange={(event) => {
+                      dispatch({type: 'SET_PRICEMONTHLY_INPUT', payload: event.target.value})
+                    }}
+                  />
+            </label>
+            {/* <h3>
+                Average: ${propertyReducer.priceMonthly}-${propertyReducer.priceMonthly + 500}
+            </h3> */}
             </CardContent>
-             <CardActions className="cardActions">
-              <Button onClick={decreaseMonthly} size="small" variant="outlined">-</Button>
-              <Button onClick={increaseMonthly} size="small" variant="outlined">+</Button>
-          </CardActions>
-          <Typography variant="h5" component="div">
-            Average: ${monthlyPrice}-${monthlyPrice + 500}
-          </Typography>
         </React.Fragment>
         </Card>
         </div>
-        <div className="cancelBtn"></div>
-                <Button onClick={cancelBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        marginLeft: 4
-                    }}
-                    >
-                        Cancel
-                    </Button> 
-
-                    <div className="nextBtn"></div>
-                <Button onClick={nextBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        marginLeft: 160,
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}
-                    >
-                        NEXT
-                    </Button> 
+      </div> 
+      <div className="btnContainer">
+          <div className="nextBtn">
+              <Button 
+                  onClick={nextBtn}
+                  size= "large"
+                  sx={{
+                      backgroundColor: '#CE8077',
+                      color: '#f8f8f8',
+                      margin: '2%',
+                      paddingTop: '16px', paddingBottom: '16px',
+                      paddingRight: '32px', paddingLeft: '32px'
+                  }}
+                  >
+                      Next
+                  </Button>  
+              </div>
+              <div className="cancelBtn">
+              <Button onClick={cancelBtn}
+                  size= "large"
+                  sx={{
+                      backgroundColor: '#CE8077',
+                      color: '#f8f8f8',
+                      margin: '2%',
+                      paddingTop: '16px', paddingBottom: '16px',
+                      paddingRight: '32px', paddingLeft: '32px'
+                  }}
+                  >
+                      Cancel
+                  </Button> 
+              </div>
         </div>
-        
+    </>           
     )
 }
 

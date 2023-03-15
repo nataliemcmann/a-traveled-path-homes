@@ -17,64 +17,42 @@ function PropertyDescriptionForm() {
     //declare history
     const history = useHistory();
 
-    //useState
-    const [newHouseType, setNewHouseType] = useState(0)
-    const [newPropertyName, setNewPropertyName] = useState('')
-    const [newDescription, setNewDescription] = useState('')
-    const [newAddress, setNewAddress] = useState('')
-    const [newMaxGuests, setNewMaxGuests] = useState(0)
-    const [newBedrooms, setNewBedrooms] = useState(0)
-    const [newBeds, setNewBeds] = useState(0)
-    const [newBathrooms, setNewBathrooms] = useState(0)
-    const [newFeaturePhoto, setNewFeaturePhoto] = useState(0)
-    const [newMinStayLength, setNewMinStayLength] = useState(0)
-    const [newPriceDaily, setNewPriceDaily] = useState(0)
-    const [newPriceMonthly, setNewPriceMonthly] = useState(0)
+    const propertyReducer = useSelector((store) => store.propertyReducer);
 
     //functions to choose house type
     //single
     function setSingle() {
         console.log('single', 0)
-        setNewHouseType(0);
+        dispatch({type: 'SET_HOUSETYPE_INPUT', payload: 0});
     }
     //multi
     function setMulti() {
         console.log('multi', 1)
-        setNewHouseType(1);
+        dispatch({type: 'SET_HOUSETYPE_INPUT', payload: 1});
     }
     //townhouse
     function setTownhouse() {
         console.log('townhouse', 2)
-        setNewHouseType(2);
+        dispatch({type: 'SET_HOUSETYPE_INPUT', payload: 2});
     }
     //apartment
     function setApartment() {
         console.log('apartment', 3)
-        setNewHouseType(3);
+        dispatch({type: 'SET_HOUSETYPE_INPUT', payload: 3});
     }
     //condo
     function setCondo() {
         console.log('condo', 4)
-        setNewHouseType(4);
+        dispatch({type: 'SET_HOUSETYPE_INPUT', payload: 4});
     }
 
     //function to post and move on to address
     const addToResidence = (event) => {
         event.preventDefault();
         let newResidence={
-            houseType: newHouseType,
-            propertyName: newPropertyName,
-            description: newDescription,
-            address: newAddress,
-            maxGuests: newMaxGuests,
-            bedrooms: newBedrooms,
-            beds: newBeds,
-            bathrooms: newBathrooms,
-            listed: false,
-            featurePhoto: newFeaturePhoto,
-            minStayLength: newMinStayLength,
-            priceDaily: newPriceDaily,
-            priceMonthly: newPriceMonthly
+            houseType: propertyReducer.houseType,
+            propertyName: propertyReducer.propertyName,
+            description: propertyReducer.description
         }
         console.log('this is a new residence', newResidence);
         dispatch({
@@ -82,6 +60,10 @@ function PropertyDescriptionForm() {
             payload: newResidence
         })
         //clear inputs
+        history.push('/address')
+    }
+
+    const nextBtn = () =>{
         history.push('/address')
     }
 
@@ -142,8 +124,8 @@ function PropertyDescriptionForm() {
                         variant="outlined"
                         type="text"
                         sx={{borderRadius: '10px'}}
-                        value={newPropertyName}
-                        onChange= {e=>setNewPropertyName(e.target.value)} 
+                        value={propertyReducer.propertyName}
+                        onChange= {e=>dispatch({type: 'SET_NAME_INPUT', payload: e.target.value})} 
                         />
                     <h3>Description</h3>
                     <TextField
@@ -154,15 +136,15 @@ function PropertyDescriptionForm() {
                         rows={4}
                         sx={{borderRadius: '10px'}}
                         type="text"
-                        value={newDescription}
-                        onChange= {e=>setNewDescription(e.target.value)}
+                        value={propertyReducer.description}
+                        onChange= {e=>dispatch({type: 'SET_DESCRIPTION_INPUT', payload: e.target.value})} 
                     />
                 </div>
 
                 <div className="btnContainer">
                     <div className="nextBtn">
-                        <Button onClick={addToResidence}
-                            type="submit" 
+                        <Button onClick={nextBtn}
+                            // type="submit" 
                             size= "large"
                             sx={{
                                 backgroundColor: '#CE8077',

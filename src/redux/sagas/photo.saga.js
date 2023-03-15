@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
-//post Saga: will fire on "ADD_PHOTOS" action
-function* addPhotos(action) {
+//post Saga: will fire on "ADD_FILES" action
+function* addFiles(action) {
     try{
         //receive array of files
         const newFiles = action.payload;
@@ -12,10 +12,9 @@ function* addPhotos(action) {
         //loop to populate FormData with file data
         for (let i = 0; i < filesLength; i++) {
             data.append("file", newFiles.files[i]);
-            data.append("residenceId", newFiles.residenceId);
         }
         yield console.log('Post new files to upload', data);
-        yield axios({
+        const response = yield axios({
             method: 'POST',
             url: '/api/photo/files',
             data: data,
@@ -24,8 +23,22 @@ function* addPhotos(action) {
                 'content-type': 'multipart/form-data'
             }
             });
+        yield put({type: 'SET_UPLOADS', payload: response.data})
     } catch (error) {
-        console.log('Error in addPhotos', error);
+        console.log('Error in addFiles', error);
+    }
+}
+
+//post Saga: will fire on "ADD_RESIDENCE_PHOTOS"
+function* addResidencePhotos(action) {
+    try {
+        const residenceId = action.payload.residenceId;
+        const uploadedFiles = action.payload.uploadedFiles
+        yield axios.post(`/api/photo`, 
+        {residenceId, uploadedFiles});
+        yield put({type: 'FETCH_RESIDENCE_PHOTOS', payload: residenceId})
+    } catch (err) {
+        console.log('Error in addResidencePhotos', err);
     }
 }
 
@@ -55,9 +68,10 @@ function* deleteAPhoto(action) {
 }
 
 function* photoSaga() {
-    yield takeEvery('ADD_PHOTOS', addPhotos);
+    yield takeEvery('ADD_FILES', addFiles);
     yield takeEvery('FETCH_RESIDENCE_PHOTOS', fetchResidencePhotos);
     yield takeEvery('DELETE_A_PHOTO', deleteAPhoto);
+    yield takeEvery("ADD_RESIDENCE_PHOTOS", addResidencePhotos);
 }
 
 export default photoSaga;
