@@ -8,7 +8,7 @@ function* fetchResidence(action) {
       withCredentials: true,
     };
 
-    const response = yield axios.get(`/api/residence/${action.payload}`, config);
+    const response = yield axios.get(`/api/residences/${action.payload}`, config);
     
 
     yield put({ 
@@ -19,13 +19,41 @@ function* fetchResidence(action) {
   }
 }
 
+function* fetchAllResidences() {
+  try {
+
+    const response = yield axios.get('/api/residences/all');
+
+        yield put({ type: 'SET_RESIDENCES', payload: response.data });
+    } catch (error) {
+        console.log('could not find', error);
+    }
+}
+
+function* fetchResidencesDetails(action) {
+  console.log(action.payload);
+  const residencesId = action.payload;
+  try {
+      const residencesDetailsRes = yield axios({
+      method: 'GET',
+      url: `/api/residences/${residencesId}`
+  })
+  yield put({
+      type: 'SET_RESIDENCES_DETAILS',
+      payload: residencesDetailsRes.data 
+  })
+  } catch (err) {
+  console.log('fetchResidencesDetails fail:', err);
+  }
+}
+
 function* createResidence(action){
   try{
     const residence = action.payload
     console.log('create this residence', residence);
     const response = yield axios({
         method: 'POST',
-        url:'/api/residence',
+        url:'/api/residences',
         data: residence
     })
     console.log(response.data);
@@ -42,7 +70,7 @@ function* residenceEdit(action) {
   const editedResidence = action.payload;
   yield axios({
     method: 'PUT',
-    url: `/api/residence/${editedResidence.id}`,
+    url: `/api/residences/${editedResidence.id}`,
     data: editedResidence,
   })
   yield put({
@@ -55,6 +83,8 @@ function* residenceEdit(action) {
 
 export default function* residenceSaga() {
   yield takeLatest('FETCH_RESIDENCE', fetchResidence);
+  yield takeLatest('FETCH_ALL_RESIDENCES', fetchAllResidences);
+  yield takeLatest('FETCH_RESIDENCES_DETAILS', fetchResidencesDetails)
   yield takeLatest('CREATE_RESIDENCE', createResidence);
   yield takeLatest('EDIT_RESIDENCE', residenceEdit);
 }

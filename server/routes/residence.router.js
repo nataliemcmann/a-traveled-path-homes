@@ -3,7 +3,21 @@ const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-
+router.get('/all', rejectUnauthenticated, (req, res) => {
+    console.log('GET /api/residences');
+    const sqlQuery = 
+    `
+    SELECT * FROM "residences";
+    `;
+    pool.query(sqlQuery)
+        .then((dbRes) => {
+        res.send(dbRes.rows);
+    })
+    .catch((dbErr) => {
+        console.log('GET things failed:', dbErr);
+        res.sendStatus(500);
+    })
+});
 
 
 router.get('/:id', (req, res) =>{

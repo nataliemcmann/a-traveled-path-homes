@@ -35,7 +35,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/profile', profileRouter);
-app.use('/api/residence', residenceRouter);
+app.use('/api/residences', residenceRouter);
 app.use('/api/property', propertyRouter);
 app.use('/api/instructions', instructionsRouter);
 app.use('/api/amenities_residences', amenities_residenceRouter);
