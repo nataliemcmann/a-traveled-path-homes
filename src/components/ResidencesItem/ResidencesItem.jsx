@@ -2,15 +2,15 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Card from '@mui/material/Card';
 
-function PropertyItem({property}) {
+function ResidencesItem({residences}) {
   const history = useHistory();
 
-  const showPropertyDetails = () => {
-    history.push(`/property/${property.id}`);
+  const showResidencesDetails = () => {
+    history.push(`/residences/${residences.id}`);
 }
 
   return(
-    <Card onClick={showPropertyDetails}
+    <Card onClick={showResidencesDetails}
     sx={{
       textAlign: 'left',
       fontSize: 22,
@@ -23,10 +23,10 @@ function PropertyItem({property}) {
       textAlign: 'center',
       borderRadius: 4
   }}>
-      {property.propertyName}
+      {residences.propertyName}
       
   </Card>
   )
 }
 
-export default PropertyItem;
+export default ResidencesItem;
