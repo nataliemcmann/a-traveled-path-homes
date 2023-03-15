@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import  Card  from '@mui/material/Card';
 import { Button } from '@mui/material';
-import './PropertyDetails.css';
+import './ResidenceDetails.css';
 
-function PropertyDetails(property) {
+function ResidenceDetails(residences) {
 
   const params = useParams();
 
@@ -13,12 +13,12 @@ function PropertyDetails(property) {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const propertyDetailsReducer = useSelector(store => store.propertyDetailsReducer)
+  const residenceDetailsReducer = useSelector(store => store.residenceDetailsReducer)
 
 
   useEffect(() => {
       dispatch({
-          type: 'FETCH_PROPERTY_DETAILS',
+          type: 'FETCH_RESIDENCE_DETAILS',
           payload: params.id 
       })
   }, [params.id])
@@ -60,7 +60,7 @@ function PropertyDetails(property) {
             borderRadius: 4,
             border: "none", 
         boxShadow: "none"
-        }}>{propertyDetailsReducer.propertyName}</Card >
+        }}>{residenceDetailsReducer.residenceName}</Card >
         <br></br>
         <Card sx={{
             textAlign: 'left',
@@ -78,9 +78,9 @@ function PropertyDetails(property) {
         boxShadow: "none"
         }}>
         
-            <p>House Type: {propertyDetailsReducer.houseType}</p>
-            <p>{propertyDetailsReducer.propertyName}</p>
-            <p>Description: {propertyDetailsReducer.description}</p>
+            <p>House Type: {residenceDetailsReducer.houseType}</p>
+            <p>{residenceDetailsReducer.propertyName}</p>
+            <p>Description: {residenceDetailsReducer.description}</p>
             
             </Card>
             
@@ -90,11 +90,11 @@ function PropertyDetails(property) {
       padding: 1,
       backgroundColor: '#D1877F',
       marginLeft: 4
-  }} onClick={() => backToProperties(property)}>Back</Button>
+  }} onClick={() => backToProperties(residences)}>Back</Button>
         </Card>
     </>
 )
 
 }
 
-export default PropertyDetails;
+export default ResidenceDetails;
