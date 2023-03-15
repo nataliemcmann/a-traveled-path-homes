@@ -42,6 +42,12 @@ function* createResidence(action){
         uploadedFiles: uploadedFiles
       }
     }) 
+    yield put({
+      type:'ADD_AMENITIES_RESIDENCE',
+      payload: {
+        residenceId: response.data.id,
+        amenitiesList: amenitiesArray
+      })
   } catch (err) {
     console.log('residence creation failed', err);
   }   
