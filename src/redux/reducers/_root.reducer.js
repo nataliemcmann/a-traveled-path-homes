@@ -7,11 +7,7 @@ import profileReducer from './profile.reducer';
 import residencesReducer from './residences.reducer';
 
 import residenceDetailsReducer from './residence_details.reducer';
-
-
-import propertyGalleryReducer from './property_gallery.reducer';
 import photoReducer from './photo.reducer';
-import propertyDetailsReducer from './property_details.reducer';
 import amenitiesReducer from './amenities.reducer';
 
 import address from './address.reducer';
@@ -32,10 +28,7 @@ const rootReducer = combineReducers({
   residencesReducer,
 
   residenceDetailsReducer,
-
-  propertyGalleryReducer,
   photoReducer,
-  propertyDetailsReducer,
   amenitiesReducer,
 
   address
