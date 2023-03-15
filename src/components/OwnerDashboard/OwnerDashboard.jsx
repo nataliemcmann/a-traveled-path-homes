@@ -28,9 +28,11 @@ function OwnerDashboard() {
       <Grid sx={{ 
             display: 'grid',
             gap: 3,
-            gridTemplateColumns: 'repeat(3, 2fr)',
+            gridTemplateColumns: 'repeat(4, 2fr)',
             padding: 1,
-            elevation: 8
+            elevation: 8,
+            marginLeft: 6,
+            marginRight: 6
             }}>
       <Card className='addproperty'
       sx={{
