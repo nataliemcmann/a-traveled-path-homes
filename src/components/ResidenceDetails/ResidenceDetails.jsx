@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import  Card  from '@mui/material/Card';
@@ -7,25 +7,22 @@ import './ResidenceDetails.css';
 
 function ResidenceDetails(residences) {
 
-  const params = useParams();
-
-  console.log('params:', params);
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const residenceDetailsReducer = useSelector(store => store.residenceDetailsReducer)
+    const params = useParams();
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const residenceDetailsReducer = useSelector(store => store.residenceDetailsReducer)
 
 
-  useEffect(() => {
-      dispatch({
-          type: 'FETCH_RESIDENCE_DETAILS',
-          payload: params.id 
-      })
-  }, [params.id])
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_RESIDENCE_DETAILS',
+            payload: params.id 
+        })
+    }, [params.id])
 
 
-  const backToProperties = () => {
-    history.push(`/ownerdashboard`)
+    const backToProperties = () => {
+        history.push(`/ownerdashboard`)
 }
 
   return(
@@ -60,7 +57,7 @@ function ResidenceDetails(residences) {
             borderRadius: 4,
             border: "none", 
         boxShadow: "none"
-        }}>{residenceDetailsReducer.residenceName}</Card >
+        }}>{residenceDetailsReducer.propertyName}</Card >
         <br></br>
         <Card sx={{
             textAlign: 'left',
@@ -85,12 +82,12 @@ function ResidenceDetails(residences) {
             </Card>
             
 
-<Button sx={{
-      color: '#FFF',
-      padding: 1,
-      backgroundColor: '#D1877F',
-      marginLeft: 4
-  }} onClick={() => backToProperties(residences)}>Back</Button>
+    <Button sx={{
+        color: '#FFF',
+        padding: 1,
+        backgroundColor: '#D1877F',
+        marginLeft: 4
+    }} onClick={() => backToProperties(residences)}>Back</Button>
         </Card>
     </>
 )
