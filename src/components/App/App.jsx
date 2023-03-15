@@ -43,6 +43,10 @@ import PropertyDetails from "../PropertyDetails/PropertyDetails";
 
 import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
 
+import PropertyGallery from "../PropertyGallery/PropertyGallery";
+import RenterDashboard from "../RenterDashboard/RenterDashboard";
+
+
 
 
 import UserDashboard from "../UserToggle/UserDashboard";
@@ -128,6 +132,13 @@ function App() {
           </ProtectedRoute>
 
           
+
+          <ProtectedRoute
+            exact
+            path="/propertygallery"
+          >
+            <PropertyGallery />
+          </ProtectedRoute>
 
           <ProtectedRoute exact path="/residences/:id">
           <ResidenceDetails />

@@ -19,7 +19,7 @@ function OwnerDashboard() {
     history.push('/describe');
   };
 
-  
+
 
     return(
 <div className="dashboard">
