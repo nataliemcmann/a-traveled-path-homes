@@ -56,8 +56,6 @@ function PropertyBasicsForm() {
                 justifyContent='center'
                 columns={1}
                 maxWidth={800}
-                marginLeft={100}
-                marginBottom={15}
           >
             <h1> Basics </h1>
             <p> Fill in the basic information for your property. </p>
@@ -148,40 +146,39 @@ function PropertyBasicsForm() {
                 </Grid>
 
               </Grid>
+            </form>
+            <div className="btnContainer">
+              <div className="nextBtn">
+                <Button onClick={nextBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Next
+                  </Button>  
+              </div>
 
-                <div className="btnContainer">
-                    <div className="nextBtn">
-                      <Button onClick={nextBtn}
-                          size= "large"
-                          sx={{
-                              backgroundColor: '#CE8077',
-                              color: '#f8f8f8',
-                              margin: '2%',
-                              paddingTop: '16px', paddingBottom: '16px',
-                              paddingRight: '32px', paddingLeft: '32px'
-                          }}
-                          >
-                              Next
-                        </Button>  
-                    </div>
+              <div className="cancelBtn">
+                <Button onClick={cancelBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Cancel
+                  </Button> 
+              </div>
 
-                    <div className="cancelBtn">
-                      <Button onClick={cancelBtn}
-                          size= "large"
-                          sx={{
-                              backgroundColor: '#CE8077',
-                              color: '#f8f8f8',
-                              margin: '2%',
-                              paddingTop: '16px', paddingBottom: '16px',
-                              paddingRight: '32px', paddingLeft: '32px'
-                          }}
-                          >
-                              Cancel
-                        </Button> 
-                    </div>
-
-                </div>
-              </form>
+          </div>
       </Stack> 
     </>
   );

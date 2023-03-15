@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import './AmenitiesForm.css'
 
 // -----------------MUI-ICONS-----------------------
@@ -106,63 +106,122 @@ function PropertyAmenitiesForm() {
 
 
   return(
-      <div className="amenities">
+      <div>
         <PropertyFormNav className="amenities"/>
-          <form onSubmit={addAmenities}>
-          <h1>All Amenities</h1>
+          <form onSubmit={addAmenities} className="amenities">
           <div className="ammenitiestext">
-          <h5>Click on an amenity to add it to your property. <br></br> 
-            You'll be able to add more details after you've added your property.</h5>
-            </div>
-          <h3>Essentials</h3>
-          <Button onClick={handleShower}><ShowerIcon/>Shower</Button>
-          <Button onClick={handleBathtub}><BathtubIcon/>Bathtub</Button>
-          <Button onClick={handleWasher}><LocalLaundryServiceIcon/>Laundry</Button>
-          <Button onClick={handleParking}><DirectionsCarIcon/>Parking</Button>
-          <Button onClick={handlePets}><PetsIcon/>Pets</Button>
-          <div></div>
-          <h3>Heating and Cooling</h3>
-          <Button onClick={handleHeating}><LocalFireDepartmentIcon/>Heating</Button>
-          <Button onClick={handleFireplace}>Fireplace<FireplaceIcon/></Button>
-          <Button onClick={handleAc}><AcUnitIcon/>AC</Button>
-          <div></div>
-          <h3>Technology</h3>
-          <Button onClick={handleElectricCharging}><ElectricCarIcon/>Electric Charging</Button>
-          <Button onClick={handleTV}><MonitorIcon/>Monitor</Button>
-          <Button onClick={handleWifi}><WifiIcon/>WIFI</Button>
-          <div><br></br></div>
-          <div className="btnContainer">
-                  <div className="nextBtn">
-                      <Button 
-                          onClick={nextBtn}
-                          size= "large"
-                          sx={{
-                              backgroundColor: '#CE8077',
-                              color: '#f8f8f8',
-                              margin: '2%',
-                              paddingTop: '16px', paddingBottom: '16px',
-                              paddingRight: '32px', paddingLeft: '32px'
-                          }}
-                        >
-                              Next
-                        </Button>  
-                    </div>
-                    <div className="cancelBtn">
-                      <Button onClick={cancelBtn}
-                          size= "large"
-                          sx={{
-                              backgroundColor: '#CE8077',
-                              color: '#f8f8f8',
-                              margin: '2%',
-                              paddingTop: '16px', paddingBottom: '16px',
-                              paddingRight: '32px', paddingLeft: '32px'
-                          }}
-                          >
-                              Cancel
-                        </Button> 
-                    </div>
-                </div> 
+            <h1>All Amenities</h1>
+            <p>
+              Click on an amenity to add it to your property. You'll be able to add more details after you've added your property.
+            </p>
+          </div>
+          <div>
+            <h3>Essentials</h3>
+            <Grid 
+                    container spacing={1}
+                    direction='row' 
+                    flexWrap='wrap' 
+                    justifyContent='flex-start'
+                    marginTop={2}
+            >
+                <div className="amenityContainer">
+                    <Button onClick={handleShower}><ShowerIcon/></Button>
+                    <p>Shower</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleBathtub}><BathtubIcon/></Button>
+                  <p>Bathtub</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleWasher}><LocalLaundryServiceIcon/></Button>
+                  <p>Laundry</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleParking}><DirectionsCarIcon/></Button>
+                  <p>Parking</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handlePets}><PetsIcon/></Button>
+                  <p>Pets</p>
+                </div>
+            </Grid>
+          </div>
+          <div>
+            <h3>Heating and Cooling</h3>
+            <Grid 
+                      container spacing={1}
+                      direction='row' 
+                      flexWrap='wrap' 
+                      justifyContent='flex-start'
+            > 
+                <div className="amenityContainer">
+                  <Button onClick={handleHeating}><LocalFireDepartmentIcon/></Button>
+                  <p>Heating</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleFireplace}><FireplaceIcon/></Button>
+                  <p>Fireplace</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleAc}><AcUnitIcon/></Button>
+                  <p>A/C</p>
+                </div>
+            </Grid>
+          </div>
+          <div>
+            <h3>Technology</h3>
+            <Grid 
+                      container spacing={1}
+                      direction='row' 
+                      flexWrap='wrap' 
+                      justifyContent='flex-start'
+            > 
+                <div className="amenityContainer">
+                  <Button onClick={handleElectricCharging}><ElectricCarIcon/></Button>
+                  <p>EV Charger</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleTV}><MonitorIcon/></Button>
+                  <p>TV</p>
+                </div>
+                <div className="amenityContainer">
+                  <Button onClick={handleWifi}><WifiIcon/></Button>
+                  <p>WI-FI</p>
+                </div>
+            </Grid>
+          </div>
           </form>
+          <div className="btnContainer">
+            <div className="nextBtn">
+                <Button 
+                    onClick={nextBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                  >
+                        Next
+                  </Button>  
+              </div>
+              <div className="cancelBtn">
+                <Button onClick={cancelBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Cancel
+                  </Button> 
+              </div>
+          </div> 
       </div>
   )
 

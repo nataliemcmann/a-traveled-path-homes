@@ -62,9 +62,9 @@ function PropertyPriceForm() {
                     }}
                   />
               </label>
-              {/* <h3>
-                Average: ${propertyReducer.priceDaily}-${propertyReducer.priceDaily + 20}
-              </h3> */}
+              <h3>
+                Average: ${propertyReducer.priceDaily}-${Number(propertyReducer.priceDaily) + 20}
+              </h3>
             </CardContent>
           
         </React.Fragment>
@@ -97,9 +97,9 @@ function PropertyPriceForm() {
                     }}
                   />
             </label>
-            {/* <h3>
-                Average: ${propertyReducer.priceMonthly}-${propertyReducer.priceMonthly + 500}
-            </h3> */}
+            <h3>
+                Average: ${propertyReducer.priceMonthly}-${Number(propertyReducer.priceMonthly) + 500}
+            </h3>
             </CardContent>
         </React.Fragment>
         </Card>

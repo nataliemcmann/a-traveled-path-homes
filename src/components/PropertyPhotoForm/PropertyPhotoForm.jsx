@@ -53,17 +53,15 @@ function PropertyPhotoForm() {
         return (
             <>
                 <PropertyFormNav className="photos"/>
+                <div className="uploadForm">
                 <form encType="multipart/form-data">
-                    <div className="uploadForm">
-                        <Card>
-                            <CardHeader 
-                            titleTypographyProps={{variant:'h3', textAlign:'center'}}
-                            title="Photos"
-                            subheaderTypographyProps={{textAlign:'left', color: '#000000'}}
-                            subheader="Upload photos of your property! 
+                    <div className="photoHeader">
+                        <h1>Photos</h1>
+                        <p>Upload photos of your property! 
                             You need at least five photos, but the more the merrier. 
-                            Make it feel like home!"
-                            />
+                            Make it feel like home!</p>
+                    </div>
+                        <Card>
                             <CardContent style={{display: 'flex', justifyContent:'center'}}>
                                 <div className="uploadContainer">
                                     <Button component="label"  
@@ -98,42 +96,41 @@ function PropertyPhotoForm() {
                                 View Photos
                             </Button>
                         </div>
-                    </div>
-
-                    <div className="btnContainer">
-                        <div className="nextBtn">
-                            <Button 
-                                onClick={nextBtn}
-                                size= "large"
-                                sx={{
-                                    backgroundColor: '#CE8077',
-                                    color: '#f8f8f8',
-                                    margin: '2%',
-                                    paddingTop: '16px', paddingBottom: '16px',
-                                    paddingRight: '32px', paddingLeft: '32px'
-                                }}
-                                >
-                                    Next
-                                </Button>  
-                            </div>
-                            <div className="cancelBtn">
-                            <Button onClick={cancelBtn}
-                                type="submit" 
-                                size= "large"
-                                sx={{
-                                    backgroundColor: '#CE8077',
-                                    color: '#f8f8f8',
-                                    margin: '2%',
-                                    paddingTop: '16px', paddingBottom: '16px',
-                                    paddingRight: '32px', paddingLeft: '32px'
-                                }}
-                                >
-                                    Cancel
-                                </Button> 
-                            </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup}/>
+                <div className="btnContainer">
+                    <div className="nextBtn">
+                        <Button 
+                        onClick={nextBtn}
+                        size= "large"
+                        sx={{
+                            backgroundColor: '#CE8077',
+                            color: '#f8f8f8',
+                            margin: '2%',
+                            paddingTop: '16px', paddingBottom: '16px',
+                            paddingRight: '32px', paddingLeft: '32px'
+                        }}
+                        >
+                            Next
+                        </Button>  
+                    </div>
+                    <div className="cancelBtn">
+                        <Button onClick={cancelBtn}
+                        type="submit" 
+                        size= "large"
+                        sx={{
+                            backgroundColor: '#CE8077',
+                            color: '#f8f8f8',
+                            margin: '2%',
+                            paddingTop: '16px', paddingBottom: '16px',
+                            paddingRight: '32px', paddingLeft: '32px'
+                        }}
+                        >
+                            Cancel
+                        </Button> 
+                    </div>
+                </div>
             </>
         )
 }
