@@ -63,7 +63,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     const sqlText = `
     UPDATE "profile"
     SET "firstName"=$1, "lastName"=$2, "dob"=$3, "profession"=$4, "viewAsRenter"=$5
-    WHERE id=$6
+    WHERE "userId"=$6
     `;
     pool.query(sqlText, [
       req.body.firstName,

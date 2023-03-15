@@ -10,6 +10,9 @@ const profile = (state = {}, action) => {
 }
 
 const profileEdit = (state = {}, action) =>{
+    if (action.type === 'SET_PROFILE_TO_EDIT') {
+        return action.payload;
+    }
     if (action.type === 'FIRST_NAME_TO_EDIT') {
         return action.payload;
     }else if (action.type === 'SET_FIRST_NAME') {
