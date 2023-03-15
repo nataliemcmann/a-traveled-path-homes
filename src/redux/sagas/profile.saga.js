@@ -36,10 +36,11 @@ function* fetchProfileToEdit(action) {
 }
 
 function* editProfile(action) {
-    const editProfile = action.payload;
+    const editProfile = action.payload.editProfile;
+    const userId = action.payload.userId
     yield axios({
         method: 'PUT',
-        url: `/api/profile/${editProfile.id}`,
+        url: `/api/profile/${userId}`,
         data: editProfile,
     })
     yield put({
@@ -49,11 +50,13 @@ function* editProfile(action) {
 
 
 
+
 function* profileSaga() {
     yield takeEvery('ADD_PROFILE', addProfile);
     yield takeEvery('FETCH_PROFILE', fetchProfile);
     yield takeEvery('FETCH_PROFILE_TO_EDIT', fetchProfileToEdit);
     yield takeEvery('EDITED_PROFILE', editProfile);
+  
 }
 
 export default profileSaga;

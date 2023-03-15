@@ -36,10 +36,20 @@ import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
 import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
-import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
+
+
+import PropertyDetails from "../PropertyDetails/PropertyDetails";
+
+
 import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
+
 import PropertyGallery from "../PropertyGallery/PropertyGallery";
 import RenterDashboard from "../RenterDashboard/RenterDashboard";
+
+
+
+
+import UserDashboard from "../UserToggle/UserDashboard";
 
 
 import './App.css';
@@ -105,9 +115,12 @@ function App() {
           
           <ProtectedRoute
             exact
-            path= "/renterdashboard"
+            path= "/dashboard"
           >
-            <RenterDashboard  />
+
+            <UserDashboard  />
+
+           
           </ProtectedRoute>
 
             <ProtectedRoute
@@ -118,12 +131,7 @@ function App() {
 
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/ownerdashboard"
-          >
-            <OwnerDashboard />
-          </ProtectedRoute>
+          
 
           <ProtectedRoute
             exact
@@ -135,7 +143,13 @@ function App() {
           <ProtectedRoute exact path="/residences/:id">
           <ResidenceDetails />
         </ProtectedRoute>
-
+        
+        {/* <ProtectedRoute
+            exact
+            path="/toggle"
+          >
+            <UserToggle />
+          </ProtectedRoute> */}
 
           {/* <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

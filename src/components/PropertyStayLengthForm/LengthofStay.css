@@ -1,14 +1,21 @@
-.center h2{
-    text-align: center;
-font-weight: 550;
-font-size: 48px;
-line-height: 55px;
-color: #000;;
+.sLForm{
+    width: 40%;
+    max-width: 100%;
+    padding: 1%;
+    margin: 0 20% 5% 29%;
 }
 
-.center p{
-padding: 6px;
-text-align: left;
+.sLHeader {
+    margin-bottom: 2%;
+}
+
+.sLHeader h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+.sLHeader p{
+    font-size: 1.1rem;
 }
 
 .sLBorder {
@@ -16,5 +23,5 @@ text-align: left;
     border-radius: 20px;
     width: 400px;
     height: 200px;
-    margin-left: 190px;
+    margin-left: 160px;
 }
