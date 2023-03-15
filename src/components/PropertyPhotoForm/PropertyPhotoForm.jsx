@@ -46,9 +46,9 @@ function PropertyPhotoForm() {
         history.push('/stayLength');
     }
 
-        const cancelBtn = () => {
-            history.push(`/ownerdashboard`)
-        }
+    const cancelBtn = () => {
+        history.push(`/ownerdashboard`)
+    }
 
         return (
             <>

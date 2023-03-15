@@ -25,8 +25,6 @@ const ProperyAddressForm = () => {
         dispatch({type: 'SET_ADDRESS',
         payload: addressAsString
         })
-        dispatch({type: 'EDIT_RESIDENCE', 
-        payload: propertyReducer.residence})
         history.push('/basics');
       }
 

@@ -37,21 +37,21 @@ router.post('/files', rejectUnauthenticated, upload.array("file"), async (req, r
     }
 })
 
-//parts of photo table post route below...DON"T DELETE!!!
-
- // console.log(req.body.residenceId); this is an array of strings
-//  const residenceId = Number(req.body.residenceId[0]) //make it a number
- // console.log(residenceId); 
-// const sqlQuery = `
-// INSERT INTO "photos"
-//     ("residenceId", "imagePath")
-// VALUES ($1, $2);
-// `;
-// //loop through location array and post each to the photos database
-// locationArray.map((location) => {
-//     const sqlValues = [residenceId, location];
-//     pool.query(sqlQuery, sqlValues);
-// })
+//post photos route
+router.post('/', rejectUnauthenticated, (req, res) => {
+    const residenceId = req.body.residenceId 
+    const locationArray = req.body.uploadedFiles;
+    const sqlQuery = `
+    INSERT INTO "photos"
+        ("residenceId", "imagePath")
+    VALUES ($1, $2);
+    `;
+    //loop through location array and post each to the photos database
+    locationArray.map((location) => {
+        const sqlValues = [residenceId, location];
+        pool.query(sqlQuery, sqlValues);
+    })
+})
 
 //get all residence photos
 router.get('/:residenceId', rejectUnauthenticated, (req, res) => {

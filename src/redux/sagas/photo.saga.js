@@ -34,7 +34,7 @@ function* addResidencePhotos(action) {
     try {
         const residenceId = action.payload.residenceId;
         const uploadedFiles = action.payload.uploadedFiles
-        yield axios.post(`/api/photo/${residenceId}`, 
+        yield axios.post(`/api/photo`, 
         {residenceId, uploadedFiles});
         yield put({type: 'FETCH_RESIDENCE_PHOTOS', payload: residenceId})
     } catch (err) {

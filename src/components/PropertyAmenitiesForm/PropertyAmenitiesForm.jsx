@@ -41,65 +41,64 @@ function PropertyAmenitiesForm() {
     console.log('added washer');
   }
 
-  function handleDryer() {
-    setAmenitiesList([...amenitiesList, 4]);
-    console.log('added dryer');
-  }
 
   function handleParking() {
-    setAmenitiesList([...amenitiesList, 5]);
+    setAmenitiesList([...amenitiesList, 4]);
     console.log('added parking');
   }
 
   function handlePets() {
-    setAmenitiesList([...amenitiesList, 6]);
+    setAmenitiesList([...amenitiesList, 5]);
     console.log('added pets');
   }
 
   function handleHeating() {
-    setAmenitiesList([...amenitiesList, 7]);
+    setAmenitiesList([...amenitiesList, 6]);
     console.log('added heating');
   }
 
   function handleFireplace() {
-    setAmenitiesList([...amenitiesList, 8]);
+    setAmenitiesList([...amenitiesList, 7]);
     console.log('added fireplace');
   }
 
   function handleAc() {
-    setAmenitiesList([...amenitiesList, 9]);
+    setAmenitiesList([...amenitiesList, 8]);
     console.log('added ac');
   }
 
   function handleWifi() {
-    setAmenitiesList([...amenitiesList, 10]);
+    setAmenitiesList([...amenitiesList, 9]);
     console.log('added wifi');
   }
 
   function handleTV() {
-    setAmenitiesList([...amenitiesList, 11]);
+    setAmenitiesList([...amenitiesList, 10]);
     console.log('added tv');
   }
 
   function handleElectricCharging() {
-    setAmenitiesList([...amenitiesList, 12]);
+    setAmenitiesList([...amenitiesList, 11]);
     console.log('added electric_charging');
   }
 
 
-  const addToResidence = (event) => {
+  const addAmenities = (event) => {
     event.preventDefault();
     console.log(amenitiesList);
       dispatch({
-          type: 'ADD_AMENITIES_RESIDENCE',
-          payload: {
-              residenceId: propertyReducer.residence.id,
-              amenitiesList
-          }
+          type: 'SET_AMENITIES',
+          payload: amenitiesList
       })
-
-      history.push('/photos')
   };
+
+  const nextBtn = () => {
+    dispatch({
+      type: 'SET_AMENITIES',
+      payload: amenitiesList
+  })
+    history.push('/photos')
+}
 
   const cancelBtn = () => {
     history.push(`/ownerdashboard`)
@@ -109,7 +108,7 @@ function PropertyAmenitiesForm() {
   return(
       <div className="amenities">
         <PropertyFormNav className="amenities"/>
-          <form onSubmit={addToResidence}>
+          <form onSubmit={addAmenities}>
           <h1>All Amenities</h1>
           <div className="ammenitiestext">
           <h5>Click on an amenity to add it to your property. <br></br> 
@@ -118,8 +117,7 @@ function PropertyAmenitiesForm() {
           <h3>Essentials</h3>
           <Button onClick={handleShower}><ShowerIcon/>Shower</Button>
           <Button onClick={handleBathtub}><BathtubIcon/>Bathtub</Button>
-          <Button onClick={handleWasher}><LocalLaundryServiceIcon/>Washer</Button>
-          <Button onClick={handleDryer}><LocalLaundryServiceIcon/>Dryer</Button>
+          <Button onClick={handleWasher}><LocalLaundryServiceIcon/>Laundry</Button>
           <Button onClick={handleParking}><DirectionsCarIcon/>Parking</Button>
           <Button onClick={handlePets}><PetsIcon/>Pets</Button>
           <div></div>
@@ -136,7 +134,7 @@ function PropertyAmenitiesForm() {
           <div className="btnContainer">
                   <div className="nextBtn">
                       <Button 
-                          type="submit" 
+                          onClick={nextBtn}
                           size= "large"
                           sx={{
                               backgroundColor: '#CE8077',
@@ -151,7 +149,6 @@ function PropertyAmenitiesForm() {
                     </div>
                     <div className="cancelBtn">
                       <Button onClick={cancelBtn}
-                          type="submit" 
                           size= "large"
                           sx={{
                               backgroundColor: '#CE8077',
