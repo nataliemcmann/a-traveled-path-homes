@@ -47,7 +47,8 @@ function* createResidence(action){
       payload: {
         residenceId: response.data.id,
         amenitiesList: amenitiesArray
-      })
+      }
+    })
   } catch (err) {
     console.log('residence creation failed', err);
   }   

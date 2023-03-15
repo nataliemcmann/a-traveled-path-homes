@@ -31,7 +31,7 @@ CREATE TABLE "residences" (
 	"beds" INT,
 	"bathrooms" INT,
 	"listed" BOOLEAN,
-	"featurePhoto" INT,
+	"featurePhoto" VARCHAR,
 	"minStayLength" INT,
 	"priceDaily" INT,
 	"priceMonthly" INT
@@ -63,6 +63,14 @@ CREATE TABLE "amenities_residences" (
     "id" SERIAL PRIMARY KEY,
     "amenitiesId" INT REFERENCES "amenities" ON DELETE CASCADE,
     "residenceId" INT REFERENCES "residences" ON DELETE CASCADE
+);
+
+--photos table
+--create photo table
+CREATE TABLE "photos" (
+	"id" SERIAL PRIMARY KEY,
+	"residenceId" INT REFERENCES "residences" ON DELETE CASCADE,
+	"imagePath" VARCHAR
 );
 
 
