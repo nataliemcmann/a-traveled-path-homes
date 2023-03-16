@@ -48,7 +48,24 @@ function* editProfile(action) {
     })
 }
 
-
+//dispatch on "CHANGE_VIEW"
+function* changeProfileView(action) {
+    try{
+        const newView = action.payload.newView;
+        const userId = action.payload.userId;
+        console.log(newView);
+        yield axios({
+            method: 'PUT',
+            url: `/api/profile/view/${userId}`,
+            data: {newView},
+        })
+        yield put({
+            type: 'FETCH_PROFILE'
+        })
+    } catch (err) {
+        console.log('update profile view failed: ', err)
+    }
+}
 
 
 function* profileSaga() {
@@ -56,7 +73,7 @@ function* profileSaga() {
     yield takeEvery('FETCH_PROFILE', fetchProfile);
     yield takeEvery('FETCH_PROFILE_TO_EDIT', fetchProfileToEdit);
     yield takeEvery('EDITED_PROFILE', editProfile);
-  
+    yield takeEvery('CHANGE_VIEW', changeProfileView);
 }
 
 export default profileSaga;

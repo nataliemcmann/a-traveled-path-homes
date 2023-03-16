@@ -10,25 +10,22 @@ import UserToggle from "./UserToggle";
 
 function UserDashboard () {
     const profileReducer= useSelector (store => store.profileReducer);
-    const dispatch = useDispatch() 
-  
+    const dispatch = useDispatch()   
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PROFILE_TO_EDIT' });
+        dispatch({ type: 'FETCH_PROFILE' });
     }, []);
 
-    return (profileReducer.profileEdit.viewAsRenter) ? (
+    return (profileReducer.profile.viewAsRenter) ? (
 
         <>  
-            <UserToggle currentView={profileReducer.profileEdit.viewAsRenter}/>
+            <UserToggle currentView={profileReducer.profile.viewAsRenter}/>
             <RenterDashboard/>
                 
         </>
-    )
-    :   
-    (
+    ) : (
         <>
-        <UserToggle currentView={profileReducer.profileEdit.viewAsRenter}/>
+        <UserToggle currentView={profileReducer.profile.viewAsRenter}/>
         <OwnerDashboard/>
         </>
         
