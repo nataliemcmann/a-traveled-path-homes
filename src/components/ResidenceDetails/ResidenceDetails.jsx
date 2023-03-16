@@ -76,7 +76,7 @@ function ResidenceDetails(residences) {
                             marginBottom: 2,
                         }}>
                         
-                            <p>Maximun Guests: {propertyReducer.residence.maxGuests}</p>
+                            <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
                             <br></br>
                             <p>{propertyReducer.residence.description}</p>
                             </Card>
