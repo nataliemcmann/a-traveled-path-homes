@@ -128,7 +128,8 @@ function ResidenceDetails(residences) {
                         columns={3}
                         flexWrap='wrap'
                         justifyContent='center'
-                        marginTop={2}
+                        marginTop={1}
+                        padding={.5}
                     >
                         {photoReducer.residencePhotos && photoReducer.residencePhotos.map((photo) => {
                         return <Card key={photo.id} margin={2}>
@@ -170,7 +171,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -220,
+                            marginTop: -270,
                             marginBottom: 200
                             
                         }}>
@@ -213,7 +214,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -180,
-                            marginBottom: 100
+                            marginBottom: 200
                             
                         }}>
                             <h1>Ready to book?</h1>
