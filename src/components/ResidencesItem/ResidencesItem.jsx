@@ -23,6 +23,7 @@ function ResidencesItem({residences}) {
       textAlign: 'center',
       borderRadius: 4
   }}>
+      {residences.featurePhoto}
       {residences.propertyName}
       
   </Card>

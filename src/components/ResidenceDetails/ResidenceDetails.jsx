@@ -10,19 +10,19 @@ function ResidenceDetails(residences) {
     const params = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
-    const residenceDetailsReducer = useSelector(store => store.residenceDetailsReducer)
+    const propertyReducer = useSelector(store => store.propertyReducer)
 
 
     useEffect(() => {
         dispatch({
-            type: 'FETCH_RESIDENCE_DETAILS',
+            type: 'FETCH_RESIDENCE',
             payload: params.id 
         })
     }, [params.id])
 
 
     const backToProperties = () => {
-        history.push(`/ownerdashboard`)
+        history.push(`/propertygallery`)
 }
 
   return(
@@ -57,7 +57,7 @@ function ResidenceDetails(residences) {
             borderRadius: 4,
             border: "none", 
         boxShadow: "none"
-        }}>{residenceDetailsReducer.propertyName}</Card >
+        }}>{propertyReducer.residence.propertyName}</Card >
         <br></br>
         <Card sx={{
             textAlign: 'left',
@@ -75,9 +75,9 @@ function ResidenceDetails(residences) {
         boxShadow: "none"
         }}>
         
-            <p>House Type: {residenceDetailsReducer.houseType}</p>
-            <p>{residenceDetailsReducer.propertyName}</p>
-            <p>Description: {residenceDetailsReducer.description}</p>
+            <p>House Type: {propertyReducer.residence.houseType}</p>
+            <p>{propertyReducer.residence.propertyName}</p>
+            <p>Description: {propertyReducer.residence.description}</p>
             
             </Card>
             
