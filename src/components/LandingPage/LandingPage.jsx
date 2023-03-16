@@ -7,6 +7,7 @@ import { Card, Icon } from '@mui/material';
 import { Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import Travelers from '../SearchBar/Travelers';
+import WhereTo from '../SearchBar/WhereTo';
 
 
 function LandingPage() {
@@ -58,6 +59,7 @@ function LandingPage() {
       </Card>
       <CheckInCheckOut trigger={datesPopup} setTrigger={setDatesPopup}/>
       <Travelers trigger={travelersPopup} setTrigger={setTravelersPopup}/>
+      <WhereTo trigger={locationPopup} setTrigger={setLocationPopup}/>
       <br></br>
       <Card sx={{
         padding: 4,
