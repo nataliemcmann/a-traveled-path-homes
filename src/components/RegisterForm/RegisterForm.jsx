@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //mui components
 import { Stack, TextField } from '@mui/material';
@@ -10,6 +11,7 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -21,6 +23,8 @@ function RegisterForm() {
         password: password,
       },
     });
+
+    history.push('/profileForm');
   }; // end registerUser
 
   return (

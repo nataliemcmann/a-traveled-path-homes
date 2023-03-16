@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //mui components
 import { Stack, TextField, Button } from '@mui/material';
@@ -33,6 +34,7 @@ function ProfileForm() {
             type: 'ADD_PROFILE',
             payload: profileObject
         })
+        history.push('/home')
     }
 
 

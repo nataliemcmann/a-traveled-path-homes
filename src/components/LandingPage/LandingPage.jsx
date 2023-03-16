@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
 // ----------------MUI-------------------
-import { Card, Icon } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 import { Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import Travelers from '../SearchBar/Travelers';
 import WhereTo from '../SearchBar/WhereTo';
+
 
 function LandingPage() {
   const [heading, setHeading] = useState('A Traveled Path Homes');
@@ -15,6 +17,8 @@ function LandingPage() {
   const [datesPopup, setDatesPopup] = useState(false);
   const [travelersPopup, setTravelersPopup] = useState(false);
   const [wherePopup, setWherePopup] = useState(false);
+
+  const bookingReducer = useSelector((store) => store.bookingReducer);
 
   const onLogin = (event) => {
     history.push('/login');
@@ -40,25 +44,32 @@ function LandingPage() {
         marginLeft: 40,
         marginRight: 50,
           height: 38,
-          width: 600
+          width: 900
       }}>
-      <Button sx={{color: '#121957'}} onClick={() => setWherePopup(true)}className="btn btn_sizeSm" >
-              Where to?
-      </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
-              Check In - Check Out
-      </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setTravelersPopup(true)} className="btn btn_sizeSm" >
-              How many Travelers?
-      </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
-              Filters
-      </Button>
-      <SearchIcon></SearchIcon>
+        <Grid 
+        display='flex'
+        justifyContent='space-around'
+        >
+          <Button sx={{color: '#121957'}} 
+          onClick={() => setLocationPopup(true)}className="btn btn_sizeSm" >
+                  {bookingReducer.hospital}
+          </Button>
+          <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
+                  Check In - Check Out
+          </Button>
+          <Button sx={{color: '#121957'}} onClick={() => setTravelersPopup(true)} className="btn btn_sizeSm" >
+                  How many Travelers?
+          </Button>
+          <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
+                  Filters
+          </Button>
+          <SearchIcon></SearchIcon>
+        </Grid>
       </Card>
       <CheckInCheckOut trigger={datesPopup} setTrigger={setDatesPopup}/>
       <Travelers trigger={travelersPopup} setTrigger={setTravelersPopup}/>
-      <WhereTo trigger={wherePopup} setTrigger={setWherePopup}/>
+      <WhereTo trigger={locationPopup} setTrigger={setLocationPopup}/>
+
       <br></br>
       <Card sx={{
         padding: 4,

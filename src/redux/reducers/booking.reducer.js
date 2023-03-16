@@ -27,10 +27,20 @@ const travelers = (state= 1, action) => {
     }
 }
 
+const hospital = (state='Where To?', action) => {
+    switch (action.type) {
+        case 'SET_HOSPITAL':
+            return action.payload;
+        default: 
+            return state;
+    }
+}
+
 const bookingReducer = combineReducers({
     checkInDate, 
     checkOutDate,
-    travelers
+    travelers,
+    hospital
 })
 
 export default bookingReducer;
