@@ -127,7 +127,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -140,
+                            marginTop: -200,
                             marginBottom: 200
                             
                         }}>
