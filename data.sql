@@ -71,3 +71,20 @@ VALUES(1,2,'Lake Front', 'Beautiful town home located in an ideal location near 
       FROM "residences"
       LEFT JOIN "instructions"
         ON "residences"."id" = "instructions"."residencesId"
+
+
+
+------------Adding-FeaturePhotos--------------
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21+(1).png'
+      WHERE "id" = 1;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21.png'
+      WHERE "id" = 2;
+
+  UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21.png'
+      WHERE "id" = 3;
+      
