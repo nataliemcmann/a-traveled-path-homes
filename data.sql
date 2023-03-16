@@ -71,3 +71,39 @@ VALUES(1,2,'Lake Front', 'Beautiful town home located in an ideal location near 
       FROM "residences"
       LEFT JOIN "instructions"
         ON "residences"."id" = "instructions"."residencesId"
+
+
+
+------------Adding-FeaturePhotos--------------
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21+(1).png'
+      WHERE "id" = 1;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21.png'
+      WHERE "id" = 2;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/House+2/house+2-1.webp'
+      WHERE "id" = 3;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/House+6/house+6-1.webp'
+      WHERE "id" = 4;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/House+4/house+4-1.webp'
+      WHERE "id" = 5;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/House+1/house+1.webp'
+      WHERE "id" = 6;
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21+(3).png'
+      WHERE "id" = 7;     
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21+(2).png'
+      WHERE "id" = 8;
