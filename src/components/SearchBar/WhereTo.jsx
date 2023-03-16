@@ -1,27 +1,45 @@
 import React from 'react';
 import './WhereTo.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { TextField } from '@mui/material';
+import { MenuItem, Stack } from '@mui/material';
 import PlaceIcon from '@mui/icons-material/Place';
 
 function WhereTo(props) {
-    const dispatch = useDispatch();
-    const bookingReducer = useSelector((store) => store.bookingReducer);
+
+    function handleClick () {
+        props.setTrigger(false)
+    }
 
     return (props.trigger) ? (
         <div className='where'>
             <div className='where-inner'>
-                <h2>Number of Travelers:</h2>
-                <TextField
-                    type="number"
-                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
-                    value={bookingReducer.travelers}
-                    InputProps={{ inputProps: { min: 0, style: { textAlign: 'right', width: '35px', fontSize: '32px'}}}}
-                    required
-                    onChange={(event) => {
-                    dispatch({type: 'SET_TRAVELERS', payload: event.target.value})
-                    }}
-                />
+                <Stack>
+                    <h2>Select Your Facility</h2>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>North Kansas City Hospital</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>Saint Luke's Hospital of Kansas</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>St. Joseph Medical Center</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>Saint Luke's North Hospital-Barry Road</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>Kindred Hospital Northland</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>Liberty Hospital</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p> Kansas City VA Medical Center</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleClick}>
+                        <PlaceIcon/><p>University Health Truman Medical Center</p>
+                    </MenuItem>
+                </Stack>
             <button className="close-btn" onClick={() => props.setTrigger(false)}>Close</button>
             { props.children }
             </div>
