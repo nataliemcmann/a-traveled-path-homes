@@ -12,21 +12,25 @@ function ResidencesItem({residences}) {
   return(
     <Card onClick={showResidencesDetails}
     sx={{
-      textAlign: 'left',
-      fontSize: 22,
-      backgroundColor: '#FFFFFF',
-      color: '#410064',
-      lineHeight: 1,
-      width: 260,
-      height: 280,
-      padding: 2,
-      lineHeight: 1,
-      textAlign: 'center',
+      
+      lineHeight: .5,
+      width: 240,
+      height: 320,
+      padding: 1.5,
       borderRadius: 4
   }}>
     <img src={residences.featurePhoto}/>
-      {residences.propertyName}
-      
+    <Card sx={{textAlign: 'center',
+      fontSize: 16,
+      backgroundColor: '#FFFFFF',
+      color: '#410064',
+      marginTop: 2,
+      border: "none", 
+                boxShadow: "none",
+      }}>
+      <h3>{residences.propertyName}</h3>
+      <h4>Monthly Price: {residences.priceMonthly}</h4>
+      </Card>
   </Card>
   )
 }

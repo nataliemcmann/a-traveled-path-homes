@@ -18,7 +18,7 @@ function PropertyGallery() {
     <div>
       <Card sx={{
                             textAlign: 'center',
-                            fontSize: 42,
+                            fontSize: 52,
                             fontWeight: 500,
                             color: '#CE8077',
                             lineHeight: 1,
@@ -27,7 +27,7 @@ function PropertyGallery() {
                             marginLeft: 61,
                             marginBottom: 6,
                             borderRadius: 4,
-                            padding: 3,
+                            padding: 1,
                             border: "none", 
                 boxShadow: "none",
                         }}>

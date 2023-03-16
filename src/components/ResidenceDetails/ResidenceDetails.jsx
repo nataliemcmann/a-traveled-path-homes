@@ -13,11 +13,20 @@ function ResidenceDetails(residences) {
     const history = useHistory();
     const propertyReducer = useSelector(store => store.propertyReducer)
     const amenitiesReducer = useSelector(store => store.amenitiesReducer)
+    const photoReducer = useSelector(store => store.photoReducer)
 
 
     useEffect(() => {
         dispatch({
             type: 'FETCH_RESIDENCE',
+            payload: params.id 
+        })
+    }, [params.id])
+
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_RESIDENCE_PHOTOS',
             payload: params.id 
         })
     }, [params.id])
@@ -68,7 +77,9 @@ function ResidenceDetails(residences) {
                             fontSize: 22,
                             backgroundColor: '#FFFFFF',
                             color: '#410064',
-                            lineHeight: 1,
+                            lineHeight: 2,
+                            letterSpacing: .8,
+                            wordSpacing: 1.5,
                             width: 450,
                             padding: 1.5,
                             lineHeight: 1,
@@ -98,6 +109,23 @@ function ResidenceDetails(residences) {
                                 <p>Beds: {propertyReducer.residence.beds}</p>
                                 
                             </Card>
+
+                            <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 22,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 500,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            borderRadius: 4,
+                            marginBottom: 2,
+                        }}> 
+                                <h3>Your Bedrooms</h3>
+                                <img src={photoReducer.residencePhotos.imagePath}/>
+                            </Card>
+
                             <Card sx={{
                             fontSize: 18,
                             backgroundColor: '#FFFFFF',
@@ -127,7 +155,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -200,
+                            marginTop: -220,
                             marginBottom: 200
                             
                         }}>
@@ -191,7 +219,7 @@ function ResidenceDetails(residences) {
         padding: 1,
         backgroundColor: '#D1877F',
         marginLeft: 4
-    }} onClick={() => backToProperties(residences)}>Back</Button>
+    }} className="btn btn_sizeMd" onClick={() => backToProperties(residences)}>Back</Button>
         </>
 )
 
