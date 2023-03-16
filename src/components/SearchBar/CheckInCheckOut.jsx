@@ -1,27 +1,40 @@
-import React from 'react';
-import './CheckInCheckOut.css'
-// import { DayPicker } from 'react-day-picker';
-// import 'react-day-picker/dist/style.css';
+import React, { useState } from 'react';
+import './CheckInCheckOut.css';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
+import  { Grid } from '@mui/material';
 
 
 function CheckInCheckOut(props) {
-  // const [selected, setSelected] = React.useState<Date>();
+  const [checkInDate, setCheckInDate] = useState(new Date());
+  const [checkOutDate, setCheckOutDate] = useState(new Date());
 
-  // let footer = <p>Please pick a day.</p>;
-
-  // if (selected) {
-  //   footer = <p>You picked {format(selected, 'PP')}.</p>;
-  // }
 
   return (props.trigger) ? (
     <div className='daypicker'>
         <div className='daypicker-inner'>
-  {/* <DayPicker 
-      mode="single"
-      selected={selected}
-      onSelect={setSelected}
-      footer={footer}></DayPicker> */}
-      <button className='close-btn' onClick={() => props.setTrigger(false)}>Close</button>
+          <Grid
+          container spacing = {2}
+          sx={{ textAlign: 'center'}}
+          >
+            <Grid>
+              <h2>Check-In Date</h2>
+              <DayPicker 
+              mode="single"
+              selected={checkInDate}
+              onSelect={setCheckInDate}
+              />
+            </Grid>
+            <Grid>
+              <h2>Check-Out Date</h2>
+              <DayPicker 
+              mode="single"
+              selected={checkOutDate}
+              onSelect={setCheckOutDate}
+              />
+            </Grid>
+          </Grid>
+      <button className="close-btn" onClick={() => props.setTrigger(false)}>Close</button>
       { props.children }
       </div>
       </div>
