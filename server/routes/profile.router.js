@@ -60,6 +60,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  */
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     const idToUpdate = req.params.id;
+    console.log(req.body.viewAsRenter);
     const sqlText = `
     UPDATE "profile"
     SET "firstName"=$1, "lastName"=$2, "dob"=$3, "profession"=$4, "viewAsRenter"=$5
@@ -70,7 +71,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
       req.body.lastName,
       req.body.dob,
       req.body.profession,
-      req.body.viewAsrenter,
+      req.body.viewAsRenter,
       idToUpdate
     ])
     .then((result) => {
@@ -81,5 +82,26 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
     });
   });
+
+
+  //put for just profile view
+  router.put('/view/:id', rejectUnauthenticated, (req, res) => {
+    const idToUpdate = req.params.id;
+    console.log(req.body.newView);
+    const sqlValues = [req.body.newView, idToUpdate];
+    const sqlQuery = `
+      UPDATE "profile"
+      SET "viewAsRenter" = $1
+      WHERE "userId"= $2
+    `;
+    pool.query(sqlQuery, sqlValues)
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`change view failed`, error);
+      res.sendStatus(500);
+    });
+  })
 
 module.exports = router;
