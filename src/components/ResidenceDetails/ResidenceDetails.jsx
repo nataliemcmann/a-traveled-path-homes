@@ -54,12 +54,13 @@ function ResidenceDetails(residences) {
                             color: '#410064',
                             lineHeight: 1,
                             width: 400,
+                            height: 400,
                             padding: 1.5,
                             lineHeight: 1,
                             textAlign: 'left',
                             borderRadius: 4,
                         }}><h1>{propertyReducer.residence.propertyName}</h1>
-                            {propertyReducer.residence.featurePhoto}
+                            <img src={propertyReducer.residence.featurePhoto}/>
                             </Card >
                         <br></br>
                         <Card sx={{
@@ -75,7 +76,7 @@ function ResidenceDetails(residences) {
                             marginBottom: 2,
                         }}>
                         
-                            <p>Maximun Guests: {propertyReducer.residence.maxGuests}</p>
+                            <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
                             <br></br>
                             <p>{propertyReducer.residence.description}</p>
                             </Card>
@@ -126,7 +127,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -170,
+                            marginTop: -200,
                             marginBottom: 200
                             
                         }}>
@@ -169,7 +170,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -180,
-                            marginBottom: 200
+                            marginBottom: 100
                             
                         }}>
                             <h1>Ready to book?</h1>

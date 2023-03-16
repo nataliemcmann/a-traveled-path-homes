@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+const filterUniquePhotos = require('../modules/filterUniquePhotos');
 
 router.get('/all', rejectUnauthenticated, (req, res) => {
     console.log('GET /api/residences');
@@ -23,13 +24,52 @@ router.get('/all', rejectUnauthenticated, (req, res) => {
 router.get('/:id', (req, res) =>{
     const residenceId = req.params.id
     const sqlValues = [residenceId]
-    const sqlQuery = `SELECT * FROM "residences" WHERE "id" = $1;`;
+    const sqlQuery = `
+        SELECT 
+        "residences"."id",
+        "residences"."userId",
+        "residences"."houseType",
+        "residences"."propertyName",
+        "residences"."description",
+        "residences"."address",
+        "residences"."maxGuests",
+        "residences"."bedrooms",
+        "residences"."beds",
+        "residences"."bathrooms",
+        "residences"."listed",
+        "residences"."featurePhoto",
+        "residences"."minStayLength",
+        "residences"."priceDaily",
+        "residences"."priceMonthly",
+        JSON_AGG(
+            JSON_BUILD_OBJECT(
+            'photoId', "photos"."id",
+            'imagePath', "photos"."imagePath"
+            )
+        ) AS "residenceImages",
+        JSON_AGG(
+            JSON_BUILD_OBJECT(
+            'joinId', "amenities_residences"."id",
+            'amenitiesId', "amenities_residences"."amenitiesId",
+            'residenceId', "amenities_residences"."residenceId"
+            )
+        ) AS "residenceAmenities"
+        FROM "residences"
+            LEFT JOIN "photos"
+                ON "residences"."id" = "photos"."residenceId"
+            LEFT JOIN "amenities_residences"
+                ON "residences"."id" = "amenities_residences"."residenceId"
+        WHERE "residences"."id" = $1
+        GROUP BY "residences"."id", "photos"."residenceId";
+    `;
     pool.query(sqlQuery, sqlValues)
     .then((result) => {
-        res.send(result.rows);
+        let residenceObject = filterUniquePhotos(result.rows[0]);
+        console.log(residenceObject);
+        res.send(residenceObject);
     })
     .catch((error) => {
-        console.log("ERROR in /api/residence GET route", error);
+        console.log("ERROR in /api/residences GET route", error);
         res.sendStatus(500);
     });
 })

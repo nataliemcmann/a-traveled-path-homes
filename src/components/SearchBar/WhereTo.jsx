@@ -48,12 +48,19 @@ function WhereTo(props) {
                         <PlaceIcon/><p>University Health Truman Medical Center</p>
                     </MenuItem>
                 </Stack>
+                <h2>Select Your Facility</h2>
+                <TextField
+                    type="text"
+                    sx={{border: 'none',"& fieldset": { border: 'none' }}}
+                    value={selected}
+                    required
+                    onChange={setSelected}
+                />
             <button className="close-btn" onClick={() => props.setTrigger(false)}>Close</button>
             { props.children }
             </div>
         </div>
     ) : "";
-
 }
 
 export default WhereTo;

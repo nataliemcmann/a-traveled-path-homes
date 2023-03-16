@@ -16,7 +16,22 @@ function PropertyGallery() {
 
   return(
     <div>
-    <h1>All Properties</h1>
+      <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 30,
+                            fontWeight: 400,
+                            backgroundColor: '#CE8077',
+                            color: '#FFF',
+                            lineHeight: 1,
+                            width: 380,
+                            lineHeight: 1,
+                            marginLeft: 61,
+                            marginBottom: 6,
+                            borderRadius: 4,
+                            padding: 3
+                        }}>
+              All Properties
+    </Card>
     <>
       <Grid sx={{ 
             display: 'grid',

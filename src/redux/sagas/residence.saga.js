@@ -10,7 +10,7 @@ function* fetchResidence(action) {
 
     yield put({ 
       type: 'SET_RESIDENCE', 
-      payload: response.data[0] });
+      payload: response.data });
   } catch (error) {
     console.log('Residence get request failed', error);
   }
