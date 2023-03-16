@@ -38,18 +38,14 @@ import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
 
 
-import PropertyDetails from "../PropertyDetails/PropertyDetails";
-
-
 import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
 
 import PropertyGallery from "../PropertyGallery/PropertyGallery";
-import RenterDashboard from "../RenterDashboard/RenterDashboard";
 
 
 
 
-import UserDashboard from "../UserToggle/UserDashboard";
+import UserDashboard from "../UserDashboard/UserDashboard";
 
 
 import './App.css';
@@ -117,10 +113,7 @@ function App() {
             exact
             path= "/dashboard"
           >
-
             <UserDashboard  />
-
-           
           </ProtectedRoute>
 
             <ProtectedRoute
@@ -128,10 +121,7 @@ function App() {
             path= "/properydescription"
           >
             <Map />
-
           </ProtectedRoute>
-
-          
 
           <ProtectedRoute
             exact
@@ -141,24 +131,9 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/residences/:id">
-          <ResidenceDetails />
-        </ProtectedRoute>
+            <ResidenceDetails />
+          </ProtectedRoute>
         
-        {/* <ProtectedRoute
-            exact
-            path="/toggle"
-          >
-            <UserToggle />
-          </ProtectedRoute> */}
-
-          {/* <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/renterdashboard"
-          >
-            <RenterDashboard />
-          </ProtectedRoute> */}
-
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -195,11 +170,6 @@ function App() {
           <ProtectedRoute exact path="/stayLength">
             <PropertyStayLengthForm />
           </ProtectedRoute>
-          propertygallery
-          {/* <ProtectedRoute exact path="/price">
-            <PriceForm />
-          </ProtectedRoute> */}
-
 
           <ProtectedRoute exact path="/price">
             <PropertyPriceForm />

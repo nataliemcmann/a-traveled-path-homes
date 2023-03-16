@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import '../RenterGallery/RenterDashboard'
-import '../OwnerDashboard/OwnerDashboard'
+import React, { useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
-import RenterDashboard from "../RenterGallery/RenterDashboard";
+import RenterDashboard from "../RenterDashboard/RenterDashboard";
 import UserToggle from "./UserToggle";
 
 
