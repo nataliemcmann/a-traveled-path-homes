@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Switch } from '@mui/material'
+import { Switch, Grid } from '@mui/material'
 
 
 
@@ -24,9 +24,24 @@ function handleToggle (event){
     return (
 
         <>
-            <p> Owner View</p> 
-            <Switch onChange={handleToggle}/>  
-            <p> Renter View</p>
+            <Grid 
+            container spacing = {2}
+            direction = 'row'
+            marginLeft={4}
+            padding={2}
+            sx={{ 
+                backgroundColor: '#CE8077', 
+                borderRadius: '20px',
+                width: '15%',
+                color: 'white',
+                fontSize: '16px'
+                }}
+            >
+                <p> Owner View</p> 
+                <Switch color="default" onChange={handleToggle}/>  
+                <p> Renter View</p>
+            </Grid>
+            
         </>
     )
 
