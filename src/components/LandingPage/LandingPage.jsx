@@ -6,12 +6,15 @@ import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
 import { Card, Icon } from '@mui/material';
 import { Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
+import Travelers from '../SearchBar/Travelers';
 
 
 function LandingPage() {
   const [heading, setHeading] = useState('A Traveled Path Homes');
   const history = useHistory();
-  const [buttonPopup, setButtonPopup] = useState(false);
+  const [datesPopup, setDatesPopup] = useState(false);
+  const [travelersPopup, setTravelersPopup] = useState(false);
+  const [locationPopup, setLocationPopup] = useState(false);
 
   const onLogin = (event) => {
     history.push('/login');
@@ -39,13 +42,13 @@ function LandingPage() {
           height: 38,
           width: 600
       }}>
-      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)}className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setLocationPopup(true)}className="btn btn_sizeSm" >
               Where to?
       </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
               Check In - Check Out
       </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setTravelersPopup(true)} className="btn btn_sizeSm" >
               How many Travelers?
       </Button>
       <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
@@ -53,7 +56,8 @@ function LandingPage() {
       </Button>
       <SearchIcon></SearchIcon>
       </Card>
-      <CheckInCheckOut trigger={buttonPopup} setTrigger={setButtonPopup}></CheckInCheckOut>
+      <CheckInCheckOut trigger={datesPopup} setTrigger={setDatesPopup}/>
+      <Travelers trigger={travelersPopup} setTrigger={setTravelersPopup}/>
       <br></br>
       <Card sx={{
         padding: 4,

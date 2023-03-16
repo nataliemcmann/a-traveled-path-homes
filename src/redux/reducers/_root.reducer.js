@@ -11,6 +11,7 @@ import photoReducer from './photo.reducer';
 import amenitiesReducer from './amenities.reducer';
 
 import address from './address.reducer';
+import bookingReducer from './booking.reducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -31,8 +32,8 @@ const rootReducer = combineReducers({
   photoReducer,
   amenitiesReducer,
 
-  address
-
+  address,
+  bookingReducer
 });
 
 export default rootReducer;
