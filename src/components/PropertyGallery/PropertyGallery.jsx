@@ -18,17 +18,18 @@ function PropertyGallery() {
     <div>
       <Card sx={{
                             textAlign: 'center',
-                            fontSize: 30,
-                            fontWeight: 400,
-                            backgroundColor: '#CE8077',
-                            color: '#FFF',
+                            fontSize: 42,
+                            fontWeight: 500,
+                            color: '#CE8077',
                             lineHeight: 1,
                             width: 380,
                             lineHeight: 1,
                             marginLeft: 61,
                             marginBottom: 6,
                             borderRadius: 4,
-                            padding: 3
+                            padding: 3,
+                            border: "none", 
+                boxShadow: "none",
                         }}>
               All Properties
     </Card>
