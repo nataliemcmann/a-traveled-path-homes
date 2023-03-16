@@ -17,6 +17,8 @@ function LandingPage() {
   const [datesPopup, setDatesPopup] = useState(false);
   const [travelersPopup, setTravelersPopup] = useState(false);
   const [wherePopup, setWherePopup] = useState(false);
+  const [locationPopup, setLocationPopup] = useState(false);
+
 
   const bookingReducer = useSelector((store) => store.bookingReducer);
 
