@@ -27,7 +27,7 @@ const travelers = (state= 1, action) => {
     }
 }
 
-const hospital = (state='', action) => {
+const hospital = (state='Where To?', action) => {
     switch (action.type) {
         case 'SET_HOSPITAL':
             return action.payload;

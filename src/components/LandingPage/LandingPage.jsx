@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
 // ----------------MUI-------------------
-import { Card, Icon } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 import { Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import Travelers from '../SearchBar/Travelers';
@@ -43,23 +43,28 @@ function LandingPage() {
         fontSize: 30,
         marginLeft: 40,
         marginRight: 50,
-          height: 50,
-          width: 600
+          height: 38,
+          width: 900
       }}>
-      <Button sx={{color: '#121957'}} onClick={() => setLocationPopup(true)}className="btn btn_sizeSm" >
-              Where to?
-      </Button>
-      <p>{bookingReducer.hospital || ''}</p>
-      <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
-              Check In - Check Out
-      </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setTravelersPopup(true)} className="btn btn_sizeSm" >
-              How many Travelers?
-      </Button>
-      <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
-              Filters
-      </Button>
-      <SearchIcon></SearchIcon>
+        <Grid 
+        display='flex'
+        justifyContent='space-around'
+        >
+          <Button sx={{color: '#121957'}} 
+          onClick={() => setLocationPopup(true)}className="btn btn_sizeSm" >
+                  {bookingReducer.hospital}
+          </Button>
+          <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
+                  Check In - Check Out
+          </Button>
+          <Button sx={{color: '#121957'}} onClick={() => setTravelersPopup(true)} className="btn btn_sizeSm" >
+                  How many Travelers?
+          </Button>
+          <Button sx={{color: '#121957'}} onClick={() => setButtonPopup(true)} className="btn btn_sizeSm" >
+                  Filters
+          </Button>
+          <SearchIcon></SearchIcon>
+        </Grid>
       </Card>
       <CheckInCheckOut trigger={datesPopup} setTrigger={setDatesPopup}/>
       <Travelers trigger={travelersPopup} setTrigger={setTravelersPopup}/>
