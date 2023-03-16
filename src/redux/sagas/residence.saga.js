@@ -3,12 +3,9 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchResidence(action) {
   try {
-    const config = {
-      headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
-    };
+    
 
-    const response = yield axios.get(`/api/residences/${action.payload}`, config);
+    const response = yield axios.get(`/api/residences/${action.payload}`);
     
 
     yield put({ 
