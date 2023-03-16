@@ -18,13 +18,13 @@ function ResidencesItem({residences}) {
       color: '#410064',
       lineHeight: 1,
       width: 260,
-      height: 260,
+      height: 280,
       padding: 2,
       lineHeight: 1,
       textAlign: 'center',
       borderRadius: 4
   }}>
-      {residences.featurePhoto}
+    <img src={residences.featurePhoto}/>
       {residences.propertyName}
       
   </Card>

@@ -67,7 +67,9 @@ function LandingPage() {
                 height: 200,
                 color: '#121957',
                 border: "none", 
-                boxShadow: "none"
+                boxShadow: "none",
+                textAlign: 'center',
+                marginLeft: 10
               }}>
       <h1>{heading}</h1>
       <h2>A Space For You!</h2>
@@ -77,7 +79,11 @@ function LandingPage() {
                 height: 200,
                 color: '#121957',
                 border: "none", 
-                boxShadow: "none"
+                boxShadow: "none",
+                textAlign: 'center',
+                fontSize: 18,
+                fontWeight: 300,
+                marginLeft: 10
               }}>
         We take care of you so you can take care of us. 
         At A Traveled Path Homes we want you to take a load off, 
@@ -91,7 +97,8 @@ function LandingPage() {
           <img src='images/livingroom.png' className='livingroom'></img>
         <div className="viewprop">
           <Button sx={{color: '#ffffff',
-                        backgroundColor: '#CE8077'}}
+                        backgroundColor: '#CE8077',
+                      marginLeft: 22}}
             onClick={onProperties}>View Properties</Button>
           </div>
         </div>

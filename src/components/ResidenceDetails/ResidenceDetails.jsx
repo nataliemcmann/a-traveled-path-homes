@@ -54,12 +54,13 @@ function ResidenceDetails(residences) {
                             color: '#410064',
                             lineHeight: 1,
                             width: 400,
+                            height: 400,
                             padding: 1.5,
                             lineHeight: 1,
                             textAlign: 'left',
                             borderRadius: 4,
                         }}><h1>{propertyReducer.residence.propertyName}</h1>
-                            {propertyReducer.residence.featurePhoto}
+                            <img src={propertyReducer.residence.featurePhoto}/>
                             </Card >
                         <br></br>
                         <Card sx={{
@@ -127,7 +128,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -140,
-                            marginBottom: 100
+                            marginBottom: 200
                             
                         }}>
                             <h1>About this stay</h1>
@@ -148,7 +149,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -180,
-                            marginBottom: 100
+                            marginBottom: 200
                             
                         }}>
                             <h1>Amenities</h1>
