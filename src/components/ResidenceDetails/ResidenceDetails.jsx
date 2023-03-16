@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import  Card  from '@mui/material/Card';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import './ResidenceDetails.css';
 import MapRender from '../PropertyDetailsPage/MapRender';
 
@@ -122,8 +122,23 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginBottom: 2,
                         }}> 
-                                <h3>Your Bedrooms</h3>
-                                <img src={photoReducer.residencePhotos.imagePath}/>
+                                <h3>Additional Images</h3>
+                                <Grid 
+                        container spacing={2}
+                        columns={3}
+                        flexWrap='wrap'
+                        justifyContent='center'
+                        marginTop={2}
+                    >
+                        {photoReducer.residencePhotos && photoReducer.residencePhotos.map((photo) => {
+                        return <Card key={photo.id} margin={2}>
+                        <img 
+                            className="relative" 
+                            src={photo.imagePath}
+                        />
+                    </Card>
+                    })}
+                    </Grid>
                             </Card>
 
                             <Card sx={{
