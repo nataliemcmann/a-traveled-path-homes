@@ -50,7 +50,7 @@ VALUES
 ("userId","houseType", "propertyName", "description", "address",
 "maxGuests", "bedrooms", "beds", "bathrooms", "minStayLength", 
 "priceDaily", "priceMonthly")
-VALUES(1,3,'Vibriant neighborhood', 'Located in Crossroads Arts District, City Club Apartments is the first to deliver true apartment hotel experiential living to Kansas City. Residents enjoy quick access to major employers like Truman Medical Center and also exciting attractions such as the nearby Sprint Center. ', '1125 Grand Blvd, Kansas City, MO 64106',
+VALUES(1,3,'Vibrant neighborhood', 'Located in Crossroads Arts District, City Club Apartments is the first to deliver true apartment hotel experiential living to Kansas City. Residents enjoy quick access to major employers like Truman Medical Center and also exciting attractions such as the nearby Sprint Center. ', '1125 Grand Blvd, Kansas City, MO 64106',
 4,2,2,2,30,63, 1895); 
 
 INSERT INTO "residences"
