@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import  Card  from '@mui/material/Card';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import './ResidenceDetails.css';
 import MapRender from '../PropertyDetailsPage/MapRender';
 
@@ -13,11 +13,20 @@ function ResidenceDetails(residences) {
     const history = useHistory();
     const propertyReducer = useSelector(store => store.propertyReducer)
     const amenitiesReducer = useSelector(store => store.amenitiesReducer)
+    const photoReducer = useSelector(store => store.photoReducer)
 
 
     useEffect(() => {
         dispatch({
             type: 'FETCH_RESIDENCE',
+            payload: params.id 
+        })
+    }, [params.id])
+
+
+    useEffect(() => {
+        dispatch({
+            type: 'FETCH_RESIDENCE_PHOTOS',
             payload: params.id 
         })
     }, [params.id])
@@ -54,7 +63,7 @@ function ResidenceDetails(residences) {
                             color: '#410064',
                             lineHeight: 1,
                             width: 400,
-                            height: 400,
+                            height: 450,
                             padding: 1.5,
                             lineHeight: 1,
                             textAlign: 'left',
@@ -68,7 +77,9 @@ function ResidenceDetails(residences) {
                             fontSize: 22,
                             backgroundColor: '#FFFFFF',
                             color: '#410064',
-                            lineHeight: 1,
+                            lineHeight: 2,
+                            letterSpacing: .8,
+                            wordSpacing: 1.5,
                             width: 450,
                             padding: 1.5,
                             lineHeight: 1,
@@ -98,6 +109,38 @@ function ResidenceDetails(residences) {
                                 <p>Beds: {propertyReducer.residence.beds}</p>
                                 
                             </Card>
+
+                            <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 22,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 500,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            borderRadius: 4,
+                            marginBottom: 2,
+                        }}> 
+                                <h3>Additional Images</h3>
+                                <Grid 
+                        container spacing={2}
+                        columns={3}
+                        flexWrap='wrap'
+                        justifyContent='center'
+                        marginTop={2}
+                    >
+                        {photoReducer.residencePhotos && photoReducer.residencePhotos.map((photo) => {
+                        return <Card key={photo.id} margin={2}>
+                        <img 
+                            className="relative" 
+                            src={photo.imagePath}
+                        />
+                    </Card>
+                    })}
+                    </Grid>
+                            </Card>
+
                             <Card sx={{
                             fontSize: 18,
                             backgroundColor: '#FFFFFF',
@@ -127,7 +170,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -200,
+                            marginTop: -220,
                             marginBottom: 200
                             
                         }}>
@@ -191,7 +234,7 @@ function ResidenceDetails(residences) {
         padding: 1,
         backgroundColor: '#D1877F',
         marginLeft: 4
-    }} onClick={() => backToProperties(residences)}>Back</Button>
+    }} className="btn btn_sizeMd" onClick={() => backToProperties(residences)}>Back</Button>
         </>
 )
 

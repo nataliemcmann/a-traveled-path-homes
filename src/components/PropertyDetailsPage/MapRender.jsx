@@ -22,7 +22,7 @@ import {
   } from '@react-google-maps/api'
   import { useRef, useState } from 'react'
   
-  const center = { lat: 44.9780, lng: -93.2635 }
+  const center = { lat: 39.099724, lng: -94.578331 }
   
   function MapRender() {
     const [ libraries ] = useState(['places']);
