@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import  Card  from '@mui/material/Card';
 import { Button } from '@mui/material';
 import './ResidenceDetails.css';
+import MapRender from '../PropertyDetailsPage/MapRender';
 
 function ResidenceDetails(residences) {
 
@@ -11,6 +12,7 @@ function ResidenceDetails(residences) {
     const dispatch = useDispatch();
     const history = useHistory();
     const propertyReducer = useSelector(store => store.propertyReducer)
+    const amenitiesReducer = useSelector(store => store.amenitiesReducer)
 
 
     useEffect(() => {
@@ -25,61 +27,162 @@ function ResidenceDetails(residences) {
         history.push(`/propertygallery`)
 }
 
-  return(
-    <>
-    <Card sx={{
-        border: "none", 
-        boxShadow: "none",
-        backgroundColor: '#FFF',
-        color: '#111856',
-        maxWidth: 800,
-        marginTop: 6,
-        marginBottom: 6,
-        marginLeft: 8,
-        marginRight: 8,
-        padding: 3,
-        lineHeight: 1,
-        textAlign: 'left',
-        borderRadius: 6
-
-    }}
-    >
-        <Card sx={{
-            textAlign: 'left',
-            fontSize: 25,
-            backgroundColor: '#FFF',
-            color: '#410064',
-            lineHeight: 1,
-            fontFamily: 'Rugrats Sans',
-            padding: 1.5,
-            lineHeight: 1,
-            textAlign: 'left',
-            borderRadius: 4,
-            border: "none", 
-        boxShadow: "none"
-        }}>{propertyReducer.residence.propertyName}</Card >
-        <br></br>
-        <Card sx={{
-            textAlign: 'left',
-            fontSize: 22,
-            backgroundColor: '#FFFFFF',
-            color: '#410064',
-            lineHeight: 1,
-            fontFamily: 'Rugrats Sans',
-            padding: 1.5,
-            lineHeight: 1,
-            textAlign: 'left',
-            borderRadius: 4,
-            marginBottom: 2,
-            border: "none", 
-        boxShadow: "none"
-        }}>
+    return(
+        <>
         
-            <p>House Type: {propertyReducer.residence.houseType}</p>
-            <p>{propertyReducer.residence.propertyName}</p>
-            <p>Description: {propertyReducer.residence.description}</p>
+            <Card sx={{
+                border: "none", 
+                boxShadow: "none",
+                backgroundColor: '#FFF',
+                color: '#111856',
+                maxWidth: 800,
+                marginTop: 6,
+                marginBottom: 6,
+                marginLeft: 8,
+                marginRight: 8,
+                padding: 3,
+                lineHeight: 1,
+                textAlign: 'left',
+                borderRadius: 6
+
+                    }}
+                    >
+                        <Card sx={{
+                            textAlign: 'left',
+                            fontSize: 18,
+                            backgroundColor: '#FFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            textAlign: 'left',
+                            borderRadius: 4,
+                        }}><h1>{propertyReducer.residence.propertyName}</h1>
+                            {propertyReducer.residence.featurePhoto}
+                            </Card >
+                        <br></br>
+                        <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 22,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 450,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            borderRadius: 4,
+                            marginBottom: 2,
+                        }}>
+                        
+                            <p>Maximun Guests: {propertyReducer.residence.maxGuests}</p>
+                            <br></br>
+                            <p>{propertyReducer.residence.description}</p>
+                            </Card>
+
+                            <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 22,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            borderRadius: 4,
+                            marginBottom: 2,
+                        }}>
+                                <p>Bedrooms: {propertyReducer.residence.bedrooms}</p> 
+                                <p> Bathrooms: {propertyReducer.residence.bathrooms} </p>
+                                <p>Beds: {propertyReducer.residence.beds}</p>
+                                
+                            </Card>
+                            <Card sx={{
+                            fontSize: 18,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 600,
+                            height: 600,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            textAlign: 'left',
+                            marginBottom: 2,
+                        }}>
+                            <h2>What's in the neighborhood?</h2>
+                            <MapRender ></MapRender>
+                            </Card>
+                            </Card>
+                            
+
+                        <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 18,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            borderRadius: 4,
+                            marginLeft: 100,
+                            marginTop: -170,
+                            marginBottom: 200
+                            
+                        }}>
+                            <h1>About this stay</h1>
+                            <p>Minimum Stay Length: {propertyReducer.residence.minStayLength}</p>
+                            <p>Daily Price: {propertyReducer.residence.priceDaily}</p>
+                            <p>Monthly Price {propertyReducer.residence.priceMonthly}</p>
+
+                        </Card>
+                        <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 18,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            borderRadius: 4,
+                            marginLeft: 100,
+                            marginTop: -180,
+                            marginBottom: 200
+                            
+                        }}>
+                            <h1>Amenities</h1>
+                            <p>{amenitiesReducer.amenities}</p>
+
+                        </Card>
+
+                        <Card sx={{
+                            textAlign: 'left',
+                            fontSize: 18,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            textAlign: 'left',
+                            borderRadius: 4,
+                            marginLeft: 100,
+                            marginTop: -180,
+                            marginBottom: 200
+                            
+                        }}>
+                            <h1>Ready to book?</h1>
+                            <p>Your Stay:</p>
+                            <p>Jan 1 - Mar 1</p>
+                            <p>Total Price: {propertyReducer.residence.priceMonthly}</p>
+                            <p>Pay in full: <Button sx={{color: '#ffffff',
+                        backgroundColor: '#CE8077'}}>Book Now</Button></p>
+                        </Card>
+
+                        
+                        
             
-            </Card>
             
 
     <Button sx={{
@@ -88,8 +191,7 @@ function ResidenceDetails(residences) {
         backgroundColor: '#D1877F',
         marginLeft: 4
     }} onClick={() => backToProperties(residences)}>Back</Button>
-        </Card>
-    </>
+        </>
 )
 
 }
