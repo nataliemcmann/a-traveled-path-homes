@@ -73,19 +73,23 @@ function LandingPage() {
                 border: "none", 
                 boxShadow: "none",
                 textAlign: 'center',
-                marginLeft: 10
+                marginLeft: 10,
+                fontSize: 22
               }}>
       <h1>{heading}</h1>
       <h2>A Space For You!</h2>
+      
       </Card> 
+      <br></br>
+      <br></br>
       <Card sx={{
-              width: 300,
+              width: 330,
                 height: 200,
                 color: '#121957',
                 border: "none", 
                 boxShadow: "none",
                 textAlign: 'center',
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: 300,
                 marginLeft: 10
               }}>

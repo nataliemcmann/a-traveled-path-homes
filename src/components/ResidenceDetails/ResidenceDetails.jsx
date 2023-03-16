@@ -54,7 +54,7 @@ function ResidenceDetails(residences) {
                             color: '#410064',
                             lineHeight: 1,
                             width: 400,
-                            height: 400,
+                            height: 450,
                             padding: 1.5,
                             lineHeight: 1,
                             textAlign: 'left',
