@@ -21,6 +21,7 @@ function CheckInCheckOut(props) {
               <h2>Check-In Date</h2>
               <DayPicker 
               mode="single"
+              defaultMonth={checkInDate}
               selected={checkInDate}
               onSelect={setCheckInDate}
               />
@@ -29,6 +30,7 @@ function CheckInCheckOut(props) {
               <h2>Check-Out Date</h2>
               <DayPicker 
               mode="single"
+              defaultMonth={checkOutDate}
               selected={checkOutDate}
               onSelect={setCheckOutDate}
               />
