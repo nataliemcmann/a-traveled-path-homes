@@ -19,7 +19,13 @@
 }
 
 .daypicker-inner .close-btn {
+  background-color: #CE8077;
+  color: #f8f8f8;
+  border-color: #CE8077;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  padding: 10px 20px;
   position: absolute;
   top: 16px;
-  right: 16px;
+  right: 16px
 }
