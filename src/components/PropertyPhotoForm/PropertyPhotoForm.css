@@ -2,7 +2,16 @@
     width: 40%;
     max-width: 100%;
     padding: 1%;
-    margin: 0 auto 20%;
+    margin: 0 20% 5% 29%;
+}
+
+.photoHeader h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+.photoHeader p{
+    font-size: 1.2rem;
 }
 
 .uploadContainer {

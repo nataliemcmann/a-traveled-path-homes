@@ -36,10 +36,16 @@ import PropertyPriceForm from "../PropertyPriceForm/PropertyPriceForm";
 import ReviewPage from "../PropertyReview/PropertyReview";
 import InstructionsDetails from "../InstructionsDetails/InstructionsDetails";
 
-import OwnerDashboard from "../OwnerDashboard/OwnerDashboard";
+
+
 import ResidenceDetails from "../ResidenceDetails/ResidenceDetails";
+
 import PropertyGallery from "../PropertyGallery/PropertyGallery";
-import RenterDashboard from "../RenterDashboard/RenterDashboard";
+
+
+
+
+import UserDashboard from "../UserDashboard/UserDashboard";
 
 
 import './App.css';
@@ -105,9 +111,9 @@ function App() {
           
           <ProtectedRoute
             exact
-            path= "/renterdashboard"
+            path= "/dashboard"
           >
-            <RenterDashboard  />
+            <UserDashboard  />
           </ProtectedRoute>
 
             <ProtectedRoute
@@ -115,14 +121,6 @@ function App() {
             path= "/properydescription"
           >
             <Map />
-
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path="/ownerdashboard"
-          >
-            <OwnerDashboard />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -133,18 +131,9 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/residences/:id">
-          <ResidenceDetails />
-        </ProtectedRoute>
-
-
-          {/* <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/renterdashboard"
-          >
-            <RenterDashboard />
-          </ProtectedRoute> */}
-
+            <ResidenceDetails />
+          </ProtectedRoute>
+        
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -181,10 +170,6 @@ function App() {
           <ProtectedRoute exact path="/stayLength">
             <PropertyStayLengthForm />
           </ProtectedRoute>
-          {/* <ProtectedRoute exact path="/price">
-            <PriceForm />
-          </ProtectedRoute> */}
-
 
           <ProtectedRoute exact path="/price">
             <PropertyPriceForm />

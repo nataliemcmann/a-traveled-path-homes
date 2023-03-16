@@ -45,12 +45,8 @@ function Nav() {
         <Link className="navLink" to="/contact">
           Contact
         </Link>
-        <Link className="navLink" to="/ownerdashboard">
-          Owner Dashboard
-          {/* //Link to where Renters or Owners can see their properties.  */}
-        </Link>
-        <Link className="navLink" to="/renterdashboard">
-          Renter Dashboard
+        <Link className="navLink" to="/dashboard">
+          Dashboard
           {/* //Link to where Renters or Owners can see their properties.  */}
         </Link>
         <Link className="navLink" to="/profile">

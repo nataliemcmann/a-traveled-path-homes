@@ -1,0 +1,23 @@
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 40%;
+    max-width: 100%;
+    padding: 1%;
+    margin: 0 20% 5% 29%;
+}
+
+.reviewHeader h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.reviewHeader p {
+    font-size: 1.1rem;
+}
+
+.feature {
+    width: 217.24px;
+    height: 217.24px;
+}

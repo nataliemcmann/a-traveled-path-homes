@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import AmenityItem from '../AmenityIcon/AmenityItem';
+import AmenityItem from '../AmenityItem/AmenityItem';
 
 function AmenitiesList(){
     const amenitiesReducer = useSelector((store) => store.amenitiesReducer);

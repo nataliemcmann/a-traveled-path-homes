@@ -54,32 +54,44 @@ function PropertyReview (){
     return (
     <>
     <PropertyFormNav className="review"/>
-    <Stack>
-        <div>
-            <h1> Review</h1>
-            <p> Dust the shelves and clean the windows. Does everthing look like it should? </p>
-            <p> This is what renters will see when looking at ypur property page. </p>
-        </div>
-        <Grid>
-            <Grid>
-                <Card>
-                    <img src={propertyReducer.featurePhoto}/>
-                </Card>
-            </Grid>
-            <Grid>
-                <h2>{propertyReducer.propertyName}</h2>
-                <Card>
-                    <h2>${propertyReducer.priceMonthly} per Month</h2>
-                    <h2>{propertyReducer.stayLength} Month Stay Minimum</h2>
-                    <p>{propertyReducer.description}</p>
-                </Card>
-                <Card>
-                    <h2>Amenities</h2>
-                    <AmenitiesList />
-                </Card>
-            </Grid>
-        </Grid> 
-    </Stack>
+    <div className="reviewForm">
+        <Stack>
+            <div className="reviewHeader">
+                <h1> Review</h1>
+                <p> 
+                    Dust the shelves and clean the windows. Does everthing look like it should? This is what renters will see when looking at ypur property page.
+                </p>
+
+            </div>
+            <Grid
+            container spacing={2}
+            direction = 'row'
+            margin={2}
+            >
+                <Grid
+                margin={3}
+                >
+                    <Card>
+                        <img className="feature" src={propertyReducer.featurePhoto}/>
+                    </Card>
+                </Grid>
+                <Grid
+                margin={3}
+                >
+                    <h2>{propertyReducer.propertyName}</h2>
+                    <Card>
+                        <h2>${propertyReducer.priceMonthly} per Month</h2>
+                        <h2>{propertyReducer.stayLength} Month Stay Minimum</h2>
+                        <p>{propertyReducer.description}</p>
+                    </Card>
+                    <Card>
+                        <h2>Amenities</h2>
+                        <AmenitiesList />
+                    </Card>
+                </Grid>
+            </Grid> 
+        </Stack>
+    </div>
     <Button onClick={handleSubmit} type="submit"
                         size='large'
                         sx={{
