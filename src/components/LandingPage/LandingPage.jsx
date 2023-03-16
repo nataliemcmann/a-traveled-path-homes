@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 import CheckInCheckOut from '../SearchBar/CheckInCheckOut';
@@ -16,6 +17,8 @@ function LandingPage() {
   const [datesPopup, setDatesPopup] = useState(false);
   const [travelersPopup, setTravelersPopup] = useState(false);
   const [locationPopup, setLocationPopup] = useState(false);
+
+  const bookingReducer = useSelector((store) => store.bookingReducer);
 
   const onLogin = (event) => {
     history.push('/login');
@@ -40,12 +43,13 @@ function LandingPage() {
         fontSize: 30,
         marginLeft: 40,
         marginRight: 50,
-          height: 38,
+          height: 50,
           width: 600
       }}>
       <Button sx={{color: '#121957'}} onClick={() => setLocationPopup(true)}className="btn btn_sizeSm" >
               Where to?
       </Button>
+      <p>{bookingReducer.hospital || ''}</p>
       <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
               Check In - Check Out
       </Button>

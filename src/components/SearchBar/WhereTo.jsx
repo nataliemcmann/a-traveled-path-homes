@@ -5,7 +5,15 @@ import { MenuItem, Stack } from '@mui/material';
 import PlaceIcon from '@mui/icons-material/Place';
 
 function WhereTo(props) {
+    const dispatch = useDispatch();
 
+    function handleDispatch () {
+        dispatch ({
+            type: 'SET_HOSPITAL',
+            payload: 'North Kansas City Hospital'
+        })
+        props.setTrigger(false)
+    }
     function handleClick () {
         props.setTrigger(false)
     }
@@ -15,7 +23,7 @@ function WhereTo(props) {
             <div className='where-inner'>
                 <Stack>
                     <h2>Select Your Facility</h2>
-                    <MenuItem onClick={handleClick}>
+                    <MenuItem onClick={handleDispatch}>
                         <PlaceIcon/><p>North Kansas City Hospital</p>
                     </MenuItem>
                     <MenuItem onClick={handleClick}>
