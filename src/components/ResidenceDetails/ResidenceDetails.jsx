@@ -127,7 +127,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -140,
-                            marginBottom: 200
+                            marginBottom: 100
                             
                         }}>
                             <h1>About this stay</h1>
@@ -148,7 +148,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -180,
-                            marginBottom: 200
+                            marginBottom: 100
                             
                         }}>
                             <h1>Amenities</h1>
@@ -169,7 +169,7 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -180,
-                            marginBottom: 200
+                            marginBottom: 100
                             
                         }}>
                             <h1>Ready to book?</h1>

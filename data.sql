@@ -87,4 +87,11 @@ UPDATE "residences"
   UPDATE "residences"
       SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21.png'
       WHERE "id" = 3;
-      
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21+(3).png'
+      WHERE "id" = 7;     
+
+UPDATE "residences"
+      SET "featurePhoto" = 'https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/DummyHouses/Rectangle+21+(2).png'
+      WHERE "id" = 8;
