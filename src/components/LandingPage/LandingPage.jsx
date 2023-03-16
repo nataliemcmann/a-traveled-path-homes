@@ -7,14 +7,14 @@ import { Card, Icon } from '@mui/material';
 import { Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import Travelers from '../SearchBar/Travelers';
-
+import WhereTo from '../SearchBar/WhereTo';
 
 function LandingPage() {
   const [heading, setHeading] = useState('A Traveled Path Homes');
   const history = useHistory();
   const [datesPopup, setDatesPopup] = useState(false);
   const [travelersPopup, setTravelersPopup] = useState(false);
-  const [locationPopup, setLocationPopup] = useState(false);
+  const [wherePopup, setWherePopup] = useState(false);
 
   const onLogin = (event) => {
     history.push('/login');
@@ -42,7 +42,7 @@ function LandingPage() {
           height: 38,
           width: 600
       }}>
-      <Button sx={{color: '#121957'}} onClick={() => setLocationPopup(true)}className="btn btn_sizeSm" >
+      <Button sx={{color: '#121957'}} onClick={() => setWherePopup(true)}className="btn btn_sizeSm" >
               Where to?
       </Button>
       <Button sx={{color: '#121957'}} onClick={() => setDatesPopup(true)} className="btn btn_sizeSm" >
@@ -58,6 +58,7 @@ function LandingPage() {
       </Card>
       <CheckInCheckOut trigger={datesPopup} setTrigger={setDatesPopup}/>
       <Travelers trigger={travelersPopup} setTrigger={setTravelersPopup}/>
+      <WhereTo trigger={wherePopup} setTrigger={setWherePopup}/>
       <br></br>
       <Card sx={{
         padding: 4,
