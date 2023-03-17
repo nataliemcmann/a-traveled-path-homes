@@ -79,7 +79,8 @@ function LandingPage() {
         <div className="viewprop">
           <Button sx={{color: '#ffffff',
                         backgroundColor: '#CE8077',
-                      marginLeft: 22}}
+                      marginLeft: 24,
+                    marginTop: 10}}
             onClick={onProperties}>View Properties</Button>
           </div>
         </div>
