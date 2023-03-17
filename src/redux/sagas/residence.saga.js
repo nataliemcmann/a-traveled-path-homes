@@ -47,7 +47,7 @@ function* fetchResidencesDetails(action) {
 function* fetchSearchResidences(action) {
   try {
 
-    const response = yield axios.get(`/api/residences/${action.payload}`);
+    const response = yield axios.get(`/api/residences/search/${action.payload}`);
 
         yield put({ type: 'SET_RESIDENCES', payload: response.data });
     } catch (error) {

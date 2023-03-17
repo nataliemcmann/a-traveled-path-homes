@@ -74,6 +74,22 @@ router.get('/:id', (req, res) =>{
     });
 })
 
+router.get('/search/:param', rejectUnauthenticated, (req, res) =>{
+    const searchValue = req.params.param
+    const sqlValues = [searchValue]
+    const sqlQuery = `
+        SELECT * FROM "residences"
+        WHERE "residences"."maxGuests" >= $1;
+    `;
+    pool.query(sqlQuery, sqlValues)
+    .then((result) => {
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log("ERROR in /api/residences/search GET route", error);
+        res.sendStatus(500);
+    });
+})
 
 router.post('/', rejectUnauthenticated, async (req, res) => {
     try{
