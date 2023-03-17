@@ -72,7 +72,7 @@ function ResidenceDetails(residences) {
                             </Card >
                         <br></br>
                         <Card sx={{
-                            textAlign: 'center',
+                            textAlign: 'left',
                             fontSize: 22,
                             backgroundColor: '#FFFFFF',
                             color: '#410064',
@@ -80,34 +80,15 @@ function ResidenceDetails(residences) {
                             letterSpacing: .8,
                             wordSpacing: 1.5,
                             width: 450,
-                            padding: 1.5,
-                            lineHeight: 1,
+                            padding: 2,
+                            lineHeight: 1.5,
                             borderRadius: 4,
                             marginBottom: 2,
                         }}>
-                        
-                            <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
-                            <br></br>
                             <p>{propertyReducer.residence.description}</p>
                             </Card>
 
-                            <Card sx={{
-                            textAlign: 'center',
-                            fontSize: 22,
-                            backgroundColor: '#FFFFFF',
-                            color: '#410064',
-                            lineHeight: 1,
-                            width: 400,
-                            padding: 1.5,
-                            lineHeight: 1,
-                            borderRadius: 4,
-                            marginBottom: 2,
-                        }}>
-                                <p>Bedrooms: {propertyReducer.residence.bedrooms}</p> 
-                                <p> Bathrooms: {propertyReducer.residence.bathrooms} </p>
-                                <p>Beds: {propertyReducer.residence.beds}</p>
-                                
-                            </Card>
+                        
 
                             <Card sx={{
                             textAlign: 'center',
@@ -146,7 +127,7 @@ function ResidenceDetails(residences) {
                             backgroundColor: '#FFFFFF',
                             color: '#410064',
                             lineHeight: 1,
-                            width: 600,
+                            width: 1000,
                             height: 600,
                             padding: 1.5,
                             lineHeight: 1,
@@ -164,14 +145,14 @@ function ResidenceDetails(residences) {
                             fontSize: 18,
                             backgroundColor: '#FFFFFF',
                             color: '#410064',
-                            lineHeight: 1,
+                            lineHeight: 2,
                             width: 400,
                             padding: 1.5,
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -270,
-                            marginBottom: 200
+                            marginTop: -250,
+                            marginBottom: 190
                             
                         }}>
                             <h1>About this stay</h1>
@@ -188,11 +169,11 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             width: 400,
                             padding: 1.5,
-                            lineHeight: 1,
+                            lineHeight: 2,
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: -180,
-                            marginBottom: 200
+                            marginBottom: 170
                             
                         }}>
                             <h1>Amenities</h1>
@@ -201,33 +182,49 @@ function ResidenceDetails(residences) {
                         </Card>
 
                         <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 22,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 2,
+                            borderRadius: 4,
+                            marginLeft: 100,
+                            marginTop: -160,
+                            marginBottom: 200,
+                            marginBottom: 2,
+                        }}>     <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
+                                <p>Bedrooms: {propertyReducer.residence.bedrooms}</p> 
+                                <p> Bathrooms: {propertyReducer.residence.bathrooms} </p>
+                                <p>Beds: {propertyReducer.residence.beds}</p>
+                                
+                            </Card>
+
+                        <Card sx={{
                             textAlign: 'left',
                             fontSize: 18,
                             backgroundColor: '#FFFFFF',
                             color: '#410064',
                             lineHeight: 1,
                             width: 400,
-                            padding: 1.5,
-                            lineHeight: 1,
+                            padding: 4,
+                            lineHeight: 2,
                             textAlign: 'left',
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -180,
-                            marginBottom: 200
+                            marginTop: 5,
+                            marginBottom: 100
                             
                         }}>
                             <h1>Ready to book?</h1>
-                            <p>Your Stay:</p>
-                            <p>Jan 1 - Mar 1</p>
-                            <p>Total Price: {propertyReducer.residence.priceMonthly}</p>
-                            <p>Pay in full: <Button sx={{color: '#ffffff',
-                        backgroundColor: '#CE8077'}}>Book Now</Button></p>
+                            <p>Your Stay: {propertyReducer.residence.propertyName}</p>
+                            <p>March 21 - June 1</p>
+                            <p>Total Price: $5,685.00</p>
+                            <Button sx={{color: '#ffffff',
+                        backgroundColor: '#CE8077'}}>Book Now</Button>
                         </Card>
-
-                        
-                        
-            
-            
 
     <Button sx={{
         color: '#FFF',

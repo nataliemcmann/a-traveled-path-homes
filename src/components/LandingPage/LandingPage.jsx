@@ -61,7 +61,7 @@ function LandingPage() {
                 color: '#121957',
                 border: "none", 
                 boxShadow: "none",
-                textAlign: 'center',
+                textAlign: 'left',
                 fontSize: 20,
                 fontWeight: 300,
                 marginLeft: 10

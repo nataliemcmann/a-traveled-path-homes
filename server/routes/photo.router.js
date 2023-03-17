@@ -54,7 +54,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 })
 
 //get all residence photos
-router.get('/:residenceId', rejectUnauthenticated, (req, res) => {
+router.get('/:residenceId', (req, res) => {
         const residenceId = req.params.residenceId;
         const sqlValues = [residenceId];
         const sqlQuery = `
