@@ -4,7 +4,7 @@ import { Stack, Grid, Card, Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
-import AmenitiesList from "../AmenitiesList/AmenitiesList";
+import AmenitiesList from "../AmenitiesList/FormAmenitiesList";
 
 function PropertyReview (){
     const history = useHistory()
@@ -86,7 +86,7 @@ function PropertyReview (){
                     </Card>
                     <Card>
                         <h2>Amenities</h2>
-                        <AmenitiesList />
+                        <AmenitiesList amenities={amenitiesReducer.amenitiesArray}/>
                     </Card>
                 </Grid>
             </Grid> 

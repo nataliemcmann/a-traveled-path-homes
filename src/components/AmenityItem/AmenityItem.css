@@ -1,0 +1,6 @@
+.amenity {
+    display: inline-block;
+    border: 2px solid #410064;
+    border-radius: 20px;
+    margin: 1%;
+}

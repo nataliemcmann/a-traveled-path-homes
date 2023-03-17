@@ -5,6 +5,7 @@ import  Card  from '@mui/material/Card';
 import { Button, Grid } from '@mui/material';
 import './ResidenceDetails.css';
 import MapRender from '../PropertyDetailsPage/MapRender';
+import DetailsAmenitiesList from '../AmenitiesList/DetailsAmenitiesList';
 
 function ResidenceDetails(residences) {
 
@@ -12,7 +13,7 @@ function ResidenceDetails(residences) {
     const dispatch = useDispatch();
     const history = useHistory();
     const propertyReducer = useSelector(store => store.propertyReducer)
-    const amenitiesReducer = useSelector(store => store.amenitiesReducer)
+    // const amenitiesReducer = useSelector(store => store.amenitiesReducer)
     const photoReducer = useSelector(store => store.photoReducer)
 
 
@@ -21,15 +22,16 @@ function ResidenceDetails(residences) {
             type: 'FETCH_RESIDENCE',
             payload: params.id 
         })
-    }, [params.id])
-
-
-    useEffect(() => {
         dispatch({
             type: 'FETCH_RESIDENCE_PHOTOS',
             payload: params.id 
         })
-    }, [params.id])
+    }, [])
+
+
+    // useEffect(() => {
+        
+    // }, [])
 
 
     const backToProperties = () => {
@@ -196,7 +198,7 @@ function ResidenceDetails(residences) {
                             
                         }}>
                             <h1>Amenities</h1>
-                            <p>{amenitiesReducer.amenities}</p>
+                            <DetailsAmenitiesList amenities={propertyReducer.residence.residenceAmenities}/>
 
                         </Card>
 
