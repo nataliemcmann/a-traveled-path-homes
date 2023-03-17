@@ -5,11 +5,12 @@ import { Button, Grid } from "@mui/material";
 import './AmenitiesForm.css'
 
 // -----------------MUI-ICONS-----------------------
-import ShowerIcon from '@mui/icons-material/Shower';
-import BathtubIcon from '@mui/icons-material/Bathtub';
-import LocalLaundryServiceIcon from '@mui/icons-material/LocalLaundryService';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import PetsIcon from '@mui/icons-material/Pets';
+import Shower from '../AmenityOptions/Shower';
+import Bathtub from '../AmenityOptions/Bathtub';
+import Laundry from "../AmenityOptions/Laundry";
+import Parking from "../AmenityOptions/Parking";
+import Pets from "../AmenityOptions/Pets";
+
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import FireplaceIcon from '@mui/icons-material/Fireplace';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
@@ -25,61 +26,73 @@ function PropertyAmenitiesForm() {
   const propertyReducer = useSelector((store) => store.propertyReducer);
 
   const [amenitiesList, setAmenitiesList] = useState([]);
+  const [status, setStatus]=useState(false);
 
   function handleShower() {
     setAmenitiesList([...amenitiesList, 1]);
     console.log('added shower');
+    setStatus(true);
   }
 
   function handleBathtub() {
     setAmenitiesList([...amenitiesList, 2]);
     console.log('added bathtub');
+    setStatus(true);
   }
 
   function handleWasher() {
     setAmenitiesList([...amenitiesList, 3]);
     console.log('added washer');
+    setStatus(true);
   }
 
 
   function handleParking() {
     setAmenitiesList([...amenitiesList, 4]);
     console.log('added parking');
+    setStatus(true);
   }
 
   function handlePets() {
     setAmenitiesList([...amenitiesList, 5]);
     console.log('added pets');
+    setStatus(true);
   }
 
   function handleHeating() {
     setAmenitiesList([...amenitiesList, 6]);
     console.log('added heating');
+    setStatus(true);
   }
 
   function handleFireplace() {
     setAmenitiesList([...amenitiesList, 7]);
     console.log('added fireplace');
+    setStatus(true);
   }
 
   function handleAc() {
     setAmenitiesList([...amenitiesList, 8]);
     console.log('added ac');
+    setStatus(true);
   }
 
   function handleWifi() {
     setAmenitiesList([...amenitiesList, 9]);
     console.log('added wifi');
+    setStatus(true);
   }
 
   function handleTV() {
     setAmenitiesList([...amenitiesList, 10]);
     console.log('added tv');
+    setStatus(true);
   }
 
   function handleElectricCharging() {
     setAmenitiesList([...amenitiesList, 11]);
     console.log('added electric_charging');
+    setStatus(true);
   }
 
 
@@ -101,7 +114,7 @@ function PropertyAmenitiesForm() {
 }
 
   const cancelBtn = () => {
-    history.push(`/ownerdashboard`)
+    history.push(`/dashboard`)
 }
 
 
@@ -125,24 +138,19 @@ function PropertyAmenitiesForm() {
                     marginTop={2}
             >
                 <div className="amenityContainer">
-                    <Button onClick={handleShower}><ShowerIcon/></Button>
-                    <p>Shower</p>
+                  <Button onClick={handleShower}><Shower status={status}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleBathtub}><BathtubIcon/></Button>
-                  <p>Bathtub</p>
+                  <Button onClick={handleBathtub}><Bathtub status={status}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleWasher}><LocalLaundryServiceIcon/></Button>
-                  <p>Laundry</p>
+                  <Button onClick={handleWasher}><Laundry status={status}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleParking}><DirectionsCarIcon/></Button>
-                  <p>Parking</p>
+                  <Button onClick={handleParking}><Parking status={status}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handlePets}><PetsIcon/></Button>
-                  <p>Pets</p>
+                  <Button onClick={handlePets}><Pets status={status}/></Button>
                 </div>
             </Grid>
           </div>

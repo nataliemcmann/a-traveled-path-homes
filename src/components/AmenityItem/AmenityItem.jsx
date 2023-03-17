@@ -1,8 +1,5 @@
 import React from 'react';
-import './AmenityItem.css';
-//mui imports
-import ShowerIcon from '@mui/icons-material/Shower';
-import BathtubIcon from '@mui/icons-material/Bathtub';
+//component imports
 import LocalLaundryServiceIcon from '@mui/icons-material/LocalLaundryService';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import PetsIcon from '@mui/icons-material/Pets';
@@ -13,15 +10,19 @@ import WifiIcon from '@mui/icons-material/Wifi';
 import MonitorIcon from '@mui/icons-material/Monitor';
 import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 
+import Shower from '../AmenityOptions/Shower';
+import Bathtub from '../AmenityOptions/Bathtub';
+
 function AmenityItem({ amenity }) {
     if (amenity === 1) {
         return (
-            <ShowerIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Shower />
+            // <ShowerIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 2) {
         return (
-            <BathtubIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Bathtub />
         )
     }
     if (amenity === 3) {
