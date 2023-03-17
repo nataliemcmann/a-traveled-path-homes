@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Grid } from '@mui/material';
 import ResidencesItem from '../ResidencesItem/ResidencesItem';
+import SearchBar from '../SearchBar/SearchBar';
 
 function PropertyGallery() {
   const history = useHistory();
@@ -33,6 +34,7 @@ function PropertyGallery() {
                         }}>
               All Properties
     </Card>
+    <SearchBar />
     <>
       <Grid sx={{ 
             display: 'grid',

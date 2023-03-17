@@ -44,6 +44,17 @@ function* fetchResidencesDetails(action) {
   }
 }
 
+function* fetchSearchResidences(action) {
+  try {
+
+    const response = yield axios.get(`/api/residences/search/${action.payload}`);
+
+        yield put({ type: 'SET_RESIDENCES', payload: response.data });
+    } catch (error) {
+        console.log('could not find', error);
+    }
+}
+
 function* createResidence(action){
   try{
     const residence = action.payload.residence;
@@ -100,4 +111,5 @@ export default function* residenceSaga() {
   yield takeLatest('FETCH_RESIDENCES_DETAILS', fetchResidencesDetails)
   yield takeLatest('CREATE_RESIDENCE', createResidence);
   yield takeLatest('EDIT_RESIDENCE', residenceEdit);
+  yield takeLatest('FETCH_SEARCH_RESIDENCES', fetchSearchResidences);
 }
