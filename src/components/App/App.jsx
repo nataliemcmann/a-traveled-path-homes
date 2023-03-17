@@ -123,16 +123,16 @@ function App() {
             <Map />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          <Route
             exact
             path="/propertygallery"
           >
             <PropertyGallery />
-          </ProtectedRoute>
+          </Route>
 
-          <ProtectedRoute exact path="/residences/:id">
+          <Route exact path="/residences/:id">
             <ResidenceDetails />
-          </ProtectedRoute>
+          </Route>
         
           <Route exact path="/login">
             {user.id ? (
