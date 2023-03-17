@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Switch, Grid } from '@mui/material'
+import { Switch, Grid, Card } from '@mui/material'
 
 
 
@@ -32,7 +32,7 @@ function handleToggle (event){
             sx={{ 
                 backgroundColor: '#CE8077', 
                 borderRadius: '20px',
-                width: '15%',
+                width: '20%',
                 color: 'white',
                 fontSize: '16px'
                 }}

@@ -40,16 +40,16 @@ function OwnerDashboard() {
             boxShadow: 2,
             elevation: 1,
             backgroundColor: '#DFDFDF',
-            color: '#fff',
-            height: 200,
-            width: 200         
+            color: '#020052',
+            textAlign: 'center',
+            height: 320,
+            width: 260         
             
-            }} onClick={handleClick}><img
+            }} onClick={handleClick}><h2>Add Property</h2><img
             className="icon"
-            alt="single family home icon" 
-            width= "44.8px"
-            height= "38px"
-            src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/SingleFamily.png"
+            
+            alt="multi-family home icon"
+            src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/MultiFamily.png"
             /></Card>
               
               {residencesReducer?.map(residences => (
