@@ -4,7 +4,7 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 const filterUniquePhotos = require('../modules/filterUniquePhotos');
 
-router.get('/all', rejectUnauthenticated, (req, res) => {
+router.get('/all', (req, res) => {
     console.log('GET /api/residences');
     const sqlQuery = 
     `
@@ -74,7 +74,7 @@ router.get('/:id', (req, res) =>{
     });
 })
 
-router.get('/search/:param', rejectUnauthenticated, (req, res) =>{
+router.get('/search/:param', (req, res) =>{
     const searchValue = req.params.param
     const sqlValues = [searchValue]
     const sqlQuery = `
