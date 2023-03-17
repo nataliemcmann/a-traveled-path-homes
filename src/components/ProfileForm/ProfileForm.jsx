@@ -12,6 +12,7 @@ import 'react-day-picker/dist/style.css';
 function ProfileForm() {
     //declare dispatch
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -92,7 +93,13 @@ function ProfileForm() {
                             </label>
                         </div>
                         <div className="btnContainer">
-                            <Button type="submit">Save</Button>
+                            <Button type="submit"
+                            size='large'
+                            sx={{
+                                backgroundColor: '#CE8077',
+                                color: '#f8f8f8',
+                                marginLeft: 140
+                            }}>Save</Button>
                         </div>
                 </form> 
             </Stack>
