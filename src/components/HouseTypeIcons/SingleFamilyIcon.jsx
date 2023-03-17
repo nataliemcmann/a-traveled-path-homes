@@ -1,11 +1,11 @@
 import React from 'react';
 
-function SingleFamilyIcon() {
+function SingleFamilyIcon({ isActive }) {
 
     return(
         <>
             <img
-            className="icon"
+            className={isActive ? "icon clicked" : "icon"}
             alt="single family home icon" 
             width= "44.8px"
             height= "38px"

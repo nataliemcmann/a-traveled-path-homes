@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Grid, Button, TextField } from "@mui/material";
@@ -19,11 +19,14 @@ function PropertyDescriptionForm() {
 
     const propertyReducer = useSelector((store) => store.propertyReducer);
 
+    const [isActive, setActive] = useState(false);
+
     //functions to choose house type
     //single
     function setSingle() {
         console.log('single', 0)
         dispatch({type: 'SET_HOUSETYPE_INPUT', payload: 0});
+        setActive(true);
     }
     //multi
     function setMulti() {
@@ -68,7 +71,7 @@ function PropertyDescriptionForm() {
     }
 
     const cancelBtn = () => {
-        history.push(`/ownerdashboard`)
+        history.push(`/dashboard`)
     }
     
     return(
@@ -88,7 +91,7 @@ function PropertyDescriptionForm() {
                     >
                         <div className="iconContainer">
                             <Button onClick={setSingle}>
-                                <SingleFamilyIcon/>
+                                <SingleFamilyIcon isActive={isActive}/>
                             </Button>
                             <p>Single Family</p>
                         </div>
@@ -160,7 +163,6 @@ function PropertyDescriptionForm() {
 
                     <div className="cancelBtn">
                         <Button onClick={cancelBtn}
-                            type="submit" 
                             size= "large"
                             sx={{
                                 backgroundColor: '#CE8077',
