@@ -47,11 +47,11 @@ function ResidenceDetails(residences) {
                 maxWidth: 800,
                 marginTop: 6,
                 marginBottom: 6,
-                marginLeft: 8,
+                marginLeft: 14,
                 marginRight: 8,
                 padding: 3,
                 lineHeight: 1,
-                textAlign: 'left',
+                textAlign: 'center',
                 borderRadius: 6
 
                     }}
@@ -66,7 +66,6 @@ function ResidenceDetails(residences) {
                             height: 450,
                             padding: 1.5,
                             lineHeight: 1,
-                            textAlign: 'left',
                             borderRadius: 4,
                         }}><h1>{propertyReducer.residence.propertyName}</h1>
                             <img src={propertyReducer.residence.featurePhoto}/>
