@@ -55,6 +55,17 @@ function* fetchSearchResidences(action) {
     }
 }
 
+function* fetchUserResidences() {
+  try {
+
+    const response = yield axios.get(`/api/residences/owner/user`);
+
+        yield put({ type: 'SET_RESIDENCES', payload: response.data });
+    } catch (error) {
+        console.log('could not find', error);
+    }
+}
+
 function* createResidence(action){
   try{
     const residence = action.payload.residence;
@@ -103,6 +114,24 @@ function* residenceEdit(action) {
   })
 }
 
+//dispatch on "CHANGE_LISTED"
+function* changeListedStatus(action) {
+  try{
+      const listingStatus = action.payload.listingStatus;
+      const residenceId = action.payload.residenceId;
+      console.log(listingStatus);
+      yield axios({
+          method: 'PUT',
+          url: `/api/residences/listing/${residenceId}`,
+          data: {listingStatus},
+      })
+      yield put({
+          type: 'FETCH_PROFILE'
+      })
+  } catch (err) {
+      console.log('update profile view failed: ', err)
+  }
+}
 
 
 export default function* residenceSaga() {
@@ -112,4 +141,6 @@ export default function* residenceSaga() {
   yield takeLatest('CREATE_RESIDENCE', createResidence);
   yield takeLatest('EDIT_RESIDENCE', residenceEdit);
   yield takeLatest('FETCH_SEARCH_RESIDENCES', fetchSearchResidences);
+  yield takeLatest('FETCH_USER_RESIDENCES', fetchUserResidences);
+  yield takeLatest('CHANGE_LISTED', changeListedStatus);
 }

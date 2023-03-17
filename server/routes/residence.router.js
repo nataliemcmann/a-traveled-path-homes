@@ -8,7 +8,8 @@ router.get('/all', (req, res) => {
     console.log('GET /api/residences');
     const sqlQuery = 
     `
-    SELECT * FROM "residences";
+    SELECT * FROM "residences"
+    WHERE "listed" = TRUE;
     `;
     pool.query(sqlQuery)
         .then((dbRes) => {
@@ -74,12 +75,32 @@ router.get('/:id', (req, res) =>{
     });
 })
 
+router.get('/owner/user', (req, res) =>{
+    const userId = req.user.id
+    const sqlValues = [userId]
+    const sqlQuery = `
+        SELECT * FROM "residences"
+        WHERE "userId" = $1;
+    `;
+    pool.query(sqlQuery, sqlValues)
+    .then((result) => {
+        console.log(result.rows);
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log("ERROR in /api/residences/user GET route", error);
+        res.sendStatus(500);
+    });
+})
+
 router.get('/search/:param', (req, res) =>{
     const searchValue = req.params.param
     const sqlValues = [searchValue]
     const sqlQuery = `
         SELECT * FROM "residences"
-        WHERE "residences"."maxGuests" >= $1;
+        WHERE "maxGuests" >= $1 
+        AND 
+        "listed" = TRUE;
     `;
     pool.query(sqlQuery, sqlValues)
     .then((result) => {
@@ -151,6 +172,25 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     .then((result) => res.sendStatus(200))
     .catch((err) => {
         console.log('residence edit failed: ', err);
+        res.sendStatus(500);
+    });
+})
+
+router.put('/listing/:id', rejectUnauthenticated, (req, res) => {
+    const idToUpdate = req.params.id;
+    console.log(req.body.listingStatus);
+    const sqlValues = [req.body.listingStatus, idToUpdate];
+    const sqlQuery = `
+        UPDATE "residences"
+        SET "listed" = $1
+        WHERE "id"= $2;
+    `;
+    pool.query(sqlQuery, sqlValues)
+    .then((result) => {
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log(`change view failed`, error);
         res.sendStatus(500);
     });
 })

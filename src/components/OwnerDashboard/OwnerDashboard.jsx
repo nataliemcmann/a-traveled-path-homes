@@ -12,7 +12,7 @@ function OwnerDashboard() {
   const residencesReducer = useSelector(store => store.residencesReducer);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_ALL_RESIDENCES' });
+    dispatch({ type: 'FETCH_USER_RESIDENCES' });
 }, [dispatch]);
 
   const handleClick = () => {
