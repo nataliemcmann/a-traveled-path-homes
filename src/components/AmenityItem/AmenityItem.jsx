@@ -16,7 +16,7 @@ import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 function AmenityItem({ amenity }) {
     if (amenity === 1) {
         return (
-            <ShowerIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>  
+            <ShowerIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 2) {
