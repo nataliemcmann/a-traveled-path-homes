@@ -16,68 +16,58 @@ import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 function AmenityItem({ amenity }) {
     if (amenity === 1) {
         return (
-            <div className="amenity">
-                <ShowerIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>    
+            <ShowerIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>  
         )
     }
     if (amenity === 2) {
         return (
-            <div className="amenity">
-                <BathtubIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <BathtubIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 3) {
         return (
-            <div className="amenity">
-                <LocalLaundryServiceIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <LocalLaundryServiceIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 4) {
         return (
-            <div className="amenity">
-                <DirectionsCarIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <DirectionsCarIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 5) {
         return (
-            <div className="amenity">
-                <PetsIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <PetsIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 6) {
         return (
-            <div className="amenity">
-                <AcUnitIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <AcUnitIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 7) {
         return (
-            <div className="amenity">
-                <FireplaceIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <FireplaceIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 8) {
         return (
-            <div className="amenity">
-                <LocalFireDepartmentIcon sx={{width: '3rem', height: '3rem'}}/>
-            </div>
+            <LocalFireDepartmentIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 9) {
-        return (<WifiIcon sx={{width: '3rem', height: '3rem'}}/>)
+        return (
+            <WifiIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+        )
     }
     if (amenity === 10) {
-        return (<MonitorIcon sx={{width: '3rem', height: '3rem'}}/>)
+        return (
+            <MonitorIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+        )
     }
     if (amenity === 11) {
-        return (<ElectricCarIcon sx={{width: '3rem', height: '3rem'}}/>)
+        return (
+            <ElectricCarIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+        )
     }
 }
 
