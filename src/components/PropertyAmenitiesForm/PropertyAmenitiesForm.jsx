@@ -5,17 +5,18 @@ import { Button, Grid } from "@mui/material";
 import './AmenitiesForm.css'
 
 // -----------------MUI-ICONS-----------------------
-import ShowerIcon from '@mui/icons-material/Shower';
-import BathtubIcon from '@mui/icons-material/Bathtub';
-import LocalLaundryServiceIcon from '@mui/icons-material/LocalLaundryService';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import PetsIcon from '@mui/icons-material/Pets';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import FireplaceIcon from '@mui/icons-material/Fireplace';
-import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
-import WifiIcon from '@mui/icons-material/Wifi';
-import MonitorIcon from '@mui/icons-material/Monitor';
-import ElectricCarIcon from '@mui/icons-material/ElectricCar';
+import Shower from '../AmenityOptions/Shower';
+import Bathtub from '../AmenityOptions/Bathtub';
+import Laundry from "../AmenityOptions/Laundry";
+import Parking from "../AmenityOptions/Parking";
+import Pets from "../AmenityOptions/Pets";
+import Heating from "../AmenityOptions/Heating";
+import Fireplace from "../AmenityOptions/Fireplace";
+import AC from '../AmenityOptions/AC';
+import Wifi from "../AmenityOptions/Wifi";
+import TV from '../AmenityOptions/TV';
+// import EV from '../AmenityOptions/EV';
+
 import PropertyFormNav from "../PropertyFormNav/PropertyFormNav";
 
 function PropertyAmenitiesForm() {
@@ -25,62 +26,85 @@ function PropertyAmenitiesForm() {
   const propertyReducer = useSelector((store) => store.propertyReducer);
 
   const [amenitiesList, setAmenitiesList] = useState([]);
+  const [statusShower, setShower]=useState(false);
+  const [statusBath, setBath]=useState(false);
+  const [statusLaundry, setLaundry] =useState(false);
+  const [statusParking, setParking]=useState(false);
+  const [statusPets, setPets]=useState(false);
+  const [statusHeat, setHeat]=useState(false);
+  const [statusFire, setFire]=useState(false);
+  const [statusAC, setAC]=useState(false);
+  const [statusWifi, setWifi]=useState(false);
+  const [statusTV, setTV]=useState(false);
+  // const [statusEV, setEV]=useState(false);
+
 
   function handleShower() {
     setAmenitiesList([...amenitiesList, 1]);
     console.log('added shower');
+    setShower(true);
   }
 
   function handleBathtub() {
     setAmenitiesList([...amenitiesList, 2]);
     console.log('added bathtub');
+    setBath(true);
   }
 
   function handleWasher() {
     setAmenitiesList([...amenitiesList, 3]);
     console.log('added washer');
+    setLaundry(true);
   }
 
 
   function handleParking() {
     setAmenitiesList([...amenitiesList, 4]);
     console.log('added parking');
+    setParking(true);
   }
 
   function handlePets() {
     setAmenitiesList([...amenitiesList, 5]);
     console.log('added pets');
+    setPets(true);
   }
 
   function handleHeating() {
     setAmenitiesList([...amenitiesList, 6]);
     console.log('added heating');
+    setHeat(true);
   }
 
   function handleFireplace() {
     setAmenitiesList([...amenitiesList, 7]);
     console.log('added fireplace');
+    setFire(true);
   }
 
   function handleAc() {
     setAmenitiesList([...amenitiesList, 8]);
     console.log('added ac');
+    setAC(true);
   }
 
   function handleWifi() {
     setAmenitiesList([...amenitiesList, 9]);
     console.log('added wifi');
+    setWifi(true);
   }
 
   function handleTV() {
     setAmenitiesList([...amenitiesList, 10]);
     console.log('added tv');
+    setTV(true);
   }
 
-  function handleElectricCharging() {
-    setAmenitiesList([...amenitiesList, 11]);
-    console.log('added electric_charging');
-  }
+  // function handleElectricCharging() {
+  //   setAmenitiesList([...amenitiesList, 11]);
+  //   console.log('added electric_charging');
+  //   setEV(true);
+  // }
 
 
   const addAmenities = (event) => {
@@ -101,7 +125,7 @@ function PropertyAmenitiesForm() {
 }
 
   const cancelBtn = () => {
-    history.push(`/ownerdashboard`)
+    history.push(`/dashboard`)
 }
 
 
@@ -125,24 +149,19 @@ function PropertyAmenitiesForm() {
                     marginTop={2}
             >
                 <div className="amenityContainer">
-                    <Button onClick={handleShower}><ShowerIcon/></Button>
-                    <p>Shower</p>
+                  <Button onClick={handleShower}><Shower status={statusShower}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleBathtub}><BathtubIcon/></Button>
-                  <p>Bathtub</p>
+                  <Button onClick={handleBathtub}><Bathtub status={statusBath}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleWasher}><LocalLaundryServiceIcon/></Button>
-                  <p>Laundry</p>
+                  <Button onClick={handleWasher}><Laundry status={statusLaundry}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleParking}><DirectionsCarIcon/></Button>
-                  <p>Parking</p>
+                  <Button onClick={handleParking}><Parking status={statusParking}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handlePets}><PetsIcon/></Button>
-                  <p>Pets</p>
+                  <Button onClick={handlePets}><Pets status={statusPets}/></Button>
                 </div>
             </Grid>
           </div>
@@ -155,16 +174,13 @@ function PropertyAmenitiesForm() {
                       justifyContent='flex-start'
             > 
                 <div className="amenityContainer">
-                  <Button onClick={handleHeating}><LocalFireDepartmentIcon/></Button>
-                  <p>Heating</p>
+                  <Button onClick={handleHeating}><Heating status={statusHeat}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleFireplace}><FireplaceIcon/></Button>
-                  <p>Fireplace</p>
+                  <Button onClick={handleFireplace}><Fireplace status={statusFire}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleAc}><AcUnitIcon/></Button>
-                  <p>A/C</p>
+                  <Button onClick={handleAc}><AC status={statusAC}/></Button>
                 </div>
             </Grid>
           </div>
@@ -176,17 +192,14 @@ function PropertyAmenitiesForm() {
                       flexWrap='wrap' 
                       justifyContent='flex-start'
             > 
+                {/* <div className="amenityContainer">
+                  <Button onClick={handleElectricCharging}><EV status={statusEV}/></Button>
+                </div> */}
                 <div className="amenityContainer">
-                  <Button onClick={handleElectricCharging}><ElectricCarIcon/></Button>
-                  <p>EV Charger</p>
+                  <Button onClick={handleTV}><TV status={statusTV}/></Button>
                 </div>
                 <div className="amenityContainer">
-                  <Button onClick={handleTV}><MonitorIcon/></Button>
-                  <p>TV</p>
-                </div>
-                <div className="amenityContainer">
-                  <Button onClick={handleWifi}><WifiIcon/></Button>
-                  <p>WI-FI</p>
+                  <Button onClick={handleWifi}><Wifi status={statusWifi}/></Button>
                 </div>
             </Grid>
           </div>
