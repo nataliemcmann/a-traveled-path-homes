@@ -12,6 +12,14 @@ import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 
 import Shower from '../AmenityOptions/Shower';
 import Bathtub from '../AmenityOptions/Bathtub';
+import Laundry from "../AmenityOptions/Laundry";
+import Parking from "../AmenityOptions/Parking";
+import Pets from "../AmenityOptions/Pets";
+import Heating from "../AmenityOptions/Heating";
+import Fireplace from "../AmenityOptions/Fireplace";
+import AC from '../AmenityOptions/AC';
+import Wifi from "../AmenityOptions/Wifi";
+import TV from '../AmenityOptions/TV';
 
 function AmenityItem({ amenity }) {
     if (amenity === 1) {
@@ -27,49 +35,49 @@ function AmenityItem({ amenity }) {
     }
     if (amenity === 3) {
         return (
-            <LocalLaundryServiceIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Laundry sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 4) {
         return (
-            <DirectionsCarIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Parking sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 5) {
         return (
-            <PetsIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Pets sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 6) {
         return (
-            <AcUnitIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <AC sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 7) {
         return (
-            <FireplaceIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Fireplace sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 8) {
         return (
-            <LocalFireDepartmentIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Heating sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 9) {
         return (
-            <WifiIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <Wifi sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
     if (amenity === 10) {
         return (
-            <MonitorIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+            <TV sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
         )
     }
-    if (amenity === 11) {
-        return (
-            <ElectricCarIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
-        )
-    }
+    // if (amenity === 11) {
+    //     return (
+    //         <ElectricCarIcon sx={{width: '3rem', height: '3rem', padding: '1%'}}/>
+    //     )
+    // }
 }
 
 export default AmenityItem;
