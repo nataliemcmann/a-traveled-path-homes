@@ -1,4 +1,30 @@
-.gallryContainer {
+.dashboard h2 {
+    padding-left: 10px;
+}
+
+.bookedProperties {
+    width: 90%;
+    margin: 4%;
+}
+
+.stayGallery {
+    border: 1px solid #efefef;
+    width: 90%;
+    height: 30%;
+}
+
+.savedProperties {
+    width: 90%;
+    margin: 4%;
+}
+
+.savedGallery {
+    border: 1px solid #efefef;
+    width: 90%;
+    height: 30%;
+}
+
+/* .gallryContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -13,7 +39,7 @@
     width: 400px;
 }
 /* Img css */
-.img-container {
+/* .img-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -23,10 +49,10 @@
 img {
     width: 100%;
     object-fit:cover;
-}
+} */
 
 /* Property Details  */
-
+/* 
 .property-details{
     display: flex;
     justify-content: space-between;
@@ -72,14 +98,4 @@ img {
     .gallryContainer {
         flex-direction: column;
     }
-}
-
-.savedproperties{
-    
-    font-family: 'PP Pangram Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 30px;
-
-}
+} */ 
