@@ -1,15 +1,7 @@
 import React from "react";
 import "./RenterDashboard.css";
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
-import { Card, Icon } from "@mui/material";
-import { Button } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 
 function RenterDashboard() {
-  const [heading, setHeading] = useState("A Traveled Path Homes");
-  const history = useHistory();
-  const [buttonPopup, setButtonPopup] = useState(false);
 
   return (
     <>
