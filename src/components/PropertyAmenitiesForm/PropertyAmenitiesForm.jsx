@@ -124,8 +124,8 @@ function PropertyAmenitiesForm() {
     history.push('/photos')
 }
 
-  const cancelBtn = () => {
-    history.push(`/dashboard`)
+  const backBtn = () => {
+    history.push(`/basics`)
 }
 
 
@@ -205,6 +205,21 @@ function PropertyAmenitiesForm() {
           </div>
           </form>
           <div className="btnContainer">
+            <div className="cancelBtn">
+                <Button onClick={backBtn}
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Back
+                  </Button> 
+              </div>
+              
             <div className="nextBtn">
                 <Button 
                     onClick={nextBtn}
@@ -220,20 +235,7 @@ function PropertyAmenitiesForm() {
                         Next
                   </Button>  
               </div>
-              <div className="cancelBtn">
-                <Button onClick={cancelBtn}
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}
-                    >
-                        Cancel
-                  </Button> 
-              </div>
+              
           </div> 
       </div>
   )
