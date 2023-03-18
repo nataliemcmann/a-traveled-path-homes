@@ -14,7 +14,7 @@ const ProperyAddressForm = () => {
     const propertyReducer = useSelector((store) => store.propertyReducer);
     const address = useSelector((store) => store.address);
 
-    function handleAddressSubmit() {
+    function handleAddressSubmit(event) {
         event.preventDefault();
         // let addressAsString = ''
         // if (address.apartment) {
@@ -32,9 +32,16 @@ const ProperyAddressForm = () => {
       const nextBtn = () => {
         history.push('/basics');
       }
-      const cancelBtn = () => {
-        history.push(`/ownerdashboard`)
+      const backBtn = () => {
+        history.push(`/describe`);
     }
+
+      function fillAddress() {
+        dispatch({type: 'SET_STREET', payload: '8503 NE 89th Terrace'});
+        dispatch({type: 'SET_CITY', payload: 'Kansas City'});
+        dispatch({type: 'SET_STATE', payload: 'MO'});
+        dispatch({type: 'SET_ZIP', payload: '64157'});
+      }
       
     return (
       <>
@@ -43,8 +50,8 @@ const ProperyAddressForm = () => {
             <form onSubmit={handleAddressSubmit}>
             <Stack alignItems='center'>
               <div className="addressHeader">
-                <h1> Address </h1>
-                <p>Your address and location are safe with us. It won't be viewable by renders until you chose to list property publicly</p>
+                <h1 onClick={fillAddress}> Address </h1>
+                <p>Your address and location are safe with us. It won't be viewable by renders until you chose to list property publicly.</p>
               </div>  
               <div className="addressFields">
               <p>Address</p>
@@ -103,6 +110,23 @@ const ProperyAddressForm = () => {
           </form>
         </div>
         <div className="btnContainer">
+
+          <div className="cancelBtn">
+                <Button onClick={backBtn}
+                    type="submit" 
+                    size= "large"
+                    sx={{
+                        backgroundColor: '#CE8077',
+                        color: '#f8f8f8',
+                        margin: '2%',
+                        paddingTop: '16px', paddingBottom: '16px',
+                        paddingRight: '32px', paddingLeft: '32px'
+                    }}
+                    >
+                        Back
+                  </Button> 
+              </div>
+
             <div className="nextBtn">
                 <Button 
                     onClick={nextBtn} 
@@ -118,21 +142,7 @@ const ProperyAddressForm = () => {
                         Next
                   </Button>  
               </div>
-              <div className="cancelBtn">
-                <Button onClick={cancelBtn}
-                    type="submit" 
-                    size= "large"
-                    sx={{
-                        backgroundColor: '#CE8077',
-                        color: '#f8f8f8',
-                        margin: '2%',
-                        paddingTop: '16px', paddingBottom: '16px',
-                        paddingRight: '32px', paddingLeft: '32px'
-                    }}
-                    >
-                        Cancel
-                  </Button> 
-              </div>
+             
         </div>
       </>     
     )
