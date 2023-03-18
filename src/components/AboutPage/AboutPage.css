@@ -13,7 +13,7 @@ border-radius: 20px;
 
 }
 
-img {
+.reviewImage {
     width: 120%;
     object-fit:cover;
     
@@ -81,6 +81,12 @@ img {
     height: 116.67px;
     padding-right: 2%;
     padding-left: 18%;
+}
+
+.reviews h1 {
+    padding-top: 2%;
+    padding-left: 2%;
+    text-align: left;
 }
 
 /* 

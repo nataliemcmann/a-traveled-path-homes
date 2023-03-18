@@ -146,35 +146,74 @@ function AboutPage() {
           </Grid>
       </div>
 
-      <div>
-        <h2>Don't take our word it</h2>
-      </div>
-      <div className="container">
-          <div className="img-container">
-            <img src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Rectangle+104.png" alt="" />
-          </div>
-          <div className="feedback">
-              <p> I’ll always use A Traveled Path Homes for my Travel Nurse contracts! With services only for traveling professionals, I’m not competing with a horde of other people trying to book vacations.
+      <div className="reviews">
+        <h1>Don't take our word it</h1>
+        <Grid
+        container spacing={3}
+        direction='row'
+        flexWrap='nowrap'
+        justifyContent='space-evenly'
+        >
+          <Card
+          sx={{ width: '305px', margin: '2%',
+          border: "none", boxShadow: "none" }}
+          >
+              <Grid
+              container spacing={1}
+              direction='column'
+              justifyContent='center'
+              textAlign='left'
+              padding={2}
+              marginTop={2}
+              marginBottom={2}
+              >
+                <img className="reviewImage" src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Rectangle+104.png" alt="" />
+                <p> 
+                  I’ll always use A Traveled Path Homes for my Travel Nurse contracts! With services only for traveling professionals, I’m not competing with a horde of other people trying to book vacations.
+                </p>
+              </Grid>
+          </Card>
+
+          <Card
+          sx={{ width: '305px', margin: '2%',
+          border: "none", boxShadow: "none" }}
+          >
+              <Grid
+              container spacing={1}
+              direction='column'
+              justifyContent='center'
+              textAlign='left'
+              padding={2}
+              marginTop={2}
+              marginBottom={2}
+              >
+              <img className="reviewImage" src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Rectangle+105.png" alt="" />
+              <p> 
+                Consistent, Affordable, but most of all-- Reliable. I can always count on finding a place to stay for my traveling teacher contracts because of A Traveled Path Homes.
               </p>
-            </div>
-          </div>
-          <div className="container">
-          <div className="img-container">
-            <img src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Rectangle+105.png" alt="" />
-          </div>
-            <div className="feedback">
-              <p> Consistent, Affordable, but most of all-- Reliable. I can always count on finding a place to stay for my traveling teacher contracts because of A Traveled Path Homes.
-              </p>
-            </div>
-          </div>
-          <div className="container">
-          <div className="img-container">
-            <img src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Rectangle+106.png" alt="" />
-          </div>
-            <div className="feedback">
-              <p> A Traveled Path Homes-- I’m disappointed. In myself, for not using their services much earlier. I can go anywhere I need to for work and know that ATPH always has my back.
-              </p>
-            </div>
+              </Grid>
+          </Card>
+
+          <Card
+          sx={{ width: '305px', margin: '2%',
+          border: "none", boxShadow: "none" }}
+          >
+              <Grid
+              container spacing={1}
+              direction='column'
+              justifyContent='center'
+              textAlign='left'
+              padding={2}
+              marginTop={2}
+              marginBottom={2}
+              >
+                <img className="reviewImage" src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Rectangle+106.png" alt="" />
+                <p> 
+                  A Traveled Path Homes-- I’m disappointed. In myself, for not using their services much earlier. I can go anywhere I need to for work and know that ATPH always has my back.
+                </p>
+              </Grid>
+          </Card>
+        </Grid>
       </div>
     </div>
   );
