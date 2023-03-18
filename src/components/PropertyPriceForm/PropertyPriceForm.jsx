@@ -15,12 +15,17 @@ function PropertyPriceForm() {
 
   const propertyReducer = useSelector((store) => store.propertyReducer);
 
-        const cancelBtn = () => {
-          history.push(`/ownerdashboard`)
+        const backBtn = () => {
+          history.push(`/stayLength`)
       }
 
       const nextBtn = () => {
         history.push(`/review`)
+    }
+
+    function fillPrice(){
+      dispatch({type: 'SET_PRICEDAILY_INPUT', payload: 100});
+      dispatch({type: 'SET_PRICEMONTHLY_INPUT', payload: 3100});
     }
 
     return (
@@ -28,7 +33,7 @@ function PropertyPriceForm() {
         <PropertyFormNav className="price"/>
         <div className="priceForm">
           <div className="priceHeader">
-            <h1>Price</h1>
+            <h1 onClick={fillPrice}>Price</h1>
             <p>Prices are recommended based on similar housing in your area. 
               These prices also more accurately represent the cost of housing 
               that a traveling professional is expected to pay</p>
@@ -58,7 +63,7 @@ function PropertyPriceForm() {
                         }}
                     required
                     onChange={(event) => {
-                      dispatch({type: 'SET_PRICEDAILY_INPUT', payload: event.target.value})
+                      
                     }}
                   />
               </label>
@@ -106,7 +111,7 @@ function PropertyPriceForm() {
         </div>
       </div> 
       <div className="btnContainer">
-          <div className="nextBtn">
+        <div className="nextBtn">
               <Button 
                   onClick={nextBtn}
                   size= "large"
@@ -119,10 +124,10 @@ function PropertyPriceForm() {
                   }}
                   >
                       Next
-                  </Button>  
-              </div>
-              <div className="cancelBtn">
-              <Button onClick={cancelBtn}
+              </Button>  
+          </div>
+          <div className="cancelBtn">
+              <Button onClick={backBtn}
                   size= "large"
                   sx={{
                       backgroundColor: '#CE8077',
@@ -132,9 +137,9 @@ function PropertyPriceForm() {
                       paddingRight: '32px', paddingLeft: '32px'
                   }}
                   >
-                      Cancel
+                      Back
                   </Button> 
-              </div>
+          </div>
         </div>
     </>           
     )

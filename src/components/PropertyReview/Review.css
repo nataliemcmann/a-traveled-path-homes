@@ -2,10 +2,19 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 40%;
+    width: 60%;
     max-width: 100%;
     padding: 1%;
-    margin: 0 20% 5% 29%;
+    margin: 0 20% 5% 19%;
+}
+
+.reviewForm h2 {
+    text-align: center;
+}
+
+.reviewForm p {
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .reviewHeader h1 {
@@ -15,9 +24,12 @@
 
 .reviewHeader p {
     font-size: 1.1rem;
+    margin: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .feature {
-    width: 217.24px;
-    height: 217.24px;
+    width: 450px;
+    height: auto;
 }

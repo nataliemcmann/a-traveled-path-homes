@@ -46,8 +46,8 @@ function PropertyPhotoForm() {
         history.push('/stayLength');
     }
 
-    const cancelBtn = () => {
-        history.push(`/ownerdashboard`)
+    const backBtn = () => {
+        history.push(`/amenities`)
     }
 
         return (
@@ -70,7 +70,7 @@ function PropertyPhotoForm() {
                                     <AddCircleOutlineIcon 
                                         style={{ 
                                             width: '2.5em', height: '2.5em',
-                                            paddingLeft: '270px', paddingTop: '170px'
+                                            paddingLeft: '230px', paddingTop: '170px'
                                         }}
                                     /> 
                                     <input 
@@ -101,22 +101,22 @@ function PropertyPhotoForm() {
                 <PropertyPhotoList trigger={buttonPopup} setTrigger={setButtonPopup}/>
                 <div className="btnContainer">
                     <div className="nextBtn">
-                        <Button 
-                        onClick={nextBtn}
-                        size= "large"
-                        sx={{
-                            backgroundColor: '#CE8077',
-                            color: '#f8f8f8',
-                            margin: '2%',
-                            paddingTop: '16px', paddingBottom: '16px',
-                            paddingRight: '32px', paddingLeft: '32px'
-                        }}
-                        >
-                            Next
-                        </Button>  
-                    </div>
+                            <Button 
+                            onClick={nextBtn}
+                            size= "large"
+                            sx={{
+                                backgroundColor: '#CE8077',
+                                color: '#f8f8f8',
+                                margin: '2%',
+                                paddingTop: '16px', paddingBottom: '16px',
+                                paddingRight: '32px', paddingLeft: '32px'
+                            }}
+                            >
+                                Next
+                            </Button>  
+                        </div>
                     <div className="cancelBtn">
-                        <Button onClick={cancelBtn}
+                        <Button onClick={backBtn}
                         type="submit" 
                         size= "large"
                         sx={{
@@ -127,9 +127,10 @@ function PropertyPhotoForm() {
                             paddingRight: '32px', paddingLeft: '32px'
                         }}
                         >
-                            Cancel
+                            Back
                         </Button> 
                     </div>
+                    
                 </div>
             </>
         )

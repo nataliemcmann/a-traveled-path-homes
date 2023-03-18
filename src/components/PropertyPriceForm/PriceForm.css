@@ -31,7 +31,7 @@ h1,h4 {
 .boxflex {
     display: flex;
     justify-content: center;
-    padding-top: 2cm;
+    padding-top: 4%;
   }
 .cardActions {
     justify-content: center;

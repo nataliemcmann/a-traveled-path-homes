@@ -66,6 +66,13 @@ function PropertyDescriptionForm() {
         history.push('/address')
     }
 
+    function fillDescribe () {
+        dispatch({type: 'SET_NAME_INPUT', payload: 'Terrace House'});
+        dispatch({
+            type: 'SET_DESCRIPTION_INPUT', 
+            payload: 'This spacious 4 bedroom, 3 bathroom home is located in a quiet suburban neighborhood. Featuring mid-century modern architecture, Terrace House has a spacious kitchen, a living room with a gas fireplace, and a large yard for kids and pets to run and play. Located within quick driving distance of North Kansas City Hospital as well as grocery stores, shops, and a golf course, this home makes for an easy commute and parking, with free street parking out front and a two-car garage in the back. Terrace House has everything a traveling professional needs to relax and unwind.'})
+    }
+
     const nextBtn = () =>{
         history.push('/address')
     }
@@ -79,7 +86,7 @@ function PropertyDescriptionForm() {
             <PropertyFormNav/>
             <form onSubmit={addToResidence}>
                 <div className="describeForm">
-                    <h1>Describe</h1>
+                    <h1 onClick={fillDescribe}>Describe</h1>
                     <p>Select your property type and write a short description.</p>
                     <Grid 
                     container spacing={1}
@@ -87,7 +94,7 @@ function PropertyDescriptionForm() {
                     flexWrap='nowrap' 
                     justifyContent='space-between'
                     marginTop={2}
-                    marginBottom={2}
+                    marginBottom={4}
                     >
                         <div className="iconContainer">
                             <Button onClick={setSingle}>
@@ -160,7 +167,6 @@ function PropertyDescriptionForm() {
                                 Next
                         </Button>  
                     </div>
-
                     <div className="cancelBtn">
                         <Button onClick={cancelBtn}
                             size= "large"

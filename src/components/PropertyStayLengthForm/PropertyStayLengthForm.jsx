@@ -15,8 +15,8 @@ function PropertyStayLengthForm () {
         history.push(`/price`)
     }
 
-      const cancelBtn = () => {
-        history.push(`/ownerdashboard`)
+      const backBtn = () => {
+        history.push(`/photos`)
     }
 
     return (
@@ -75,7 +75,7 @@ function PropertyStayLengthForm () {
                   </Button>  
               </div>
               <div className="cancelBtn">
-              <Button onClick={cancelBtn}
+                <Button onClick={backBtn}
                   size= "large"
                   sx={{
                       backgroundColor: '#CE8077',
@@ -85,12 +85,10 @@ function PropertyStayLengthForm () {
                       paddingRight: '32px', paddingLeft: '32px'
                   }}
                   >
-                      Cancel
+                      Back
                   </Button> 
               </div>
         </div>
-      
-        
     </>
     )
 }
