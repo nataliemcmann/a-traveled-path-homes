@@ -20,13 +20,12 @@ function UserDashboard () {
 
         <>  
             <UserToggle currentView={profileReducer.profile.viewAsRenter}/>
-            <RenterDashboard/>
-                
+            <OwnerDashboard/>
         </>
     ) : (
         <>
-        <UserToggle currentView={profileReducer.profile.viewAsRenter}/>
-        <OwnerDashboard/>
+            <UserToggle currentView={profileReducer.profile.viewAsRenter}/>
+            <RenterDashboard/>
         </>
         
     )
