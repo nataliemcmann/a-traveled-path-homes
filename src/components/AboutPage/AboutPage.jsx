@@ -11,17 +11,17 @@ function AboutPage() {
     <div>
       <div className="whatWeDo">
         <h1> What we do</h1>
-      <Grid
-      margin={1}
-      marginLeft={2}
-      marginRight={4}
-      paddingLeft={2}
-      paddingRight={8}
-      container spacing={3}
-      direction='row'
-      flexWrap='nowrap'
-      justifyContent='space-evenly'
-      >
+        <Grid
+        margin={1}
+        marginLeft={2}
+        marginRight={4}
+        paddingLeft={2}
+        paddingRight={8}
+        container spacing={3}
+        direction='row'
+        flexWrap='nowrap'
+        justifyContent='space-evenly'
+        >
           <Card
           sx={{ width: '300px', margin: '2%'}}
           >
@@ -78,18 +78,74 @@ function AboutPage() {
           </Card>
         </Grid>
       </div>
-      <div className='offer'>
-       <h2> Each home offers </h2>
+      <div className='whatWeOffer'>
+        <h1> Each home offers </h1>
+        <Grid
+          margin={1}
+          marginLeft={2}
+          marginRight={4}
+          paddingLeft={2}
+          paddingRight={8}
+          container spacing={3}
+          direction='row'
+          flexWrap='nowrap'
+          justifyContent='space-evenly'
+          >
+            <Card
+            sx={{ width: '300px', margin: '2%',
+            border: "none", boxShadow: "none" }}
+            >
+              <Grid
+              container spacing={1}
+              direction='column'
+              justifyContent='center'
+              textAlign='center'
+              padding={2}
+              marginTop={2}
+              marginBottom={2}
+              >
+                <img id="chair"
+                src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Group+4452.png"/>
+                <p>Fully furnished spaces</p>
+              </Grid>
+            </Card>
+            <Card
+            sx={{ width: '300px', margin: '2%',
+            border: "none", boxShadow: "none" }}
+            >
+              <Grid
+              container spacing={1}
+              direction='column'
+              justifyContent='center'
+              textAlign='center'
+              marginBottom={2}
+              >
+                <img id="kitchen"
+                src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Group+4453.png"/>
+                <p>Full kitchens</p>
+              </Grid>
+            </Card>
+            <Card
+            sx={{ width: '300px', margin: '2%', 
+            border: "none", boxShadow: "none" }}
+            >
+              <Grid
+              container spacing={1}
+              direction='column'
+              justifyContent='center'
+              textAlign='center'
+              padding={2}
+              marginTop={2}
+              marginBottom={2}
+              >
+                <img id="laundry"
+                src="https://aws-s3-atph-test-bucket.s3.us-east-2.amazonaws.com/Icons/Group+4454.png"/>
+                <p>Washer and dryer</p>
+              </Grid>
+            </Card>
+          </Grid>
       </div>
-      <div>
-        <h4>Fully furnished spaces</h4>
-      </div>
-      <div>
-        <h4>Fully kitchens</h4>
-      </div>
-      <div>
-        <h4>Washer and dryer</h4>
-      </div>
+
       <div>
         <h2>Don't take our word it</h2>
       </div>
@@ -119,7 +175,7 @@ function AboutPage() {
               <p> A Traveled Path Homes-- I’m disappointed. In myself, for not using their services much earlier. I can go anywhere I need to for work and know that ATPH always has my back.
               </p>
             </div>
-        </div>
+      </div>
     </div>
   );
 }

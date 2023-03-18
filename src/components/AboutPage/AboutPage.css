@@ -55,6 +55,34 @@ img {
     padding-left: 4%;
 }
 
+.whatWeOffer h1 {
+    padding-top: 2%;
+    padding-left: 2%;
+    text-align: left;
+}
+
+#chair {
+    width: 211.48px;
+    height: 109.78px;
+    padding: 2%;
+    padding-right: 8%;
+    padding-left: 4%;
+}
+
+#kitchen {
+    width: 156.56px;
+    height: 158.17px;
+    padding-right: 4%;
+    padding-left: 14%;
+}
+
+#laundry {
+    width: 174.89px;
+    height: 116.67px;
+    padding-right: 2%;
+    padding-left: 18%;
+}
+
 /* 
 .aboutUs{
 background: linear-gradient(180deg, rgba(206, 128, 119, 0.77) 0%, rgba(206, 128, 119, 0.538935) 29.66%, rgba(206, 128, 119, 0.456525) 48.66%, rgba(206, 128, 119, 0.34) 75.52%, rgba(206, 128, 119, 0.34) 90.45%);
