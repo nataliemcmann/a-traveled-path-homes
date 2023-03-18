@@ -66,27 +66,36 @@ function PropertyReview (){
             <Grid
             container spacing={2}
             direction = 'row'
+            flexWrap='nowrap'
             margin={2}
             >
                 <Grid
+                container spacing={1}
                 marginRight={1}
-                sx={{ width: '40%'}}
+                justifyContent='center'
+                sx={{ width: '50%'}}
                 >
-                    <Card>
+                    <Card
+                    style={{ border: "none", boxShadow: "none" }}
+                    >
                         <img className="feature" src={propertyReducer.featurePhoto}/>
                     </Card>
                 </Grid>
                 <Grid
                 margin={1}
-                sx={{ width: '60%'}}
+                sx={{ width: '50%'}}
                 >
                     <h2>{propertyReducer.propertyName}</h2>
-                    <Card>
+                    <Card
+                    style={{ border: "none", boxShadow: "none" }}
+                    >
                         <h2>${propertyReducer.priceMonthly} per Month</h2>
                         <h2>{propertyReducer.stayLength} Month Stay Minimum</h2>
                         <p>{propertyReducer.description}</p>
                     </Card>
-                    <Card>
+                    <Card
+                    style={{ border: "none", boxShadow: "none" }}
+                    >
                         <h2>Amenities</h2>
                         <AmenitiesList amenities={amenitiesReducer.amenitiesArray}/>
                     </Card>
