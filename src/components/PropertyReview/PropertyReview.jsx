@@ -48,7 +48,7 @@ function PropertyReview (){
             }
         });
 
-        history.push('/ownerdashboard')
+        history.push('/dashboard')
 }
 
     return (
