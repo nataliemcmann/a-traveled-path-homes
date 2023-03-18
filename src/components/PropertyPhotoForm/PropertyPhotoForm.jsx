@@ -70,7 +70,7 @@ function PropertyPhotoForm() {
                                     <AddCircleOutlineIcon 
                                         style={{ 
                                             width: '2.5em', height: '2.5em',
-                                            paddingLeft: '270px', paddingTop: '170px'
+                                            paddingLeft: '230px', paddingTop: '170px'
                                         }}
                                     /> 
                                     <input 
