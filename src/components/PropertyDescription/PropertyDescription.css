@@ -34,10 +34,10 @@
 
 .cancelBtn {
     display: flex;
-    margin-left: 2%;
+    justify-self: flex-start;
 }
 
 .nextBtn {
     display: flex;
-    margin-right: 2%;
+    justify-self: flex-end;
 }

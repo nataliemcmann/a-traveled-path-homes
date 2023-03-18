@@ -69,14 +69,16 @@ function PropertyReview (){
             margin={2}
             >
                 <Grid
-                margin={3}
+                marginRight={1}
+                sx={{ width: '40%'}}
                 >
                     <Card>
                         <img className="feature" src={propertyReducer.featurePhoto}/>
                     </Card>
                 </Grid>
                 <Grid
-                margin={3}
+                margin={1}
+                sx={{ width: '60%'}}
                 >
                     <h2>{propertyReducer.propertyName}</h2>
                     <Card>
@@ -92,7 +94,7 @@ function PropertyReview (){
             </Grid> 
         </Stack>
     </div>
-    <Button onClick={handleSubmit} type="submit"
+    <Button onClick={handleSubmit}
                         size='large'
                         sx={{
                             backgroundColor: '#CE8077',
