@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import  Card  from '@mui/material/Card';
 import { Button, Grid } from '@mui/material';
 import './ResidenceDetails.css';
 import MapRender from '../PropertyDetailsPage/MapRender';
 import DetailsAmenitiesList from '../AmenitiesList/DetailsAmenitiesList';
+import ConfirmationPopup from './ConfirmationPopup';
 
 function ResidenceDetails(residences) {
 
@@ -15,6 +17,8 @@ function ResidenceDetails(residences) {
     const propertyReducer = useSelector(store => store.propertyReducer)
     // const amenitiesReducer = useSelector(store => store.amenitiesReducer)
     const photoReducer = useSelector(store => store.photoReducer)
+
+    const [buttonPopup, setButtonPopup] = useState(false);
 
 
     useEffect(() => {
@@ -225,7 +229,7 @@ function ResidenceDetails(residences) {
                             <p>March 21 - June 1</p>
                             <p>Total Price: $5,685.00</p>
                             <Button sx={{color: '#ffffff',
-                        backgroundColor: '#CE8077'}}>Book Now</Button>
+                        backgroundColor: '#CE8077'}} onClick={() => setButtonPopup(true)}>Book Now</Button>
                         </Card>
 
     <Button sx={{
@@ -234,6 +238,17 @@ function ResidenceDetails(residences) {
         backgroundColor: '#D1877F',
         marginLeft: 4
     }} className="btn btn_sizeMd" onClick={() => backToProperties(residences)}>Back</Button>
+
+    <ConfirmationPopup trigger={buttonPopup} setTrigger={setButtonPopup}>
+        <h1>Success!</h1>
+        <h3>You have successfully booked '{propertyReducer.residence.propertyName}'</h3>
+        <Button sx={{
+        color: '#FFF',
+        padding: 1,
+        backgroundColor: '#D1877F',
+        marginLeft: 4
+    }} className="btn btn_sizeMd" onClick={() => backToProperties(residences)}>View More Properties</Button>
+    </ConfirmationPopup>
         </>
 )
 
