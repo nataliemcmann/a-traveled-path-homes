@@ -28,6 +28,11 @@ function ResidencesItem({residences}) {
 // })
 // }
 
+const USDollar = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
+
   return (user.id === residences.userId) ? (
     <>
       <div>
@@ -50,7 +55,7 @@ function ResidencesItem({residences}) {
                   boxShadow: "none",
         }}>
           <h3>{residences.propertyName}</h3>
-          <h4>Monthly Price: {residences.priceMonthly}</h4>
+          <h4>Monthly Price: {USDollar.format(residences.priceMonthly)}</h4>
         </Card>
       </Card>
     <ListedToggle status={residences.listed} id={residences.id} />
