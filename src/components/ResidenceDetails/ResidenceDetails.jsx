@@ -122,24 +122,10 @@ function ResidenceDetails(residences) {
                     </Card>
                     })}
                     </Grid>
-                            </Card>
+                    </Card>
 
-                            <Card sx={{
-                            fontSize: 18,
-                            backgroundColor: '#FFFFFF',
-                            color: '#410064',
-                            lineHeight: 1,
-                            width: 1000,
-                            height: 600,
-                            padding: 1.5,
-                            lineHeight: 1,
-                            textAlign: 'left',
-                            marginBottom: 2,
-                        }}>
-                            <h2>What's in the neighborhood?</h2>
-                            <MapRender ></MapRender>
-                            </Card>
-                            </Card>
+                            
+                    </Card>
                             
 
                         <Card sx={{
@@ -153,8 +139,8 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -250,
-                            marginBottom: 190
+                            marginTop: -100,
+                            marginBottom: 155
                             
                         }}>
                             <h1>About this stay</h1>
@@ -174,8 +160,8 @@ function ResidenceDetails(residences) {
                             lineHeight: 2,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -180,
-                            marginBottom: 170
+                            marginTop: -150,
+                            marginBottom: 160
                             
                         }}>
                             <h1>Amenities</h1>
@@ -194,7 +180,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 2,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -160,
+                            marginTop: -155,
                             marginBottom: 200,
                             marginBottom: 2,
                         }}>     <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
@@ -217,15 +203,32 @@ function ResidenceDetails(residences) {
                             borderRadius: 4,
                             marginLeft: 100,
                             marginTop: 5,
-                            marginBottom: 100
+                            marginBottom: 5
                             
                         }}>
                             <h1>Ready to book?</h1>
                             <p>Your Stay: {propertyReducer.residence.propertyName}</p>
-                            <p>March 21 - June 1</p>
+                            <p>March 31 - June 30</p>
                             <p>Total Price: $5,685.00</p>
                             <Button sx={{color: '#ffffff',
                         backgroundColor: '#CE8077'}}>Book Now</Button>
+                        </Card>
+
+                        <Card sx={{
+                            fontSize: 18,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 1000,
+                            height: 600,
+                            padding: 1.5,
+                            lineHeight: 1,
+                            textAlign: 'left',
+                            marginLeft:  20,
+                            marginBottom: 2
+                            }}>
+                            <h2>What's in the neighborhood?</h2>
+                            <MapRender ></MapRender>
                         </Card>
 
     <Button sx={{
