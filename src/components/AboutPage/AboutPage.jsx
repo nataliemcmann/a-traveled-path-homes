@@ -147,7 +147,7 @@ function AboutPage() {
       </div>
 
       <div className="reviews">
-        <h1>Don't take our word it</h1>
+        <h1>Don't take our word for it</h1>
         <Grid
         container spacing={3}
         direction='row'
