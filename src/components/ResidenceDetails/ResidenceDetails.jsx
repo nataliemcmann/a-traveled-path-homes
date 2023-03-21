@@ -130,6 +130,27 @@ function ResidenceDetails(residences) {
 
                             
                     </Card>
+
+                    <Card sx={{
+                            textAlign: 'center',
+                            fontSize: 22,
+                            backgroundColor: '#FFFFFF',
+                            color: '#410064',
+                            lineHeight: 1,
+                            width: 400,
+                            padding: 1.5,
+                            lineHeight: 2,
+                            borderRadius: 4,
+                            marginLeft: 18,
+                            marginTop: -5,
+                            marginBottom: 210,
+                            marginBottom: 2,
+                        }}>     <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
+                                <p>Bedrooms: {propertyReducer.residence.bedrooms}</p> 
+                                <p> Bathrooms: {propertyReducer.residence.bathrooms} </p>
+                                <p>Beds: {propertyReducer.residence.beds}</p>
+                                
+                            </Card>
                             
 
                         <Card sx={{
@@ -143,7 +164,7 @@ function ResidenceDetails(residences) {
                             lineHeight: 1,
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: -100,
+                            marginTop: -265,
                             marginBottom: 155
                             
                         }}>
@@ -173,26 +194,7 @@ function ResidenceDetails(residences) {
 
                         </Card>
 
-                        <Card sx={{
-                            textAlign: 'center',
-                            fontSize: 22,
-                            backgroundColor: '#FFFFFF',
-                            color: '#410064',
-                            lineHeight: 1,
-                            width: 400,
-                            padding: 1.5,
-                            lineHeight: 2,
-                            borderRadius: 4,
-                            marginLeft: 100,
-                            marginTop: -155,
-                            marginBottom: 200,
-                            marginBottom: 2,
-                        }}>     <p>Maximum Guests: {propertyReducer.residence.maxGuests}</p>
-                                <p>Bedrooms: {propertyReducer.residence.bedrooms}</p> 
-                                <p> Bathrooms: {propertyReducer.residence.bathrooms} </p>
-                                <p>Beds: {propertyReducer.residence.beds}</p>
-                                
-                            </Card>
+                        
 
                         <Card sx={{
                             textAlign: 'left',
@@ -206,7 +208,7 @@ function ResidenceDetails(residences) {
                             textAlign: 'left',
                             borderRadius: 4,
                             marginLeft: 100,
-                            marginTop: 5,
+                            marginTop: -150,
                             marginBottom: 5
                             
                         }}>
