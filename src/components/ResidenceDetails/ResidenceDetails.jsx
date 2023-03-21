@@ -6,8 +6,9 @@ import  Card  from '@mui/material/Card';
 import { Button, Grid } from '@mui/material';
 import './ResidenceDetails.css';
 import MapRender from '../PropertyDetailsPage/MapRender';
-import DetailsAmenitiesList from '../AmenitiesList/DetailsAmenitiesList';
+import FormAmenitiesList from '../AmenitiesList/FormAmenitiesList';
 import ConfirmationPopup from './ConfirmationPopup';
+
 
 function ResidenceDetails(residences) {
 
@@ -15,8 +16,9 @@ function ResidenceDetails(residences) {
     const dispatch = useDispatch();
     const history = useHistory();
     const propertyReducer = useSelector(store => store.propertyReducer)
-    // const amenitiesReducer = useSelector(store => store.amenitiesReducer)
+    const amenitiesReducer = useSelector(store => store.amenitiesReducer)
     const photoReducer = useSelector(store => store.photoReducer)
+    
 
     const [buttonPopup, setButtonPopup] = useState(false);
 
@@ -169,7 +171,7 @@ function ResidenceDetails(residences) {
                             
                         }}>
                             <h1>Amenities</h1>
-                            <DetailsAmenitiesList amenities={propertyReducer.residence.residenceAmenities}/>
+                            <FormAmenitiesList amenities={amenitiesReducer.amenitiesArray}/>
 
                         </Card>
 
