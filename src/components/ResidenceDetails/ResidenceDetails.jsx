@@ -32,7 +32,10 @@ function ResidenceDetails(residences) {
         })
     }, [])
 
-
+    const USDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
     // useEffect(() => {
         
     // }, [])
@@ -170,8 +173,8 @@ function ResidenceDetails(residences) {
                         }}>
                             <h1>About this stay</h1>
                             <p>Minimum Stay Length: {propertyReducer.residence.minStayLength}</p>
-                            <p>Daily Price: {propertyReducer.residence.priceDaily}</p>
-                            <p>Monthly Price {propertyReducer.residence.priceMonthly}</p>
+                            <p>Daily Price: {USDollar.format(propertyReducer.residence.priceDaily)}</p>
+                            <p>Monthly Price {USDollar.format(propertyReducer.residence.priceMonthly)}</p>
 
                         </Card>
                         <Card sx={{
