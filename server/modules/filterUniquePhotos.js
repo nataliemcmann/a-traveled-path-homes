@@ -10,7 +10,14 @@ function filterUniquePhotos (residence) {
         }
     }
     residence.residenceImages = newArray;
+    residence.residenceAmenities = filterAmenities(residence);
     return residence;
+}
+
+function filterAmenities (residence) {
+    let amenitiesArray = residence.residenceAmenities;
+    const uniqueAmenities = [...new Map(amenitiesArray.map((amenity) => [amenity.joinId, amenity])).values()];
+    return uniqueAmenities;
 }
 
 module.exports = filterUniquePhotos;
